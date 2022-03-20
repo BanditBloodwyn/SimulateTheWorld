@@ -22,10 +22,10 @@
   <ItemGroup>
     <EmbeddedResource Update="Localization\Locals_English.resx">
       <LastGenOutput>Locals_English.Designer.cs</LastGenOutput>
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Localization\Locals_German.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Locals_German.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>

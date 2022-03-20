@@ -36,7 +36,7 @@ namespace SimulateTheWorld.Resources.Localization {
         ///   Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SimulateTheWorld.Resources.Localization.Locals_German", typeof(Locals_German).Assembly);
@@ -51,7 +51,7 @@ namespace SimulateTheWorld.Resources.Localization {
         ///   Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,27 +61,27 @@ namespace SimulateTheWorld.Resources.Localization {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Edit ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bearbeiten ähnelt.
         /// </summary>
-        internal static string toolbar_edit {
+        public static string toolbar_edit {
             get {
                 return ResourceManager.GetString("toolbar_edit", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die File ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Datei ähnelt.
         /// </summary>
-        internal static string toolbar_file {
+        public static string toolbar_file {
             get {
                 return ResourceManager.GetString("toolbar_file", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die View ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ansicht ähnelt.
         /// </summary>
-        internal static string toolbar_view {
+        public static string toolbar_view {
             get {
                 return ResourceManager.GetString("toolbar_view", resourceCulture);
             }
