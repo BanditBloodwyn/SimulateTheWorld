@@ -8,6 +8,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="800">
 
+    <UserControl.DataContext>
+        <local:STWToolbarViewModel/>
+    </UserControl.DataContext>
+
     <UserControl.Resources>
         <Style TargetType="Button">
             <Setter Property="Background" Value="#FF1F1F1F"></Setter>
@@ -32,8 +36,29 @@
     </UserControl.Resources>
 
     <StackPanel Orientation="Horizontal">
-        <Button Content="{x:Static resources:Locals_German.toolbar_file}"></Button>
-        <Button Content="{x:Static resources:Locals_German.toolbar_edit}"></Button>
-        <Button Content="{x:Static resources:Locals_German.toolbar_view}"></Button>
+        <Button x:Name="btn_File" Content="{x:Static resources:Locals_German.toolbar_file}" Command="{Binding OpenMenuCommand}" MouseRightButtonUp="btn_RightClick" CommandParameter="{Binding ContextMenu, ElementName=btn_File}">
+            <Button.ContextMenu>
+                <ContextMenu BorderBrush="Transparent">
+                    <MenuItem Header="{x:Static resources:Locals_German.toolbar_open}" Foreground="White"></MenuItem>
+                    <Separator/>
+                    <MenuItem Header="{x:Static resources:Locals_German.toolbar_close}" Foreground="White"></MenuItem>
+                </ContextMenu>
+            </Button.ContextMenu>
+        </Button>
+        <Button x:Name="btn_Edit" Content="{x:Static resources:Locals_German.toolbar_edit}" Command="{Binding OpenMenuCommand}" MouseRightButtonUp="btn_RightClick" CommandParameter="{Binding ContextMenu, ElementName=btn_Edit}">
+            <Button.ContextMenu>
+                <ContextMenu BorderBrush="Transparent">
+                    <MenuItem Header="test" Foreground="White"></MenuItem>
+                </ContextMenu>
+            </Button.ContextMenu>
+        </Button>
+
+        <Button x:Name="btn_View" Content="{x:Static resources:Locals_German.toolbar_view}" Command="{Binding OpenMenuCommand}" MouseRightButtonUp="btn_RightClick" CommandParameter="{Binding ContextMenu, ElementName=btn_View}">
+            <Button.ContextMenu>
+                <ContextMenu BorderBrush="Transparent">
+                    <MenuItem Header="test" Foreground="White"></MenuItem>
+                </ContextMenu>
+            </Button.ContextMenu>
+        </Button>
     </StackPanel>
 </UserControl>

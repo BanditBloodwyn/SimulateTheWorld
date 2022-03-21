@@ -24,5 +24,18 @@ namespace SimulateTheWorld.GUI.Controls.Toolbar
         {
             InitializeComponent();
         }
+
+        private void btn_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.ContextMenu != null)
+            {
+                button.ContextMenu.IsOpen = true;
+            }
+        }
+
+        private void btn_RightClick(object sender, MouseButtonEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }

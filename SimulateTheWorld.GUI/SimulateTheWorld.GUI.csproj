@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="Controls\MainWindow\" />
+    <Folder Include="Core\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -61,6 +61,15 @@ namespace SimulateTheWorld.Resources.Localization {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Beenden ähnelt.
+        /// </summary>
+        public static string toolbar_close {
+            get {
+                return ResourceManager.GetString("toolbar_close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Bearbeiten ähnelt.
         /// </summary>
         public static string toolbar_edit {
@@ -75,6 +84,15 @@ namespace SimulateTheWorld.Resources.Localization {
         public static string toolbar_file {
             get {
                 return ResourceManager.GetString("toolbar_file", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Öffnen ähnelt.
+        /// </summary>
+        public static string toolbar_open {
+            get {
+                return ResourceManager.GetString("toolbar_open", resourceCulture);
             }
         }
         
