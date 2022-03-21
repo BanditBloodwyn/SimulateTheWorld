@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace SimulateTheWorld.GUI.Core;
+namespace SimulateTheWorld.Models.Core;
 
 public class BaseViewModel : INotifyPropertyChanged
 {

@@ -1,7 +1,7 @@
 ﻿using System.Windows.Controls;
-using SimulateTheWorld.GUI.Core;
+using SimulateTheWorld.Models.Core;
 
-namespace SimulateTheWorld.GUI.Controls.Toolbar;
+namespace SimulateTheWorld.Models.Toolbar;
 
 public class STWToolbarViewModel : BaseViewModel
 {

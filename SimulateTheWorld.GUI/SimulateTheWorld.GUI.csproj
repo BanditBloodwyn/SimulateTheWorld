@@ -7,11 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controls\MainWindow\" />
-    <Folder Include="Core\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\SimulateTheWorld.Models\SimulateTheWorld.Models.csproj" />
     <ProjectReference Include="..\SimulateTheWorld.Resources\SimulateTheWorld.Resources.csproj" />
   </ItemGroup>
 
