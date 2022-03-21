@@ -40,7 +40,7 @@
                 Command="{Binding OpenMenuCommand}" CommandParameter="{Binding ContextMenu, ElementName=btn_File}" MouseRightButtonUp="btn_RightClick"
                 ContextMenuService.Placement="Bottom">
             <Button.ContextMenu>
-                <ContextMenu BorderBrush="Transparent">
+                <ContextMenu>
                     <MenuItem Header="{x:Static resources:Locals_German.toolbar_open}" Foreground="White"></MenuItem>
                     <Separator/>
                     <MenuItem Header="{x:Static resources:Locals_German.toolbar_close}" Foreground="White"></MenuItem>
@@ -51,7 +51,7 @@
                 Command="{Binding OpenMenuCommand}" CommandParameter="{Binding ContextMenu, ElementName=btn_Edit}" MouseRightButtonUp="btn_RightClick"
                 ContextMenuService.Placement="Bottom">
             <Button.ContextMenu>
-                <ContextMenu BorderBrush="Transparent">
+                <ContextMenu>
                     <MenuItem Header="test" Foreground="White"></MenuItem>
                 </ContextMenu>
             </Button.ContextMenu>
@@ -61,7 +61,7 @@
                 Command="{Binding OpenMenuCommand}" CommandParameter="{Binding ContextMenu, ElementName=btn_View}" MouseRightButtonUp="btn_RightClick"
                 ContextMenuService.Placement="Bottom">
             <Button.ContextMenu>
-                <ContextMenu BorderBrush="Transparent">
+                <ContextMenu>
                     <MenuItem Header="test" Foreground="White"></MenuItem>
                 </ContextMenu>
             </Button.ContextMenu>
@@ -70,7 +70,7 @@
                 Command="{Binding OpenMenuCommand}" CommandParameter="{Binding ContextMenu, ElementName=btn_Help}" MouseRightButtonUp="btn_RightClick"
                 ContextMenuService.Placement="Bottom">
             <Button.ContextMenu>
-                <ContextMenu BorderBrush="Transparent">
+                <ContextMenu>
                     <MenuItem Header="test" Foreground="White"></MenuItem>
                 </ContextMenu>
             </Button.ContextMenu>
