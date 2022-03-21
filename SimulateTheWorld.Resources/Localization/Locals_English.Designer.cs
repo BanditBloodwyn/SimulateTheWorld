@@ -88,6 +88,15 @@ namespace SimulateTheWorld.Resources.Localization {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Help ähnelt.
+        /// </summary>
+        public static string toolbar_help {
+            get {
+                return ResourceManager.GetString("toolbar_help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Open ähnelt.
         /// </summary>
         public static string toolbar_open {

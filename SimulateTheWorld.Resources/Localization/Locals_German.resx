@@ -126,6 +126,9 @@
   <data name="toolbar_file" xml:space="preserve">
     <value>Datei</value>
   </data>
+  <data name="toolbar_help" xml:space="preserve">
+    <value>Hilfe</value>
+  </data>
   <data name="toolbar_open" xml:space="preserve">
     <value>Öffnen</value>
   </data>
