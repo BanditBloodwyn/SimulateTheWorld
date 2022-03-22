@@ -10,4 +10,13 @@
     <PackageReference Include="OpenTK.GLWpfControl" Version="4.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SimulateTheWorld.Models\SimulateTheWorld.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Model\" />
+    <Folder Include="Rendering\" />
+  </ItemGroup>
+
 </Project>
