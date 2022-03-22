@@ -35,45 +35,47 @@
         </Style>
     </UserControl.Resources>
 
-    <StackPanel Orientation="Horizontal">
-        <Button x:Name="btn_File" Content="{x:Static resources:Locals_German.toolbar_file}" 
+    <Border BorderThickness="0, 0, 0, 2">
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="btn_File" Content="{x:Static resources:Locals_German.toolbar_file}" 
                 Command="{Binding OpenMenuCommand}" CommandParameter="{Binding ContextMenu, ElementName=btn_File}" MouseRightButtonUp="btn_RightClick"
                 ContextMenuService.Placement="Bottom">
-            <Button.ContextMenu>
-                <ContextMenu>
-                    <MenuItem Header="{x:Static resources:Locals_German.toolbar_open}" Foreground="White"></MenuItem>
-                    <Separator/>
-                    <MenuItem Header="{x:Static resources:Locals_German.toolbar_close}" Foreground="White"></MenuItem>
-                </ContextMenu>
-            </Button.ContextMenu>
-        </Button>
-        <Button x:Name="btn_Edit" Content="{x:Static resources:Locals_German.toolbar_edit}" 
+                <Button.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="{x:Static resources:Locals_German.toolbar_open}" Foreground="White"></MenuItem>
+                        <Separator/>
+                        <MenuItem Header="{x:Static resources:Locals_German.toolbar_close}" Foreground="White"></MenuItem>
+                    </ContextMenu>
+                </Button.ContextMenu>
+            </Button>
+            <Button x:Name="btn_Edit" Content="{x:Static resources:Locals_German.toolbar_edit}" 
                 Command="{Binding OpenMenuCommand}" CommandParameter="{Binding ContextMenu, ElementName=btn_Edit}" MouseRightButtonUp="btn_RightClick"
                 ContextMenuService.Placement="Bottom">
-            <Button.ContextMenu>
-                <ContextMenu>
-                    <MenuItem Header="test" Foreground="White"></MenuItem>
-                </ContextMenu>
-            </Button.ContextMenu>
-        </Button>
+                <Button.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="test" Foreground="White"></MenuItem>
+                    </ContextMenu>
+                </Button.ContextMenu>
+            </Button>
 
-        <Button x:Name="btn_View" Content="{x:Static resources:Locals_German.toolbar_view}" 
+            <Button x:Name="btn_View" Content="{x:Static resources:Locals_German.toolbar_view}" 
                 Command="{Binding OpenMenuCommand}" CommandParameter="{Binding ContextMenu, ElementName=btn_View}" MouseRightButtonUp="btn_RightClick"
                 ContextMenuService.Placement="Bottom">
-            <Button.ContextMenu>
-                <ContextMenu>
-                    <MenuItem Header="test" Foreground="White"></MenuItem>
-                </ContextMenu>
-            </Button.ContextMenu>
-        </Button>
-        <Button x:Name="btn_Help" Content="{x:Static resources:Locals_German.toolbar_help}" 
+                <Button.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="test" Foreground="White"></MenuItem>
+                    </ContextMenu>
+                </Button.ContextMenu>
+            </Button>
+            <Button x:Name="btn_Help" Content="{x:Static resources:Locals_German.toolbar_help}" 
                 Command="{Binding OpenMenuCommand}" CommandParameter="{Binding ContextMenu, ElementName=btn_Help}" MouseRightButtonUp="btn_RightClick"
                 ContextMenuService.Placement="Bottom">
-            <Button.ContextMenu>
-                <ContextMenu>
-                    <MenuItem Header="test" Foreground="White"></MenuItem>
-                </ContextMenu>
-            </Button.ContextMenu>
-        </Button>
-    </StackPanel>
+                <Button.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="test" Foreground="White"></MenuItem>
+                    </ContextMenu>
+                </Button.ContextMenu>
+            </Button>
+        </StackPanel>
+    </Border>
 </UserControl>

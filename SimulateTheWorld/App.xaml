@@ -9,8 +9,14 @@
         <Style TargetType="{x:Type UserControl}">
             <Setter Property="Background" Value="#FF1F1F1F"/>
         </Style>
+        <Style TargetType="{x:Type Border}">
+            <Setter Property="BorderBrush" Value="Gray"/>
+        </Style>
         <Style TargetType="{x:Type Grid}">
             <Setter Property="Background" Value="#FF1F1F1F"/>
+        </Style>
+        <Style TargetType="{x:Type GridSplitter}">
+            <Setter Property="Background" Value="Gray"/>
         </Style>
         <Style TargetType="{x:Type Label}">
             <Setter Property="Foreground" Value="White"/>

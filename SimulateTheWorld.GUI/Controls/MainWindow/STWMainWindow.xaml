@@ -13,6 +13,8 @@
             <ColumnDefinition Width="*"/> <!-- Render View -->
         </Grid.ColumnDefinitions>
 
+        <GridSplitter Grid.Column="0" ShowsPreview="True" VerticalAlignment="Stretch" HorizontalAlignment="Right" Width="2"/>
+
         <sidePanel:STWSidePanel Grid.Column="0"/>
         <render:RenderView Grid.Column="1"/>
     </Grid>

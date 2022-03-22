@@ -5,11 +5,35 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:models="clr-namespace:SimulateTheWorld.Models.SidePanel;assembly=SimulateTheWorld.Models"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="700" d:DesignWidth="400">
     <UserControl.DataContext>
         <models:SidePanelViewModel/>
     </UserControl.DataContext>
-    <Grid>
-            
-    </Grid>
+
+    <StackPanel>
+        <Expander ExpandDirection="Down" IsExpanded="False">
+            <Border Background="Gray">
+                <TextBlock>
+
+                </TextBlock>
+            </Border>
+        </Expander>
+
+        <Expander ExpandDirection="Down" IsExpanded="False">
+            <Border Background="Gray">
+                <TextBlock>
+
+                </TextBlock>
+            </Border>
+        </Expander>
+
+        <Expander ExpandDirection="Down" IsExpanded="False">
+            <Border Background="Gray">
+                <TextBlock>
+
+                </TextBlock>
+            </Border>
+        </Expander>
+
+    </StackPanel>
 </UserControl>
