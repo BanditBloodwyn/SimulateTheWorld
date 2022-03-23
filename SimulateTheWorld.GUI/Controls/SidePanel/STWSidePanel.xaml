@@ -4,18 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:models="clr-namespace:SimulateTheWorld.Models.SidePanel;assembly=SimulateTheWorld.Models"
+             xmlns:panels="clr-namespace:SimulateTheWorld.GUI.Controls.SidePanel.Panels"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="400">
     <UserControl.DataContext>
         <models:SidePanelViewModel/>
     </UserControl.DataContext>
 
-    <StackPanel>
+    <StackPanel Margin="0,0,10,0">
         <Expander ExpandDirection="Down" IsExpanded="False">
             <Border Background="Gray">
-                <TextBlock>
-
-                </TextBlock>
+                <panels:MapFiltersControl/>
             </Border>
         </Expander>
 
