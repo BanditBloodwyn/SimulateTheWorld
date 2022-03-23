@@ -15,6 +15,9 @@
         <Style TargetType="{x:Type Grid}">
             <Setter Property="Background" Value="#FF1F1F1F"/>
         </Style>
+        <Style TargetType="{x:Type TreeView}">
+            <Setter Property="Background" Value="#FF1F1F1F"/>
+        </Style>
         <Style TargetType="{x:Type GridSplitter}">
             <Setter Property="Background" Value="Gray"/>
         </Style>

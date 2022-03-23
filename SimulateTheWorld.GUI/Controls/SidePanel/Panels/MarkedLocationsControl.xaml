@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="SimulateTheWorld.GUI.Controls.SidePanel.Panels.MarkedLocationsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SimulateTheWorld.GUI.Controls.SidePanel.Panels"
+             xmlns:locations="clr-namespace:SimulateTheWorld.Models.SidePanel.Panels.MarkedLocations;assembly=SimulateTheWorld.Models"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="400">
+    <UserControl.DataContext>
+        <locations:MarkedLocationsViewModel/>
+    </UserControl.DataContext>
+    <Grid Height="300">
+        <TreeView ItemsSource="{Binding Locations}">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Name}" Width="200" Padding="0"/>
+                        <Label Content=" - " Width="50" Padding="0"/>
+                        <Label Content="{Binding Location}" Padding="0"/>
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+    </Grid>
+</UserControl>

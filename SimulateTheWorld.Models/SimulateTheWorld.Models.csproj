@@ -8,9 +8,11 @@
 
   <ItemGroup>
     <Folder Include="RenderView\" />
+    <Folder Include="SidePanel\Panels\MarkedLocations\" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SimulateTheWorld.Core\SimulateTheWorld.Core.csproj" />
     <ProjectReference Include="..\SimulateTheWorld.Resources\SimulateTheWorld.Resources.csproj" />
   </ItemGroup>
 

@@ -22,11 +22,7 @@
         </Expander>
 
         <Expander Header="{x:Static resources:Locals_German.sidepanel_expander_markedLocations}" ExpandDirection="Down" IsExpanded="False">
-            <Border Background="Gray">
-                <TextBlock>
-
-                </TextBlock>
-            </Border>
+            <panels:MarkedLocationsControl/>
         </Expander>
 
         <Expander Header="{x:Static resources:Locals_German.sidepanel_expander_mapFilters}" ExpandDirection="Down" IsExpanded="False">
