@@ -61,6 +61,60 @@ namespace SimulateTheWorld.Resources.Localization {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Länder ähnelt.
+        /// </summary>
+        public static string mapfilters_countries {
+            get {
+                return ResourceManager.GetString("mapfilters_countries", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Lebensstandard ähnelt.
+        /// </summary>
+        public static string mapfilters_lifeStandard {
+            get {
+                return ResourceManager.GetString("mapfilters_lifeStandard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Bewohner nach Stamm ähnelt.
+        /// </summary>
+        public static string mapfilters_popByTribe {
+            get {
+                return ResourceManager.GetString("mapfilters_popByTribe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Kartenfilter ähnelt.
+        /// </summary>
+        public static string sidepanel_expander_mapFilters {
+            get {
+                return ResourceManager.GetString("sidepanel_expander_mapFilters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Markierte Orte ähnelt.
+        /// </summary>
+        public static string sidepanel_expander_markedLocations {
+            get {
+                return ResourceManager.GetString("sidepanel_expander_markedLocations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Suchen ähnelt.
+        /// </summary>
+        public static string sidepanel_expander_search {
+            get {
+                return ResourceManager.GetString("sidepanel_expander_search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Beenden ähnelt.
         /// </summary>
         public static string toolbar_close {
@@ -111,6 +165,15 @@ namespace SimulateTheWorld.Resources.Localization {
         public static string toolbar_view {
             get {
                 return ResourceManager.GetString("toolbar_view", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Urbanisierung ähnelt.
+        /// </summary>
+        public static string urbanization {
+            get {
+                return ResourceManager.GetString("urbanization", resourceCulture);
             }
         }
     }

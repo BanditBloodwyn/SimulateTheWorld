@@ -21,6 +21,9 @@
         <Style TargetType="{x:Type Label}">
             <Setter Property="Foreground" Value="White"/>
         </Style>
+        <Style TargetType="{x:Type Expander}">
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
         <Style TargetType="{x:Type TreeViewItem}">
             <Setter Property="Foreground" Value="White"/>
         </Style>

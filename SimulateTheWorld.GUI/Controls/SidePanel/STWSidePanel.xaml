@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:models="clr-namespace:SimulateTheWorld.Models.SidePanel;assembly=SimulateTheWorld.Models"
              xmlns:panels="clr-namespace:SimulateTheWorld.GUI.Controls.SidePanel.Panels"
+             xmlns:resources="clr-namespace:SimulateTheWorld.Resources.Localization;assembly=SimulateTheWorld.Resources"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="400">
     <UserControl.DataContext>
@@ -12,25 +13,24 @@
     </UserControl.DataContext>
 
     <StackPanel Margin="0,0,5,0">
-        <Expander ExpandDirection="Down" IsExpanded="False">
+        <Expander Header="{x:Static resources:Locals_German.sidepanel_expander_search}" ExpandDirection="Down" IsExpanded="False">
+            <Border Background="Gray">
+                <TextBlock>
+
+                </TextBlock>
+            </Border>
+        </Expander>
+
+        <Expander Header="{x:Static resources:Locals_German.sidepanel_expander_markedLocations}" ExpandDirection="Down" IsExpanded="False">
+            <Border Background="Gray">
+                <TextBlock>
+
+                </TextBlock>
+            </Border>
+        </Expander>
+
+        <Expander Header="{x:Static resources:Locals_German.sidepanel_expander_mapFilters}" ExpandDirection="Down" IsExpanded="False">
             <panels:MapFiltersControl/>
         </Expander>
-
-        <Expander ExpandDirection="Down" IsExpanded="False">
-            <Border Background="Gray">
-                <TextBlock>
-
-                </TextBlock>
-            </Border>
-        </Expander>
-
-        <Expander ExpandDirection="Down" IsExpanded="False">
-            <Border Background="Gray">
-                <TextBlock>
-
-                </TextBlock>
-            </Border>
-        </Expander>
-
     </StackPanel>
 </UserControl>

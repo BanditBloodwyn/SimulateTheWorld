@@ -15,9 +15,9 @@ public class MapFiltersViewModel : BaseViewModel
 
     private void InitializeMapFilters()
     {
-        MapFilters.Add(new MapFilter("Population by tribe", true));
-        MapFilters.Add(new MapFilter("Countries"));
-        MapFilters.Add(new MapFilter("Life standard"));
-        MapFilters.Add(new MapFilter("Urbanization"));
+        MapFilters.Add(new MapFilter(Resources.Localization.Locals_German.mapfilters_popByTribe, true));
+        MapFilters.Add(new MapFilter(Resources.Localization.Locals_German.mapfilters_countries));
+        MapFilters.Add(new MapFilter(Resources.Localization.Locals_German.mapfilters_lifeStandard));
+        MapFilters.Add(new MapFilter(Resources.Localization.Locals_German.urbanization));
     }
 }

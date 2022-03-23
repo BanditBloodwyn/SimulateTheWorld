@@ -10,4 +10,8 @@
     <Folder Include="RenderView\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SimulateTheWorld.Resources\SimulateTheWorld.Resources.csproj" />
+  </ItemGroup>
+
 </Project>
