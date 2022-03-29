@@ -1,8 +1,8 @@
-﻿using SimulateTheWorld.Models.Core;
+﻿using SimulateTheWorld.ViewModels.Core;
 
-namespace SimulateTheWorld.Models.RenderView;
+namespace SimulateTheWorld.ViewModels.RenderView;
 
-public class RenderViewViewModel : BaseViewModel
+public class RenderViewViewModel : ObservableObject
 {
     
 }

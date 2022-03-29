@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace SimulateTheWorld.Models.Core;
+namespace SimulateTheWorld.ViewModels.Core;
 
 public class DelegateCommand : ICommand
 {

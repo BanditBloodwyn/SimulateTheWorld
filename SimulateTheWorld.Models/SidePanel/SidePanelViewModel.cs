@@ -1,8 +1,8 @@
-﻿using SimulateTheWorld.Models.Core;
+﻿using SimulateTheWorld.ViewModels.Core;
 
-namespace SimulateTheWorld.Models.SidePanel;
+namespace SimulateTheWorld.ViewModels.SidePanel;
 
-public class SidePanelViewModel : BaseViewModel
+public class SidePanelViewModel : ObservableObject
 {
     
 }

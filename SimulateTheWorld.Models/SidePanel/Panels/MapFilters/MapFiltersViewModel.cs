@@ -1,23 +1,19 @@
-﻿using System.Collections.ObjectModel;
-using SimulateTheWorld.Models.Core;
+﻿using SimulateTheWorld.ViewModels.Core;
 
-namespace SimulateTheWorld.Models.SidePanel.Panels.MapFilters;
+namespace SimulateTheWorld.ViewModels.SidePanel.Panels.MapFilters;
 
-public class MapFiltersViewModel : BaseViewModel
+public class MapFiltersViewModel : ObservableObject
 {
-    public ObservableCollection<MapFilter> MapFilters { get; }
+    public MapFilter PopByTribeFilter { get; set; }
+    public MapFilter CountriesFilter { get; set; }
+    public MapFilter LifeStandardFilter { get; set; }
+    public MapFilter UrbanizationFilter { get; set; }
 
     public MapFiltersViewModel()
     {
-        MapFilters = new ObservableCollection<MapFilter>();
-        InitializeMapFilters();
-    }
-
-    private void InitializeMapFilters()
-    {
-        MapFilters.Add(new MapFilter(Resources.Localization.Locals_German.mapfilters_popByTribe, true));
-        MapFilters.Add(new MapFilter(Resources.Localization.Locals_German.mapfilters_countries));
-        MapFilters.Add(new MapFilter(Resources.Localization.Locals_German.mapfilters_lifeStandard));
-        MapFilters.Add(new MapFilter(Resources.Localization.Locals_German.urbanization));
+        PopByTribeFilter = new MapFilter(Resources.Localization.Locals_German.mapfilters_popByTribe, true);
+        CountriesFilter = new MapFilter(Resources.Localization.Locals_German.mapfilters_countries);
+        LifeStandardFilter = new MapFilter(Resources.Localization.Locals_German.mapfilters_lifeStandard);
+        UrbanizationFilter = new MapFilter(Resources.Localization.Locals_German.urbanization);
     }
 }

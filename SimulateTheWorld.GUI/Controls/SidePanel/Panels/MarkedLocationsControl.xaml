@@ -4,14 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SimulateTheWorld.GUI.Controls.SidePanel.Panels"
-             xmlns:locations="clr-namespace:SimulateTheWorld.Models.SidePanel.Panels.MarkedLocations;assembly=SimulateTheWorld.Models"
+             xmlns:markedLocations="clr-namespace:SimulateTheWorld.ViewModels.SidePanel.Panels.MarkedLocations;assembly=SimulateTheWorld.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="400">
     <UserControl.DataContext>
-        <locations:MarkedLocationsViewModel/>
+        <markedLocations:MarkedLocationsViewModel/>
     </UserControl.DataContext>
     <Grid Height="300">
-        <TreeView ItemsSource="{Binding Locations}">
+        <TreeView ItemsSource="{Binding Locations}" BorderBrush="Transparent">
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate>
                     <StackPanel Orientation="Horizontal">

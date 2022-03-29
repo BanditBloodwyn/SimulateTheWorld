@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SimulateTheWorld.Models\SimulateTheWorld.Models.csproj" />
+    <ProjectReference Include="..\SimulateTheWorld.Models\SimulateTheWorld.ViewModels.csproj" />
   </ItemGroup>
 
   <ItemGroup>

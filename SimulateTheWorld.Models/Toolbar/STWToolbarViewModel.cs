@@ -1,9 +1,9 @@
 ﻿using System.Windows.Controls;
-using SimulateTheWorld.Models.Core;
+using SimulateTheWorld.ViewModels.Core;
 
-namespace SimulateTheWorld.Models.Toolbar;
+namespace SimulateTheWorld.ViewModels.Toolbar;
 
-public class STWToolbarViewModel : BaseViewModel
+public class STWToolbarViewModel : ObservableObject
 {
     public DelegateCommand OpenMenuCommand { get; }
 

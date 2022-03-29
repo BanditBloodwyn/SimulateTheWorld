@@ -1,6 +1,6 @@
 ﻿using SimulateTheWorld.Core.Types;
 
-namespace SimulateTheWorld.Models.SidePanel.Panels.MarkedLocations;
+namespace SimulateTheWorld.ViewModels.SidePanel.Panels.MarkedLocations;
 
 public class MarkedLocation
 {

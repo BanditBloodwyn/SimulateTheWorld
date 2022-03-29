@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SimulateTheWorld.Models\SimulateTheWorld.Models.csproj" />
+    <ProjectReference Include="..\SimulateTheWorld.Models\SimulateTheWorld.ViewModels.csproj" />
     <ProjectReference Include="..\SimulateTheWorld.Rendering\SimulateTheWorld.Rendering.csproj" />
     <ProjectReference Include="..\SimulateTheWorld.Resources\SimulateTheWorld.Resources.csproj" />
   </ItemGroup>

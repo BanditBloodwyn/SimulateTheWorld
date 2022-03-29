@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Windows;
 using OpenTK.Wpf;
-using SimulateTheWorld.Models.Core;
 using SimulateTheWorld.Rendering.Rendering;
+using SimulateTheWorld.ViewModels.Core;
 
 namespace SimulateTheWorld.Rendering.Model;
 
-public class RenderingControlViewModel : BaseViewModel
+public class RenderingControlViewModel : ObservableObject
 {
     private readonly OpenGLRenderer _renderer;
 

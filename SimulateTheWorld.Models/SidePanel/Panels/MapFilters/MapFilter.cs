@@ -1,8 +1,8 @@
-﻿using SimulateTheWorld.Models.Core;
+﻿using SimulateTheWorld.ViewModels.Core;
 
-namespace SimulateTheWorld.Models.SidePanel.Panels.MapFilters;
+namespace SimulateTheWorld.ViewModels.SidePanel.Panels.MapFilters;
 
-public class MapFilter : BaseViewModel
+public class MapFilter : ObservableObject
 {
     private bool _active;
 

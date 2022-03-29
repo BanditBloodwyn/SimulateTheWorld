@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using SimulateTheWorld.Core.Types;
-using SimulateTheWorld.Models.Core;
+using SimulateTheWorld.ViewModels.Core;
 
-namespace SimulateTheWorld.Models.SidePanel.Panels.MarkedLocations;
+namespace SimulateTheWorld.ViewModels.SidePanel.Panels.MarkedLocations;
 
-public class MarkedLocationsViewModel : BaseViewModel
+public class MarkedLocationsViewModel : ObservableObject
 {
     public ObservableCollection<MarkedLocation> Locations { get; set; }
 

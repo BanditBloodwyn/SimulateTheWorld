@@ -9,11 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.GUI", "Sim
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.Resources", "SimulateTheWorld.Resources\SimulateTheWorld.Resources.csproj", "{3843AFCC-C861-41EF-9355-A3AC2086D140}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.Models", "SimulateTheWorld.Models\SimulateTheWorld.Models.csproj", "{7DFB9966-1C47-4ABC-8C49-609A91F4086A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.ViewModels", "SimulateTheWorld.Models\SimulateTheWorld.ViewModels.csproj", "{7DFB9966-1C47-4ABC-8C49-609A91F4086A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.Rendering", "SimulateTheWorld.Rendering\SimulateTheWorld.Rendering.csproj", "{45A756CE-63C4-45AA-9265-0E6A44E7539E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulateTheWorld.Core", "SimulateTheWorld.Core\SimulateTheWorld.Core.csproj", "{3ECC793E-9E25-47C0-8436-10BD68221DAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.Core", "SimulateTheWorld.Core\SimulateTheWorld.Core.csproj", "{3ECC793E-9E25-47C0-8436-10BD68221DAB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

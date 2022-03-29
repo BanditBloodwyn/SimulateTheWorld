@@ -3,13 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:model="clr-namespace:SimulateTheWorld.Models.RenderView;assembly=SimulateTheWorld.Models"
              xmlns:render="clr-namespace:SimulateTheWorld.Rendering.Control;assembly=SimulateTheWorld.Rendering"
              xmlns:toolBar="clr-namespace:SimulateTheWorld.GUI.Controls.RenderView.ToolBar"
+             xmlns:renderView="clr-namespace:SimulateTheWorld.ViewModels.RenderView;assembly=SimulateTheWorld.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.DataContext>
-        <model:RenderViewViewModel/>
+        <renderView:RenderViewViewModel/>
     </UserControl.DataContext>
     <Grid>
         <Grid.RowDefinitions>

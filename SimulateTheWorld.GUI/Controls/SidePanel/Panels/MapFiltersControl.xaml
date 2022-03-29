@@ -2,21 +2,20 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:mapFilters="clr-namespace:SimulateTheWorld.Models.SidePanel.Panels.MapFilters;assembly=SimulateTheWorld.Models"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mapFilters="clr-namespace:SimulateTheWorld.ViewModels.SidePanel.Panels.MapFilters;assembly=SimulateTheWorld.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="700" d:DesignWidth="400">
+             d:DesignHeight="300" d:DesignWidth="400">
     <UserControl.DataContext>
         <mapFilters:MapFiltersViewModel/>
     </UserControl.DataContext>
 
-    <Grid Height="300">
-        <TreeView x:Name="tv_mapFilters" Background="Transparent" ItemsSource="{Binding MapFilters}">
-            <TreeView.ItemTemplate>
-                <HierarchicalDataTemplate>
-                    <CheckBox IsChecked="{Binding Active, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Content="{Binding Name}"></CheckBox>
-                </HierarchicalDataTemplate>
-            </TreeView.ItemTemplate>
-        </TreeView>
+    <Grid>
+        <StackPanel x:Name="tv_mapFilters" Background="Transparent" Margin="10,5">
+            <CheckBox IsChecked="{Binding PopByTribeFilter.Active, UpdateSourceTrigger=PropertyChanged}" Content="{Binding PopByTribeFilter.Name}"/>
+            <CheckBox IsChecked="{Binding CountriesFilter.Active, UpdateSourceTrigger=PropertyChanged}" Content="{Binding CountriesFilter.Name}"/>
+            <CheckBox IsChecked="{Binding LifeStandardFilter.Active, UpdateSourceTrigger=PropertyChanged}" Content="{Binding LifeStandardFilter.Name}"/>
+            <CheckBox IsChecked="{Binding UrbanizationFilter.Active, UpdateSourceTrigger=PropertyChanged}" Content="{Binding UrbanizationFilter.Name}"/>
+        </StackPanel>
     </Grid>
 </UserControl>
