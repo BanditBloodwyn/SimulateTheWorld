@@ -15,4 +15,8 @@
     <Folder Include="Rendering\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SimulateTheWorld.World\SimulateTheWorld.World.csproj" />
+  </ItemGroup>
+
 </Project>
