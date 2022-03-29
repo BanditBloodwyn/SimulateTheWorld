@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="SimulateTheWorld.GUI.Controls.SidePanel.Panels.SearchLocationControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SimulateTheWorld.GUI.Controls.SidePanel.Panels"
+             xmlns:resources="clr-namespace:SimulateTheWorld.Resources.Localization;assembly=SimulateTheWorld.Resources"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="400">
+    <Border Height="100" BorderThickness="0,1,0,0">
+        <Grid>
+            <StackPanel Margin="0,5">
+                <Grid Height="20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox Grid.Column="0" x:Name ="tb_searchText"/>
+                    <Button Grid.Column="1" x:Name="btn_Search" Width="75" HorizontalAlignment="Center" Content="{x:Static resources:Locals_German.sidepanel_search}"/>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>

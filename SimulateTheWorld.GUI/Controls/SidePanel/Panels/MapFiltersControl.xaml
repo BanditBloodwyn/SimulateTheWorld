@@ -17,20 +17,22 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid>
-        <StackPanel x:Name="tv_mapFilters" Background="Transparent" Margin="10,5">
-            <CheckBox IsChecked="{Binding Model.PopByTribeFilter.Active}" 
+    <Border Height="300" BorderThickness="0,1,0,0">
+        <Grid Margin="0,5">
+            <TreeView x:Name="tv_mapFilters" BorderBrush="Transparent">
+                <CheckBox IsChecked="{Binding Model.PopByTribeFilter.Active}" 
                       Content="{Binding Model.PopByTribeFilter.Name}"
                       Style="{StaticResource CheckBoxStyle}"/>
-            <CheckBox IsChecked="{Binding Model.CountriesFilter.Active}" 
+                <CheckBox IsChecked="{Binding Model.CountriesFilter.Active}" 
                       Content="{Binding Model.CountriesFilter.Name}"                     
                       Style="{StaticResource CheckBoxStyle}"/>
-            <CheckBox IsChecked="{Binding Model.LifeStandardFilter.Active}" 
+                <CheckBox IsChecked="{Binding Model.LifeStandardFilter.Active}" 
                       Content="{Binding Model.LifeStandardFilter.Name}"
                       Style="{StaticResource CheckBoxStyle}"/>
-            <CheckBox IsChecked="{Binding Model.UrbanizationFilter.Active}" 
+                <CheckBox IsChecked="{Binding Model.UrbanizationFilter.Active}" 
                       Content="{Binding Model.UrbanizationFilter.Name}"
                       Style="{StaticResource CheckBoxStyle}"/>
-        </StackPanel>
-    </Grid>
+            </TreeView>
+        </Grid>
+    </Border>
 </UserControl>

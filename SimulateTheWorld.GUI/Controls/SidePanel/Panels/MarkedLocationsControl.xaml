@@ -10,17 +10,20 @@
     <UserControl.DataContext>
         <markedLocations:MarkedLocationsViewModel/>
     </UserControl.DataContext>
-    <Grid Height="300">
-        <TreeView ItemsSource="{Binding Locations}" BorderBrush="Transparent">
-            <TreeView.ItemTemplate>
-                <HierarchicalDataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="{Binding Name}" Width="200" Padding="0"/>
-                        <Label Content=" - " Width="50" Padding="0"/>
-                        <Label Content="{Binding Location}" Padding="0"/>
-                    </StackPanel>
-                </HierarchicalDataTemplate>
-            </TreeView.ItemTemplate>
-        </TreeView>
-    </Grid>
+
+    <Border Height="300" BorderThickness="0,1,0,0">
+        <Grid Margin="0,5">
+            <TreeView ItemsSource="{Binding Locations}" BorderBrush="Transparent">
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding Name}" Width="200" Padding="0"/>
+                            <Label Content=" - " Width="50" Padding="0"/>
+                            <Label Content="{Binding Location}" Padding="0"/>
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+        </Grid>
+    </Border>
 </UserControl>

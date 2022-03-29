@@ -126,6 +126,9 @@
   <data name="mapfilters_popByTribe" xml:space="preserve">
     <value>Bewohner nach Stamm</value>
   </data>
+  <data name="mapfilters_urbanization" xml:space="preserve">
+    <value>Urbanisierung</value>
+  </data>
   <data name="sidepanel_expander_mapFilters" xml:space="preserve">
     <value>Kartenfilter</value>
   </data>
@@ -134,6 +137,9 @@
   </data>
   <data name="sidepanel_expander_search" xml:space="preserve">
     <value>Suchen</value>
+  </data>
+  <data name="sidepanel_search" xml:space="preserve">
+    <value>Suche</value>
   </data>
   <data name="toolbar_close" xml:space="preserve">
     <value>Beenden</value>
@@ -152,8 +158,5 @@
   </data>
   <data name="toolbar_view" xml:space="preserve">
     <value>Ansicht</value>
-  </data>
-  <data name="urbanization" xml:space="preserve">
-    <value>Urbanisierung</value>
   </data>
 </root>

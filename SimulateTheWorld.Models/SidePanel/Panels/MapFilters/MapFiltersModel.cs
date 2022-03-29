@@ -12,6 +12,6 @@ public class MapFiltersModel
         PopByTribeFilter = new MapFilter(Resources.Localization.Locals_German.mapfilters_popByTribe, true);
         CountriesFilter = new MapFilter(Resources.Localization.Locals_German.mapfilters_countries);
         LifeStandardFilter = new MapFilter(Resources.Localization.Locals_German.mapfilters_lifeStandard);
-        UrbanizationFilter = new MapFilter(Resources.Localization.Locals_German.urbanization);
+        UrbanizationFilter = new MapFilter(Resources.Localization.Locals_German.mapfilters_urbanization);
     }
 }
