@@ -7,13 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="RenderView\" />
-    <Folder Include="SidePanel\Panels\MarkedLocations\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\SimulateTheWorld.Core\SimulateTheWorld.Core.csproj" />
-    <ProjectReference Include="..\SimulateTheWorld.Models\SimulateTheWorld.Models.csproj" />
     <ProjectReference Include="..\SimulateTheWorld.Resources\SimulateTheWorld.Resources.csproj" />
   </ItemGroup>
 

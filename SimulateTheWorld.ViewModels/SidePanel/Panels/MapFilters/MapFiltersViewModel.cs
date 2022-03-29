@@ -1,19 +1,29 @@
-﻿using SimulateTheWorld.ViewModels.Core;
+﻿using SimulateTheWorld.Core.MVVM;
+using SimulateTheWorld.Models.SidePanel.Panels.MapFilters;
 
 namespace SimulateTheWorld.ViewModels.SidePanel.Panels.MapFilters;
 
 public class MapFiltersViewModel : ObservableObject
 {
-    public MapFilter PopByTribeFilter { get; set; }
-    public MapFilter CountriesFilter { get; set; }
-    public MapFilter LifeStandardFilter { get; set; }
-    public MapFilter UrbanizationFilter { get; set; }
+    private readonly MapFiltersModel _model;
+
+    public MapFiltersModel Model
+    {
+        get => _model;
+        private init
+        {
+            if (_model.Equals(value))
+                return;
+
+            _model = value;
+            OnPropertyChanged();
+        }
+    }
+
 
     public MapFiltersViewModel()
     {
-        PopByTribeFilter = new MapFilter(Resources.Localization.Locals_German.mapfilters_popByTribe, true);
-        CountriesFilter = new MapFilter(Resources.Localization.Locals_German.mapfilters_countries);
-        LifeStandardFilter = new MapFilter(Resources.Localization.Locals_German.mapfilters_lifeStandard);
-        UrbanizationFilter = new MapFilter(Resources.Localization.Locals_German.urbanization);
+        _model = new MapFiltersModel();
+        Model = _model;
     }
 }

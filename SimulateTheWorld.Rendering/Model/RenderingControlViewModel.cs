@@ -1,8 +1,7 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using OpenTK.Wpf;
+using SimulateTheWorld.Core.MVVM;
 using SimulateTheWorld.Rendering.Rendering;
-using SimulateTheWorld.ViewModels.Core;
 
 namespace SimulateTheWorld.Rendering.Model;
 

@@ -1,4 +1,4 @@
-﻿using SimulateTheWorld.ViewModels.Core;
+﻿using SimulateTheWorld.Core.MVVM;
 
 namespace SimulateTheWorld.ViewModels.RenderView;
 
