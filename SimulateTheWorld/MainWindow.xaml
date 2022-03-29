@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SimulateTheWorld"
         xmlns:core="clr-namespace:SimulateTheWorld.GUI.Controls.Core;assembly=SimulateTheWorld.GUI"
+        xmlns:models="clr-namespace:SimulateTheWorld.Start.Models"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowState="Maximized">
+
+    <Window.DataContext>
+        <models:MainViewModel/>
+    </Window.DataContext>
 
     <core:CoreControl/>
 </Window>

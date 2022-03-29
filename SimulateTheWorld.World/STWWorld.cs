@@ -1,7 +1,11 @@
-﻿namespace SimulateTheWorld.World;
+﻿using System.Threading.Tasks;
+
+namespace SimulateTheWorld.World;
 
 public class STWWorld
 {
+    public STWTerrain Terrain { get; }
+
     private static STWWorld? _instance;
 
     public static STWWorld Instance
@@ -12,7 +16,22 @@ public class STWWorld
     private STWWorld()
     {
         Terrain = new STWTerrain();
+        StartWorld();
     }
 
-    public STWTerrain Terrain { get; }
+    private void StartWorld()
+    {
+        Task.Factory.StartNew(() =>
+        {
+            while (true)
+            {
+                UpdateWorld();
+            }
+        });
+    }
+
+    private void UpdateWorld()
+    {
+        ;
+    }
 }

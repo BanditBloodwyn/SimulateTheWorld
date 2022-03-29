@@ -1,18 +1,28 @@
-﻿namespace SimulateTheWorld.World;
+﻿using System;
+
+namespace SimulateTheWorld.World;
 
 public class STWTerrain
 {
+    private const int _terrainSize = 10;
+
     public TerrainTile[,] Tiles { get; }
 
     public STWTerrain()
     {
-        Tiles = new TerrainTile[10, 10];
+        Tiles = new TerrainTile[_terrainSize, _terrainSize];
 
         CreateTerrain();
     }
 
     private void CreateTerrain()
     {
-        throw new System.NotImplementedException();
+        for (int x = 0; x < _terrainSize; x++)
+        {
+            for (int y = 0; y < _terrainSize; y++)
+            {
+                Tiles[x,y] = new TerrainTile();
+            }
+        }
     }
 }
