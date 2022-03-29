@@ -12,4 +12,11 @@
     <ProjectReference Include="..\SimulateTheWorld.ViewModels\SimulateTheWorld.ViewModels.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Page Update="Styles\CheckboxStyle.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
 </Project>

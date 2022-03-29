@@ -9,7 +9,6 @@ public class ObservableObject : INotifyPropertyChanged
 
     protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
-        if(!string.IsNullOrEmpty(propertyName))
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

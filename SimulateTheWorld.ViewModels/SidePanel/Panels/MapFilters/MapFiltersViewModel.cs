@@ -5,25 +5,10 @@ namespace SimulateTheWorld.ViewModels.SidePanel.Panels.MapFilters;
 
 public class MapFiltersViewModel : ObservableObject
 {
-    private readonly MapFiltersModel _model;
-
-    public MapFiltersModel Model
-    {
-        get => _model;
-        private init
-        {
-            if (_model.Equals(value))
-                return;
-
-            _model = value;
-            OnPropertyChanged();
-        }
-    }
-
+    public MapFiltersModel Model { get; }
 
     public MapFiltersViewModel()
     {
-        _model = new MapFiltersModel();
-        Model = _model;
+        Model = new MapFiltersModel();
     }
 }
