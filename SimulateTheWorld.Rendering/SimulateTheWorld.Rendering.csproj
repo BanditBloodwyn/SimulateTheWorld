@@ -11,10 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SimulateTheWorld.ViewModels\SimulateTheWorld.ViewModels.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Model\" />
     <Folder Include="Rendering\" />
   </ItemGroup>
