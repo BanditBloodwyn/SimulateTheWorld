@@ -11,12 +11,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Model\" />
+    <Folder Include="Shaders\" />
     <Folder Include="Rendering\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SimulateTheWorld.World\SimulateTheWorld.World.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Shaders\shader.frag">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Shaders\shader.vert">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

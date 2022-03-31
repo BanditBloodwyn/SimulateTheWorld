@@ -3,10 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:model="clr-namespace:SimulateTheWorld.Rendering.Model"
+             xmlns:glWpfControl="clr-namespace:OpenTK.Wpf;assembly=GLWpfControl"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.DataContext>
-        <model:RenderingControlViewModel/>
-    </UserControl.DataContext>
+
+    <glWpfControl:GLWpfControl
+        x:Name="GlControl"
+        Render="GlControl_OnRender"
+        Loaded="GlControl_OnLoaded"
+        Unloaded="GlControl_OnUnloaded"
+        SizeChanged="GlControl_OnSizeChanged"/>
+
 </UserControl>
