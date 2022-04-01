@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using OpenTK.Graphics.ES30;
 using OpenTK.Mathematics;
 using SimulateTheWorld.Rendering.Shaders;
@@ -7,11 +8,13 @@ namespace SimulateTheWorld.Rendering.Rendering;
 
 public class OpenGLRenderer
 {
-    private Shader shader;
+    private Shader? _shader;
 
     #region Tests
 
-    private float[] _vertices =
+    private readonly Stopwatch _timer;
+
+    private readonly float[] _vertices =
     {
         0.5f, 0.5f, 0.0f, // top right
         0.5f, -0.5f, 0.0f, // bottom right
@@ -19,7 +22,7 @@ public class OpenGLRenderer
         -0.5f, 0.5f, 0.0f // top left
     };
 
-    private uint[] _indices =
+    private readonly uint[] _indices =
     {
         // note that we start from 0!
         0, 1, 3, // first triangle
@@ -32,11 +35,17 @@ public class OpenGLRenderer
 
     #endregion
 
+    public OpenGLRenderer()
+    {
+        _timer = new Stopwatch();
+        _timer.Start();
+    }
+
     public void OnLoaded()
     {
         // create vertex and fragment shaders
-        shader = new Shader("Shaders/shader.vert", "Shaders/shader.frag");
-        shader.Use();
+        _shader = new Shader("Shaders/shader.vert", "Shaders/shader.frag");
+        _shader.Use();
 
         // generate VBO to send vertex data to the GPU
         _vertexBufferObject = GL.GenBuffer();
@@ -48,7 +57,7 @@ public class OpenGLRenderer
         GL.BindVertexArray(_vertexArrayObject);
 
         // set vertex attributes (how to interpret the vertex data)
-        GL.VertexAttribPointer(shader.GetAttributeLocation("aPosition"), 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
+        GL.VertexAttribPointer(_shader.GetAttributeLocation("aPosition"), 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
         GL.EnableVertexAttribArray(0);
 
         // generate an EBO to reuse _vertices
@@ -65,24 +74,23 @@ public class OpenGLRenderer
 
         //TerrainTile[,] terrainTiles = STWWorld.Instance.Terrain.Tiles;
 
-        if (shader == null)
+        if (_shader == null)
             return;
 
-        shader.Use();
+        _shader.Use();
 
         TestRendering(elapsedTime);
-        
-        GL.BindVertexArray(_vertexArrayObject);
-        GL.DrawElements(PrimitiveType.Triangles, _indices.Length, DrawElementsType.UnsignedInt, (IntPtr)0);
-        GL.Finish();
     }
 
     private void TestRendering(TimeSpan elapsedTime)
     {
-        for (int i = 0; i < _vertices.Length; i++)
-        {
-            _vertices[i] += elapsedTime.Milliseconds / 10000f;
-        }
+        double timeValue = _timer.Elapsed.TotalSeconds;
+        float greenValue = (float)Math.Sin(timeValue) / (2.0f + 0.5f);
+        int vertexColorLocation = GL.GetUniformLocation(_shader.Handle, "ourColor");
+        GL.Uniform4(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+    
+        GL.BindVertexArray(_vertexArrayObject);
+        GL.DrawElements(PrimitiveType.Triangles, _indices.Length, DrawElementsType.UnsignedInt, (IntPtr)0);
     }
 
     public void OnUnLoaded()
@@ -90,7 +98,7 @@ public class OpenGLRenderer
         GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
         GL.DeleteBuffer(_vertexBufferObject);
 
-        shader.Dispose();
+        _shader?.Dispose();
     }
 
     public void UpdateViewPort(double width, double height)

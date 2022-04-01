@@ -7,7 +7,7 @@ namespace SimulateTheWorld.Rendering.Shaders;
 
 public sealed class Shader : IDisposable
 {
-    private readonly int Handle;
+    public readonly int Handle;
     private bool disposedValue;
 
     public Shader(string vertexPath, string fragmentPath)
