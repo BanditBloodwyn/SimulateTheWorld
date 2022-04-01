@@ -63,6 +63,13 @@ public sealed class Shader : IDisposable
         GL.UseProgram(Handle);
     }
 
+    public void SetInt(string name, int value)
+    {
+        int location = GL.GetUniformLocation(Handle, name);
+
+        GL.Uniform1(location, value);
+    }
+
     public void Dispose()
     {
         Dispose(true);

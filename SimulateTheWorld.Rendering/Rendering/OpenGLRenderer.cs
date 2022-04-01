@@ -9,7 +9,8 @@ namespace SimulateTheWorld.Rendering.Rendering;
 public class OpenGLRenderer
 {
     private Shader? _shader;
-    private Texture _texture;
+    private Texture _texture1;
+    private Texture _texture2;
 
     #region Tests
 
@@ -56,11 +57,9 @@ public class OpenGLRenderer
         _shader.Use();
 
         // set vertex attributes (how to interpret the vertex data)
-        int vertexLocation = _shader.GetAttributeLocation("aPos");
         GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 5 * sizeof(float), 0);
         GL.EnableVertexAttribArray(0);
-
-        int texCoordLocation = _shader.GetAttributeLocation("aTexCoord");
+        
         GL.VertexAttribPointer(1, 2, VertexAttribPointerType.Float, false, 5 * sizeof(float), 3 * sizeof(float));
         GL.EnableVertexAttribArray(1);
 
@@ -69,8 +68,13 @@ public class OpenGLRenderer
         GL.BindBuffer(BufferTarget.ElementArrayBuffer, _elementBufferObject);
         GL.BufferData(BufferTarget.ElementArrayBuffer, _indices.Length * sizeof(uint), _indices, BufferUsageHint.StaticDraw);
         
-        _texture = Texture.LoadFromFile("Rendering/Textures/Diffuse/Diffuse_Grass.png");
-        _texture.Use(TextureUnit.Texture0);
+        _texture1 = Texture.LoadFromFile("Rendering/Textures/Diffuse/Diffuse_Grass.png");
+        _texture1.Use(TextureUnit.Texture0);
+        _texture2 = Texture.LoadFromFile("Rendering/Textures/Diffuse/Diffuse_Rock.png");
+        _texture2.Use(TextureUnit.Texture1);
+        
+        _shader.SetInt("texture0", 0);
+        _shader.SetInt("texture1", 1);
 
         GL.ClearColor(new Color4(0, 0, 70, 0));
     }
@@ -91,7 +95,8 @@ public class OpenGLRenderer
     {
         GL.BindVertexArray(_vertexArrayObject);
 
-        _texture.Use(TextureUnit.Texture0);
+        _texture1.Use(TextureUnit.Texture0);
+        _texture2.Use(TextureUnit.Texture1);
         _shader.Use();
 
         GL.DrawElements(PrimitiveType.Triangles, _indices.Length, DrawElementsType.UnsignedInt, (IntPtr)0);
