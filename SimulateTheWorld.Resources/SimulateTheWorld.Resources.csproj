@@ -30,4 +30,15 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Images\" />
+    <Folder Include="Rendering\Textures\Normals\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Rendering\Textures\Diffuse\Diffuse_Grass.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
