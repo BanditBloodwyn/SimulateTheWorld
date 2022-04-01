@@ -16,10 +16,11 @@ public class OpenGLRenderer
 
     private readonly float[] _vertices =
     {
-        0.5f, 0.5f, 0.0f, // top right
-        0.5f, -0.5f, 0.0f, // bottom right
-        -0.5f, -0.5f, 0.0f, // bottom left
-        -0.5f, 0.5f, 0.0f // top left
+        // positions        // colors
+        0.5f, 0.5f, 0.0f,   1.0f, 0.0f, 0.0f, // top right
+        0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f, // bottom right
+        -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, // bottom left
+        -0.5f, 0.5f, 0.0f,  1.0f, 0.0f, 1.0f  // top left
     };
 
     private readonly uint[] _indices =
@@ -57,8 +58,10 @@ public class OpenGLRenderer
         GL.BindVertexArray(_vertexArrayObject);
 
         // set vertex attributes (how to interpret the vertex data)
-        GL.VertexAttribPointer(_shader.GetAttributeLocation("aPosition"), 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
+        GL.VertexAttribPointer(_shader.GetAttributeLocation("aPos"), 3, VertexAttribPointerType.Float, false, 6 * sizeof(float), 0);
         GL.EnableVertexAttribArray(0);
+        GL.VertexAttribPointer(_shader.GetAttributeLocation("aColor"), 3, VertexAttribPointerType.Float, false, 6 * sizeof(float), 3 * sizeof(float));
+        GL.EnableVertexAttribArray(1);
 
         // generate an EBO to reuse _vertices
         _elementBufferObject = GL.GenBuffer();
@@ -84,11 +87,6 @@ public class OpenGLRenderer
 
     private void TestRendering(TimeSpan elapsedTime)
     {
-        double timeValue = _timer.Elapsed.TotalSeconds;
-        float greenValue = (float)Math.Sin(timeValue) / (2.0f + 0.5f);
-        int vertexColorLocation = GL.GetUniformLocation(_shader.Handle, "ourColor");
-        GL.Uniform4(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
-    
         GL.BindVertexArray(_vertexArrayObject);
         GL.DrawElements(PrimitiveType.Triangles, _indices.Length, DrawElementsType.UnsignedInt, (IntPtr)0);
     }
