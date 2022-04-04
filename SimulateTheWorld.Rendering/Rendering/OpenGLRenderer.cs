@@ -48,6 +48,9 @@ public class OpenGLRenderer
         Camera = new CircularCamera(Vector3.UnitZ * 3);
     }
 
+
+    #region Initialize
+
     public void OnLoaded()
     {
         GenerateVBO();
@@ -116,6 +119,9 @@ public class OpenGLRenderer
         _shader?.SetInt("texture0", 0);
         _shader?.SetInt("texture1", 1);
     }
+
+    #endregion
+
 
     public void OnRender(TimeSpan elapsedTime)
     {
