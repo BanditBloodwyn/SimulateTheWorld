@@ -1,7 +1,8 @@
 ﻿using System;
 using OpenTK.Graphics.ES30;
 using OpenTK.Mathematics;
-using SimulateTheWorld.Rendering.Classes;
+using SimulateTheWorld.Rendering.Rendering.Classes;
+using SimulateTheWorld.Rendering.Utilities;
 using TextureUnit = OpenTK.Graphics.OpenGL4.TextureUnit;
 
 namespace SimulateTheWorld.Rendering.Rendering;
@@ -126,8 +127,6 @@ public class OpenGLRenderer
     public void OnRender(TimeSpan elapsedTime)
     {
         GL.Clear(ClearBufferMask.ColorBufferBit);
-
-        //TerrainTile[,] terrainTiles = STWWorld.Instance.Terrain.Tiles;
 
         if (_shader == null)
             return;

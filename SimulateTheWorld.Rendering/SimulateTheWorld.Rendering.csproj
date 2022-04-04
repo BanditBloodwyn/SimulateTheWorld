@@ -14,8 +14,8 @@
 
   <ItemGroup>
     <Folder Include="Handler\" />
+    <Folder Include="Rendering\Classes\Components\" />
     <Folder Include="Shaders\" />
-    <Folder Include="Rendering\" />
   </ItemGroup>
 
   <ItemGroup>

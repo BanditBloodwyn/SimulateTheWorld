@@ -42,6 +42,9 @@
     <None Update="Rendering\Textures\Diffuse\Diffuse_Rock.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Rendering\Textures\Diffuse\Diffuse_Tile.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

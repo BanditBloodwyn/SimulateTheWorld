@@ -5,7 +5,7 @@ using System.Text;
 using OpenTK.Graphics.ES30;
 using OpenTK.Mathematics;
 
-namespace SimulateTheWorld.Rendering.Classes;
+namespace SimulateTheWorld.Rendering.Rendering.Classes;
 
 public sealed class Shader : IDisposable
 {
