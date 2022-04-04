@@ -50,38 +50,71 @@ public class OpenGLRenderer
 
     public void OnLoaded()
     {
-        // generate VBO to send vertex data to the GPU
+        GenerateVBO();
+        GenerateVAO();
+        SetupShader();
+        SetVertexAttributes();
+        GenerateEBO();
+        SetupTextures();
+        
+        GL.ClearColor(new Color4(0, 0, 70, 0));
+    }
+
+    /// <summary>
+    /// Generate VBO to send vertex data to the GPU
+    /// </summary>
+    private void GenerateVBO()
+    {
         _vertexBufferObject = GL.GenBuffer();
         GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject);
         GL.BufferData(BufferTarget.ArrayBuffer, _vertices.Length * sizeof(float), _vertices, BufferUsageHint.StaticDraw);
+    }
 
-        // generate VAO
+    private void GenerateVAO()
+    {
         _vertexArrayObject = GL.GenVertexArray();
         GL.BindVertexArray(_vertexArrayObject);
-        
-        // create vertex and fragment shaders
+    }
+
+    /// <summary>
+    /// Create vertex and fragment shaders
+    /// </summary>
+    /// <exception cref="NotImplementedException"></exception>
+    private void SetupShader()
+    {
         _shader = new Shader("Shaders/shader.vert", "Shaders/shader.frag");
         _shader.Use();
+    }
 
-        // set vertex attributes (how to interpret the vertex data)
+    /// <summary>
+    /// Set vertex attributes (how to interpret the vertex data)
+    /// </summary>
+    private void SetVertexAttributes()
+    {
         GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 5 * sizeof(float), 0);
         GL.EnableVertexAttribArray(0);
-        
+
         GL.VertexAttribPointer(1, 2, VertexAttribPointerType.Float, false, 5 * sizeof(float), 3 * sizeof(float));
         GL.EnableVertexAttribArray(1);
+    }
 
-        // generate an EBO to reuse _vertices
+    /// <summary>
+    /// Generate an EBO to reuse _vertices
+    /// </summary>
+    private void GenerateEBO()
+    {
         _elementBufferObject = GL.GenBuffer();
         GL.BindBuffer(BufferTarget.ElementArrayBuffer, _elementBufferObject);
         GL.BufferData(BufferTarget.ElementArrayBuffer, _indices.Length * sizeof(uint), _indices, BufferUsageHint.StaticDraw);
-        
+    }
+
+    private void SetupTextures()
+    {
         _texture1.Use(TextureUnit.Texture0);
         _texture2.Use(TextureUnit.Texture1);
         
-        _shader.SetInt("texture0", 0);
-        _shader.SetInt("texture1", 1);
-
-        GL.ClearColor(new Color4(0, 0, 70, 0));
+        _shader?.SetInt("texture0", 0);
+        _shader?.SetInt("texture1", 1);
     }
 
     public void OnRender(TimeSpan elapsedTime)
