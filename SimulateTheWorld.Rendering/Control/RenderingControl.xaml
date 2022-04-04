@@ -12,6 +12,8 @@
         Render="GlControl_OnRender"
         Loaded="GlControl_OnLoaded"
         Unloaded="GlControl_OnUnloaded"
-        SizeChanged="GlControl_OnSizeChanged"/>
+        SizeChanged="GlControl_OnSizeChanged"
+        MouseWheel="GlControl_OnMouseWheel"
+        MouseMove="GlControl_OnMouseMove"/>
 
 </UserControl>

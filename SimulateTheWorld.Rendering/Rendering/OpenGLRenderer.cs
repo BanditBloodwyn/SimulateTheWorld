@@ -9,10 +9,10 @@ namespace SimulateTheWorld.Rendering.Rendering;
 public class OpenGLRenderer
 {
     private Shader? _shader;
-    private Texture _texture1;
-    private Texture _texture2;
-    
-    private CircularCamera _camera;
+    private readonly Texture _texture1;
+    private readonly Texture _texture2;
+
+    public CircularCamera Camera { get; }
 
     private float _angle;
 
@@ -42,8 +42,10 @@ public class OpenGLRenderer
 
     public OpenGLRenderer()
     {
-        InitializeCamera();
+        _texture1 = Texture.LoadFromFile("Rendering/Textures/Diffuse/Diffuse_Grass.png");
+        _texture2 = Texture.LoadFromFile("Rendering/Textures/Diffuse/Diffuse_Rock.png");
 
+        Camera = new CircularCamera(Vector3.UnitZ * 3);
     }
 
     public void OnLoaded()
@@ -73,20 +75,13 @@ public class OpenGLRenderer
         GL.BindBuffer(BufferTarget.ElementArrayBuffer, _elementBufferObject);
         GL.BufferData(BufferTarget.ElementArrayBuffer, _indices.Length * sizeof(uint), _indices, BufferUsageHint.StaticDraw);
         
-        _texture1 = Texture.LoadFromFile("Rendering/Textures/Diffuse/Diffuse_Grass.png");
         _texture1.Use(TextureUnit.Texture0);
-        _texture2 = Texture.LoadFromFile("Rendering/Textures/Diffuse/Diffuse_Rock.png");
         _texture2.Use(TextureUnit.Texture1);
         
         _shader.SetInt("texture0", 0);
         _shader.SetInt("texture1", 1);
 
         GL.ClearColor(new Color4(0, 0, 70, 0));
-    }
-
-    private void InitializeCamera()
-    {
-        _camera = new CircularCamera(Vector3.UnitZ * 3);
     }
 
     public void OnRender(TimeSpan elapsedTime)
@@ -109,8 +104,8 @@ public class OpenGLRenderer
         _texture2.Use(TextureUnit.Texture1);
         _shader.Use();
         _shader.SetMatrix4("model", CreateTransformationMatrix(elapsedTime));
-        _shader.SetMatrix4("view", _camera.GetViewMatrix());
-        _shader.SetMatrix4("projection", _camera.GetProjectionMatrix());
+        _shader.SetMatrix4("view", Camera.GetViewMatrix());
+        _shader.SetMatrix4("projection", Camera.GetProjectionMatrix());
 
         GL.DrawElements(PrimitiveType.Triangles, _indices.Length, DrawElementsType.UnsignedInt, (IntPtr)0);
     }
@@ -133,8 +128,7 @@ public class OpenGLRenderer
 
     public void UpdateViewPort(double width, double height)
     {
-        if(_camera != null) 
-            _camera.AspectRatio = (float)(width / height);
+        Camera.AspectRatio = (float)(width / height);
         GL.Viewport(0, 0, (int)width, (int)height);
     }
 }
