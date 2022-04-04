@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using OpenTK.Graphics.ES30;
+using OpenTK.Mathematics;
 
 namespace SimulateTheWorld.Rendering.Classes;
 
@@ -10,6 +12,7 @@ public sealed class Shader : IDisposable
     public int Handle { get; }
 
     private bool disposedValue;
+    private readonly Dictionary<string, int> _uniformLocations;
 
     public Shader(string vertexPath, string fragmentPath)
     {
@@ -51,6 +54,25 @@ public sealed class Shader : IDisposable
         GL.DetachShader(Handle, FragmentShader);
         GL.DeleteShader(FragmentShader);
         GL.DeleteShader(VertexShader);
+
+        // The shader is now ready to go, but first, we're going to cache all the shader uniform locations.
+        // Querying this from the shader is very slow, so we do it once on initialization and reuse those values
+        // later.
+        GL.GetProgram(Handle, GetProgramParameterName.ActiveUniforms, out var numberOfUniforms);
+        _uniformLocations = new Dictionary<string, int>();
+
+        // Loop over all the uniforms,
+        for (var i = 0; i < numberOfUniforms; i++)
+        {
+            // get the name of this uniform,
+            var key = GL.GetActiveUniform(Handle, i, out _, out _);
+
+            // get the location,
+            var location = GL.GetUniformLocation(Handle, key);
+
+            // and then add it to the dictionary.
+            _uniformLocations.Add(key, location);
+        }
     }
 
     ~Shader()
@@ -89,5 +111,11 @@ public sealed class Shader : IDisposable
     public int GetAttributeLocation(string attributeName)
     {
         return GL.GetAttribLocation(Handle, attributeName);
+    }
+
+    public void SetMatrix4(string matrixName, Matrix4 data)
+    {
+        GL.UseProgram(Handle);
+        GL.UniformMatrix4(_uniformLocations[matrixName], true, ref data);
     }
 }

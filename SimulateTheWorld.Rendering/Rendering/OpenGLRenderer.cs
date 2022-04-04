@@ -11,6 +11,10 @@ public class OpenGLRenderer
     private Shader? _shader;
     private Texture _texture1;
     private Texture _texture2;
+    
+    private CircularCamera _camera;
+
+    private float _angle;
 
     #region Tests
 
@@ -38,6 +42,7 @@ public class OpenGLRenderer
 
     public OpenGLRenderer()
     {
+        InitializeCamera();
 
     }
 
@@ -79,6 +84,11 @@ public class OpenGLRenderer
         GL.ClearColor(new Color4(0, 0, 70, 0));
     }
 
+    private void InitializeCamera()
+    {
+        _camera = new CircularCamera(Vector3.UnitZ * 3);
+    }
+
     public void OnRender(TimeSpan elapsedTime)
     {
         GL.Clear(ClearBufferMask.ColorBufferBit);
@@ -98,8 +108,19 @@ public class OpenGLRenderer
         _texture1.Use(TextureUnit.Texture0);
         _texture2.Use(TextureUnit.Texture1);
         _shader.Use();
+        _shader.SetMatrix4("model", CreateTransformationMatrix(elapsedTime));
+        _shader.SetMatrix4("view", _camera.GetViewMatrix());
+        _shader.SetMatrix4("projection", _camera.GetProjectionMatrix());
 
         GL.DrawElements(PrimitiveType.Triangles, _indices.Length, DrawElementsType.UnsignedInt, (IntPtr)0);
+    }
+
+    private Matrix4 CreateTransformationMatrix(TimeSpan elapsedTime)
+    {
+        Matrix4 scale = Matrix4.CreateScale(1f, 1f, 1f);
+        _angle += elapsedTime.Milliseconds / 10f;
+        Matrix4 rotation = Matrix4.CreateRotationX(MathHelper.DegreesToRadians(_angle));
+        return scale * rotation;
     }
 
     public void OnUnLoaded()
@@ -112,6 +133,8 @@ public class OpenGLRenderer
 
     public void UpdateViewPort(double width, double height)
     {
+        if(_camera != null) 
+            _camera.AspectRatio = (float)(width / height);
         GL.Viewport(0, 0, (int)width, (int)height);
     }
 }

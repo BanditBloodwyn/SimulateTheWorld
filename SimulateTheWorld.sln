@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.Core", "Si
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.Models", "SimulateTheWorld.Models\SimulateTheWorld.Models.csproj", "{FD6FD9BF-78CE-48AB-A10C-5DBCE7D2311E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulateTheWorld.World", "SimulateTheWorld.World\SimulateTheWorld.World.csproj", "{87E8AB51-1EB0-4E0A-B089-BDDC18B26AEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.World", "SimulateTheWorld.World\SimulateTheWorld.World.csproj", "{87E8AB51-1EB0-4E0A-B089-BDDC18B26AEA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
