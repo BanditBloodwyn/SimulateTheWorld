@@ -8,11 +8,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SimulateTheWorld.Core\SimulateTheWorld.Core.csproj" />
-    <ProjectReference Include="..\SimulateTheWorld.Resources\SimulateTheWorld.Resources.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Main\" />
+    <ProjectReference Include="..\SimulateTheWorld.GUI.Resources\SimulateTheWorld.GUI.Resources.csproj" />
+    <ProjectReference Include="..\SimulateTheWorld.Resources\SimulateTheWorld.Graphics.Resources.csproj" />
   </ItemGroup>
 
 </Project>

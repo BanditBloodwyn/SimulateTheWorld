@@ -1,9 +1,8 @@
-﻿<UserControl x:Class="SimulateTheWorld.GUI.Controls.SidePanel.Panels.MarkedLocationsControl"
+﻿<UserControl x:Class="SimulateTheWorld.GUI.Controls.Controls.SidePanel.Panels.MarkedLocationsControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:SimulateTheWorld.GUI.Controls.SidePanel.Panels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:markedLocations="clr-namespace:SimulateTheWorld.GUI.ViewModels.SidePanel.Panels.MarkedLocations;assembly=SimulateTheWorld.GUI.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="400">

@@ -1,11 +1,11 @@
-﻿<UserControl x:Class="SimulateTheWorld.GUI.Controls.SidePanel.STWSidePanel"
+﻿<UserControl x:Class="SimulateTheWorld.GUI.Controls.Controls.SidePanel.STWSidePanel"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:panels="clr-namespace:SimulateTheWorld.GUI.Controls.SidePanel.Panels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:sidePanel1="clr-namespace:SimulateTheWorld.GUI.ViewModels.SidePanel;assembly=SimulateTheWorld.GUI.ViewModels"
              xmlns:resources="clr-namespace:SimulateTheWorld.GUI.Resources.Localization;assembly=SimulateTheWorld.GUI.Resources"
+             xmlns:panels="clr-namespace:SimulateTheWorld.GUI.Controls.Controls.SidePanel.Panels"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="400">
     <UserControl.DataContext>

@@ -5,9 +5,9 @@ VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.Start", "SimulateTheWorld\SimulateTheWorld.Start.csproj", "{4F87F712-2955-48E9-8483-8DA4C924AA53}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.GUI", "SimulateTheWorld.GUI\SimulateTheWorld.GUI.csproj", "{A6CBAB6C-3F7F-4E09-9785-01F445F1F034}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.GUI.Controls", "SimulateTheWorld.GUI\SimulateTheWorld.GUI.Controls.csproj", "{A6CBAB6C-3F7F-4E09-9785-01F445F1F034}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.Resources", "SimulateTheWorld.Resources\SimulateTheWorld.Resources.csproj", "{3843AFCC-C861-41EF-9355-A3AC2086D140}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.Graphics.Resources", "SimulateTheWorld.Resources\SimulateTheWorld.Graphics.Resources.csproj", "{3843AFCC-C861-41EF-9355-A3AC2086D140}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.GUI.ViewModels", "SimulateTheWorld.ViewModels\SimulateTheWorld.GUI.ViewModels.csproj", "{7DFB9966-1C47-4ABC-8C49-609A91F4086A}"
 EndProject
@@ -29,7 +29,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.Graphics.D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SimulateTheWorld.GUI", "SimulateTheWorld.GUI", "{2D1802E8-2C7E-45DE-85CB-C63B633B56A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulateTheWorld.GUI.Resources", "SimulateTheWorld.GUI.Resources\SimulateTheWorld.GUI.Resources.csproj", "{6EDD12F0-D0D5-4490-81A0-F9130E74D0EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.GUI.Resources", "SimulateTheWorld.GUI.Resources\SimulateTheWorld.GUI.Resources.csproj", "{6EDD12F0-D0D5-4490-81A0-F9130E74D0EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SimulateTheWorld.Data", "SimulateTheWorld.Data", "{FAD061C7-1948-4808-B389-CF670BA71E14}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,6 +93,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A6CBAB6C-3F7F-4E09-9785-01F445F1F034} = {2D1802E8-2C7E-45DE-85CB-C63B633B56A6}
+		{3843AFCC-C861-41EF-9355-A3AC2086D140} = {DA744939-0056-4E2C-9420-45DFDF3DBA94}
 		{7DFB9966-1C47-4ABC-8C49-609A91F4086A} = {2D1802E8-2C7E-45DE-85CB-C63B633B56A6}
 		{45A756CE-63C4-45AA-9265-0E6A44E7539E} = {DA744939-0056-4E2C-9420-45DFDF3DBA94}
 		{331295A8-A072-419F-9E96-83B6DD473FE8} = {DA744939-0056-4E2C-9420-45DFDF3DBA94}

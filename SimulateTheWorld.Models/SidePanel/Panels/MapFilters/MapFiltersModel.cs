@@ -1,4 +1,6 @@
-﻿namespace SimulateTheWorld.Models.SidePanel.Panels.MapFilters;
+﻿using SimulateTheWorld.GUI.Resources.Localization;
+
+namespace SimulateTheWorld.Models.SidePanel.Panels.MapFilters;
 
 public class MapFiltersModel
 {
@@ -9,9 +11,9 @@ public class MapFiltersModel
 
     public MapFiltersModel()
     {
-        PopByTribeFilter = new MapFilter(Resources.Localization.Locals_German.mapfilters_popByTribe, true);
-        CountriesFilter = new MapFilter(Resources.Localization.Locals_German.mapfilters_countries);
-        LifeStandardFilter = new MapFilter(Resources.Localization.Locals_German.mapfilters_lifeStandard);
-        UrbanizationFilter = new MapFilter(Resources.Localization.Locals_German.mapfilters_urbanization);
+        PopByTribeFilter = new MapFilter(Locals_German.mapfilters_popByTribe, true);
+        CountriesFilter = new MapFilter(Locals_German.mapfilters_countries);
+        LifeStandardFilter = new MapFilter(Locals_German.mapfilters_lifeStandard);
+        UrbanizationFilter = new MapFilter(Locals_German.mapfilters_urbanization);
     }
 }
