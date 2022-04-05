@@ -20,7 +20,7 @@ public static class ShapeHandler
         TerrainTile[,] terrainTiles = STWWorld.Instance.Terrain.Tiles;
 
         List<STWQuadrilateral> tileShapes = new List<STWQuadrilateral>();
-        Texture texture = Texture.LoadFromFile("Rendering/Textures/Diffuse/Diffuse_Tile.jpg");
+        Texture texture = Texture.LoadFromFile(Resources.Rendering.Textures.Diffuse.Paths.Tile);
 
         for (int x = 0; x < terrainTiles.GetLength(0); x++)
         {
