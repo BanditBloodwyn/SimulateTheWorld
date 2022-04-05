@@ -1,4 +1,4 @@
-﻿namespace SimulateTheWorld.Rendering.Rendering.Classes.Components;
+﻿namespace SimulateTheWorld.Graphics.Components;
 
 public class Transform
 {

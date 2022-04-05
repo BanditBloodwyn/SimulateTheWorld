@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="RenderView\" />
     <Folder Include="SidePanel\Panels\MarkedLocations\" />
   </ItemGroup>
 

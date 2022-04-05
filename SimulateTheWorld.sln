@@ -11,13 +11,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.Resources"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.ViewModels", "SimulateTheWorld.ViewModels\SimulateTheWorld.ViewModels.csproj", "{7DFB9966-1C47-4ABC-8C49-609A91F4086A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.Rendering", "SimulateTheWorld.Rendering\SimulateTheWorld.Rendering.csproj", "{45A756CE-63C4-45AA-9265-0E6A44E7539E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.Graphics.Rendering", "SimulateTheWorld.Rendering\SimulateTheWorld.Graphics.Rendering.csproj", "{45A756CE-63C4-45AA-9265-0E6A44E7539E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.Core", "SimulateTheWorld.Core\SimulateTheWorld.Core.csproj", "{3ECC793E-9E25-47C0-8436-10BD68221DAB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.Models", "SimulateTheWorld.Models\SimulateTheWorld.Models.csproj", "{FD6FD9BF-78CE-48AB-A10C-5DBCE7D2311E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.World", "SimulateTheWorld.World\SimulateTheWorld.World.csproj", "{87E8AB51-1EB0-4E0A-B089-BDDC18B26AEA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Graphics", "Graphics", "{DA744939-0056-4E2C-9420-45DFDF3DBA94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulateTheWorld.Graphics.Shapes", "SimulateTheWorld.Graphics.Shapes\SimulateTheWorld.Graphics.Shapes.csproj", "{331295A8-A072-419F-9E96-83B6DD473FE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulateTheWorld.Graphics.Components", "SimulateTheWorld.Graphics.Components\SimulateTheWorld.Graphics.Components.csproj", "{BE2ABDF5-9ED8-41B7-86DA-B5F23D5D3BD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulateTheWorld.Graphics.Data", "SimulateTheWorld.Graphics.Data\SimulateTheWorld.Graphics.Data.csproj", "{E59163E8-1B72-428D-8CA0-B04ED216D9F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,9 +65,27 @@ Global
 		{87E8AB51-1EB0-4E0A-B089-BDDC18B26AEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87E8AB51-1EB0-4E0A-B089-BDDC18B26AEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87E8AB51-1EB0-4E0A-B089-BDDC18B26AEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{331295A8-A072-419F-9E96-83B6DD473FE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{331295A8-A072-419F-9E96-83B6DD473FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{331295A8-A072-419F-9E96-83B6DD473FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{331295A8-A072-419F-9E96-83B6DD473FE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE2ABDF5-9ED8-41B7-86DA-B5F23D5D3BD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE2ABDF5-9ED8-41B7-86DA-B5F23D5D3BD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE2ABDF5-9ED8-41B7-86DA-B5F23D5D3BD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE2ABDF5-9ED8-41B7-86DA-B5F23D5D3BD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E59163E8-1B72-428D-8CA0-B04ED216D9F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E59163E8-1B72-428D-8CA0-B04ED216D9F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E59163E8-1B72-428D-8CA0-B04ED216D9F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E59163E8-1B72-428D-8CA0-B04ED216D9F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{45A756CE-63C4-45AA-9265-0E6A44E7539E} = {DA744939-0056-4E2C-9420-45DFDF3DBA94}
+		{331295A8-A072-419F-9E96-83B6DD473FE8} = {DA744939-0056-4E2C-9420-45DFDF3DBA94}
+		{BE2ABDF5-9ED8-41B7-86DA-B5F23D5D3BD1} = {DA744939-0056-4E2C-9420-45DFDF3DBA94}
+		{E59163E8-1B72-428D-8CA0-B04ED216D9F4} = {DA744939-0056-4E2C-9420-45DFDF3DBA94}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CDCD1C92-3413-4B48-B484-6088639B01C4}

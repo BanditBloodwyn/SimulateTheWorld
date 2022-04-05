@@ -1,4 +1,4 @@
-﻿namespace SimulateTheWorld.Rendering.Rendering.Classes.Shapes;
+﻿namespace SimulateTheWorld.Graphics.Shapes;
 
 public class STWQuadrilateral : STWShape
 {

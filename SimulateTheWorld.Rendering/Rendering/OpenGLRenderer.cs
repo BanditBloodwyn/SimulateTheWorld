@@ -1,11 +1,11 @@
 ﻿using System;
 using OpenTK.Graphics.ES30;
 using OpenTK.Mathematics;
-using SimulateTheWorld.Rendering.Rendering.Classes;
-using SimulateTheWorld.Rendering.Rendering.Classes.Shapes;
-using SimulateTheWorld.Rendering.Utilities;
+using SimulateTheWorld.Graphics.Data;
+using SimulateTheWorld.Graphics.Rendering.Utilities;
+using SimulateTheWorld.Graphics.Shapes;
 
-namespace SimulateTheWorld.Rendering.Rendering;
+namespace SimulateTheWorld.Graphics.Rendering.Rendering;
 
 public class OpenGLRenderer
 {
@@ -30,7 +30,7 @@ public class OpenGLRenderer
 
     public void OnRender()
     {
-        GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
+        GL.Clear(ClearBufferMask.ColorBufferBit);
 
         TestRendering();
     }
@@ -61,7 +61,7 @@ public class OpenGLRenderer
         }
     }
 
-    private Matrix4 ApplyModelTransforms(STWShape shape)
+    private static Matrix4 ApplyModelTransforms(STWShape shape)
     {
         Matrix4 model = Matrix4.Identity;
         model *= Matrix4.CreateRotationX(MathHelper.DegreesToRadians(shape.Transform.AngleX));

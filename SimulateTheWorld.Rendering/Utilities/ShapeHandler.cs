@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using SimulateTheWorld.Rendering.Rendering.Classes;
-using SimulateTheWorld.Rendering.Rendering.Classes.Shapes;
+using SimulateTheWorld.Graphics.Data;
+using SimulateTheWorld.Graphics.Shapes;
 using SimulateTheWorld.World;
 
-namespace SimulateTheWorld.Rendering.Utilities;
+namespace SimulateTheWorld.Graphics.Rendering.Utilities;
 
 public static class ShapeHandler
 {

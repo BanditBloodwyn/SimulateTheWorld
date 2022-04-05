@@ -7,18 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="OpenTK.GLWpfControl" Version="4.1.0" />
-    <PackageReference Include="SixLabors.ImageSharp" Version="2.1.0" />
-    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Handler\" />
-    <Folder Include="Rendering\Classes\Components\" />
     <Folder Include="Shaders\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="OpenTK.GLWpfControl" Version="4.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SimulateTheWorld.Graphics.Shapes\SimulateTheWorld.Graphics.Shapes.csproj" />
     <ProjectReference Include="..\SimulateTheWorld.World\SimulateTheWorld.World.csproj" />
   </ItemGroup>
 

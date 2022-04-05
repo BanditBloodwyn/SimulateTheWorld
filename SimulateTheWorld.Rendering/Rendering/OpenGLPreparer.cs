@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using OpenTK.Graphics.ES30;
-using SimulateTheWorld.Rendering.Rendering.Classes;
-using SimulateTheWorld.Rendering.Rendering.Classes.Shapes;
-using SimulateTheWorld.Rendering.Utilities;
+using SimulateTheWorld.Graphics.Data;
+using SimulateTheWorld.Graphics.Rendering.Utilities;
+using SimulateTheWorld.Graphics.Shapes;
 using TextureUnit = OpenTK.Graphics.OpenGL4.TextureUnit;
 
-namespace SimulateTheWorld.Rendering.Rendering;
+namespace SimulateTheWorld.Graphics.Rendering.Rendering;
 
 public static class OpenGLPreparer
 {

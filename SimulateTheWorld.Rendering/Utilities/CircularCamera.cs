@@ -1,7 +1,7 @@
 ﻿using System;
 using OpenTK.Mathematics;
 
-namespace SimulateTheWorld.Rendering.Utilities;
+namespace SimulateTheWorld.Graphics.Rendering.Utilities;
 
 public class CircularCamera
 {

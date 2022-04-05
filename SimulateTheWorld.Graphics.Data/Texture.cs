@@ -3,7 +3,7 @@ using System.Drawing.Imaging;
 using OpenTK.Graphics.OpenGL4;
 using PixelFormat = OpenTK.Graphics.OpenGL4.PixelFormat;
 
-namespace SimulateTheWorld.Rendering.Rendering.Classes;
+namespace SimulateTheWorld.Graphics.Data;
 
 public class Texture
 {
