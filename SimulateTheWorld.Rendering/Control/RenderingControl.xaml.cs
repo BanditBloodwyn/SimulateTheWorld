@@ -32,7 +32,7 @@ namespace SimulateTheWorld.Rendering.Control
 
         private void GlControl_OnRender(TimeSpan elapsedTimeSpan)
         {
-            _renderer.OnRender(elapsedTimeSpan);
+            _renderer.OnRender();
         }
 
         private void GlControl_OnLoaded(object sender, RoutedEventArgs e)

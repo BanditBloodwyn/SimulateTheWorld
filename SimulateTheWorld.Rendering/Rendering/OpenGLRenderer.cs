@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using OpenTK.Graphics.ES30;
 using OpenTK.Mathematics;
 using SimulateTheWorld.Rendering.Rendering.Classes;
 using SimulateTheWorld.Rendering.Rendering.Classes.Shapes;
 using SimulateTheWorld.Rendering.Utilities;
-using TextureUnit = OpenTK.Graphics.OpenGL4.TextureUnit;
 
 namespace SimulateTheWorld.Rendering.Rendering;
 
@@ -15,7 +13,6 @@ public class OpenGLRenderer
 
     private Shader? _shader;
     private int _vertexBufferObject;
-    private int _elementBufferObject;
     
     public CircularCamera Camera { get; }
 
@@ -24,124 +21,21 @@ public class OpenGLRenderer
         Camera = new CircularCamera(Vector3.UnitZ * 10);
     }
 
-    #region Initialize
-
     public void OnLoaded()
     {
-        GL.Enable(EnableCap.DepthTest);
-
-        GenerateVBO();
-        GenerateVAO();
-        SetupShader();
-        SetVertexAttributes();
-        GenerateEBO();
-        SetupTextures();
-        
         GL.ClearColor(new Color4(0, 0, 70, 0));
+
+        OpenGLPreparer.PrepareOpenGL(_shapes, out _vertexBufferObject, out _shader);
     }
 
-    /// <summary>
-    /// Generate VBO to send vertex data to the GPU
-    /// </summary>
-    private void GenerateVBO()
-    {
-        _vertexBufferObject = GL.GenBuffer();
-        GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject);
-        GL.BufferData(BufferTarget.ArrayBuffer, ShapeHandler.GetShapesVertexBufferSize(_shapes), IntPtr.Zero, BufferUsageHint.StaticDraw);
-        
-        for (int i = 0; i < _shapes.Length; i++)
-        {
-            if (_shapes[i].Vertices == null)
-                return;
-
-            GL.BufferSubData(
-                BufferTarget.ArrayBuffer,
-                i == 0 
-                    ? IntPtr.Zero 
-                    : new IntPtr(i * _shapes[i - 1].Vertices!.Length * sizeof(float)), 
-                _shapes[i].Vertices!.Length * sizeof(float), 
-                _shapes[i].Vertices);
-        }
-    }
-
-    private void GenerateVAO()
-    {
-        for (int i = 0; i < _shapes.Length; i++)
-        {
-            int vertexArrayObject = GL.GenVertexArray();
-            GL.BindVertexArray(vertexArrayObject);
-        }
-    }
-
-    /// <summary>
-    /// Create vertex and fragment shaders
-    /// </summary>
-    /// <exception cref="NotImplementedException"></exception>
-    private void SetupShader()
-    {
-        _shader = new Shader("Shaders/shader.vert", "Shaders/shader.frag");
-        _shader.Use();
-    }
-
-    /// <summary>
-    /// Set vertex attributes (how to interpret the vertex data)
-    /// </summary>
-    private void SetVertexAttributes()
-    {
-        GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 5 * sizeof(float), 0);
-        GL.EnableVertexAttribArray(0);
-
-        GL.VertexAttribPointer(1, 2, VertexAttribPointerType.Float, false, 5 * sizeof(float), 3 * sizeof(float));
-        GL.EnableVertexAttribArray(1);
-    }
-
-    /// <summary>
-    /// Generate an EBO to reuse _vertices
-    /// </summary>
-    private void GenerateEBO()
-    {
-        _elementBufferObject = GL.GenBuffer();
-        GL.BindBuffer(BufferTarget.ElementArrayBuffer, _elementBufferObject);
-        GL.BufferData(BufferTarget.ElementArrayBuffer, ShapeHandler.GetShapesIndexBufferSize(_shapes), IntPtr.Zero, BufferUsageHint.StaticDraw);
-        
-        for (int i = 0; i < _shapes.Length; i++)
-        {
-            if (_shapes[i].Indices == null)
-                return;
-
-            GL.BufferSubData(
-                BufferTarget.ElementArrayBuffer,
-                i == 0 
-                    ? IntPtr.Zero 
-                    : new IntPtr(i * _shapes[i - 1].Indices!.Length * sizeof(float)),
-                _shapes[i].Indices!.Length * sizeof(float), 
-                _shapes[i].Indices);
-        }
-    }
-
-    private void SetupTextures()
-    {
-        foreach (STWShape shape in _shapes)
-        {
-            foreach (KeyValuePair<Texture, TextureUnit> texture in shape.Material.Textures)
-            {
-                texture.Key.Use(texture.Value);
-                _shader?.SetInt("texture0", 0);
-            }
-        }
-    }
-
-    #endregion
-
-
-    public void OnRender(TimeSpan elapsedTime)
+    public void OnRender()
     {
         GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
-        TestRendering(elapsedTime);
+        TestRendering();
     }
 
-    private void TestRendering(TimeSpan elapsedTime)
+    private void TestRendering()
     {
         foreach (STWShape shape in _shapes)
         {
