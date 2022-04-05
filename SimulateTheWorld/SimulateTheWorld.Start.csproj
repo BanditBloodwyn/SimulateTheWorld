@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SimulateTheWorld.GUI.Controls\SimulateTheWorld.GUI.Controls.csproj" />
     <ProjectReference Include="..\SimulateTheWorld.GUI\SimulateTheWorld.GUI.Controls.csproj" />
   </ItemGroup>
 

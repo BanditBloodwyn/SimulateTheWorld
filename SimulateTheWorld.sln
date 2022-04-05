@@ -5,11 +5,11 @@ VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.Start", "SimulateTheWorld\SimulateTheWorld.Start.csproj", "{4F87F712-2955-48E9-8483-8DA4C924AA53}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.GUI.Controls", "SimulateTheWorld.GUI\SimulateTheWorld.GUI.Controls.csproj", "{A6CBAB6C-3F7F-4E09-9785-01F445F1F034}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.GUI.Controls", "SimulateTheWorld.GUI.Controls\SimulateTheWorld.GUI.Controls.csproj", "{A6CBAB6C-3F7F-4E09-9785-01F445F1F034}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.Graphics.Resources", "SimulateTheWorld.Graphics.Resources\SimulateTheWorld.Graphics.Resources.csproj", "{3843AFCC-C861-41EF-9355-A3AC2086D140}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.GUI.ViewModels", "SimulateTheWorld.ViewModels\SimulateTheWorld.GUI.ViewModels.csproj", "{7DFB9966-1C47-4ABC-8C49-609A91F4086A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.GUI.ViewModels", "SimulateTheWorld.GUI.ViewModels\SimulateTheWorld.GUI.ViewModels.csproj", "{7DFB9966-1C47-4ABC-8C49-609A91F4086A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.Graphics.Rendering", "SimulateTheWorld.Graphics.Rendering\SimulateTheWorld.Graphics.Rendering.csproj", "{45A756CE-63C4-45AA-9265-0E6A44E7539E}"
 EndProject
