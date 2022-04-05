@@ -6,8 +6,8 @@ public class MapFilter : ObservableObject
 {
     private bool _active;
 
-    public string Name { get; }
-
+    public string? DisplayName { get; set; }
+    
     public bool Active
     {
         get => _active;
@@ -21,9 +21,8 @@ public class MapFilter : ObservableObject
         }
     }
 
-    public MapFilter(string name, bool active = false)
+    public MapFilter(bool active = false)
     {
-        Name = name;
         Active = active;
     }
 }

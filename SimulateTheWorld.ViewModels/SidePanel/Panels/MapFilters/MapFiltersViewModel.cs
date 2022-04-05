@@ -10,5 +10,15 @@ public class MapFiltersViewModel : ObservableObject
     public MapFiltersViewModel()
     {
         Model = new MapFiltersModel();
+
+        GetMapFilterNames();
+    }
+
+    private void GetMapFilterNames()
+    {
+        Model.PopByTribeFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_popByTribe;
+        Model.CountriesFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_countries;
+        Model.LifeStandardFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_lifeStandard;
+        Model.UrbanizationFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_urbanization;
     }
 }

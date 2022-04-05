@@ -21,16 +21,16 @@
         <Grid Margin="0,5">
             <TreeView x:Name="tv_mapFilters" BorderBrush="Transparent">
                 <CheckBox IsChecked="{Binding Model.PopByTribeFilter.Active}" 
-                      Content="{Binding Model.PopByTribeFilter.Name}"
+                      Content="{Binding Model.PopByTribeFilter.DisplayName}"
                       Style="{StaticResource CheckBoxStyle}"/>
                 <CheckBox IsChecked="{Binding Model.CountriesFilter.Active}" 
-                      Content="{Binding Model.CountriesFilter.Name}"                     
+                      Content="{Binding Model.CountriesFilter.DisplayName}"                     
                       Style="{StaticResource CheckBoxStyle}"/>
                 <CheckBox IsChecked="{Binding Model.LifeStandardFilter.Active}" 
-                      Content="{Binding Model.LifeStandardFilter.Name}"
+                      Content="{Binding Model.LifeStandardFilter.DisplayName}"
                       Style="{StaticResource CheckBoxStyle}"/>
                 <CheckBox IsChecked="{Binding Model.UrbanizationFilter.Active}" 
-                      Content="{Binding Model.UrbanizationFilter.Name}"
+                      Content="{Binding Model.UrbanizationFilter.DisplayName}"
                       Style="{StaticResource CheckBoxStyle}"/>
             </TreeView>
         </Grid>
