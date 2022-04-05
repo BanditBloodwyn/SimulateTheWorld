@@ -1,6 +1,6 @@
 ﻿using SimulateTheWorld.Core.MVVM;
 
-namespace SimulateTheWorld.ViewModels.SidePanel;
+namespace SimulateTheWorld.GUI.ViewModels.SidePanel;
 
 public class SidePanelViewModel : ObservableObject
 {

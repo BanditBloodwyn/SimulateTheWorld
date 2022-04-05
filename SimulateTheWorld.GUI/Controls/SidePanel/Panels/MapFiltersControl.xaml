@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mapFilters="clr-namespace:SimulateTheWorld.ViewModels.SidePanel.Panels.MapFilters;assembly=SimulateTheWorld.ViewModels"
+             xmlns:mapFilters="clr-namespace:SimulateTheWorld.GUI.ViewModels.SidePanel.Panels.MapFilters;assembly=SimulateTheWorld.GUI.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="400">
     <UserControl.DataContext>

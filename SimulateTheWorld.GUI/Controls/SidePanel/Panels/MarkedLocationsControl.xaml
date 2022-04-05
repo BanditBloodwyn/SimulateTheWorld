@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SimulateTheWorld.GUI.Controls.SidePanel.Panels"
-             xmlns:markedLocations="clr-namespace:SimulateTheWorld.ViewModels.SidePanel.Panels.MarkedLocations;assembly=SimulateTheWorld.ViewModels"
+             xmlns:markedLocations="clr-namespace:SimulateTheWorld.GUI.ViewModels.SidePanel.Panels.MarkedLocations;assembly=SimulateTheWorld.GUI.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="400">
     <UserControl.DataContext>

@@ -4,12 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:panels="clr-namespace:SimulateTheWorld.GUI.Controls.SidePanel.Panels"
-             xmlns:resources="clr-namespace:SimulateTheWorld.Resources.Localization;assembly=SimulateTheWorld.Resources"
-             xmlns:sidePanel="clr-namespace:SimulateTheWorld.ViewModels.SidePanel;assembly=SimulateTheWorld.ViewModels"
+             xmlns:sidePanel1="clr-namespace:SimulateTheWorld.GUI.ViewModels.SidePanel;assembly=SimulateTheWorld.GUI.ViewModels"
+             xmlns:resources="clr-namespace:SimulateTheWorld.GUI.Resources.Localization;assembly=SimulateTheWorld.GUI.Resources"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="400">
     <UserControl.DataContext>
-        <sidePanel:SidePanelViewModel/>
+        <sidePanel1:SidePanelViewModel/>
     </UserControl.DataContext>
 
     <StackPanel Margin="0,0,5,0">

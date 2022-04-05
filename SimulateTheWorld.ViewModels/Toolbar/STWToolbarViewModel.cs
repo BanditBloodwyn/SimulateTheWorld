@@ -1,8 +1,8 @@
 ﻿using System.Windows.Controls;
 using SimulateTheWorld.Core.MVVM;
-using DelegateCommand = SimulateTheWorld.ViewModels.Core.DelegateCommand;
+using DelegateCommand = SimulateTheWorld.GUI.ViewModels.Core.DelegateCommand;
 
-namespace SimulateTheWorld.ViewModels.Toolbar;
+namespace SimulateTheWorld.GUI.ViewModels.Toolbar;
 
 public class STWToolbarViewModel : ObservableObject
 {
