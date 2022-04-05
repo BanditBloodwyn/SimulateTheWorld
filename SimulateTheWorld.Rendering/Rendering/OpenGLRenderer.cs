@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using OpenTK.Graphics.ES30;
 using OpenTK.Mathematics;
 using SimulateTheWorld.Rendering.Rendering.Classes;
+using SimulateTheWorld.Rendering.Rendering.Classes.Shapes;
 using SimulateTheWorld.Rendering.Utilities;
 using TextureUnit = OpenTK.Graphics.OpenGL4.TextureUnit;
 
@@ -9,51 +11,25 @@ namespace SimulateTheWorld.Rendering.Rendering;
 
 public class OpenGLRenderer
 {
+    private readonly STWShape[] _shapes = ShapeHandler.CreateShapes();
+
     private Shader? _shader;
-    private readonly Texture _texture1;
-    private readonly Texture _texture2;
-
-    public CircularCamera Camera { get; }
-
-    private float _angle;
-
-    #region Tests
-
-    private readonly float[] _vertices =
-    {
-        // positions        Texture coordinates
-        0.5f, 0.5f, 0.0f,   1.0f, 1.0f, // top right
-        0.5f, -0.5f, 0.0f,  1.0f, 0.0f, // bottom right
-        -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, // bottom left
-        -0.5f, 0.5f, 0.0f,  0.0f, 1.0f  // top left
-    };
-
-    private readonly uint[] _indices =
-    {
-        // note that we start from 0!
-        0, 1, 3, // first triangle
-        1, 2, 3 // second triangle
-    };
-
     private int _vertexBufferObject;
-    private int _vertexArrayObject;
     private int _elementBufferObject;
-
-    #endregion
+    
+    public CircularCamera Camera { get; }
 
     public OpenGLRenderer()
     {
-        _texture1 = Texture.LoadFromFile("Rendering/Textures/Diffuse/Diffuse_Grass.png");
-        _texture2 = Texture.LoadFromFile("Rendering/Textures/Diffuse/Diffuse_Rock.png");
-
-        Camera = new CircularCamera(Vector3.UnitZ * 3);
+        Camera = new CircularCamera(Vector3.UnitZ * 10);
     }
-
 
     #region Initialize
 
     public void OnLoaded()
     {
+        GL.Enable(EnableCap.DepthTest);
+
         GenerateVBO();
         GenerateVAO();
         SetupShader();
@@ -71,13 +47,30 @@ public class OpenGLRenderer
     {
         _vertexBufferObject = GL.GenBuffer();
         GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBufferObject);
-        GL.BufferData(BufferTarget.ArrayBuffer, _vertices.Length * sizeof(float), _vertices, BufferUsageHint.StaticDraw);
+        GL.BufferData(BufferTarget.ArrayBuffer, ShapeHandler.GetShapesVertexBufferSize(_shapes), IntPtr.Zero, BufferUsageHint.StaticDraw);
+        
+        for (int i = 0; i < _shapes.Length; i++)
+        {
+            if (_shapes[i].Vertices == null)
+                return;
+
+            GL.BufferSubData(
+                BufferTarget.ArrayBuffer,
+                i == 0 
+                    ? IntPtr.Zero 
+                    : new IntPtr(i * _shapes[i - 1].Vertices!.Length * sizeof(float)), 
+                _shapes[i].Vertices!.Length * sizeof(float), 
+                _shapes[i].Vertices);
+        }
     }
 
     private void GenerateVAO()
     {
-        _vertexArrayObject = GL.GenVertexArray();
-        GL.BindVertexArray(_vertexArrayObject);
+        for (int i = 0; i < _shapes.Length; i++)
+        {
+            int vertexArrayObject = GL.GenVertexArray();
+            GL.BindVertexArray(vertexArrayObject);
+        }
     }
 
     /// <summary>
@@ -109,16 +102,33 @@ public class OpenGLRenderer
     {
         _elementBufferObject = GL.GenBuffer();
         GL.BindBuffer(BufferTarget.ElementArrayBuffer, _elementBufferObject);
-        GL.BufferData(BufferTarget.ElementArrayBuffer, _indices.Length * sizeof(uint), _indices, BufferUsageHint.StaticDraw);
+        GL.BufferData(BufferTarget.ElementArrayBuffer, ShapeHandler.GetShapesIndexBufferSize(_shapes), IntPtr.Zero, BufferUsageHint.StaticDraw);
+        
+        for (int i = 0; i < _shapes.Length; i++)
+        {
+            if (_shapes[i].Indices == null)
+                return;
+
+            GL.BufferSubData(
+                BufferTarget.ElementArrayBuffer,
+                i == 0 
+                    ? IntPtr.Zero 
+                    : new IntPtr(i * _shapes[i - 1].Indices!.Length * sizeof(float)),
+                _shapes[i].Indices!.Length * sizeof(float), 
+                _shapes[i].Indices);
+        }
     }
 
     private void SetupTextures()
     {
-        _texture1.Use(TextureUnit.Texture0);
-        _texture2.Use(TextureUnit.Texture1);
-        
-        _shader?.SetInt("texture0", 0);
-        _shader?.SetInt("texture1", 1);
+        foreach (STWShape shape in _shapes)
+        {
+            foreach (KeyValuePair<Texture, TextureUnit> texture in shape.Material.Textures)
+            {
+                texture.Key.Use(texture.Value);
+                _shader?.SetInt("texture0", 0);
+            }
+        }
     }
 
     #endregion
@@ -126,34 +136,46 @@ public class OpenGLRenderer
 
     public void OnRender(TimeSpan elapsedTime)
     {
-        GL.Clear(ClearBufferMask.ColorBufferBit);
-
-        if (_shader == null)
-            return;
+        GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
         TestRendering(elapsedTime);
     }
 
     private void TestRendering(TimeSpan elapsedTime)
     {
-        GL.BindVertexArray(_vertexArrayObject);
+        foreach (STWShape shape in _shapes)
+        {
+            foreach (var texture in shape.Material.Textures)
+            {
+                texture.Key.Use(texture.Value);
+            }
 
-        _texture1.Use(TextureUnit.Texture0);
-        _texture2.Use(TextureUnit.Texture1);
-        _shader.Use();
-        _shader.SetMatrix4("model", CreateTransformationMatrix(elapsedTime));
-        _shader.SetMatrix4("view", Camera.GetViewMatrix());
-        _shader.SetMatrix4("projection", Camera.GetProjectionMatrix());
+            Matrix4 model = ApplyModelTransforms(shape);
+            
+            if (_shader == null)
+                return;
 
-        GL.DrawElements(PrimitiveType.Triangles, _indices.Length, DrawElementsType.UnsignedInt, (IntPtr)0);
+            _shader.SetMatrix4("model", model);
+            _shader.SetMatrix4("view", Camera.GetViewMatrix());
+            _shader.SetMatrix4("projection", Camera.GetProjectionMatrix());
+            _shader.Use();
+
+            if (shape.Indices == null)
+                return;
+
+            GL.DrawElements(PrimitiveType.Triangles, shape.Indices.Length, DrawElementsType.UnsignedInt, (IntPtr)0);
+        }
     }
 
-    private Matrix4 CreateTransformationMatrix(TimeSpan elapsedTime)
+    private Matrix4 ApplyModelTransforms(STWShape shape)
     {
-        Matrix4 scale = Matrix4.CreateScale(1f, 1f, 1f);
-        _angle += elapsedTime.Milliseconds / 10f;
-        Matrix4 rotation = Matrix4.CreateRotationX(MathHelper.DegreesToRadians(_angle));
-        return scale * rotation;
+        Matrix4 model = Matrix4.Identity;
+        model *= Matrix4.CreateRotationX(MathHelper.DegreesToRadians(shape.Transform.AngleX));
+        model *= Matrix4.CreateRotationY(MathHelper.DegreesToRadians(shape.Transform.AngleY));
+        model *= Matrix4.CreateRotationZ(MathHelper.DegreesToRadians(shape.Transform.AngleZ));
+        model *= Matrix4.CreateTranslation(shape.Transform.PositionX, shape.Transform.PositionY, shape.Transform.PositionZ);
+
+        return model;
     }
 
     public void OnUnLoaded()

@@ -5,8 +5,8 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using OpenTK.Windowing.Common;
 using OpenTK.Wpf;
-using SimulateTheWorld.Rendering.Handler;
 using SimulateTheWorld.Rendering.Rendering;
+using SimulateTheWorld.Rendering.Utilities;
 using MouseWheelEventArgs = System.Windows.Input.MouseWheelEventArgs;
 
 namespace SimulateTheWorld.Rendering.Control
@@ -64,6 +64,10 @@ namespace SimulateTheWorld.Rendering.Control
             {
                 _renderer.Camera.Position -= _renderer.Camera.Up * delta.Y / 40;
                 _renderer.Camera.Position += _renderer.Camera.Right * delta.X / 40;
+            }
+            if (e.MiddleButton == MouseButtonState.Pressed)
+            {
+                _renderer.Camera.Pitch -= delta.Y ;
             }
 
             mouseHandler.OldPosition= e.GetPosition(this);

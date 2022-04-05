@@ -1,7 +1,7 @@
 ﻿using System.Numerics;
 using System.Windows;
 
-namespace SimulateTheWorld.Rendering.Handler;
+namespace SimulateTheWorld.Rendering.Utilities;
 
 public class MouseHandler
 {

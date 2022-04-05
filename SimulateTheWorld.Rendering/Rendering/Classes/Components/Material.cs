@@ -15,8 +15,12 @@ public class Material
     public void SetTexture(string path, TextureUnit unit = TextureUnit.Texture0)
     {
         Texture texture = Texture.LoadFromFile(path);
-        texture.Use(unit);
+        SetTexture(texture, unit);
+    }
 
+    public void SetTexture(Texture texture, TextureUnit unit = TextureUnit.Texture0)
+    {
+        texture.Use(unit);
         Textures.Add(texture, unit);
     }
 }
