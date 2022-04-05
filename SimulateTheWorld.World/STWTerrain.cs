@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SimulateTheWorld.World;
+﻿namespace SimulateTheWorld.World.Data;
 
 public class STWTerrain
 {

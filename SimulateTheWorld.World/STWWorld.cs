@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace SimulateTheWorld.World;
+namespace SimulateTheWorld.World.Data;
 
 public class STWWorld
 {

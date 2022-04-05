@@ -1,4 +1,5 @@
 ﻿using SimulateTheWorld.World;
+using SimulateTheWorld.World.Data;
 
 namespace SimulateTheWorld.Start.Models;
 
