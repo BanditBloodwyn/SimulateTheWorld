@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace SimulateTheWorld.World.Data;
+﻿namespace SimulateTheWorld.World.Data.Instances;
 
 public class STWWorld
 {
@@ -21,17 +19,6 @@ public class STWWorld
 
     private void StartWorld()
     {
-        Task.Factory.StartNew(() =>
-        {
-            while (true)
-            {
-                UpdateWorld();
-            }
-        });
-    }
 
-    private void UpdateWorld()
-    {
-        ;
     }
 }

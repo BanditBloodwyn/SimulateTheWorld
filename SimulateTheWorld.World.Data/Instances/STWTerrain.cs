@@ -1,4 +1,4 @@
-﻿namespace SimulateTheWorld.World.Data;
+﻿namespace SimulateTheWorld.World.Data.Instances;
 
 public class STWTerrain
 {

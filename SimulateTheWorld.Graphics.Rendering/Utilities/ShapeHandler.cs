@@ -2,6 +2,7 @@
 using SimulateTheWorld.Graphics.Data;
 using SimulateTheWorld.Graphics.Shapes;
 using SimulateTheWorld.World.Data;
+using SimulateTheWorld.World.Data.Instances;
 
 namespace SimulateTheWorld.Graphics.Rendering.Utilities;
 
