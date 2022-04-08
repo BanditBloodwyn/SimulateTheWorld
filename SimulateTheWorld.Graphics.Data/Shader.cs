@@ -118,5 +118,11 @@ namespace SimulateTheWorld.Graphics.Data
             GL.UseProgram(Handle);
             GL.UniformMatrix4(_uniformLocations[matrixName], true, ref data);
         }
+
+        public void SetVector4(string matrixName, Vector4 data)
+        {
+            GL.UseProgram(Handle);
+            GL.Uniform4(_uniformLocations[matrixName], data.X, data.Y, data.Z, data.W);
+        }
     }
 }

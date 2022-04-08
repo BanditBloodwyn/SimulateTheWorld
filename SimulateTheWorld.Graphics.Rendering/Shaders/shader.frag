@@ -7,7 +7,9 @@ in vec2 texCoord;
 uniform sampler2D texture0;
 uniform sampler2D texture1;
 
+uniform vec4 filterColor;
+
 void main()
 {
-    FragColor = texture(texture0, texCoord);
+    FragColor = texture(texture0, texCoord) * filterColor;
 }

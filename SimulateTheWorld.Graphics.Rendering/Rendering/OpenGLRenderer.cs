@@ -40,9 +40,7 @@ public class OpenGLRenderer
         foreach (STWShape shape in _shapes)
         {
             foreach (var texture in shape.Material.Textures)
-            {
                 texture.Key.Use(texture.Value);
-            }
 
             Matrix4 model = ApplyModelTransforms(shape);
             
@@ -52,6 +50,9 @@ public class OpenGLRenderer
             _shader.SetMatrix4("model", model);
             _shader.SetMatrix4("view", Camera.GetViewMatrix());
             _shader.SetMatrix4("projection", Camera.GetProjectionMatrix());
+
+            _shader.SetVector4("filterColor", new Vector4(1, 1, 1, 1));
+
             _shader.Use();
 
             if (shape.Indices == null)
