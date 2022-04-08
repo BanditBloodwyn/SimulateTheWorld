@@ -51,7 +51,7 @@ public class OpenGLRenderer
             _shader.SetMatrix4("view", Camera.GetViewMatrix());
             _shader.SetMatrix4("projection", Camera.GetProjectionMatrix());
 
-            _shader.SetVector4("filterColor", new Vector4(1, 1, 1, 1));
+            _shader.SetVector4("filterColor", RendererHelper.GetFilterColor(shape.ID));
 
             _shader.Use();
 

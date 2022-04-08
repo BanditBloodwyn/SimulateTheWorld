@@ -2,7 +2,8 @@
 
 public class STWQuadrilateral : STWShape
 {
-    public STWQuadrilateral(float length, float width)
+    public STWQuadrilateral(long id, float length, float width) 
+        : base(id)
     {
         Vertices = new[]
         {

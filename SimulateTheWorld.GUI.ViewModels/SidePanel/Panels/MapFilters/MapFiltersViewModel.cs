@@ -9,7 +9,7 @@ public class MapFiltersViewModel : ObservableObject
 
     public MapFiltersViewModel()
     {
-        Model = new MapFiltersModel();
+        Model = MapFiltersModel.Instance;
 
         GetMapFilterNames();
     }

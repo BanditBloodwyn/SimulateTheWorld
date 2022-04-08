@@ -1,4 +1,5 @@
-﻿using SimulateTheWorld.World.Data.Data.Container;
+﻿using System.Numerics;
+using SimulateTheWorld.World.Data.Data.Container;
 using SimulateTheWorld.World.Data.Data.Enums;
 
 namespace SimulateTheWorld.World.Data.Instances;

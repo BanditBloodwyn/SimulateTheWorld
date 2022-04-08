@@ -18,16 +18,19 @@ public static class ShapeHandler
     {
         float tileSize = 3;
 
-        TerrainTile[,] terrainTiles = STWWorld.Instance.Terrain.Tiles;
+        TerrainTile[] terrainTiles = STWWorld.Instance.Terrain.Tiles;
 
         List<STWQuadrilateral> tileShapes = new List<STWQuadrilateral>();
         Texture texture = Texture.LoadFromFile(Resources.Rendering.Textures.Diffuse.Paths.Tile);
 
-        for (int x = 0; x < terrainTiles.GetLength(0); x++)
+        for (int x = 0; x < STWTerrain.TerrainSize; x++)
         {
-            for (int y = 0; y < terrainTiles.GetLength(1); y++)
+            for (int y = 0; y < STWTerrain.TerrainSize; y++)
             {
-                STWQuadrilateral tile = new STWQuadrilateral(tileSize, tileSize);
+                STWQuadrilateral tile = new STWQuadrilateral(
+                    x * STWTerrain.TerrainSize + y, 
+                    tileSize, 
+                    tileSize);
                 tile.Material.SetTexture(texture);
                 tile.Transform.Translate(x * tileSize, y * tileSize, 0);
                 tileShapes.Add(tile);

@@ -11,4 +11,8 @@
     <Folder Include="Data\Types\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SimulateTheWorld.Core\SimulateTheWorld.Core.csproj" />
+  </ItemGroup>
+
 </Project>
