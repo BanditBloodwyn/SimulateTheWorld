@@ -1,4 +1,5 @@
-﻿using SimulateTheWorld.Core.MVVM;
+﻿using System.Security.RightsManagement;
+using SimulateTheWorld.Core.MVVM;
 
 namespace SimulateTheWorld.Models.SidePanel.Panels.MapFilters;
 
@@ -8,6 +9,8 @@ public class MapFilter : ObservableObject
 
     public string? DisplayName { get; set; }
     
+    public MapFilterType Type { get; }
+
     public bool Active
     {
         get => _active;
@@ -21,8 +24,9 @@ public class MapFilter : ObservableObject
         }
     }
 
-    public MapFilter(bool active = false)
+    public MapFilter(MapFilterType type, bool active = false)
     {
+        Type = type;
         Active = active;
     }
 }

@@ -13,7 +13,7 @@ public class MapFiltersModel
     public MapFilter LifeStandardFilter { get; }
     public MapFilter UrbanizationFilter { get; }
    
-    public MapFilter[] ActiveFilters => _filters.Where(filter => filter.Active).ToArray();
+    public MapFilter? ActiveFilter => _filters.FirstOrDefault(filter => filter.Active);
 
     public static MapFiltersModel Instance
     {
@@ -22,10 +22,10 @@ public class MapFiltersModel
 
     private MapFiltersModel()
     {
-        PopByTribeFilter = new MapFilter(true);
-        CountriesFilter = new MapFilter();
-        LifeStandardFilter = new MapFilter();
-        UrbanizationFilter = new MapFilter();
+        PopByTribeFilter = new MapFilter(MapFilterType.PopByTribe, true);
+        CountriesFilter = new MapFilter(MapFilterType.Countries);
+        LifeStandardFilter = new MapFilter(MapFilterType.LifeStandard);
+        UrbanizationFilter = new MapFilter(MapFilterType.Urbanization);
 
         _filters = new[] { PopByTribeFilter, CountriesFilter, LifeStandardFilter, UrbanizationFilter };
     }

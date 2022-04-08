@@ -19,7 +19,7 @@ public class PopulationValues
         Random random = new Random();
 
         LifeStandard = (float)random.NextDouble() * 100;
-        Urbanization = 0;
+        Urbanization = (float)random.NextDouble() * 100;
         Population = new Population();
     }
 }

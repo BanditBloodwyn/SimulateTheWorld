@@ -7,11 +7,11 @@ namespace SimulateTheWorld.Graphics.Resources.Rendering;
 public class MapFilterColors
 {
     // Color sets
-    public static Color[] PopByTribe => null;
-    public static Color[] Countries => null;
+    public static Color[] PopByTribe => new[] { Color.Red, Color.GreenYellow }; // TODO: needs to be changed
+    public static Color[] Countries => new[] { Color.Red, Color.GreenYellow }; // TODO: needs to be changed
 
     // Color pairs
-    public static Color[] LifeStandard => new[] { Color.DarkGreen, Color.GreenYellow };
+    public static Color[] LifeStandard => new[] { Color.Red, Color.GreenYellow };
     public static Color[] Urbanization => new[] { Color.DarkGreen, Color.GreenYellow };
 
     public static Vector4 SampleColorPair(Color[] colors, float value)

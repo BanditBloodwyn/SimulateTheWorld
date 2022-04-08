@@ -8,6 +8,8 @@ namespace SimulateTheWorld.Graphics.Rendering.Utilities;
 
 public static class ShapeHandler
 {
+    private const float tileSize = 1;
+
     public static STWShape[] CreateShapes()
     {
         STWShape[] tileShapes = CreateWorldTiles();
@@ -16,10 +18,6 @@ public static class ShapeHandler
 
     private static STWShape[] CreateWorldTiles()
     {
-        float tileSize = 3;
-
-        TerrainTile[] terrainTiles = STWWorld.Instance.Terrain.Tiles;
-
         List<STWQuadrilateral> tileShapes = new List<STWQuadrilateral>();
         Texture texture = Texture.LoadFromFile(Resources.Rendering.Textures.Diffuse.Paths.Tile);
 
