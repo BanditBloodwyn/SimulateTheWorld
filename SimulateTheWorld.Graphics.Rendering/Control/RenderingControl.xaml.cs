@@ -52,7 +52,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
 
         private void GlControl_OnMouseWheel(object sender, MouseWheelEventArgs e)
         {
-            _renderer.Camera.Position += _renderer.Camera.Front * e.Delta * 0.001f;
+            _renderer.Camera.Position += _renderer.Camera.Front * e.Delta * 0.005f;
         }
 
         private void GlControl_OnMouseMove(object sender, MouseEventArgs e)
@@ -62,8 +62,8 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
 
             if (e.RightButton == MouseButtonState.Pressed)
             {
-                _renderer.Camera.Position -= _renderer.Camera.Up * delta.Y / 40;
-                _renderer.Camera.Position += _renderer.Camera.Right * delta.X / 40;
+                _renderer.Camera.Position -= _renderer.Camera.Up * delta.Y / 20;
+                _renderer.Camera.Position += _renderer.Camera.Right * delta.X / 20;
             }
             if (e.MiddleButton == MouseButtonState.Pressed)
             {
