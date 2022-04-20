@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using SimulateTheWorld.Graphics.Shapes;
 
 namespace SimulateTheWorld.Graphics.Rendering.Utilities;
 

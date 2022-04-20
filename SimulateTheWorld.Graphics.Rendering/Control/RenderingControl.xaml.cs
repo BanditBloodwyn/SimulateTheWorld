@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Numerics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using OpenTK.Windowing.Common;
 using OpenTK.Wpf;
 using SimulateTheWorld.Graphics.Rendering.Rendering;
-using SimulateTheWorld.Graphics.Rendering.Utilities;
 using MouseWheelEventArgs = System.Windows.Input.MouseWheelEventArgs;
 
 namespace SimulateTheWorld.Graphics.Rendering.Control
@@ -17,7 +15,6 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
     public sealed partial class RenderingControl : UserControl
     {
         private readonly OpenGLRenderer _renderer;
-        private readonly MouseHandler mouseHandler;
 
         public RenderingControl()
         {
@@ -27,7 +24,6 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
             GlControl.Start(mainSettings);
 
             _renderer = new OpenGLRenderer();
-            mouseHandler = new MouseHandler();
         }
 
         private void GlControl_OnRender(TimeSpan elapsedTimeSpan)
@@ -52,25 +48,12 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
 
         private void GlControl_OnMouseWheel(object sender, MouseWheelEventArgs e)
         {
-            _renderer.Camera.Position += _renderer.Camera.Front * e.Delta * 0.005f;
+
         }
 
         private void GlControl_OnMouseMove(object sender, MouseEventArgs e)
         {
-            mouseHandler.NewPosition = e.GetPosition(this);
-            Vector2 delta = mouseHandler.GetDelta();
 
-            if (e.RightButton == MouseButtonState.Pressed)
-            {
-                _renderer.Camera.Position -= _renderer.Camera.Up * delta.Y / 20;
-                _renderer.Camera.Position += _renderer.Camera.Right * delta.X / 20;
-            }
-            if (e.MiddleButton == MouseButtonState.Pressed)
-            {
-                _renderer.Camera.Pitch -= delta.Y ;
-            }
-
-            mouseHandler.OldPosition= e.GetPosition(this);
         }
     }
 }
