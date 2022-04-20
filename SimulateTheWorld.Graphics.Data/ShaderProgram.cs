@@ -7,41 +7,17 @@ using OpenTK.Mathematics;
 
 namespace SimulateTheWorld.Graphics.Data
 {
-    public class Shader : IDisposable
+    public class ShaderProgram : IDisposable
     {
         public int Handle { get; }
 
         private bool disposedValue;
         private readonly Dictionary<string, int> _uniformLocations;
 
-        public Shader(string vertexPath, string fragmentPath)
+        public ShaderProgram(string vertexPath, string fragmentPath)
         {
-            // read shader files
-            string VertexShaderSource, FragmentShaderSource;
-            using (StreamReader reader = new StreamReader(vertexPath, Encoding.UTF8))
-                VertexShaderSource = reader.ReadToEnd();
-            using (StreamReader reader = new StreamReader(fragmentPath, Encoding.UTF8))
-                FragmentShaderSource = reader.ReadToEnd();
-
-            // create shaders and set their source code
-            int VertexShader = GL.CreateShader(ShaderType.VertexShader);
-            GL.ShaderSource(VertexShader, VertexShaderSource);
-
-            int FragmentShader = GL.CreateShader(ShaderType.FragmentShader);
-            GL.ShaderSource(FragmentShader, FragmentShaderSource);
-
-            // compile shaders and check for compiling errors
-            GL.CompileShader(VertexShader);
-
-            string infoLogVert = GL.GetShaderInfoLog(VertexShader);
-            if (infoLogVert != string.Empty)
-                Console.WriteLine(infoLogVert);
-
-            GL.CompileShader(FragmentShader);
-
-            string infoLogFrag = GL.GetShaderInfoLog(FragmentShader);
-            if (infoLogFrag != string.Empty)
-                Console.WriteLine(infoLogFrag);
+            int VertexShader = CreateVertexShader(vertexPath);
+            int FragmentShader = CreateFragmentShader(fragmentPath);
 
             // link shaders together into a program running on the GPU
             Handle = GL.CreateProgram();
@@ -75,7 +51,43 @@ namespace SimulateTheWorld.Graphics.Data
             }
         }
 
-        ~Shader()
+        private int CreateVertexShader(string vertexPath)
+        {
+            string VertexShaderSource;
+            using(StreamReader reader = new StreamReader(vertexPath, Encoding.UTF8))
+                VertexShaderSource = reader.ReadToEnd();
+
+            int VertexShader = GL.CreateShader(ShaderType.VertexShader);
+            GL.ShaderSource(VertexShader, VertexShaderSource);
+            
+            GL.CompileShader(VertexShader);
+
+            string infoLogVert = GL.GetShaderInfoLog(VertexShader);
+            if (infoLogVert != string.Empty)
+                Console.WriteLine(infoLogVert);
+
+            return VertexShader;
+        }
+
+        private int CreateFragmentShader(string fragmentPath)
+        {
+            string FragmentShaderSource;
+            using (StreamReader reader = new StreamReader(fragmentPath, Encoding.UTF8))
+                FragmentShaderSource = reader.ReadToEnd();
+
+            int FragmentShader = GL.CreateShader(ShaderType.FragmentShader);
+            GL.ShaderSource(FragmentShader, FragmentShaderSource);
+           
+            GL.CompileShader(FragmentShader);
+
+            string infoLogFrag = GL.GetShaderInfoLog(FragmentShader);
+            if (infoLogFrag != string.Empty)
+                Console.WriteLine(infoLogFrag);
+           
+            return FragmentShader;
+        }
+
+        ~ShaderProgram()
         {
             GL.DeleteProgram(Handle);
         }

@@ -1,100 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using OpenTK.Graphics.ES30;
+﻿using OpenTK.Graphics.OpenGL;
 using SimulateTheWorld.Graphics.Data;
 using SimulateTheWorld.Graphics.Rendering.Utilities;
-using SimulateTheWorld.Graphics.Shapes;
-using TextureUnit = OpenTK.Graphics.OpenGL4.TextureUnit;
 
 namespace SimulateTheWorld.Graphics.Rendering.Rendering;
 
 public static class OpenGLPreparer
 {
-    public static void PrepareOpenGL(STWShape[] shapes, out int vertexBufferObject, out Shader shader)
+    public static void PrepareOpenGL(out ShaderProgram shaderProgram, out int vao)
     {
-        GenerateVBO(shapes, out vertexBufferObject);
-        GenerateVAO(shapes);
-        SetupShader(out shader);
-        SetVertexAttributes();
-        GenerateEBO(shapes);
-        SetupTextures(shapes, shader);
+        PrepareShader(out shaderProgram);
+        PrepareBuffers(out vao);
     }
 
-    private static void GenerateVBO(STWShape[] shapes, out int vertexBufferObject)
+    private static void PrepareShader(out ShaderProgram shaderProgram)
     {
-        vertexBufferObject = GL.GenBuffer();
-        GL.BindBuffer(BufferTarget.ArrayBuffer, vertexBufferObject);
-        GL.BufferData(BufferTarget.ArrayBuffer, ShapeHandler.GetShapesVertexBufferSize(shapes), IntPtr.Zero, BufferUsageHint.StaticDraw);
-
-        for (int i = 0; i < shapes.Length; i++)
-        {
-            if (shapes[i].Vertices == null)
-                return;
-
-            GL.BufferSubData(
-                BufferTarget.ArrayBuffer,
-                i == 0
-                    ? IntPtr.Zero
-                    : new IntPtr(i * shapes[i - 1].Vertices!.Length * sizeof(float)),
-                shapes[i].Vertices!.Length * sizeof(float),
-                shapes[i].Vertices);
-        }
+        shaderProgram = new ShaderProgram("Rendering/Shaders/shader.vert", "Rendering/Shaders/shader.frag");
     }
 
-    private static void GenerateVAO(STWShape[] shapes)
+    private static void PrepareBuffers(out int vao)
     {
-        for (int i = 0; i < shapes.Length; i++)
-        {
-            int vertexArrayObject = GL.GenVertexArray();
-            GL.BindVertexArray(vertexArrayObject);
-        }
-    }
+        vao = GL.GenVertexArray();
+        int vbo = GL.GenBuffer();
 
-    private static void SetupShader(out Shader shader)
-    {
-        shader = new Shader("Shaders/shader.vert", "Shaders/shader.frag");
-        shader.Use();
-    }
+        GL.BindVertexArray(vao);
+        
+        GL.BindBuffer(BufferTarget.ArrayBuffer, vbo);
+        GL.BufferData(BufferTarget.ArrayBuffer, TestData.Vertices.Length * sizeof(float), TestData.Vertices, BufferUsageHint.StaticDraw);
 
-    private static void SetVertexAttributes()
-    {
-        GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 5 * sizeof(float), 0);
+        GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
         GL.EnableVertexAttribArray(0);
 
-        GL.VertexAttribPointer(1, 2, VertexAttribPointerType.Float, false, 5 * sizeof(float), 3 * sizeof(float));
-        GL.EnableVertexAttribArray(1);
+        GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
+        GL.BindVertexArray(0);
     }
 
-    private static void GenerateEBO(STWShape[] shapes)
+    public static void DestroyOpenGL()
     {
-        int elementBufferObject = GL.GenBuffer();
-        GL.BindBuffer(BufferTarget.ElementArrayBuffer, elementBufferObject);
-        GL.BufferData(BufferTarget.ElementArrayBuffer, ShapeHandler.GetShapesIndexBufferSize(shapes), IntPtr.Zero, BufferUsageHint.StaticDraw);
-
-        for (int i = 0; i < shapes.Length; i++)
-        {
-            if (shapes[i].Indices == null)
-                return;
-
-            GL.BufferSubData(
-                BufferTarget.ElementArrayBuffer,
-                i == 0
-                    ? IntPtr.Zero
-                    : new IntPtr(i * shapes[i - 1].Indices!.Length * sizeof(float)),
-                shapes[i].Indices!.Length * sizeof(float),
-                shapes[i].Indices);
-        }
-    }
-
-    private static void SetupTextures(STWShape[] shapes, Shader shader)
-    {
-        foreach (STWShape shape in shapes)
-        {
-            foreach (KeyValuePair<Texture, TextureUnit> texture in shape.Material.Textures)
-            {
-                texture.Key.Use(texture.Value);
-                shader?.SetInt("texture0", 0);
-            }
-        }
     }
 }

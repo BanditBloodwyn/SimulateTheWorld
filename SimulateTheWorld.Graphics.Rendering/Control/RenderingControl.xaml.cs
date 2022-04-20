@@ -23,7 +23,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
         {
             InitializeComponent();
 
-            var mainSettings = new GLWpfControlSettings { MajorVersion = 4, MinorVersion = 5, GraphicsProfile = ContextProfile.Compatability, GraphicsContextFlags = ContextFlags.Debug};
+            var mainSettings = new GLWpfControlSettings { MajorVersion = 4, MinorVersion = 5, GraphicsProfile = ContextProfile.Core, GraphicsContextFlags = ContextFlags.Debug};
             GlControl.Start(mainSettings);
 
             _renderer = new OpenGLRenderer();
