@@ -12,9 +12,13 @@ public class OpenGLRenderer
     private readonly VBO _vbo;
     private readonly EBO _ebo;
 
+    private readonly Texture texture1;
+
     public OpenGLRenderer()
     {
         OpenGLPreparer.PrepareOpenGL(out _shaderProgram, out _vbo, out _vao, out _ebo);
+
+        texture1 = Texture.LoadFromFile("Rendering/Textures/Diffuse/Diffuse_Tile.jpg", TextureUnit.Texture0);
     }
 
     public void OnLoaded()
@@ -29,7 +33,7 @@ public class OpenGLRenderer
 
         _shaderProgram.Use();
         _shaderProgram.SetFloat("scale", 1);
-
+        texture1.Bind();
         _vao.Bind();
 
         GL.DrawElements(PrimitiveType.Triangles, 6, DrawElementsType.UnsignedInt, 0);

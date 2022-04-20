@@ -6,11 +6,11 @@ public static class TestData
 {
     public static float[] Vertices => new float[]
     { 
-        // COORDS                  COLORS
-        -0.5f,  -0.5f,   0.0f,     1.0f,  0.0f,  0.0f,
-        -0.5f,   0.5f,   0.0f,     0.0f,  1.0f,  0.0f,
-         0.5f,   0.5f,   0.0f,     0.0f,  0.0f,  1.0f,
-         0.5f,  -0.5f,   0.0f,     1.0f,  1.0f,  1.0f,
+        // COORDS                  COLORS                  TEXTURES
+        -0.5f,  -0.5f,   0.0f,     1.0f,  0.0f,  0.0f,     0.0f,  0.0f,
+        -0.5f,   0.5f,   0.0f,     0.0f,  1.0f,  0.0f,     0.0f,  1.0f,
+         0.5f,   0.5f,   0.0f,     0.0f,  0.0f,  1.0f,     1.0f,  1.0f,
+         0.5f,  -0.5f,   0.0f,     1.0f,  1.0f,  1.0f,     1.0f,  0.0f,
     };
 
     public static int[] Indices => new int[]

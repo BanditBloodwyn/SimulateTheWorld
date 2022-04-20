@@ -25,8 +25,9 @@ public static class OpenGLPreparer
         VBO vbo1 = new VBO(TestData.Vertices);
         EBO ebo1 = new EBO(TestData.Indices);
 
-        vao1.LinkAttrib(vbo1, 0, 3, VertexAttribPointerType.Float, 6 * sizeof(float), 0);
-        vao1.LinkAttrib(vbo1, 1, 3, VertexAttribPointerType.Float, 6 * sizeof(float), 3 * sizeof(float));
+        vao1.LinkAttrib(vbo1, 0, 3, VertexAttribPointerType.Float, 8 * sizeof(float), 0);
+        vao1.LinkAttrib(vbo1, 1, 3, VertexAttribPointerType.Float, 8 * sizeof(float), 3 * sizeof(float));
+        vao1.LinkAttrib(vbo1, 2, 2, VertexAttribPointerType.Float, 8 * sizeof(float), 6 * sizeof(float));
         vao1.Unbind();
         vbo1.Unbind();
         ebo1.Unbind();

@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using OpenTK.Graphics.OpenGL4;
+using OpenTK.Mathematics;
 
 namespace SimulateTheWorld.Graphics.Data.OpenGL
 {
@@ -114,6 +115,12 @@ namespace SimulateTheWorld.Graphics.Data.OpenGL
         {
             GL.UseProgram(ID); 
             GL.Uniform1(_uniformLocations[uniformName], value);
+        }
+
+        public void SetVector4(string uniformName, Vector4 value)
+        {
+            GL.UseProgram(ID);
+            GL.Uniform4(_uniformLocations[uniformName], value);
         }
     }
 }
