@@ -1,5 +1,5 @@
-using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 using OpenTK.Graphics.OpenGL4;
@@ -10,7 +10,7 @@ namespace SimulateTheWorld.Graphics.Data.OpenGL
     {
         private int ID { get; set; }
 
-        private Dictionary<string, int> _uniformLocations;
+        private readonly Dictionary<string, int> _uniformLocations;
 
         public ShaderProgram(string vertexPath, string fragmentPath)
         {
@@ -72,7 +72,7 @@ namespace SimulateTheWorld.Graphics.Data.OpenGL
 
             string infoLogVert = GL.GetShaderInfoLog(VertexShader);
             if (infoLogVert != string.Empty)
-                Console.WriteLine(infoLogVert);
+                Log(ShaderType.VertexShader, infoLogVert);
 
             return VertexShader;
         }
@@ -90,13 +90,30 @@ namespace SimulateTheWorld.Graphics.Data.OpenGL
 
             string infoLogFrag = GL.GetShaderInfoLog(FragmentShader);
             if (infoLogFrag != string.Empty)
-                Console.WriteLine(infoLogFrag);
+                Log(ShaderType.FragmentShader, infoLogFrag);
            
             return FragmentShader;
+        }
+
+        private void Log(ShaderType source, string infoLogFrag)
+        {
+            Debug.WriteLine("");
+            Debug.WriteLine("=== Shader Log ===");
+            Debug.WriteLine("");
+            Debug.WriteLine($"Source: {source}");
+            Debug.WriteLine(infoLogFrag);
+            Debug.WriteLine("==================");
+            Debug.WriteLine("");
         }
 
         public void Use() => GL.UseProgram(ID);
 
         public void Delete() => GL.DeleteProgram(ID);
+
+        public void SetFloat(string uniformName, float value)
+        {
+            GL.UseProgram(ID); 
+            GL.Uniform1(_uniformLocations[uniformName], value);
+        }
     }
 }

@@ -11,11 +11,11 @@ public class VAO
         ID = GL.GenVertexArray();
     }
 
-    public void LinkVBO(VBO vbo, int layout)
+    public void LinkAttrib(VBO vbo, int layout, int numComponents, VertexAttribPointerType type, int stride, int offset)
     {
         vbo.Bind();
 
-        GL.VertexAttribPointer(layout, 3, VertexAttribPointerType.Float, false, 0, 0);
+        GL.VertexAttribPointer(layout, numComponents, type, false, stride, offset);
         GL.EnableVertexAttribArray(layout);
 
         vbo.Unbind();

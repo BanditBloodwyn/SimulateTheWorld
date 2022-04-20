@@ -1,4 +1,5 @@
-﻿using SimulateTheWorld.Graphics.Data.OpenGL;
+﻿using OpenTK.Graphics.OpenGL4;
+using SimulateTheWorld.Graphics.Data.OpenGL;
 using SimulateTheWorld.Graphics.Rendering.Utilities;
 
 namespace SimulateTheWorld.Graphics.Rendering.Rendering;
@@ -24,7 +25,8 @@ public static class OpenGLPreparer
         VBO vbo1 = new VBO(TestData.Vertices);
         EBO ebo1 = new EBO(TestData.Indices);
 
-        vao1.LinkVBO(vbo1, 0);
+        vao1.LinkAttrib(vbo1, 0, 3, VertexAttribPointerType.Float, 6 * sizeof(float), 0);
+        vao1.LinkAttrib(vbo1, 1, 3, VertexAttribPointerType.Float, 6 * sizeof(float), 3 * sizeof(float));
         vao1.Unbind();
         vbo1.Unbind();
         ebo1.Unbind();

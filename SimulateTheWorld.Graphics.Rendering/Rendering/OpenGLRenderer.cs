@@ -1,4 +1,5 @@
-﻿using OpenTK.Graphics.OpenGL4;
+﻿using System;
+using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using SimulateTheWorld.Graphics.Data.OpenGL;
 
@@ -23,10 +24,13 @@ public class OpenGLRenderer
 
     public void OnRender()
     {
+        Random random = new Random();
+
         GL.ClearColor(new Color4(0, 0, 40, 0));
         GL.Clear(ClearBufferMask.ColorBufferBit);
 
         _shaderProgram.Use();
+        _shaderProgram.SetFloat("scale", (float)random.NextDouble());
 
         _vao.Bind();
 
