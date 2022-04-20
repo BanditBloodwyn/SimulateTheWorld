@@ -1,12 +1,11 @@
-﻿using OpenTK.Graphics.OpenGL;
-using SimulateTheWorld.Graphics.Data;
+﻿using SimulateTheWorld.Graphics.Data.OpenGL;
 using SimulateTheWorld.Graphics.Rendering.Utilities;
 
 namespace SimulateTheWorld.Graphics.Rendering.Rendering;
 
 public static class OpenGLPreparer
 {
-    public static void PrepareOpenGL(out ShaderProgram shaderProgram, out int vbo, out int vao, out int ebo)
+    public static void PrepareOpenGL(out ShaderProgram shaderProgram, out VBO vbo, out VAO vao, out EBO ebo)
     {
         PrepareShader(out shaderProgram);
         PrepareBuffers(out vbo, out vao, out ebo);
@@ -17,32 +16,30 @@ public static class OpenGLPreparer
         shaderProgram = new ShaderProgram("Rendering/Shaders/shader.vert", "Rendering/Shaders/shader.frag");
     }
 
-    private static void PrepareBuffers(out int vbo, out int vao, out int ebo)
+    private static void PrepareBuffers(out VBO vbo, out VAO vao, out EBO ebo)
     {
-        vao = GL.GenVertexArray();
-        vbo = GL.GenBuffer();
-        ebo = GL.GenBuffer();
+        VAO vao1 = new VAO();
+        vao1.Bind();
 
-        GL.BindVertexArray(vao);
-        
-        GL.BindBuffer(BufferTarget.ArrayBuffer, vbo);
-        GL.BufferData(BufferTarget.ArrayBuffer, TestData.Vertices.Length * sizeof(float), TestData.Vertices, BufferUsageHint.StaticDraw);
+        VBO vbo1 = new VBO(TestData.Vertices);
+        EBO ebo1 = new EBO(TestData.Indices);
 
-        GL.BindBuffer(BufferTarget.ElementArrayBuffer, ebo);
-        GL.BufferData(BufferTarget.ElementArrayBuffer, TestData.Indices.Length * sizeof(int), TestData.Indices, BufferUsageHint.StaticDraw);
+        vao1.LinkVBO(vbo1, 0);
+        vao1.Unbind();
+        vbo1.Unbind();
+        ebo1.Unbind();
 
-        GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
-        GL.EnableVertexAttribArray(0);
-
-        GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
-        GL.BindVertexArray(0);
-        GL.BindBuffer(BufferTarget.ElementArrayBuffer, 0);
+        vbo = vbo1;
+        vao = vao1;
+        ebo = ebo1;
     }
 
-    public static void DestroyOpenGL(int vbo, int vao, int ebo)
+    public static void DestroyOpenGL(VBO vbo, VAO vao, EBO ebo, ShaderProgram shaderProgram)
     {
-        GL.DeleteVertexArray(vao);
-        GL.DeleteBuffer(vbo);
-        GL.DeleteBuffer(ebo);
+        vao.Delete();
+        vbo.Delete();
+        ebo.Delete();
+
+        shaderProgram.Delete();
     }
 }

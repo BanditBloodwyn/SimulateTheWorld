@@ -3,48 +3,56 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using OpenTK.Graphics.OpenGL4;
-using OpenTK.Mathematics;
 
-namespace SimulateTheWorld.Graphics.Data
+namespace SimulateTheWorld.Graphics.Data.OpenGL
 {
-    public class ShaderProgram : IDisposable
+    public class ShaderProgram
     {
-        public int Handle { get; }
+        private int ID { get; set; }
 
-        private bool disposedValue;
-        private readonly Dictionary<string, int> _uniformLocations;
+        private Dictionary<string, int> _uniformLocations;
 
         public ShaderProgram(string vertexPath, string fragmentPath)
+        {
+            _uniformLocations = new Dictionary<string, int>();
+
+            InitializeShaderProgram(vertexPath, fragmentPath);
+            GetUniforms();
+        }
+
+        private void InitializeShaderProgram(string vertexPath, string fragmentPath)
         {
             int VertexShader = CreateVertexShader(vertexPath);
             int FragmentShader = CreateFragmentShader(fragmentPath);
 
             // link shaders together into a program running on the GPU
-            Handle = GL.CreateProgram();
-            GL.AttachShader(Handle, VertexShader);
-            GL.AttachShader(Handle, FragmentShader);
-            GL.LinkProgram(Handle);
+            ID = GL.CreateProgram();
+            GL.AttachShader(ID, VertexShader);
+            GL.AttachShader(ID, FragmentShader);
+            GL.LinkProgram(ID);
 
             // detach and delete individual shaders (because they are copied to the final program while linking
-            GL.DetachShader(Handle, VertexShader);
-            GL.DetachShader(Handle, FragmentShader);
+            GL.DetachShader(ID, VertexShader);
+            GL.DetachShader(ID, FragmentShader);
             GL.DeleteShader(FragmentShader);
             GL.DeleteShader(VertexShader);
+        }
 
+        private void GetUniforms()
+        {
             // The shader is now ready to go, but first, we're going to cache all the shader uniform locations.
             // Querying this from the shader is very slow, so we do it once on initialization and reuse those values
             // later.
-            GL.GetProgram(Handle, GetProgramParameterName.ActiveUniforms, out var numberOfUniforms);
-            _uniformLocations = new Dictionary<string, int>();
+            GL.GetProgram(ID, GetProgramParameterName.ActiveUniforms, out var numberOfUniforms);
 
             // Loop over all the uniforms,
             for (var i = 0; i < numberOfUniforms; i++)
             {
                 // get the name of this uniform,
-                var key = GL.GetActiveUniform(Handle, i, out _, out _);
+                var key = GL.GetActiveUniform(ID, i, out _, out _);
 
                 // get the location,
-                var location = GL.GetUniformLocation(Handle, key);
+                var location = GL.GetUniformLocation(ID, key);
 
                 // and then add it to the dictionary.
                 _uniformLocations.Add(key, location);
@@ -87,54 +95,8 @@ namespace SimulateTheWorld.Graphics.Data
             return FragmentShader;
         }
 
-        ~ShaderProgram()
-        {
-            GL.DeleteProgram(Handle);
-        }
+        public void Use() => GL.UseProgram(ID);
 
-        public void Use()
-        {
-            GL.UseProgram(Handle);
-        }
-
-        public void SetInt(string name, int value)
-        {
-            int location = GL.GetUniformLocation(Handle, name);
-
-            GL.Uniform1(location, value);
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        private void Dispose(bool disposing)
-        {
-            if (!disposedValue)
-            {
-                GL.DeleteProgram(Handle);
-
-                disposedValue = true;
-            }
-        }
-
-        public int GetAttributeLocation(string attributeName)
-        {
-            return GL.GetAttribLocation(Handle, attributeName);
-        }
-
-        public void SetMatrix4(string matrixName, Matrix4 data)
-        {
-            GL.UseProgram(Handle);
-            GL.UniformMatrix4(_uniformLocations[matrixName], true, ref data);
-        }
-
-        public void SetVector4(string matrixName, Vector4 data)
-        {
-            GL.UseProgram(Handle);
-            GL.Uniform4(_uniformLocations[matrixName], data.X, data.Y, data.Z, data.W);
-        }
+        public void Delete() => GL.DeleteProgram(ID);
     }
 }

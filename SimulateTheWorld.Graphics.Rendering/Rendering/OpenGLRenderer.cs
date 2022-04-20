@@ -1,15 +1,15 @@
 ﻿using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
-using SimulateTheWorld.Graphics.Data;
+using SimulateTheWorld.Graphics.Data.OpenGL;
 
 namespace SimulateTheWorld.Graphics.Rendering.Rendering;
 
 public class OpenGLRenderer
 {
     private readonly ShaderProgram _shaderProgram;
-    private readonly int _vao;
-    private readonly int _vbo;
-    private readonly int _ebo;
+    private readonly VAO _vao;
+    private readonly VBO _vbo;
+    private readonly EBO _ebo;
 
     public OpenGLRenderer()
     {
@@ -28,14 +28,14 @@ public class OpenGLRenderer
 
         _shaderProgram.Use();
 
-        GL.BindVertexArray(_vao);
+        _vao.Bind();
 
         GL.DrawElements(PrimitiveType.Triangles, 9, DrawElementsType.UnsignedInt, 0);
     }
 
     public void OnUnLoaded()
     {
-        OpenGLPreparer.DestroyOpenGL(_vbo, _vao, _ebo);
+        OpenGLPreparer.DestroyOpenGL(_vbo, _vao, _ebo, _shaderProgram);
     }
 
     public void UpdateViewPort(double width, double height)
