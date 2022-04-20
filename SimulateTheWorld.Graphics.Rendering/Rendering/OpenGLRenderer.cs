@@ -24,17 +24,15 @@ public class OpenGLRenderer
 
     public void OnRender()
     {
-        Random random = new Random();
-
         GL.ClearColor(new Color4(0, 0, 40, 0));
         GL.Clear(ClearBufferMask.ColorBufferBit);
 
         _shaderProgram.Use();
-        _shaderProgram.SetFloat("scale", (float)random.NextDouble());
+        _shaderProgram.SetFloat("scale", 1);
 
         _vao.Bind();
 
-        GL.DrawElements(PrimitiveType.Triangles, 9, DrawElementsType.UnsignedInt, 0);
+        GL.DrawElements(PrimitiveType.Triangles, 6, DrawElementsType.UnsignedInt, 0);
     }
 
     public void OnUnLoaded()
