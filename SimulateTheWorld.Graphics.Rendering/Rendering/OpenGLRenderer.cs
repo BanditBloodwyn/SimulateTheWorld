@@ -14,6 +14,8 @@ public class OpenGLRenderer
     private readonly EBO _ebo;
 
     private readonly Texture texture1;
+
+    public Camera Camera { get; }
     
     private float _rotation;
 
@@ -22,12 +24,11 @@ public class OpenGLRenderer
         OpenGLPreparer.PrepareOpenGL(out _shaderProgram, out _vbo, out _vao, out _ebo);
 
         texture1 = Texture.LoadFromFile("Rendering/Textures/Diffuse/Diffuse_Tile.jpg", TextureUnit.Texture0);
+
+        Camera = new Camera(new Vector3(0.0f, 0.0f, -2.0f));
     }
 
-    public void OnLoaded()
-    {
-
-    }
+    public void OnLoaded() { }
 
     public void OnRender(TimeSpan elapsedTimeSpan, double width, double height)
     {
@@ -36,7 +37,7 @@ public class OpenGLRenderer
 
         _shaderProgram.Use();
 
-        ApplyMatrices(elapsedTimeSpan, width, height);
+        ApplyMatrices(elapsedTimeSpan);
 
         texture1.Bind();
         _vao.Bind();
@@ -44,20 +45,14 @@ public class OpenGLRenderer
         GL.DrawElements(PrimitiveType.Triangles, TestData.Indices.Length, DrawElementsType.UnsignedInt, 0);
     }
 
-    private void ApplyMatrices(TimeSpan elapsedTimeSpan, double width, double height)
+    private void ApplyMatrices(TimeSpan elapsedTimeSpan)
     {
         Matrix4 model = Matrix4.Identity;
-        Matrix4 view = Matrix4.Identity;
-        Matrix4 projection = Matrix4.Identity;
-
         _rotation += 10f * elapsedTimeSpan.Milliseconds / 1000f;
         model *= Matrix4.CreateRotationY(MathHelper.DegreesToRadians(_rotation));
-        view *= Matrix4.CreateTranslation(new Vector3(0.0f, -0.5f, -2.0f));
-        projection *= Matrix4.CreatePerspectiveFieldOfView(MathHelper.DegreesToRadians(45), (float)(height / width), 0.01f, 1000.0f);
 
         _shaderProgram.SetMatrix4("model", model);
-        _shaderProgram.SetMatrix4("view", view);
-        _shaderProgram.SetMatrix4("projection", projection);
+        Camera.Matrix(45.0f, 0.01f, 1000.0f, _shaderProgram);
     }
 
     public void OnUnLoaded()
@@ -68,5 +63,6 @@ public class OpenGLRenderer
     public void UpdateViewPort(double width, double height)
     {
         GL.Viewport(0, 0, (int)width, (int)height);
+        Camera.AspectRatio = (float)width / (float)height;
     }
 }
