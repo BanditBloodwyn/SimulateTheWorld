@@ -20,7 +20,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
         {
             InitializeComponent();
 
-            var mainSettings = new GLWpfControlSettings { MajorVersion = 4, MinorVersion = 5, GraphicsProfile = ContextProfile.Core, GraphicsContextFlags = ContextFlags.Debug};
+            var mainSettings = new GLWpfControlSettings { MajorVersion = 4, MinorVersion = 5, GraphicsProfile = ContextProfile.Core, GraphicsContextFlags = ContextFlags.Debug, RenderContinuously = true};
             GlControl.Start(mainSettings);
 
             _renderer = new OpenGLRenderer();
@@ -28,7 +28,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
 
         private void GlControl_OnRender(TimeSpan elapsedTimeSpan)
         {
-            _renderer.OnRender();
+            _renderer.OnRender(elapsedTimeSpan, GlControl.ActualWidth, GlControl.ActualHeight);
         }
 
         private void GlControl_OnLoaded(object sender, RoutedEventArgs e)

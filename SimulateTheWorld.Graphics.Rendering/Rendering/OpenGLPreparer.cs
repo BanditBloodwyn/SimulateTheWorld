@@ -10,6 +10,8 @@ public static class OpenGLPreparer
     {
         PrepareShader(out shaderProgram);
         PrepareBuffers(out vbo, out vao, out ebo);
+
+        GL.Enable(EnableCap.DepthTest);
     }
 
     private static void PrepareShader(out ShaderProgram shaderProgram)
