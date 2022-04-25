@@ -1,8 +1,7 @@
-﻿using System;
-using OpenTK.Mathematics;
+﻿using OpenTK.Mathematics;
 using SimulateTheWorld.Graphics.Data.OpenGL;
 
-namespace SimulateTheWorld.Graphics.Rendering.Utilities;
+namespace SimulateTheWorld.Graphics.Data;
 
 public class Camera
 {

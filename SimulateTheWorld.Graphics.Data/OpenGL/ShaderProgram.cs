@@ -128,5 +128,11 @@ namespace SimulateTheWorld.Graphics.Data.OpenGL
             GL.UseProgram(ID);
             GL.UniformMatrix4(_uniformLocations[uniformName], true, ref value);
         }
+
+        public void SetInt(string uniformName, int value)
+        {
+            GL.UseProgram(ID);
+            GL.Uniform1(_uniformLocations[uniformName], value);
+        }
     }
 }

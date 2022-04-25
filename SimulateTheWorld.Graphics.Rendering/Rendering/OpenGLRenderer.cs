@@ -1,19 +1,15 @@
 ﻿using System;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
+using SimulateTheWorld.Graphics.Data;
 using SimulateTheWorld.Graphics.Data.OpenGL;
-using SimulateTheWorld.Graphics.Rendering.Utilities;
 
 namespace SimulateTheWorld.Graphics.Rendering.Rendering;
 
 public class OpenGLRenderer
 {
     private readonly ShaderProgram _shaderProgram;
-    private readonly VAO _vao;
-    private readonly VBO _vbo;
-    private readonly EBO _ebo;
-
-    private readonly Texture texture1;
+    private readonly Mesh _mesh;
 
     public Camera Camera { get; }
     
@@ -21,11 +17,10 @@ public class OpenGLRenderer
 
     public OpenGLRenderer()
     {
-        OpenGLPreparer.PrepareOpenGL(out _shaderProgram, out _vbo, out _vao, out _ebo);
+        _shaderProgram = new ShaderProgram("Rendering/Shaders/shader.vert", "Rendering/Shaders/shader.frag");
+        _mesh = new Mesh(TestData.Vertices, TestData.Indices, TestData.Textures);
 
-        texture1 = Texture.LoadFromFile("Rendering/Textures/Diffuse/Diffuse_Tile.jpg", TextureUnit.Texture0);
-
-        Camera = new Camera(new Vector3(0.0f, 0.0f, -2.0f));
+        Camera = new Camera(new Vector3(0.0f, 1.0f, -2.0f));
     }
 
     public void OnLoaded() { }
@@ -35,14 +30,7 @@ public class OpenGLRenderer
         GL.ClearColor(new Color4(0, 0, 40, 0));
         GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
-        _shaderProgram.Use();
-
-        ApplyMatrices(elapsedTimeSpan);
-
-        texture1.Bind();
-        _vao.Bind();
-
-        GL.DrawElements(PrimitiveType.Triangles, TestData.Indices.Length, DrawElementsType.UnsignedInt, 0);
+        _mesh.Draw(_shaderProgram, Camera);
     }
 
     private void ApplyMatrices(TimeSpan elapsedTimeSpan)
@@ -57,7 +45,7 @@ public class OpenGLRenderer
 
     public void OnUnLoaded()
     {
-        OpenGLPreparer.DestroyOpenGL(_vbo, _vao, _ebo, _shaderProgram);
+
     }
 
     public void UpdateViewPort(double width, double height)

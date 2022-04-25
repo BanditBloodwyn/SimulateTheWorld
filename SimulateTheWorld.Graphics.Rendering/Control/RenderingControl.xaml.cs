@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq.Expressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -19,6 +20,10 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
         private readonly OpenGLRenderer _renderer;
         private readonly InputController _inputController;
 
+        public event Action<DebugInformation> OnDebugInfoChanged;
+
+        public DebugInformation DebugInformation { get; private set; }
+
         public RenderingControl()
         {
             InitializeComponent();
@@ -28,11 +33,14 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
 
             _renderer = new OpenGLRenderer();
             _inputController = new InputController();
+            DebugInformation = new DebugInformation();
         }
 
         private void GlControl_OnRender(TimeSpan elapsedTimeSpan)
         {
             _renderer.OnRender(elapsedTimeSpan, GlControl.ActualWidth, GlControl.ActualHeight);
+            DebugInformation.CameraPosition = _renderer.Camera.Position;
+            OnDebugInfoChanged.Invoke(DebugInformation);
         }
 
         private void GlControl_OnLoaded(object sender, RoutedEventArgs e)

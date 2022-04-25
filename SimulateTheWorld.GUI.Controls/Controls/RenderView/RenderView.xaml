@@ -11,9 +11,11 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
 
         <toolBar:MainToolbarControl Grid.Row="0"></toolBar:MainToolbarControl>
-        <control:RenderingControl Grid.Row="1"></control:RenderingControl>
+        <control:RenderingControl x:Name="_renderingControl" Grid.Row="1"></control:RenderingControl>
+        <Label x:Name="_lbl_debug" Grid.Row="2"/>
     </Grid>
 </UserControl>
