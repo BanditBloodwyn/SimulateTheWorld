@@ -26,6 +26,8 @@ public class OpenGLRenderer
         Camera = new Camera(new Vector3(0.0f, 1.0f, -2.0f));
 
         GL.Enable(EnableCap.DepthTest);
+        GL.Enable(EnableCap.CullFace);
+        GL.FrontFace(FrontFaceDirection.Cw);
     }
 
     public void OnLoaded() { }
