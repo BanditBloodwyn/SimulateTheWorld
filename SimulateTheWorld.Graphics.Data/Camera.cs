@@ -20,7 +20,7 @@ public class Camera
         Sensitivity = 0.01f;
         Speed = 0.01f;
 
-        Rotation = new Vector3(0, 0, 0.0f);
+        Rotation = new Vector3(0, 0, 1.0f);
         Up = new Vector3(0, 1.0f, 0);
     }
 
