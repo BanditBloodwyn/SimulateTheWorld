@@ -19,7 +19,7 @@ public class Camera
         AspectRatio = 1.0f;
         Sensitivity = 0.01f;
 
-        Rotation = new Vector3(0, 0, 1.0f);
+        Rotation = new Vector3(0, 0, 0.0f);
         Up = new Vector3(0, 1.0f, 0);
     }
 
@@ -50,6 +50,10 @@ public class Camera
 
     public void Rotate(Vector3 delta)
     {
-        
+        Vector3 rotation = Rotation;
+        rotation.X += delta.X * Sensitivity;
+        rotation.Y += delta.Y * Sensitivity;
+        rotation.Z += delta.Z * Sensitivity;
+        Rotation = rotation;
     }
 }

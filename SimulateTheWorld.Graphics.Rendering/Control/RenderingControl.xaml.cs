@@ -39,6 +39,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
         {
             _renderer.OnRender(elapsedTimeSpan);
             DebugInformation.CameraPosition = _renderer.Camera.Position;
+            DebugInformation.CameraRotation = _renderer.Camera.Rotation;
             OnDebugInfoChanged?.Invoke(DebugInformation);
         }
 
