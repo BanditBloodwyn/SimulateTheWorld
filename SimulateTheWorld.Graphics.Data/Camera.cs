@@ -18,6 +18,7 @@ public class Camera
         Position = position;
         AspectRatio = 1.0f;
         Sensitivity = 0.01f;
+        Speed = 0.01f;
 
         Rotation = new Vector3(0, 0, 0.0f);
         Up = new Vector3(0, 1.0f, 0);
@@ -42,9 +43,9 @@ public class Camera
     public void Translate(Vector3 delta)
     {
         Vector3 position = Position;
-        position.X += delta.X * Sensitivity;
-        position.Y += delta.Y * Sensitivity;
-        position.Z += delta.Z * Sensitivity;
+        position.X += delta.X * Speed;
+        position.Y += delta.Y * Speed;
+        position.Z += delta.Z * Speed;
         Position = position;
     }
 
