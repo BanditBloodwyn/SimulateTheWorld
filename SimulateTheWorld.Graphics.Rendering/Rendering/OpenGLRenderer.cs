@@ -5,13 +5,14 @@ using OpenTK.Windowing.GraphicsLibraryFramework;
 using SimulateTheWorld.Graphics.Data;
 using SimulateTheWorld.Graphics.Data.OpenGL;
 using SimulateTheWorld.Graphics.Rendering.Utilities;
+using SimulateTheWorld.Graphics.Shapes;
 
 namespace SimulateTheWorld.Graphics.Rendering.Rendering;
 
 public class OpenGLRenderer
 {
     private readonly ShaderProgram _shaderProgram;
-    private readonly Mesh _mesh;
+    private readonly STWShape[] _shapes;
 
     public FPSCounter FpsCounter { get; private set; }
 
@@ -20,12 +21,8 @@ public class OpenGLRenderer
     public OpenGLRenderer()
     {
         _shaderProgram = new ShaderProgram("Rendering/Shaders/shader.vert", "Rendering/Shaders/shader.frag");
-        _mesh = new Mesh(TestData.Vertices, TestData.Indices, TestData.Textures);
 
-        Vector3 objectPos = new Vector3(0.0f, 0.0f, 0.0f);
-        Matrix4 objectModel = Matrix4.Identity;
-        objectModel *= Matrix4.CreateTranslation(objectPos);
-        _shaderProgram.SetMatrix4("model", objectModel);
+        _shapes = WorldObjectProvider.CreateWorldTiles();
 
         Camera = new Camera(new Vector3(0.0f, 1.0f, -2.0f));
 
@@ -37,13 +34,16 @@ public class OpenGLRenderer
 
     public void OnLoaded() { }
 
-    public void OnRender(TimeSpan elapsedTimeSpan)
+    public void OnRender()
     {
         FpsCounter.CurrentTime = GLFW.GetTime();
         GL.ClearColor(new Color4(0, 0, 40, 0));
         GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
-        _mesh.Draw(_shaderProgram, Camera);
+        foreach (STWShape shape in _shapes)
+        {
+            shape.Draw(_shaderProgram, Camera);
+        }
     }
 
     public void OnUnLoaded()

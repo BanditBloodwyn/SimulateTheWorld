@@ -38,7 +38,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
 
         private void GlControl_OnRender(TimeSpan elapsedTimeSpan)
         {
-            _renderer.OnRender(elapsedTimeSpan);
+            _renderer.OnRender();
 
             DebugInformation.CameraPosition = _renderer.Camera.Position;
             DebugInformation.CameraRotation = _renderer.Camera.Rotation;
@@ -64,7 +64,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
 
         private void GlControl_OnMouseWheel(object sender, MouseWheelEventArgs e)
         {
-            _renderer.Camera.Translate(new Vector3(0.0f, 0.0f, e.Delta));
+            _renderer.Camera.Translate(new Vector3(0.0f, -e.Delta, 0.0f));
         }
 
         private void GlControl_OnMouseMove(object sender, MouseEventArgs e)
@@ -73,10 +73,10 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
             Vector2 delta = _inputController.GetDelta();
 
             if (e.RightButton == MouseButtonState.Pressed)
-                _renderer.Camera.Translate(new Vector3(-delta.X, -delta.Y, 0.0f));
+                _renderer.Camera.Translate(new Vector3(-delta.X, 0.0f, -delta.Y));
 
             if (e.MiddleButton == MouseButtonState.Pressed)
-                _renderer.Camera.Rotate(new Vector3(delta.X, delta.Y, 0.0f));
+                _renderer.Camera.Rotate(new Vector3(0.0f, delta.Y, 0.0f));
 
             _inputController.OldMousePosition = e.GetPosition(this);
         }

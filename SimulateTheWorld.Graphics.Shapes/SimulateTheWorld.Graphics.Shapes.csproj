@@ -10,4 +10,8 @@
     <ProjectReference Include="..\SimulateTheWorld.Graphics.Components\SimulateTheWorld.Graphics.Components.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Primitives\" />
+  </ItemGroup>
+
 </Project>
