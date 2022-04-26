@@ -18,8 +18,8 @@ public class Camera
     {
         Position = position;
         AspectRatio = 1.0f;
-        Sensitivity = 0.01f;
-        Speed = 0.01f;
+        Sensitivity = 0.001f;
+        Speed = 0.001f;
 
         Rotation = new Vector3(0, 0, 1.0f);
         _up = new Vector3(0, 1.0f, 0);

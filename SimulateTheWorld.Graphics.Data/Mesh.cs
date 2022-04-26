@@ -1,6 +1,5 @@
 ﻿using System;
 using OpenTK.Graphics.OpenGL4;
-using OpenTK.Mathematics;
 using SimulateTheWorld.Graphics.Data.Enums;
 using SimulateTheWorld.Graphics.Data.OpenGL;
 
@@ -41,9 +40,10 @@ public class Mesh
         shaderProgram.Use();
         VAO.Bind();
 
-        int numDiffuse = 0, numSpecular = 0;
+        int numDiffuse = 0, 
+            numSpecular = 0;
 
-        for (var index = 0; index < Textures.Length; index++)
+        for (int index = 0; index < Textures.Length; index++)
         {
             Texture texture = Textures[index];
             string num = "";

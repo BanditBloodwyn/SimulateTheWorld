@@ -8,12 +8,12 @@ namespace SimulateTheWorld.Graphics.Data;
 public static class TestData
 {
     public static Vertex[] Vertices => new Vertex[]
-    { 
-        new(new Vector3(-0.5f, 0.0f,  0.5f), Vector3.Zero, new Vector3(   0.83f, 0.70f, 0.44f),   new Vector2( 0.0f, 0.0f)),
-        new(new Vector3(-0.5f, 0.0f, -0.5f), Vector3.Zero, new Vector3(   0.83f, 0.70f, 0.44f),   new Vector2( 5.0f, 0.0f)), 
-        new(new Vector3(0.5f, 0.0f, -0.5f), Vector3.Zero, new Vector3(    0.83f, 0.70f, 0.44f),  new Vector2(  0.0f, 0.0f)), 
-        new(new Vector3(0.5f, 0.0f,  0.5f), Vector3.Zero, new Vector3(   0.83f, 0.70f, 0.44f),  new Vector2(  5.0f, 0.0f)),
-        new(new Vector3(0.0f, 0.8f,  0.0f), Vector3.Zero, new Vector3(   0.92f, 0.86f, 0.76f),  new Vector2(  2.5f, 5.0f))
+    {
+        new(new Vector3(-0.5f, 0.0f,  0.5f), Vector3.Zero, new Vector3(1.0f), new Vector2(0.0f, 0.0f)),
+        new(new Vector3(-0.5f, 0.0f, -0.5f), Vector3.Zero, new Vector3(1.0f), new Vector2(5.0f, 0.0f)),
+        new(new Vector3( 0.5f, 0.0f, -0.5f), Vector3.Zero, new Vector3(1.0f), new Vector2(0.0f, 0.0f)),
+        new(new Vector3( 0.5f, 0.0f,  0.5f), Vector3.Zero, new Vector3(1.0f), new Vector2(5.0f, 0.0f)),
+        new(new Vector3( 0.0f, 0.8f,  0.0f), Vector3.Zero, new Vector3(1.0f), new Vector2(2.5f, 5.0f))
     };
     
     public static int[] Indices =

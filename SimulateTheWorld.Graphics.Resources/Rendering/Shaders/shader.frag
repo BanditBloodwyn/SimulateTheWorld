@@ -94,6 +94,9 @@ vec4 spotLight()
 
 void main()
 {
+    vec3 normal = normalize(Normal);
+    vec3 viewDirection = normalize(camPos - CurrentPos);
+
 	// outputs final color
-    FragColor = texture(diffuse0, TexCoord);
+    FragColor = texture(diffuse0, TexCoord) * vec4(Color, 1.0f);
 }

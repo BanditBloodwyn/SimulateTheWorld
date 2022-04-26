@@ -18,7 +18,14 @@ public class OpenGLRenderer
         _shaderProgram = new ShaderProgram("Rendering/Shaders/shader.vert", "Rendering/Shaders/shader.frag");
         _mesh = new Mesh(TestData.Vertices, TestData.Indices, TestData.Textures);
 
+        Vector3 objectPos = new Vector3(0.0f, 0.0f, 0.0f);
+        Matrix4 objectModel = Matrix4.Identity;
+        objectModel *= Matrix4.CreateTranslation(objectPos);
+        _shaderProgram.SetMatrix4("model", objectModel);
+
         Camera = new Camera(new Vector3(0.0f, 1.0f, -2.0f));
+
+        GL.Enable(EnableCap.DepthTest);
     }
 
     public void OnLoaded() { }
