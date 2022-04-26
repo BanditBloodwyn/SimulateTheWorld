@@ -5,13 +5,14 @@ namespace SimulateTheWorld.Graphics.Data;
 
 public class Camera
 {
-    public Vector3 Position { get; set; }
-    public Vector3 Rotation { get; set; }
-    public Vector3 Up { get; set; }
+    public Vector3 Position { get; private set; }
+    public Vector3 Rotation { get; private set; }
 
     public float AspectRatio { get; set; }
     public float Speed { get; set; }
     public float Sensitivity { get; set; }
+    
+    private Vector3 _up;
 
     public Camera(Vector3 position)
     {
@@ -21,7 +22,7 @@ public class Camera
         Speed = 0.01f;
 
         Rotation = new Vector3(0, 0, 1.0f);
-        Up = new Vector3(0, 1.0f, 0);
+        _up = new Vector3(0, 1.0f, 0);
     }
 
     public void Matrix(float fovDeg, float nearPlane, float farPlane, ShaderProgram shaderProgram)
@@ -29,7 +30,7 @@ public class Camera
         Matrix4 view = Matrix4.Identity;
         Matrix4 projection = Matrix4.Identity;
 
-        view *= Matrix4.LookAt(Position, Position + Rotation, Up);
+        view *= Matrix4.LookAt(Position, Position + Rotation, _up);
         projection *= Matrix4.CreatePerspectiveFieldOfView(MathHelper.DegreesToRadians(fovDeg), AspectRatio, nearPlane, farPlane);
         
         shaderProgram.SetMatrix4("view", view);
