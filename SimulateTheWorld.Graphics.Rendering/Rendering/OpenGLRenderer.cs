@@ -1,8 +1,10 @@
 ﻿using System;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
+using OpenTK.Windowing.GraphicsLibraryFramework;
 using SimulateTheWorld.Graphics.Data;
 using SimulateTheWorld.Graphics.Data.OpenGL;
+using SimulateTheWorld.Graphics.Rendering.Utilities;
 
 namespace SimulateTheWorld.Graphics.Rendering.Rendering;
 
@@ -10,6 +12,8 @@ public class OpenGLRenderer
 {
     private readonly ShaderProgram _shaderProgram;
     private readonly Mesh _mesh;
+
+    public FPSCounter FpsCounter { get; private set; }
 
     public Camera Camera { get; }
     
@@ -28,12 +32,14 @@ public class OpenGLRenderer
         GL.Enable(EnableCap.DepthTest);
         GL.Enable(EnableCap.CullFace);
         GL.FrontFace(FrontFaceDirection.Cw);
+        FpsCounter = new FPSCounter();
     }
 
     public void OnLoaded() { }
 
     public void OnRender(TimeSpan elapsedTimeSpan)
     {
+        FpsCounter.CurrentTime = GLFW.GetTime();
         GL.ClearColor(new Color4(0, 0, 40, 0));
         GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -27,7 +28,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
         {
             InitializeComponent();
 
-            var mainSettings = new GLWpfControlSettings { MajorVersion = 4, MinorVersion = 5, GraphicsProfile = ContextProfile.Core, GraphicsContextFlags = ContextFlags.Default};
+            var mainSettings = new GLWpfControlSettings { MajorVersion = 4, MinorVersion = 5, GraphicsProfile = ContextProfile.Core, GraphicsContextFlags = ContextFlags.Default, RenderContinuously = true};
             GlControl.Start(mainSettings);
 
             _renderer = new OpenGLRenderer();
@@ -38,8 +39,11 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
         private void GlControl_OnRender(TimeSpan elapsedTimeSpan)
         {
             _renderer.OnRender(elapsedTimeSpan);
+
             DebugInformation.CameraPosition = _renderer.Camera.Position;
             DebugInformation.CameraRotation = _renderer.Camera.Rotation;
+            DebugInformation.FPS = _renderer.FpsCounter.FPS;
+            DebugInformation.Milliseconds = _renderer.FpsCounter.Milliseconds;
             OnDebugInfoChanged?.Invoke(DebugInformation);
         }
 
