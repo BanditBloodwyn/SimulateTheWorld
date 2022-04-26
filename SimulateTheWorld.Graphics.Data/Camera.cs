@@ -47,4 +47,9 @@ public class Camera
         position.Z += delta.Z * Sensitivity;
         Position = position;
     }
+
+    public void Rotate(Vector3 delta)
+    {
+        
+    }
 }

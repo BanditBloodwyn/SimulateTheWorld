@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq.Expressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -20,9 +19,9 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
         private readonly OpenGLRenderer _renderer;
         private readonly InputController _inputController;
 
-        public event Action<DebugInformation> OnDebugInfoChanged;
+        public event Action<DebugInformation>? OnDebugInfoChanged;
 
-        public DebugInformation DebugInformation { get; private set; }
+        private DebugInformation DebugInformation { get; }
 
         public RenderingControl()
         {
@@ -38,9 +37,9 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
 
         private void GlControl_OnRender(TimeSpan elapsedTimeSpan)
         {
-            _renderer.OnRender(elapsedTimeSpan, GlControl.ActualWidth, GlControl.ActualHeight);
+            _renderer.OnRender(elapsedTimeSpan);
             DebugInformation.CameraPosition = _renderer.Camera.Position;
-            OnDebugInfoChanged.Invoke(DebugInformation);
+            OnDebugInfoChanged?.Invoke(DebugInformation);
         }
 
         private void GlControl_OnLoaded(object sender, RoutedEventArgs e)
@@ -72,8 +71,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
                 _renderer.Camera.Translate(new Vector3(-delta.X, -delta.Y, 0.0f));
 
             if (e.MiddleButton == MouseButtonState.Pressed)
-                ;
-                //_renderer.Camera.Rotate(new Vector3(delta.X, delta.Y, 0.0f));
+                _renderer.Camera.Rotate(new Vector3(delta.X, delta.Y, 0.0f));
 
             _inputController.OldMousePosition = e.GetPosition(this);
         }

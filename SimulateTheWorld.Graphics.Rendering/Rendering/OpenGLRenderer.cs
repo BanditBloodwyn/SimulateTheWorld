@@ -13,8 +13,6 @@ public class OpenGLRenderer
 
     public Camera Camera { get; }
     
-    private float _rotation;
-
     public OpenGLRenderer()
     {
         _shaderProgram = new ShaderProgram("Rendering/Shaders/shader.vert", "Rendering/Shaders/shader.frag");
@@ -25,22 +23,12 @@ public class OpenGLRenderer
 
     public void OnLoaded() { }
 
-    public void OnRender(TimeSpan elapsedTimeSpan, double width, double height)
+    public void OnRender(TimeSpan elapsedTimeSpan)
     {
         GL.ClearColor(new Color4(0, 0, 40, 0));
         GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
         _mesh.Draw(_shaderProgram, Camera);
-    }
-
-    private void ApplyMatrices(TimeSpan elapsedTimeSpan)
-    {
-        Matrix4 model = Matrix4.Identity;
-        _rotation += 10f * elapsedTimeSpan.Milliseconds / 1000f;
-        model *= Matrix4.CreateRotationY(MathHelper.DegreesToRadians(_rotation));
-
-        _shaderProgram.SetMatrix4("model", model);
-        Camera.Matrix(45.0f, 0.01f, 1000.0f, _shaderProgram);
     }
 
     public void OnUnLoaded()
