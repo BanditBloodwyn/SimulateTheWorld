@@ -23,7 +23,7 @@ public class OpenGLRenderer
 
         _shapes = WorldObjectProvider.CreateWorldTiles();
 
-        Camera = new Camera(new Vector3(15.0f, 5.0f, -2.0f));
+        Camera = new Camera(new Vector3(15.0f, 15.0f, 0));
 
         GL.Enable(EnableCap.DepthTest);
         GL.Enable(EnableCap.CullFace);

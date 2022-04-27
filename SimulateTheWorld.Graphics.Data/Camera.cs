@@ -10,7 +10,7 @@ public class Camera
 
     public Transform Transform { get; set; } = new Transform();
 
-    public Vector3 Front { get; set; } = -Vector3.UnitZ;
+    public Vector3 Front { get; set; } = new(0, -2, -1);
 
     public float AspectRatio { get; set; }
     public float Speed { get; set; }
@@ -21,7 +21,7 @@ public class Camera
         Transform.Position = position;
         AspectRatio = 1.0f;
         Sensitivity = 0.001f;
-        Speed = 0.001f;
+        Speed = 0.003f;
     }
 
     public void Matrix(float fovDeg, float nearPlane, float farPlane, ShaderProgram shaderProgram)
