@@ -11,7 +11,10 @@ namespace SimulateTheWorld.Graphics.Rendering.Rendering;
 public class OpenGLRenderer
 {
     private readonly ShaderProgram _shaderProgram;
+    private readonly ShaderProgram _normalsShader;
     private readonly STWShape[] _shapes;
+
+    private float _rotation;
 
     public FPSCounter FpsCounter { get; private set; }
 
@@ -20,6 +23,7 @@ public class OpenGLRenderer
     public OpenGLRenderer()
     {
         _shaderProgram = new ShaderProgram("Rendering/Shaders/shader.vert", "Rendering/Shaders/shader.frag", "Rendering/Shaders/shader.geom");
+        _normalsShader = new ShaderProgram("Rendering/Shaders/shader.vert", "Rendering/Shaders/normals.frag", "Rendering/Shaders/normals.geom");
 
         _shapes = WorldObjectProvider.CreateWorldTiles();
 
@@ -29,6 +33,8 @@ public class OpenGLRenderer
         GL.Enable(EnableCap.CullFace);
         GL.FrontFace(FrontFaceDirection.Cw);
         FpsCounter = new FPSCounter();
+
+        _rotation = 0;
     }
 
     public void OnLoaded() { }
@@ -42,6 +48,7 @@ public class OpenGLRenderer
         foreach (STWShape shape in _shapes)
         {
             shape.Draw(_shaderProgram, Camera);
+            shape.Draw(_normalsShader, Camera);
         }
     }
 

@@ -28,7 +28,7 @@ public static class WorldObjectProvider
                     tileSize,
                     texture);
                 tile.Transform.Translate(x * tileSize, 0, -y * tileSize);
-                tile.Transform.Rotate(-90, 0, 0);
+                tile.Transform.Rotate(0, 0, 0);
 
                 tileShapes.Add(tile);
             }

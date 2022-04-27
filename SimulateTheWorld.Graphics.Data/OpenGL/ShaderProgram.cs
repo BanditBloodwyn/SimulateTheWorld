@@ -154,7 +154,8 @@ namespace SimulateTheWorld.Graphics.Data.OpenGL
         public void SetInt(string uniformName, int value)
         {
             GL.UseProgram(ID);
-            GL.Uniform1(_uniformLocations[uniformName], value);
+            if(_uniformLocations.ContainsKey(uniformName)) 
+                GL.Uniform1(_uniformLocations[uniformName], value);
         }
     }
 }
