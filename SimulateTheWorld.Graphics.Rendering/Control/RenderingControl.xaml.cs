@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -40,8 +39,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
         {
             _renderer.OnRender();
 
-            DebugInformation.CameraPosition = _renderer.Camera.Position;
-            DebugInformation.CameraRotation = _renderer.Camera.Rotation;
+            DebugInformation.CameraPosition = _renderer.Camera.Transform.Position;
             DebugInformation.FPS = _renderer.FpsCounter.FPS;
             DebugInformation.Milliseconds = _renderer.FpsCounter.Milliseconds;
             OnDebugInfoChanged?.Invoke(DebugInformation);
@@ -73,10 +71,10 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
             Vector2 delta = _inputController.GetDelta();
 
             if (e.RightButton == MouseButtonState.Pressed)
-                _renderer.Camera.Translate(new Vector3(-delta.X, 0.0f, -delta.Y));
+                _renderer.Camera.Translate(new Vector3(delta.X, 0.0f, delta.Y));
 
             if (e.MiddleButton == MouseButtonState.Pressed)
-                _renderer.Camera.Rotate(new Vector3(0.0f, delta.Y, 0.0f));
+                _renderer.Camera.Rotate(new Vector3(0, delta.Y, 0.0f));
 
             _inputController.OldMousePosition = e.GetPosition(this);
         }

@@ -1,5 +1,4 @@
-﻿using System;
-using OpenTK.Graphics.OpenGL4;
+﻿using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 using SimulateTheWorld.Graphics.Data;
@@ -24,7 +23,7 @@ public class OpenGLRenderer
 
         _shapes = WorldObjectProvider.CreateWorldTiles();
 
-        Camera = new Camera(new Vector3(0.0f, 1.0f, -2.0f));
+        Camera = new Camera(new Vector3(15.0f, 5.0f, -2.0f));
 
         GL.Enable(EnableCap.DepthTest);
         GL.Enable(EnableCap.CullFace);

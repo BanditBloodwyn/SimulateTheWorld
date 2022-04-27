@@ -1,4 +1,4 @@
-namespace SimulateTheWorld.Graphics.Components
+namespace SimulateTheWorld.Graphics.Data.Components
 {
     public class Material
     {

@@ -1,5 +1,4 @@
 ﻿using System.Windows.Controls;
-using OpenTK.Mathematics;
 using SimulateTheWorld.Graphics.Rendering.Utilities;
 
 namespace SimulateTheWorld.GUI.Controls.Controls.RenderView
@@ -20,7 +19,6 @@ namespace SimulateTheWorld.GUI.Controls.Controls.RenderView
         {
             _lbl_debug.Content =
                 $"Camera Pos: {info.CameraPosition.X:0.000}, {info.CameraPosition.Y:0.000}, {info.CameraPosition.Z:0.000}" + "\t" +
-                $"Camera Rot: {MathHelper.RadiansToDegrees(info.CameraRotation.X):0.000}, {MathHelper.RadiansToDegrees(info.CameraRotation.Y):0.000}, {MathHelper.RadiansToDegrees(info.CameraRotation.Z):0.000}" + "\t\t\t" +
                 $"FPS: {info.FPS:000.00}, MS: {info.Milliseconds:00.00}";
         }
     }

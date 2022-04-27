@@ -7,11 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SimulateTheWorld.Graphics.Components\SimulateTheWorld.Graphics.Components.csproj" />
+    <Folder Include="Primitives\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Primitives\" />
+    <PackageReference Include="OpenTK" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SimulateTheWorld.Graphics.Data\SimulateTheWorld.Graphics.Data.csproj" />
   </ItemGroup>
 
 </Project>
