@@ -13,28 +13,32 @@ namespace SimulateTheWorld.Graphics.Data.OpenGL
 
         private readonly Dictionary<string, int> _uniformLocations;
 
-        public ShaderProgram(string vertexPath, string fragmentPath)
+        public ShaderProgram(string vertexPath, string fragmentPath, string geometryPath)
         {
             _uniformLocations = new Dictionary<string, int>();
 
-            InitializeShaderProgram(vertexPath, fragmentPath);
+            InitializeShaderProgram(vertexPath, fragmentPath, geometryPath);
             GetUniforms();
         }
 
-        private void InitializeShaderProgram(string vertexPath, string fragmentPath)
+        private void InitializeShaderProgram(string vertexPath, string fragmentPath, string geometryPath)
         {
             int VertexShader = CreateVertexShader(vertexPath);
             int FragmentShader = CreateFragmentShader(fragmentPath);
+            int GeometryShader = CreateGeometryShader(geometryPath);
 
             // link shaders together into a program running on the GPU
             ID = GL.CreateProgram();
             GL.AttachShader(ID, VertexShader);
             GL.AttachShader(ID, FragmentShader);
+            GL.AttachShader(ID, GeometryShader);
             GL.LinkProgram(ID);
 
             // detach and delete individual shaders (because they are copied to the final program while linking
             GL.DetachShader(ID, VertexShader);
             GL.DetachShader(ID, FragmentShader);
+            GL.DetachShader(ID, GeometryShader);
+            GL.DeleteShader(GeometryShader);
             GL.DeleteShader(FragmentShader);
             GL.DeleteShader(VertexShader);
         }
@@ -94,6 +98,24 @@ namespace SimulateTheWorld.Graphics.Data.OpenGL
                 Log(ShaderType.FragmentShader, infoLogFrag);
            
             return FragmentShader;
+        }
+
+        private int CreateGeometryShader(string geometryPath)
+        {
+            string GeometryShaderSource;
+            using (StreamReader reader = new StreamReader(geometryPath, Encoding.UTF8))
+                GeometryShaderSource = reader.ReadToEnd();
+
+            int GeometryShader = GL.CreateShader(ShaderType.GeometryShader);
+            GL.ShaderSource(GeometryShader, GeometryShaderSource);
+
+            GL.CompileShader(GeometryShader);
+
+            string infoLogGeom = GL.GetShaderInfoLog(GeometryShader);
+            if (infoLogGeom != string.Empty)
+                Log(ShaderType.GeometryShader, infoLogGeom);
+
+            return GeometryShader;
         }
 
         private void Log(ShaderType source, string infoLogFrag)

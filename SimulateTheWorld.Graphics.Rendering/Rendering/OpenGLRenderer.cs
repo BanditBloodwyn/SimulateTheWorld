@@ -19,7 +19,7 @@ public class OpenGLRenderer
     
     public OpenGLRenderer()
     {
-        _shaderProgram = new ShaderProgram("Rendering/Shaders/shader.vert", "Rendering/Shaders/shader.frag");
+        _shaderProgram = new ShaderProgram("Rendering/Shaders/shader.vert", "Rendering/Shaders/shader.frag", "Rendering/Shaders/shader.geom");
 
         _shapes = WorldObjectProvider.CreateWorldTiles();
 

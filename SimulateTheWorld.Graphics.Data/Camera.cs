@@ -16,14 +16,12 @@ public class Camera
     public float Speed { get; set; }
     public float Sensitivity { get; set; }
     
-
     public Camera(Vector3 position)
     {
         Transform.Position = position;
         AspectRatio = 1.0f;
         Sensitivity = 0.001f;
         Speed = 0.001f;
-
     }
 
     public void Matrix(float fovDeg, float nearPlane, float farPlane, ShaderProgram shaderProgram)
