@@ -40,7 +40,18 @@ public class Mesh
         shaderProgram.Use();
         VAO.Bind();
 
-        int numDiffuse = 0, 
+        BindTextures(shaderProgram);
+
+        camera.Matrix(45.0f, 0.01f, 1000.0f, shaderProgram);
+        GL.DrawElements(PrimitiveType.Triangles, Indices.Length, DrawElementsType.UnsignedInt, 0);
+    }
+
+    private void BindTextures(ShaderProgram shaderProgram)
+    {
+        if(Textures.Length == 0)
+            return;
+
+        int numDiffuse = 0,
             numSpecular = 0;
 
         for (int index = 0; index < Textures.Length; index++)
@@ -66,8 +77,5 @@ public class Mesh
             texture.SetTextureUnit(shaderProgram, $"{type.ToString().ToLower()}{num}", index);
             texture.Bind();
         }
-
-        camera.Matrix(45.0f, 0.01f, 1000.0f, shaderProgram);
-        GL.DrawElements(PrimitiveType.Triangles, Indices.Length, DrawElementsType.UnsignedInt, 0);
     }
 }

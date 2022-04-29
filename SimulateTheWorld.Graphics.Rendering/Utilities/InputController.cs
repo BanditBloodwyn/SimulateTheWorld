@@ -16,8 +16,8 @@ public class InputController
 
     public Vector2 GetDelta()
     {
-        double deltaX = (OldMousePosition.X - NewMousePosition.X);
-        double deltaY = (OldMousePosition.Y - NewMousePosition.Y);
+        double deltaX = OldMousePosition.X - NewMousePosition.X;
+        double deltaY = OldMousePosition.Y - NewMousePosition.Y;
 
         return new Vector2((float)deltaX, (float)deltaY);
     }

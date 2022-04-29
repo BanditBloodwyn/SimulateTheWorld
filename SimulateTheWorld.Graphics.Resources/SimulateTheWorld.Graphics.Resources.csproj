@@ -36,13 +36,13 @@
     <None Update="Rendering\Shaders\normals.geom">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Rendering\Shaders\shader.geom">
+    <None Update="Rendering\Shaders\default.geom">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Rendering\Shaders\shader.frag">
+    <None Update="Rendering\Shaders\default.frag">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Rendering\Shaders\shader.vert">
+    <None Update="Rendering\Shaders\default.vert">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Rendering\Textures\Diffuse\Diffuse_Tile.jpg">

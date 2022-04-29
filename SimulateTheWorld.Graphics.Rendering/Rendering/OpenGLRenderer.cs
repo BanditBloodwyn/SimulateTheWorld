@@ -14,16 +14,14 @@ public class OpenGLRenderer
     private readonly ShaderProgram _normalsShader;
     private readonly STWShape[] _shapes;
 
-    private float _rotation;
-
     public FPSCounter FpsCounter { get; private set; }
 
     public Camera Camera { get; }
     
     public OpenGLRenderer()
     {
-        _shaderProgram = new ShaderProgram("Rendering/Shaders/shader.vert", "Rendering/Shaders/shader.frag", "Rendering/Shaders/shader.geom");
-        _normalsShader = new ShaderProgram("Rendering/Shaders/shader.vert", "Rendering/Shaders/normals.frag", "Rendering/Shaders/normals.geom");
+        _shaderProgram = new ShaderProgram("Rendering/Shaders/default.vert", "Rendering/Shaders/default.frag", "Rendering/Shaders/default.geom");
+        _normalsShader = new ShaderProgram("Rendering/Shaders/default.vert", "Rendering/Shaders/normals.frag", "Rendering/Shaders/normals.geom");
 
         _shapes = WorldObjectProvider.CreateWorldTiles();
 
@@ -32,9 +30,8 @@ public class OpenGLRenderer
         GL.Enable(EnableCap.DepthTest);
         GL.Enable(EnableCap.CullFace);
         GL.FrontFace(FrontFaceDirection.Cw);
-        FpsCounter = new FPSCounter();
 
-        _rotation = 0;
+        FpsCounter = new FPSCounter();
     }
 
     public void OnLoaded() { }
