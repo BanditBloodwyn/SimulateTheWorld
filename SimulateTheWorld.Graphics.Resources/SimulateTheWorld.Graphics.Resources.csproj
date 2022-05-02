@@ -30,6 +30,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Rendering\Shaders\points.frag">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Rendering\Shaders\points.geom">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Rendering\Shaders\point.vert">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Rendering\Shaders\normals.frag">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -36,4 +36,23 @@ public static class WorldObjectProvider
 
         return tileShapes.ToArray();
     }
+
+    public static STWPoint[] CreateWorldPoints()
+    {
+        List<STWPoint> tileShapes = new List<STWPoint>();
+
+        for (int x = 0; x < STWTerrain.TerrainSize; x++)
+        {
+            for (int y = 0; y < STWTerrain.TerrainSize; y++)
+            {
+                STWPoint tile = new STWPoint(x * STWTerrain.TerrainSize + y);
+                tile.Transform.Translate(x * tileSize, 0, -y * tileSize);
+                tile.Transform.Rotate(0, 0, 0);
+
+                tileShapes.Add(tile);
+            }
+        }
+
+        return tileShapes.ToArray();
+    }
 }

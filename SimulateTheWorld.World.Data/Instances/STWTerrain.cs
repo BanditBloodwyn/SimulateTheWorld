@@ -2,7 +2,7 @@
 
 public class STWTerrain
 {
-    public const int TerrainSize = 30;
+    public const int TerrainSize = 50;
 
     public TerrainTile[] Tiles { get; }
 
