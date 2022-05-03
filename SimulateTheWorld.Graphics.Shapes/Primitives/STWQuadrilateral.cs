@@ -1,13 +1,12 @@
 ﻿using OpenTK.Mathematics;
 using SimulateTheWorld.Graphics.Data;
+using SimulateTheWorld.Graphics.Data.Components;
 using SimulateTheWorld.Graphics.Data.OpenGL;
 
 namespace SimulateTheWorld.Graphics.Shapes.Primitives;
 
 public class STWQuadrilateral : STWShape
 {
-    public Mesh? Mesh { get; set; }
-
     public STWQuadrilateral(long id, float length, float width, Texture texture)
         : base(id)
     {
@@ -27,12 +26,6 @@ public class STWQuadrilateral : STWShape
 
         Texture[] textures = { texture };
 
-        Mesh = new Mesh(vertices, indices, textures);
-    }
-
-    public override void Draw(ShaderProgram shaderProgram, Camera camera)
-    {
-        base.Draw(shaderProgram, camera);
-        Mesh?.Draw(shaderProgram, camera);
+        Drawable = new Mesh(vertices, indices, textures);
     }
 }

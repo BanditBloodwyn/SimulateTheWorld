@@ -12,31 +12,15 @@ public class VBO
         
         ID = GL.GenBuffer();
         GL.BindBuffer(BufferTarget.ArrayBuffer, ID);
-        GL.BufferData(BufferTarget.ArrayBuffer, vertices.Length * sizeof(Vertex), GetData(vertices), BufferUsageHint.StaticDraw);
+        GL.BufferData(BufferTarget.ArrayBuffer, vertices.Length * sizeof(Vertex), vertices, BufferUsageHint.StaticDraw);
     }
 
-    private float[] GetData(Vertex[] vertices)
+    public unsafe VBO(DataVertex[] vertices)
     {
-        List<float> data = new List<float>();
-        foreach (Vertex vertex in vertices)
-        {
-            data.Add(vertex.position.X);
-            data.Add(vertex.position.Y);
-            data.Add(vertex.position.Z);
-            
-            data.Add(vertex.normal.X);
-            data.Add(vertex.normal.Y);
-            data.Add(vertex.normal.Z);
-            
-            data.Add(vertex.color.X);
-            data.Add(vertex.color.Y);
-            data.Add(vertex.color.Z);
 
-            data.Add(vertex.textureUV.X);
-            data.Add(vertex.textureUV.Y);
-        }
-
-        return data.ToArray();
+        ID = GL.GenBuffer();
+        GL.BindBuffer(BufferTarget.ArrayBuffer, ID);
+        GL.BufferData(BufferTarget.ArrayBuffer, vertices.Length * sizeof(DataVertex), vertices, BufferUsageHint.StaticDraw);
     }
 
     public void Bind() => GL.BindBuffer(BufferTarget.ArrayBuffer, ID);

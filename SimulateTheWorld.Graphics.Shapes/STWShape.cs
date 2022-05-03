@@ -1,14 +1,16 @@
 ﻿using OpenTK.Mathematics;
 using SimulateTheWorld.Graphics.Data;
 using SimulateTheWorld.Graphics.Data.Components;
+using SimulateTheWorld.Graphics.Data.Interfaces;
 using SimulateTheWorld.Graphics.Data.OpenGL;
 
 namespace SimulateTheWorld.Graphics.Shapes;
 
-public class STWShape
+public class STWShape : IDrawable
 {
     public long ID { get; protected set; }
     public Transform Transform { get; set; }
+    public IDrawable? Drawable { get; set; }
 
     public STWShape(long id)
     {
@@ -24,5 +26,7 @@ public class STWShape
         model *= Matrix4.CreateRotationZ(MathHelper.DegreesToRadians(Transform.AngleZ));
         model *= Matrix4.CreateTranslation(Transform.PositionX, Transform.PositionY, Transform.PositionZ);
         shaderProgram.SetMatrix4("model", model);
+
+        Drawable?.Draw(shaderProgram, camera);
     }
 }

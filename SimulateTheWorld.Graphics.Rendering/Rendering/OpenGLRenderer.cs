@@ -2,19 +2,17 @@
 using OpenTK.Mathematics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 using SimulateTheWorld.Graphics.Data;
+using SimulateTheWorld.Graphics.Data.Interfaces;
 using SimulateTheWorld.Graphics.Data.OpenGL;
 using SimulateTheWorld.Graphics.Rendering.Utilities;
-using SimulateTheWorld.Graphics.Shapes;
+using SimulateTheWorld.World.Data.Instances;
 
 namespace SimulateTheWorld.Graphics.Rendering.Rendering;
 
 public class OpenGLRenderer
 {
-    private readonly ShaderProgram _shaderProgram;
-    private readonly ShaderProgram _normalsShader;
     private readonly ShaderProgram _pointShader;
-    private readonly STWShape[] _shapes;
-    private readonly STWShape _world;
+    private readonly IDrawable _world;
 
     public FPSCounter FpsCounter { get; private set; }
 
@@ -22,14 +20,11 @@ public class OpenGLRenderer
     
     public OpenGLRenderer()
     {
-        _shaderProgram = new ShaderProgram("Rendering/Shaders/default.vert", "Rendering/Shaders/default.frag", "Rendering/Shaders/default.geom");
-        _normalsShader = new ShaderProgram("Rendering/Shaders/default.vert", "Rendering/Shaders/normals.frag", "Rendering/Shaders/normals.geom");
         _pointShader = new ShaderProgram("Rendering/Shaders/point.vert", "Rendering/Shaders/points.frag", "Rendering/Shaders/points.geom");
 
-        _shapes = WorldObjectProvider.CreateWorldTiles();
         _world = WorldObjectProvider.CreateWorldObject();
 
-        Camera = new Camera(new Vector3(15.0f, 15.0f, 0));
+        Camera = new Camera(new Vector3(STWTerrain.TerrainSize / 2.0f * STWTerrain.TileSize, 15.0f, 0));
 
         GL.Enable(EnableCap.DepthTest);
         GL.Enable(EnableCap.CullFace);
@@ -46,17 +41,7 @@ public class OpenGLRenderer
         GL.ClearColor(new Color4(0, 0, 40, 0));
         GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
-        DrawShapes();
-    }
-
-    private void DrawShapes()
-    {
-        foreach (STWShape shape in _shapes)
-        {
-            shape.Draw(_shaderProgram, Camera);
-        //    shape.Draw(_normalsShader, Camera);
-        }
-        //_world.Draw(_shaderProgram, Camera);
+        _world.Draw(_pointShader, Camera);
     }
 
     public void OnUnLoaded()

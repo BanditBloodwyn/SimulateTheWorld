@@ -1,15 +1,13 @@
 ﻿#version 450 core
 
 layout (location = 0) in vec3 aPos;
-layout (location = 1) in vec3 aNormal;
-layout (location = 2) in vec3 aColor;
-layout (location = 3) in vec2 aTex;
+layout (location = 1) in int aTileType;
+layout (location = 2) in int aTerrainType;
 
 out DATA
 {
-    vec3 Normal;
-    vec3 Color;
-    vec2 TexCoord;
+    int tileType;
+    int terrainType;
     mat4 projection;
 } data_out;
 
@@ -21,8 +19,7 @@ void main()
 {   
     gl_Position = vec4(aPos, 1.0) * model;
     
-    data_out.Normal = aNormal;
-    data_out.Color = aColor;
-    data_out.TexCoord = aTex;
+    data_out.tileType = aTileType;
+    data_out.terrainType = aTerrainType;
     data_out.projection = view * projection;
 }

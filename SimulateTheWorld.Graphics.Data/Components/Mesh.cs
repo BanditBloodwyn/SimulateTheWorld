@@ -1,11 +1,12 @@
 ﻿using System;
 using OpenTK.Graphics.OpenGL4;
 using SimulateTheWorld.Graphics.Data.Enums;
+using SimulateTheWorld.Graphics.Data.Interfaces;
 using SimulateTheWorld.Graphics.Data.OpenGL;
 
-namespace SimulateTheWorld.Graphics.Data;
+namespace SimulateTheWorld.Graphics.Data.Components;
 
-public class Mesh
+public class Mesh : IDrawable
 {
     public Vertex[] Vertices { get; set; }
     public int[] Indices { get; set; }
