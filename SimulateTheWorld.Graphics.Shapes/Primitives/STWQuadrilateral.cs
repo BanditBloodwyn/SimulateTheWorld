@@ -6,6 +6,8 @@ namespace SimulateTheWorld.Graphics.Shapes.Primitives;
 
 public class STWQuadrilateral : STWShape
 {
+    public Mesh? Mesh { get; set; }
+
     public STWQuadrilateral(long id, float length, float width, Texture texture)
         : base(id)
     {
@@ -24,7 +26,6 @@ public class STWQuadrilateral : STWShape
         };
 
         Texture[] textures = { texture };
-
 
         Mesh = new Mesh(vertices, indices, textures);
     }

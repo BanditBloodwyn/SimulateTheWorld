@@ -13,7 +13,7 @@ public class Mesh
 
     public VAO VAO { get; set; }
 
-    public unsafe Mesh(Vertex[] vertices, int[] indices, Texture[] textures)
+    public unsafe Mesh(Vertex[] vertices, int[] indices, params Texture[] textures)
     {
         Vertices = vertices;
         Indices = indices;

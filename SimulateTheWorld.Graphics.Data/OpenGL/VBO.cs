@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using OpenTK.Graphics.OpenGL4;
 
 namespace SimulateTheWorld.Graphics.Data.OpenGL;

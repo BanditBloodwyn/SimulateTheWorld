@@ -8,14 +8,12 @@ namespace SimulateTheWorld.Graphics.Shapes;
 public class STWShape
 {
     public long ID { get; protected set; }
-    public Mesh? Mesh { get; protected set; }
     public Transform Transform { get; set; }
 
-    protected STWShape(long id)
+    public STWShape(long id)
     {
         ID = id;
         Transform = new Transform();
-        Mesh = null;
     }
 
     public virtual void Draw(ShaderProgram shaderProgram, Camera camera)

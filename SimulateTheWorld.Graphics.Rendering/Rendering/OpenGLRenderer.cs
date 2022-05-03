@@ -5,7 +5,6 @@ using SimulateTheWorld.Graphics.Data;
 using SimulateTheWorld.Graphics.Data.OpenGL;
 using SimulateTheWorld.Graphics.Rendering.Utilities;
 using SimulateTheWorld.Graphics.Shapes;
-using SimulateTheWorld.Graphics.Shapes.Primitives;
 
 namespace SimulateTheWorld.Graphics.Rendering.Rendering;
 
@@ -15,7 +14,7 @@ public class OpenGLRenderer
     private readonly ShaderProgram _normalsShader;
     private readonly ShaderProgram _pointShader;
     private readonly STWShape[] _shapes;
-    private readonly STWPoint[] _points;
+    private readonly STWShape _world;
 
     public FPSCounter FpsCounter { get; private set; }
 
@@ -28,7 +27,7 @@ public class OpenGLRenderer
         _pointShader = new ShaderProgram("Rendering/Shaders/point.vert", "Rendering/Shaders/points.frag", "Rendering/Shaders/points.geom");
 
         _shapes = WorldObjectProvider.CreateWorldTiles();
-        _points = WorldObjectProvider.CreateWorldPoints();
+        _world = WorldObjectProvider.CreateWorldObject();
 
         Camera = new Camera(new Vector3(15.0f, 15.0f, 0));
 
@@ -47,8 +46,7 @@ public class OpenGLRenderer
         GL.ClearColor(new Color4(0, 0, 40, 0));
         GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
-        //DrawShapes();
-        DrawPoints();
+        DrawShapes();
     }
 
     private void DrawShapes()
@@ -56,14 +54,9 @@ public class OpenGLRenderer
         foreach (STWShape shape in _shapes)
         {
             shape.Draw(_shaderProgram, Camera);
-            shape.Draw(_normalsShader, Camera);
+        //    shape.Draw(_normalsShader, Camera);
         }
-    }
-
-    private void DrawPoints()
-    {
-        foreach (STWPoint point in _points)
-            point.Draw(_pointShader, Camera);
+        //_world.Draw(_shaderProgram, Camera);
     }
 
     public void OnUnLoaded()

@@ -1,26 +1,25 @@
-﻿using OpenTK.Graphics.OpenGL4;
+﻿using System;
+using OpenTK.Graphics.OpenGL4;
+using SimulateTheWorld.Graphics.Data.Enums;
 using SimulateTheWorld.Graphics.Data.OpenGL;
 
 namespace SimulateTheWorld.Graphics.Data;
 
-public class DataPoint
+public class PointCloud
 {
     public Vertex[] Vertices { get; set; }
-    public int[] Indices { get; set; }
 
     public VAO VAO { get; set; }
 
-    public unsafe DataPoint(Vertex vertex)
+    public unsafe PointCloud(Vertex[] vertices)
     {
-        Vertices = new []{vertex};
-        Indices = new []{0};
-        
+        Vertices = vertices;
+
         VAO = new VAO();
         VAO.Bind();
 
         VBO vbo1 = new VBO(Vertices);
-        EBO ebo1 = new EBO(Indices);
-
+       
         VAO.LinkAttrib(vbo1, 0, 3, VertexAttribPointerType.Float, sizeof(Vertex), 0);
         VAO.LinkAttrib(vbo1, 1, 3, VertexAttribPointerType.Float, sizeof(Vertex), 3 * sizeof(float));
         VAO.LinkAttrib(vbo1, 2, 3, VertexAttribPointerType.Float, sizeof(Vertex), 6 * sizeof(float));
@@ -28,7 +27,6 @@ public class DataPoint
 
         VAO.Unbind();
         vbo1.Unbind();
-        ebo1.Unbind();
     }
 
     public void Draw(ShaderProgram shaderProgram, Camera camera)
@@ -37,8 +35,8 @@ public class DataPoint
         VAO.Bind();
 
         camera.Matrix(45.0f, 0.01f, 1000.0f, shaderProgram);
-        GL.PointSize(10);
-        GL.DrawArrays(PrimitiveType.Points, 0, 1);
-    }
 
+        GL.PointSize(10);
+        GL.DrawArrays(PrimitiveType.Points, 0, Vertices.Length);
+    }
 }
