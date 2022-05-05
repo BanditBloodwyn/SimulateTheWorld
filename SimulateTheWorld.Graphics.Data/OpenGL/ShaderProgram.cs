@@ -4,6 +4,7 @@ using System.IO;
 using System.Text;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
+using OpenTK.Windowing.GraphicsLibraryFramework;
 
 namespace SimulateTheWorld.Graphics.Data.OpenGL
 {
@@ -33,6 +34,10 @@ namespace SimulateTheWorld.Graphics.Data.OpenGL
             GL.AttachShader(ID, FragmentShader);
             GL.AttachShader(ID, GeometryShader);
             GL.LinkProgram(ID);
+
+            GL.GetProgramInfoLog(ID, 10000, out var length, out string programInfoLog);
+            if (programInfoLog != string.Empty)
+                Log(ShaderType.VertexShader, programInfoLog);
 
             // detach and delete individual shaders (because they are copied to the final program while linking
             GL.DetachShader(ID, VertexShader);
@@ -96,7 +101,7 @@ namespace SimulateTheWorld.Graphics.Data.OpenGL
             string infoLogFrag = GL.GetShaderInfoLog(FragmentShader);
             if (infoLogFrag != string.Empty)
                 Log(ShaderType.FragmentShader, infoLogFrag);
-           
+
             return FragmentShader;
         }
 

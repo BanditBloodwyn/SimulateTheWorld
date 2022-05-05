@@ -25,7 +25,7 @@ public class STWShape : IDrawable
         model *= Matrix4.CreateRotationY(MathHelper.DegreesToRadians(Transform.AngleY));
         model *= Matrix4.CreateRotationZ(MathHelper.DegreesToRadians(Transform.AngleZ));
         model *= Matrix4.CreateTranslation(Transform.PositionX, Transform.PositionY, Transform.PositionZ);
-        shaderProgram.SetMatrix4("model", model);
+        shaderProgram.SetMatrix4("uModel", model);
 
         Drawable?.Draw(shaderProgram, camera);
     }

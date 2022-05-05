@@ -10,13 +10,14 @@ in DATA
     mat4 projection;
 } data_in[];
 
-out int oTileType;
-out int oTerrainType;
+flat out int tileType;
+flat out int terrainType;
 
 void main()
 {
-    oTileType = data_in[0].tileType;
-    oTerrainType = data_in[0].terrainType;
+    tileType = data_in[0].tileType;
+    terrainType = data_in[0].terrainType;
+    
     gl_Position = gl_in[0].gl_Position * data_in[0].projection;
     EmitVertex();
 

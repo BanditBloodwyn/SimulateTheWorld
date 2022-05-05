@@ -20,8 +20,8 @@ public class PointCloud : IDrawable
         VBO vbo1 = new VBO(Vertices);
        
         VAO.LinkAttrib(vbo1, 0, 3, VertexAttribPointerType.Float, sizeof(DataVertex), 0);
-        VAO.LinkAttrib(vbo1, 1, 3, VertexAttribPointerType.Int, sizeof(DataVertex), 3 * sizeof(float));
-        VAO.LinkAttrib(vbo1, 2, 3, VertexAttribPointerType.Int, sizeof(DataVertex), 3 * sizeof(float) + 1 * sizeof(int));
+        VAO.LinkAttrib(vbo1, 1, 1, VertexAttribPointerType.Int, sizeof(DataVertex), 3 * sizeof(float));
+        VAO.LinkAttrib(vbo1, 2, 1, VertexAttribPointerType.Int, sizeof(DataVertex), 3 * sizeof(float) + 1 * sizeof(int));
 
         VAO.Unbind();
         vbo1.Unbind();

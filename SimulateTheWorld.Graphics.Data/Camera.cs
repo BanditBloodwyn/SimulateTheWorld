@@ -32,8 +32,8 @@ public class Camera
         view *= Matrix4.LookAt(Transform.Position, Transform.Position + Front, _up);
         projection *= Matrix4.CreatePerspectiveFieldOfView(MathHelper.DegreesToRadians(fovDeg), AspectRatio, nearPlane, farPlane);
         
-        shaderProgram.SetMatrix4("view", view);
-        shaderProgram.SetMatrix4("projection", projection);
+        shaderProgram.SetMatrix4("uView", view);
+        shaderProgram.SetMatrix4("uProjection", projection);
     }
 
     public void Translate(Vector3 delta)

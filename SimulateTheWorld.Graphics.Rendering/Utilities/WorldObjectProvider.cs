@@ -20,13 +20,19 @@ public static class WorldObjectProvider
     private static DataVertex[] CreateData()
     {
         DataVertex[] vertices = new DataVertex[STWTerrain.TerrainSize * STWTerrain.TerrainSize];
-        
+        Random random = new Random();
+
         for (int x = 0; x < STWTerrain.TerrainSize; x++)
         {
             for (int y = 0; y < STWTerrain.TerrainSize; y++)
             {
                 int i = x + y * STWTerrain.TerrainSize;
-                vertices[i] = new DataVertex(new Vector3(x * STWTerrain.TileSize, 0, y * STWTerrain.TileSize), Random.Shared.Next(0, 1), Random.Shared.Next(0, 10));
+                int tile = random.Next(0, 2);
+                int terrain = random.Next(0, 3);
+                vertices[i] = new DataVertex(
+                    new Vector3(x * STWTerrain.TileSize, 0, y * STWTerrain.TileSize), 
+                    tile, 
+                    terrain);
             }
         }
 

@@ -11,15 +11,15 @@ out DATA
     mat4 projection;
 } data_out;
 
-uniform mat4 model;
-uniform mat4 view;
-uniform mat4 projection;
+uniform mat4 uModel;
+uniform mat4 uView;
+uniform mat4 uProjection;
 
 void main()
 {   
-    gl_Position = vec4(aPos, 1.0) * model;
-    
     data_out.tileType = aTileType;
     data_out.terrainType = aTerrainType;
-    data_out.projection = view * projection;
+    data_out.projection = uView * uProjection;
+   
+    gl_Position = vec4(aPos, 1.0) * uModel;
 }
