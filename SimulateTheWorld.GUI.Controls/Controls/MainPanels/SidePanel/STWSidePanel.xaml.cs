@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace SimulateTheWorld.GUI.Controls.Controls.SidePanel
+namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.SidePanel
 {
     /// <summary>
     /// Interaktionslogik für STWSidePanel.xaml

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace SimulateTheWorld.GUI.Controls.Controls.Core
+namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.Core
 {
     /// <summary>
     /// Interaktionslogik für MainControl.xaml

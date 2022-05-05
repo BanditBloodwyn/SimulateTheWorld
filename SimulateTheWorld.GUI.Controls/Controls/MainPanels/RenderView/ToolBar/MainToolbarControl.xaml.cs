@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace SimulateTheWorld.GUI.Controls.Controls.RenderView.ToolBar
+namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.RenderView.ToolBar
 {
     /// <summary>
     /// Interaktionslogik für MainToolbar.xaml

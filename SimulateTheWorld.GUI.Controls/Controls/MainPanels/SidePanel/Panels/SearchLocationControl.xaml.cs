@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace SimulateTheWorld.GUI.Controls.Controls.SidePanel.Panels
+namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.SidePanel.Panels
 {
     /// <summary>
     /// Interaktionslogik für SearchLocationControl.xaml

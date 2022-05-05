@@ -1,7 +1,7 @@
 ﻿using System.Windows.Controls;
 using SimulateTheWorld.Graphics.Rendering.Utilities;
 
-namespace SimulateTheWorld.GUI.Controls.Controls.RenderView
+namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.RenderView
 {
     /// <summary>
     /// Interaktionslogik für RenderView.xaml
@@ -18,8 +18,9 @@ namespace SimulateTheWorld.GUI.Controls.Controls.RenderView
         private void RenderingControlOnOnDebugInfoChanged(DebugInformation info)
         {
             _lbl_debug.Content =
-                $"Camera Pos: {info.CameraPosition.X:0.000}, {info.CameraPosition.Y:0.000}, {info.CameraPosition.Z:0.000}" + "\t" +
-                $"FPS: {info.FPS:000.00}, MS: {info.Milliseconds:00.00}";
+                $"Camera Pos: {info.CameraPosition.X:0.000}, {info.CameraPosition.Y:0.000}, {info.CameraPosition.Z:0.000}" /*+ "\t" +
+                //$"FPS: {info.FPS:#.00}, MS: {info.Milliseconds:#.00}"*/;
+            lbl_FpsSec.Content = info.FPS.ToString(".00");
         }
     }
 }

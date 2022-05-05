@@ -1,7 +1,7 @@
 ﻿using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace SimulateTheWorld.GUI.Controls.Controls.Toolbar
+namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.Toolbar
 {
     /// <summary>
     /// Interaktionslogik für STWToolbar.xaml

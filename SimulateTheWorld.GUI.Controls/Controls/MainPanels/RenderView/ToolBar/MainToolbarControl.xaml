@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="SimulateTheWorld.GUI.Controls.Controls.RenderView.ToolBar.MainToolbarControl"
+﻿<UserControl x:Class="SimulateTheWorld.GUI.Controls.Controls.MainPanels.RenderView.ToolBar.MainToolbarControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 

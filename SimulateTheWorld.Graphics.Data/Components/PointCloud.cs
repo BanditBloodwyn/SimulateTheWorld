@@ -34,7 +34,7 @@ public class PointCloud : IDrawable
 
         camera.Matrix(45.0f, 0.01f, 1000.0f, shaderProgram);
 
-        GL.PointSize(2);
+        GL.PointSize(3);
         GL.DrawArrays(PrimitiveType.Points, 0, Vertices.Length);
     }
 }

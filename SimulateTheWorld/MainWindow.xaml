@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:models="clr-namespace:SimulateTheWorld.Start.Models"
-        xmlns:core="clr-namespace:SimulateTheWorld.GUI.Controls.Controls.Core;assembly=SimulateTheWorld.GUI.Controls"
+        xmlns:core="clr-namespace:SimulateTheWorld.GUI.Controls.Controls.MainPanels.Core;assembly=SimulateTheWorld.GUI.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowState="Maximized">
 

@@ -1,6 +1,6 @@
-﻿using OpenTK.Graphics.OpenGL4;
+﻿using System;
+using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
-using OpenTK.Windowing.GraphicsLibraryFramework;
 using SimulateTheWorld.Graphics.Data;
 using SimulateTheWorld.Graphics.Data.Interfaces;
 using SimulateTheWorld.Graphics.Data.OpenGL;
@@ -35,9 +35,9 @@ public class OpenGLRenderer
 
     public void OnLoaded() { }
 
-    public void OnRender()
+    public void OnRender(TimeSpan elapsedTimeSpan)
     {
-        FpsCounter.CurrentTime = GLFW.GetTime();
+        FpsCounter.TimeDifference = elapsedTimeSpan.Milliseconds;
         GL.ClearColor(new Color4(0, 0, 40, 0));
         GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 

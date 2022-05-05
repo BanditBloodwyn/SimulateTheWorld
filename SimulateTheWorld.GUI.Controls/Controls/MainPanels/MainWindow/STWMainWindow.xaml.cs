@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace SimulateTheWorld.GUI.Controls.Controls.MainWindow
+namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.MainWindow
 {
     /// <summary>
     /// Interaktionslogik für STWMainWindow.xaml

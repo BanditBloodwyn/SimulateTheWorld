@@ -37,7 +37,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
 
         private void GlControl_OnRender(TimeSpan elapsedTimeSpan)
         {
-            _renderer.OnRender();
+            _renderer.OnRender(elapsedTimeSpan);
 
             DebugInformation.CameraPosition = _renderer.Camera.Transform.Position;
             DebugInformation.FPS = _renderer.FpsCounter.FPS;
