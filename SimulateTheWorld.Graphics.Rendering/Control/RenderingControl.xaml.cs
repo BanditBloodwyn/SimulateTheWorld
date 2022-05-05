@@ -20,6 +20,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
         private readonly InputController _inputController;
 
         public event Action<DebugInformation>? OnDebugInfoChanged;
+        private int _millisecs;
 
         private DebugInformation DebugInformation { get; }
 
@@ -39,9 +40,14 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
         {
             _renderer.OnRender(elapsedTimeSpan);
 
+            _millisecs += elapsedTimeSpan.Milliseconds;
+            if (_millisecs >= FPSCounter.Interval)
+            {
+                DebugInformation.FPS = _renderer.FpsCounter.FPS;
+                DebugInformation.Milliseconds = _renderer.FpsCounter.Milliseconds;
+                _millisecs = 0;
+            }
             DebugInformation.CameraPosition = _renderer.Camera.Transform.Position;
-            DebugInformation.FPS = _renderer.FpsCounter.FPS;
-            DebugInformation.Milliseconds = _renderer.FpsCounter.Milliseconds;
             OnDebugInfoChanged?.Invoke(DebugInformation);
         }
 

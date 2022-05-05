@@ -38,6 +38,7 @@ public class OpenGLRenderer
     public void OnRender(TimeSpan elapsedTimeSpan)
     {
         FpsCounter.TimeDifference = elapsedTimeSpan.Milliseconds;
+
         GL.ClearColor(new Color4(0, 0, 40, 0));
         GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 

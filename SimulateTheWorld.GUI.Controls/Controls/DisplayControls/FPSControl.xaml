@@ -5,8 +5,19 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SimulateTheWorld.GUI.Controls.Controls.DisplayControls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="25" d:DesignWidth="75">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="31"/>
+            <ColumnDefinition Width="17"/>
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Column="0" Content="FPS:"/>
+        <Label Grid.Column="1" x:Name="lbl_FpsSec" Margin="-8,0" HorizontalAlignment="Right" Content="165"/>
+        <Label Grid.Column="2" Content=","/>
+        <Label Grid.Column="3" x:Name="lbl_FpsMilliSec" Margin="-8,0,0,0" Content="00"/>
+
     </Grid>
 </UserControl>

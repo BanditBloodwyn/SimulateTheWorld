@@ -5,6 +5,8 @@ public class FPSCounter
     private double _timeDifference;
     private int _counter;
 
+    public static int Interval = 100;
+
     public double FPS { get; private set; }
     public double Milliseconds { get; private set; }
 
