@@ -20,8 +20,8 @@ public class PointCloud : IDrawable
         VBO vbo1 = new VBO(Vertices);
        
         VAO.LinkAttrib(vbo1, 0, 3, VertexAttribPointerType.Float, sizeof(DataVertex), 0);
-        VAO.LinkAttrib(vbo1, 1, 1, VertexAttribPointerType.Int, sizeof(DataVertex), 3 * sizeof(float));
-        VAO.LinkAttrib(vbo1, 2, 1, VertexAttribPointerType.Int, sizeof(DataVertex), 3 * sizeof(float) + 1 * sizeof(int));
+        VAO.LinkAttrib(vbo1, 1, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float));
+        VAO.LinkAttrib(vbo1, 2, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 1 * sizeof(float));
 
         VAO.Unbind();
         vbo1.Unbind();
@@ -34,7 +34,7 @@ public class PointCloud : IDrawable
 
         camera.Matrix(45.0f, 0.01f, 1000.0f, shaderProgram);
 
-        GL.PointSize(3);
+        GL.PointSize(6);
         GL.DrawArrays(PrimitiveType.Points, 0, Vertices.Length);
     }
 }

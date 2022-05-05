@@ -20,6 +20,15 @@ public class VAO
 
         vbo.Unbind();
     }
+    public void LinkIntAttrib(VBO vbo, int layout, int numComponents, VertexAttribIntegerType type, int stride, int offset)
+    {
+        vbo.Bind();
+
+        GL.VertexAttribIPointer(layout, numComponents, type, stride, ref offset);
+        GL.EnableVertexAttribArray(layout);
+
+        vbo.Unbind();
+    }
 
     public void Bind() => GL.BindVertexArray(ID);
 

@@ -2,7 +2,7 @@
 
 public class STWTerrain
 {
-    public const int TerrainSize = 300;
+    public const int TerrainSize = 1000;
     public const float TileSize = 0.1f;
 
     public TerrainTile[] Tiles { get; }
