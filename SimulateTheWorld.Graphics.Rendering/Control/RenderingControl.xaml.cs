@@ -18,11 +18,22 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
     {
         private readonly OpenGLRenderer _renderer;
         private readonly InputController _inputController;
+        private RendererInputData _inputData;
 
         public event Action<DebugInformation>? OnDebugInfoChanged;
         private int _millisecs;
 
         private DebugInformation DebugInformation { get; }
+
+        public RendererInputData InputData
+        {
+            get => _inputData;
+            set
+            {
+                _inputData = value;
+                _renderer.InputData = value;
+            }
+        }
 
         public RenderingControl()
         {
@@ -32,9 +43,14 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
             GlControl.Start(mainSettings);
 
             _renderer = new OpenGLRenderer();
+            _renderer.InputData = InputData;
+
             _inputController = new InputController();
+
             DebugInformation = new DebugInformation();
         }
+
+        public void SetInputData(RendererInputData data) => _renderer.InputData = data;
 
         private void GlControl_OnRender(TimeSpan elapsedTimeSpan)
         {

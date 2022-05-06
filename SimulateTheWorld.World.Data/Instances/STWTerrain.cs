@@ -30,10 +30,11 @@ public class STWTerrain
 
     private TerrainTile CreateTerrainTile(int tileID)
     {
-        Random random = new Random();
+        Random random = new();
 
         return new TerrainTile
         {
+            ID = tileID,
             TileType = (TileType)random.Next(0, 2),
             TerrainType = (TerrainType)random.Next(0, 3)
         };

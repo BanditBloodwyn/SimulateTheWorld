@@ -1,4 +1,6 @@
-﻿using OpenTK.Mathematics;
+﻿using System.Threading.Tasks;
+using OpenTK.Graphics.OpenGL4;
+using OpenTK.Mathematics;
 using SimulateTheWorld.Graphics.Data.Components;
 using SimulateTheWorld.Graphics.Data.Interfaces;
 using SimulateTheWorld.Graphics.Data.OpenGL;
@@ -12,8 +14,10 @@ public static class WorldObjectProvider
     public static STWShape CreateWorldObject()
     {
         STWShape shape = new STWShape(0);
+
         shape.Drawable = new PointCloud(CreateData());
         shape.Transform.Rotate(0, 90, 0);
+
         return shape;
     }
 
@@ -37,10 +41,5 @@ public static class WorldObjectProvider
         }
 
         return vertices;
-    }
-
-    public static void UpdateVertexData(IDrawable drawable)
-    {
-
     }
 }
