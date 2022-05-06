@@ -1,4 +1,7 @@
-﻿namespace SimulateTheWorld.World.Data.Instances;
+﻿using System.Data;
+using System.Threading.Tasks;
+
+namespace SimulateTheWorld.World.Data.Instances;
 
 public class STWWorld
 {
@@ -19,6 +22,20 @@ public class STWWorld
 
     private void StartWorld()
     {
+        Task.Factory.StartNew(Update);
+    }
 
+    private void Update()
+    {
+        while(true)
+        {
+            // Debugging
+            RandomizeTiles();
+        }
+    }
+
+    private void RandomizeTiles()
+    {
+        Terrain.RandomizeTiles();
     }
 }

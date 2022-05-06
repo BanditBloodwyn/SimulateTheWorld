@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="Math\" />
+    <Folder Include="Extentions\" />
     <Folder Include="Types\" />
   </ItemGroup>
 

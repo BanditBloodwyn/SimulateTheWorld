@@ -29,7 +29,7 @@ void main()
         if (aTerrainType == 1)
             position = position + vec3(0, 0.01, 0);
         if (aTerrainType == 2)
-            position = position + vec3(0, 0.02, 0);
+            position = position + vec3(0, 0.05, 0);
     }
     gl_Position = vec4(position, 1.0) * uModel;
 }

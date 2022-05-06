@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using SimulateTheWorld.Core.Extentions;
 using SimulateTheWorld.World.Data.Data.Container;
 using SimulateTheWorld.World.Data.Data.Enums;
 
@@ -20,5 +21,11 @@ public class TerrainTile
         FloraValues = new FloraValues();
         FaunaValues = new FaunaValues();
         PopulationValues = new PopulationValues();
+    }
+
+    public void Randomize()
+    {
+        TileType = TileType.RandomOf();
+        TerrainType = TerrainType.RandomOf();
     }
 }

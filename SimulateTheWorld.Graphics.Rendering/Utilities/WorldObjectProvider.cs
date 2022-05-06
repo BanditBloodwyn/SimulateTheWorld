@@ -1,6 +1,6 @@
-﻿using System;
-using OpenTK.Mathematics;
+﻿using OpenTK.Mathematics;
 using SimulateTheWorld.Graphics.Data.Components;
+using SimulateTheWorld.Graphics.Data.Interfaces;
 using SimulateTheWorld.Graphics.Data.OpenGL;
 using SimulateTheWorld.Graphics.Shapes;
 using SimulateTheWorld.World.Data.Instances;
@@ -20,22 +20,27 @@ public static class WorldObjectProvider
     private static DataVertex[] CreateData()
     {
         DataVertex[] vertices = new DataVertex[STWTerrain.TerrainSize * STWTerrain.TerrainSize];
-        Random random = new Random();
 
         for (int x = 0; x < STWTerrain.TerrainSize; x++)
         {
             for (int y = 0; y < STWTerrain.TerrainSize; y++)
             {
                 int i = x + y * STWTerrain.TerrainSize;
-                int tile = random.Next(0, 2);
-                int terrain = random.Next(0, 3);
+
+                TerrainTile tile = STWWorld.Instance.Terrain.Tiles[i];
+
                 vertices[i] = new DataVertex(
-                    new Vector3(x * STWTerrain.TileSize, 0, y * STWTerrain.TileSize), 
-                    tile, 
-                    terrain);
+                    new Vector3(x * STWTerrain.TileSize, 0, y * STWTerrain.TileSize),
+                    (int)tile.TileType,
+                    (int)tile.TerrainType);
             }
         }
 
         return vertices;
+    }
+
+    public static void UpdateVertexData(IDrawable drawable)
+    {
+
     }
 }
