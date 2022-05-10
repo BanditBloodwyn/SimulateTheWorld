@@ -40,9 +40,9 @@ public class OpenGLRenderer
     {
         FpsCounter.TimeDifference = elapsedTimeSpan.Milliseconds;
 
-        if(InputData != null && InputData.TriggerUpdate)
+        if(InputData != null && InputData.TriggerUpdateWorldRendering)
         {
-            InputData.TriggerUpdate = false;
+            InputData.TriggerUpdateWorldRendering = false;
             if (_world.Drawable != null)
                 VertexUpdater.UpdateVertexData(_world.Drawable);
         }

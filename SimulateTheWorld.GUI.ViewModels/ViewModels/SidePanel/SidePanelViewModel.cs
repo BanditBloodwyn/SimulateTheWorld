@@ -13,8 +13,8 @@ public class SidePanelViewModel : ObservableObject
         NextRoundCommand = new NextRoundCommand();
     }
 
-    public void SetNextRoundCommand(Action? triggerNextRound)
+    public void SetUpdateWorldRendering(Action? triggerUpdateWorldRendering)
     {
-        NextRoundCommand.TriggerNextRound += triggerNextRound;
+        NextRoundCommand.TriggerUpdateWorldRendering += triggerUpdateWorldRendering;
     }
 }

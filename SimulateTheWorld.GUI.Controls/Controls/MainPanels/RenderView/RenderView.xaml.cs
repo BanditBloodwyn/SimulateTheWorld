@@ -28,9 +28,9 @@ namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.RenderView
             _fpsc_fpsControl.lbl_FpsMilliSec.Content = ((info.FPS - Math.Truncate(info.FPS)) * 100).ToString("N");
         }
 
-        public void TriggerNextRound()
+        public void UpdateWorldRendering()
         {
-            InputData.TriggerUpdate = true;
+            InputData.TriggerUpdateWorldRendering = true;
         }
     }
 }

@@ -16,21 +16,12 @@ public class STWWorld
     private STWWorld()
     {
         Terrain = new STWTerrain();
-        StartWorld();
     }
 
-    private void StartWorld()
+    public void Update()
     {
-        Task.Factory.StartNew(Update);
-    }
-
-    private void Update()
-    {
-        while(true)
-        {
-            // Debugging
-            RandomizeTiles();
-        }
+        // Debugging
+        RandomizeTiles();
     }
 
     private void RandomizeTiles()

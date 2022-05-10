@@ -2,5 +2,5 @@
 
 public class RendererInputData
 {
-    public bool TriggerUpdate { get; set; }
+    public bool TriggerUpdateWorldRendering { get; set; }
 }

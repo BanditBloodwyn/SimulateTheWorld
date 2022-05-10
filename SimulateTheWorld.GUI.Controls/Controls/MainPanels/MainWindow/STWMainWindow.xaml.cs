@@ -13,7 +13,7 @@ namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.MainWindow
             InitializeComponent();
 
             if (v_SidePanel.DataContext is SidePanelViewModel spViewModel)
-                spViewModel.SetNextRoundCommand(v_RenderView.TriggerNextRound);
+                spViewModel.SetUpdateWorldRendering(v_RenderView.UpdateWorldRendering);
         }
     }
 }

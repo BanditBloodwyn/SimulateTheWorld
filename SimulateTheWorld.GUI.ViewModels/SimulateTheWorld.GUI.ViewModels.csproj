@@ -14,6 +14,7 @@
     <ProjectReference Include="..\SimulateTheWorld.Core\SimulateTheWorld.Core.csproj" />
     <ProjectReference Include="..\SimulateTheWorld.GUI.Resources\SimulateTheWorld.GUI.Resources.csproj" />
     <ProjectReference Include="..\SimulateTheWorld.Models\SimulateTheWorld.Models.csproj" />
+    <ProjectReference Include="..\SimulateTheWorld.World.Data\SimulateTheWorld.World.Data.csproj" />
   </ItemGroup>
 
 </Project>

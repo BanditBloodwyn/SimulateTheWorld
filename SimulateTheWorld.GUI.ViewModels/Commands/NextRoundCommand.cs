@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
+using SimulateTheWorld.World.Data.Instances;
 
 namespace SimulateTheWorld.GUI.ViewModels.Commands;
 
 public class NextRoundCommand : ICommand
 {
     public event EventHandler? CanExecuteChanged;
-    public event Action? TriggerNextRound;
+    public event Action? TriggerUpdateWorldRendering;
 
     public bool CanExecute(object? parameter)
     {
@@ -15,6 +17,7 @@ public class NextRoundCommand : ICommand
 
     public void Execute(object? parameter)
     {
-        TriggerNextRound?.Invoke();
+        Task.Factory.StartNew(STWWorld.Instance.Update)
+            .ContinueWith(_ => TriggerUpdateWorldRendering?.Invoke());
     }
 }
