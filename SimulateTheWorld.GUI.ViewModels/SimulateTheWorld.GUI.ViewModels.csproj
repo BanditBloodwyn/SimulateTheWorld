@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="SidePanel\Panels\MarkedLocations\" />
+    <Folder Include="Commands\" />
   </ItemGroup>
 
   <ItemGroup>

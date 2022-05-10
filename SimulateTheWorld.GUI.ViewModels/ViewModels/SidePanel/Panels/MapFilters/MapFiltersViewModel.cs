@@ -1,7 +1,7 @@
 ﻿using SimulateTheWorld.Core.MVVM;
 using SimulateTheWorld.Models.SidePanel.Panels.MapFilters;
 
-namespace SimulateTheWorld.GUI.ViewModels.SidePanel.Panels.MapFilters;
+namespace SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel.Panels.MapFilters;
 
 public class MapFiltersViewModel : ObservableObject
 {

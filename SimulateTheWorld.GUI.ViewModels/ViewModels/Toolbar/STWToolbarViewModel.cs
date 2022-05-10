@@ -1,7 +1,7 @@
 ﻿using System.Windows.Controls;
 using SimulateTheWorld.Core.MVVM;
 
-namespace SimulateTheWorld.GUI.ViewModels.Toolbar;
+namespace SimulateTheWorld.GUI.ViewModels.ViewModels.Toolbar;
 
 public class STWToolbarViewModel : ObservableObject
 {

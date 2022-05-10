@@ -1,5 +1,5 @@
 ﻿using System.Windows.Controls;
-using SimulateTheWorld.GUI.ViewModels.SidePanel;
+using SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel;
 
 namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.MainWindow
 {
@@ -13,7 +13,7 @@ namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.MainWindow
             InitializeComponent();
 
             if (v_SidePanel.DataContext is SidePanelViewModel spViewModel)
-                spViewModel.NextRound += v_RenderView.TriggerNextRound;
+                spViewModel.SetNextRoundCommand(v_RenderView.TriggerNextRound);
         }
     }
 }

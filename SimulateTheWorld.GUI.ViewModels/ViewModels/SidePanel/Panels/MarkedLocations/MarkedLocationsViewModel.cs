@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using SimulateTheWorld.Core.MVVM;
 using SimulateTheWorld.Core.Types;
 
-namespace SimulateTheWorld.GUI.ViewModels.SidePanel.Panels.MarkedLocations;
+namespace SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel.Panels.MarkedLocations;
 
 public class MarkedLocationsViewModel : ObservableObject
 {
