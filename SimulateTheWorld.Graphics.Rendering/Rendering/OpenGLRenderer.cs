@@ -50,6 +50,7 @@ public class OpenGLRenderer
         GL.ClearColor(new Color4(0, 0, 40, 0));
         GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
+        _pointShader.SetFloat("uTileSize", STWTerrain.TileSize);
         _world.Draw(_pointShader, Camera);
     }
 
