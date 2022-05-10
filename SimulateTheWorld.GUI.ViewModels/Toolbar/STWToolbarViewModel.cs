@@ -1,6 +1,5 @@
 ﻿using System.Windows.Controls;
 using SimulateTheWorld.Core.MVVM;
-using DelegateCommand = SimulateTheWorld.GUI.ViewModels.Core.DelegateCommand;
 
 namespace SimulateTheWorld.GUI.ViewModels.Toolbar;
 

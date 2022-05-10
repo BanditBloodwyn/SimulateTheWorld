@@ -1,8 +1,5 @@
-﻿using System.Threading.Tasks;
-using OpenTK.Graphics.OpenGL4;
-using OpenTK.Mathematics;
+﻿using OpenTK.Mathematics;
 using SimulateTheWorld.Graphics.Data.Components;
-using SimulateTheWorld.Graphics.Data.Interfaces;
 using SimulateTheWorld.Graphics.Data.OpenGL;
 using SimulateTheWorld.Graphics.Shapes;
 using SimulateTheWorld.World.Data.Instances;
