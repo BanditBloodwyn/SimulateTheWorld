@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using SimulateTheWorld.GUI.ViewModels.SidePanel;
 
 namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.MainWindow
 {
@@ -10,6 +11,9 @@ namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.MainWindow
         public STWMainWindow()
         {
             InitializeComponent();
+
+            if (v_SidePanel.DataContext is SidePanelViewModel spViewModel)
+                spViewModel.NextRound += v_RenderView.TriggerNextRound;
         }
     }
 }

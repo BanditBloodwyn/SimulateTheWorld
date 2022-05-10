@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Controls;
-using SimulateTheWorld.Graphics.Rendering.Utilities;
+using SimulateTheWorld.Graphics.Rendering.Container;
 
 namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.RenderView
 {
@@ -9,7 +9,7 @@ namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.RenderView
     /// </summary>
     public partial class RenderView : UserControl
     {
-        private RendererInputData InputData;
+        private readonly RendererInputData InputData;
 
         public RenderView()
         {
@@ -28,7 +28,7 @@ namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.RenderView
             _fpsc_fpsControl.lbl_FpsMilliSec.Content = ((info.FPS - Math.Truncate(info.FPS)) * 100).ToString("N");
         }
 
-        private void _btn_TriggerUpdate_Click(object sender, System.Windows.RoutedEventArgs e)
+        public void TriggerNextRound()
         {
             InputData.TriggerUpdate = true;
         }

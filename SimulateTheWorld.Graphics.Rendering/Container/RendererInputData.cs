@@ -1,4 +1,4 @@
-﻿namespace SimulateTheWorld.Graphics.Rendering.Utilities;
+﻿namespace SimulateTheWorld.Graphics.Rendering.Container;
 
 public class RendererInputData
 {

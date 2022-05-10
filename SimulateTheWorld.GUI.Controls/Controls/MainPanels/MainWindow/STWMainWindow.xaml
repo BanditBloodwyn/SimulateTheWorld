@@ -15,7 +15,7 @@
 
         <GridSplitter Grid.Column="0" ShowsPreview="True" VerticalAlignment="Stretch" HorizontalAlignment="Right" Width="4"/>
 
-        <sidePanel:STWSidePanel Grid.Column="0"/>
-        <renderView:RenderView Grid.Column="1"/>
+        <sidePanel:STWSidePanel x:Name="v_SidePanel" Grid.Column="0"/>
+        <renderView:RenderView x:Name="v_RenderView" Grid.Column="1"/>
     </Grid>
 </UserControl>

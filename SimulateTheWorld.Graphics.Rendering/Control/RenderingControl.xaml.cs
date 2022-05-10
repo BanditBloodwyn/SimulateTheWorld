@@ -5,6 +5,7 @@ using System.Windows.Input;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 using OpenTK.Wpf;
+using SimulateTheWorld.Graphics.Rendering.Container;
 using SimulateTheWorld.Graphics.Rendering.Rendering;
 using SimulateTheWorld.Graphics.Rendering.Utilities;
 using MouseWheelEventArgs = System.Windows.Input.MouseWheelEventArgs;
@@ -39,7 +40,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
         {
             InitializeComponent();
 
-            var mainSettings = new GLWpfControlSettings { MajorVersion = 4, MinorVersion = 5, GraphicsProfile = ContextProfile.Core, GraphicsContextFlags = ContextFlags.Default, RenderContinuously = true};
+            GLWpfControlSettings mainSettings = new GLWpfControlSettings { MajorVersion = 4, MinorVersion = 5, GraphicsProfile = ContextProfile.Core, GraphicsContextFlags = ContextFlags.Default, RenderContinuously = true};
             GlControl.Start(mainSettings);
 
             _renderer = new OpenGLRenderer();

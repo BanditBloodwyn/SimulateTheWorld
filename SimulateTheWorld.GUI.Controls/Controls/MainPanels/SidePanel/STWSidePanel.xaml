@@ -12,19 +12,29 @@
         <sidePanel1:SidePanelViewModel/>
     </UserControl.DataContext>
 
-    <StackPanel Margin="0,0,5,0">
-        <Expander Header="{x:Static resources:Locals_German.sidepanel_expander_search}" ExpandDirection="Down" IsExpanded="False">
-            <Border Background="Gray">
-                <panels:SearchLocationControl/>
-            </Border>
-        </Expander>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Grid.Row="0" Margin="0,0,5,0">
+            <Expander Header="{x:Static resources:Locals_German.sidepanel_expander_search}" ExpandDirection="Down" IsExpanded="False">
+                <Border Background="Gray">
+                    <panels:SearchLocationControl/>
+                </Border>
+            </Expander>
 
-        <Expander Header="{x:Static resources:Locals_German.sidepanel_expander_markedLocations}" ExpandDirection="Down" IsExpanded="False">
-            <panels:MarkedLocationsControl/>
-        </Expander>
+            <Expander Header="{x:Static resources:Locals_German.sidepanel_expander_markedLocations}" ExpandDirection="Down" IsExpanded="False">
+                <panels:MarkedLocationsControl/>
+            </Expander>
 
-        <Expander Header="{x:Static resources:Locals_German.sidepanel_expander_mapFilters}" ExpandDirection="Down" IsExpanded="False">
-            <panels:MapFiltersControl/>
-        </Expander>
-    </StackPanel>
+            <Expander Header="{x:Static resources:Locals_German.sidepanel_expander_mapFilters}" ExpandDirection="Down" IsExpanded="False">
+                <panels:MapFiltersControl/>
+            </Expander>
+        </StackPanel>
+
+        <Button x:Name="btn_NextRound" Grid.Row="1" Margin="40" Content="Next Round" 
+                Command="{Binding NextRoundCommand }" CommandParameter="{Binding ElementName=btn_NextRound}"/>
+    </Grid>
 </UserControl>
