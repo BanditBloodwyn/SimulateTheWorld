@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using SimulateTheWorld.World.Data.Instances;
@@ -9,7 +10,7 @@ public class NextRoundCommand : ICommand
 {
     public event EventHandler? CanExecuteChanged;
     public event Action? TriggerUpdateWorldRendering;
-    public event Action<bool>? OnEnableUpdateButton;
+    public event Action<bool>? OnEnableNextRoundButton;
 
     public bool CanExecute(object? parameter)
     {
@@ -18,11 +19,13 @@ public class NextRoundCommand : ICommand
 
     public void Execute(object? parameter)
     {
+        Debug.WriteLine("\n==================");
+
         Task.Factory
-            .StartNew(() => OnEnableUpdateButton?.Invoke(false))
+            .StartNew(() => OnEnableNextRoundButton?.Invoke(false))
             .ContinueWith(_ => STWWorld.Instance.Update())
             .ContinueWith(_ => TriggerUpdateWorldRendering?.Invoke())
-            .ContinueWith(_ => OnEnableUpdateButton?.Invoke(true));
+            .ContinueWith(_ => OnEnableNextRoundButton?.Invoke(true));
     }
 
     public void OnCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);

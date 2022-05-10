@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using SimulateTheWorld.Core.MVVM;
 using SimulateTheWorld.GUI.ViewModels.Commands;
 
@@ -6,16 +7,16 @@ namespace SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel;
 
 public class SidePanelViewModel : ObservableObject
 {
-    private bool _updateEnabled;
+    private bool _nextRoundEnabled;
 
-    public bool UpdateEnabled
+    public bool NextRoundEnabled
     {
-        get => _updateEnabled;
+        get => _nextRoundEnabled;
         set
         {
-            if (_updateEnabled != value)
+            if (_nextRoundEnabled != value)
             {
-                _updateEnabled = value;
+                _nextRoundEnabled = value;
                 OnPropertyChanged();
             }
         }
@@ -25,15 +26,17 @@ public class SidePanelViewModel : ObservableObject
 
     public SidePanelViewModel()
     {
-        UpdateEnabled = true;
+        NextRoundEnabled = true;
 
         NextRoundCommand = new NextRoundCommand();
-        NextRoundCommand.OnEnableUpdateButton += OnEnableUpdateButton;
+        NextRoundCommand.OnEnableNextRoundButton += OnEnableNextRoundButton;
     }
 
-    private void OnEnableUpdateButton(bool enable)
+    private void OnEnableNextRoundButton(bool enable)
     {
-        UpdateEnabled = enable;
+        string en = enable ? "true" : "false";
+        Debug.WriteLine($"Set \"Next Round\" button enable {en}");
+        NextRoundEnabled = enable;
     }
 
     public void SetUpdateWorldRendering(Action? triggerUpdateWorldRendering)

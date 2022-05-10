@@ -55,7 +55,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
 
         private void GlControl_OnRender(TimeSpan elapsedTimeSpan)
         {
-            _renderer.OnRender(elapsedTimeSpan);
+            _renderer.OnRender(elapsedTimeSpan, Dispatcher);
 
             _millisecs += elapsedTimeSpan.Milliseconds;
             if (_millisecs >= FPSCounter.Interval)

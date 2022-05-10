@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Threading;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using SimulateTheWorld.Graphics.Data;
@@ -36,7 +37,7 @@ public class OpenGLRenderer
 
     public void OnLoaded() { }
 
-    public void OnRender(TimeSpan elapsedTimeSpan)
+    public void OnRender(TimeSpan elapsedTimeSpan, Dispatcher dispatcher)
     {
         FpsCounter.TimeDifference = elapsedTimeSpan.Milliseconds;
 
@@ -44,7 +45,7 @@ public class OpenGLRenderer
         {
             InputData.TriggerUpdateWorldRendering = false;
             if (_world.Drawable != null)
-                VertexUpdater.UpdateVertexData(_world.Drawable);
+                VertexUpdater.UpdateVertexData(_world.Drawable, dispatcher);
         }
 
         GL.ClearColor(new Color4(0, 0, 40, 0));

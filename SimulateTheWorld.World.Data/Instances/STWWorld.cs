@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+﻿using System.Diagnostics;
 
 namespace SimulateTheWorld.World.Data.Instances;
 
@@ -20,6 +20,8 @@ public class STWWorld
 
     public void Update()
     {
+        Debug.WriteLine("Update world");
+
         // Debugging
         RandomizeTiles();
     }

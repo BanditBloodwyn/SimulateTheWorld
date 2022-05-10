@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using SimulateTheWorld.World.Data.Data.Enums;
 
 namespace SimulateTheWorld.World.Data.Instances;
@@ -42,7 +43,22 @@ public class STWTerrain
 
     public void RandomizeTiles()
     {
+        int updatedTilesCount = 0;
+
         foreach (TerrainTile terrainTile in Tiles)
-            terrainTile.Randomize();
+        {
+            try
+            {
+                terrainTile.Randomize();
+                updatedTilesCount++;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Tile randomization failed: {e}");
+                throw;
+            }
+        }
+
+        Debug.WriteLine($"Updated tiles: {updatedTilesCount}");
     }
 }

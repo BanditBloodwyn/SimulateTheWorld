@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Controls;
 using SimulateTheWorld.Graphics.Rendering.Container;
 
@@ -30,6 +31,8 @@ namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.RenderView
 
         public void UpdateWorldRendering()
         {
+            Debug.WriteLine("Update world rendering");
+
             InputData.TriggerUpdateWorldRendering = true;
         }
     }
