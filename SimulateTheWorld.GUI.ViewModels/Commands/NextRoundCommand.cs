@@ -9,6 +9,7 @@ public class NextRoundCommand : ICommand
 {
     public event EventHandler? CanExecuteChanged;
     public event Action? TriggerUpdateWorldRendering;
+    public event Action<bool>? OnEnableUpdateButton;
 
     public bool CanExecute(object? parameter)
     {
@@ -17,8 +18,11 @@ public class NextRoundCommand : ICommand
 
     public void Execute(object? parameter)
     {
-        Task.Factory.StartNew(STWWorld.Instance.Update)
-            .ContinueWith(_ => TriggerUpdateWorldRendering?.Invoke());
+        Task.Factory
+            .StartNew(() => OnEnableUpdateButton?.Invoke(false))
+            .ContinueWith(_ => STWWorld.Instance.Update())
+            .ContinueWith(_ => TriggerUpdateWorldRendering?.Invoke())
+            .ContinueWith(_ => OnEnableUpdateButton?.Invoke(true));
     }
 
     public void OnCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);

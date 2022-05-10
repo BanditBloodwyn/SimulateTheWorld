@@ -34,7 +34,9 @@
             </Expander>
         </StackPanel>
 
-        <Button x:Name="btn_NextRound" Grid.Row="1" Margin="40" Content="Next Round" 
+        <Button Grid.Row="1" Margin="40" 
+                IsEnabled="{Binding UpdateEnabled}"
+                Content="Next Round" 
                 Command="{Binding NextRoundCommand }"/>
     </Grid>
 </UserControl>
