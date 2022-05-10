@@ -20,4 +20,6 @@ public class NextRoundCommand : ICommand
         Task.Factory.StartNew(STWWorld.Instance.Update)
             .ContinueWith(_ => TriggerUpdateWorldRendering?.Invoke());
     }
+
+    public void OnCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
 }
