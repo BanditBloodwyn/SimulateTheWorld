@@ -33,7 +33,7 @@ namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.RenderView
         {
             Debug.WriteLine("Update world rendering");
 
-            InputData.TriggerUpdateWorldRendering = true;
+            _renderingControl.OnUpdateVertexData();
         }
     }
 }

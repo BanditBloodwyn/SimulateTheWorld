@@ -25,7 +25,8 @@ public class NextRoundCommand : ICommand
             .StartNew(() => OnEnableNextRoundButton?.Invoke(false))
             .ContinueWith(_ => STWWorld.Instance.Update())
             .ContinueWith(_ => TriggerUpdateWorldRendering?.Invoke())
-            .ContinueWith(_ => OnEnableNextRoundButton?.Invoke(true));
+            .ContinueWith(_ => OnEnableNextRoundButton?.Invoke(true))
+            .ContinueWith(_ => Debug.WriteLine("==================\n"));
     }
 
     public void OnCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);

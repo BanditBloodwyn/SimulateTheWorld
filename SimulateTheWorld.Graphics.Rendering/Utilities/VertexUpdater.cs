@@ -18,21 +18,16 @@ public static class VertexUpdater
         {
             if (drawable is PointCloud pointCloud)
             {
-                Task.Factory.StartNew(() =>
+                for (int i = 0; i < pointCloud.Vertices.Length; i++)
                 {
-                    for (int i = 0; i < pointCloud.Vertices.Length; i++)
-                    {
-                        TerrainTile tile = STWWorld.Instance.Terrain.Tiles[i];
-                        pointCloud.Vertices[i].tileType = (int)tile.TileType;
-                        pointCloud.Vertices[i].terrainType = (int)tile.TerrainType;
-                        updatedVerticesCount++;
-                    }
-                }).ContinueWith(_ =>
-                {
-                    dispatcher.Invoke(pointCloud.UpdateVertexData);
-                    Debug.WriteLine($"Updated vertices: {updatedVerticesCount}");
-                    Debug.WriteLine("==================\n");
-                });
+                    TerrainTile tile = STWWorld.Instance.Terrain.Tiles[i];
+                    pointCloud.Vertices[i].tileType = (int)tile.TileType;
+                    pointCloud.Vertices[i].terrainType = (int)tile.TerrainType;
+                    updatedVerticesCount++;
+                }
+
+                dispatcher.Invoke(pointCloud.UpdateVertexData);
+                Debug.WriteLine($"\tUpdated vertices: {updatedVerticesCount}");
             }
         }
         catch (Exception e)

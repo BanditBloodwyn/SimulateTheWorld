@@ -53,9 +53,14 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
 
         public void SetInputData(RendererInputData data) => _renderer.InputData = data;
 
+        public void OnUpdateVertexData()
+        {
+            _renderer.OnUpdateVertexData(Dispatcher);
+        }
+
         private void GlControl_OnRender(TimeSpan elapsedTimeSpan)
         {
-            _renderer.OnRender(elapsedTimeSpan, Dispatcher);
+            _renderer.OnRender(elapsedTimeSpan);
 
             _millisecs += elapsedTimeSpan.Milliseconds;
             if (_millisecs >= FPSCounter.Interval)

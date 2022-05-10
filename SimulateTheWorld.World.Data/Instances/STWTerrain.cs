@@ -59,6 +59,6 @@ public class STWTerrain
             }
         }
 
-        Debug.WriteLine($"Updated tiles: {updatedTilesCount}");
+        Debug.WriteLine($"\tUpdated tiles: {updatedTilesCount}");
     }
 }

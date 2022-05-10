@@ -37,22 +37,21 @@ public class OpenGLRenderer
 
     public void OnLoaded() { }
 
-    public void OnRender(TimeSpan elapsedTimeSpan, Dispatcher dispatcher)
+    public void OnRender(TimeSpan elapsedTimeSpan)
     {
         FpsCounter.TimeDifference = elapsedTimeSpan.Milliseconds;
-
-        if(InputData != null && InputData.TriggerUpdateWorldRendering)
-        {
-            InputData.TriggerUpdateWorldRendering = false;
-            if (_world.Drawable != null)
-                VertexUpdater.UpdateVertexData(_world.Drawable, dispatcher);
-        }
 
         GL.ClearColor(new Color4(0, 0, 40, 0));
         GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
         _pointShader.SetFloat("uTileSize", STWTerrain.TileSize);
         _world.Draw(_pointShader, Camera);
+    }
+
+    public void OnUpdateVertexData(Dispatcher dispatcher)
+    {
+        if (_world.Drawable != null)
+            VertexUpdater.UpdateVertexData(_world.Drawable, dispatcher);
     }
 
     public void OnUnLoaded() { }
