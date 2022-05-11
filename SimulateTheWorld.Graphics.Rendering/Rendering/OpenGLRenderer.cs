@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Threading;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using SimulateTheWorld.Graphics.Data;
 using SimulateTheWorld.Graphics.Data.OpenGL;
 using SimulateTheWorld.Graphics.Rendering.Utilities;
+using SimulateTheWorld.Graphics.Resources.Rendering;
 using SimulateTheWorld.Graphics.Shapes;
 using SimulateTheWorld.Models.SidePanel.Panels.MapFilters;
 using SimulateTheWorld.World.Data.Instances;
@@ -37,7 +39,15 @@ public class OpenGLRenderer
     private void OnMapFilterChanged()
     {
         if (MapFiltersModel.Instance.ActiveFilter != null)
+        {
+            Color[] colors = MapFilterColors.GetColorsByFilterType(MapFiltersModel.Instance.ActiveFilter.Type);
+            Vector4 filterColorZero = new Vector4(colors[0].R / 255f, colors[0].G / 255f, colors[0].B / 255f, 1);
+            Vector4 filterColorHundred = new Vector4(colors[1].R / 255f, colors[1].G / 255f, colors[1].B / 255f, 1);
+
+            _pointShader.SetVector4("uFilterColorZero", filterColorZero);
+            _pointShader.SetVector4("uFilterColorHundred", filterColorHundred);
             _pointShader.SetInt("uFilterMode", (int)MapFiltersModel.Instance.ActiveFilter.Type);
+        }
     }
 
     public void OnLoaded() { }

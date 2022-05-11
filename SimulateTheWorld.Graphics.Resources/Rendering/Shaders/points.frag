@@ -4,11 +4,18 @@ out vec4 FragColor;
 
 flat in float tileType;
 flat in float terrainType;
+flat in float popByTribe;
+flat in float countries;
+flat in float lifeStandard;
+flat in float urbanization;
+
 flat in vec3 colorShading;
 
 uniform int uFilterMode;
+uniform vec4 uFilterColorZero;
+uniform vec4 uFilterColorHundred;
 
-vec4 SampleColor(vec4[2] colors, float value)
+vec4 SampleColor(float value)
 {
     if (value > 100 || value < 0)
         return vec4(1, 1, 1, 1);
@@ -16,13 +23,9 @@ vec4 SampleColor(vec4[2] colors, float value)
     value /= 100;
 
     float bk = (1 - value);
-    float r = colors[0].x * bk + colors[1].x * value;
-    float g = colors[0].y * bk + colors[1].y * value;
-    float b = colors[0].z * bk + colors[1].z * value;
-
-    r /= 255;
-    g /= 255;
-    b /= 255;
+    float r = uFilterColorZero.x * bk + uFilterColorHundred.x * value;
+    float g = uFilterColorZero.y * bk + uFilterColorHundred.y * value;
+    float b = uFilterColorZero.z * bk + uFilterColorHundred.z * value;
 
     return vec4(r, g, b, 1);
 }
@@ -46,6 +49,12 @@ void main()
 {
     if (uFilterMode == 0)
         FragColor = GetTerrainColor() * vec4(colorShading, 0);
-    else
-        FragColor = vec4(1, 1, 1, 1) * vec4(colorShading, 0);
+    else if (uFilterMode == 1)
+        FragColor = SampleColor(popByTribe) * vec4(colorShading, 0);
+    else if (uFilterMode == 2)
+        FragColor = SampleColor(countries) * vec4(colorShading, 0);
+    else if (uFilterMode == 3)
+        FragColor = SampleColor(lifeStandard) * vec4(colorShading, 0);
+    else if (uFilterMode == 4)
+        FragColor = SampleColor(urbanization) * vec4(colorShading, 0);
 }

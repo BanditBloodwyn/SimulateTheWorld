@@ -33,7 +33,11 @@ public static class WorldObjectProvider
                 vertices[i] = new DataVertex(
                     new Vector3(x * STWTerrain.TileSize, 0, y * STWTerrain.TileSize),
                     (int)tile.TileType,
-                    (int)tile.TerrainType);
+                    (int)tile.TerrainType,
+                    tile.PopulationValues.Population.Quantity,
+                    0,
+                    tile.PopulationValues.LifeStandard,
+                    tile.PopulationValues.Urbanization);
             }
         }
 

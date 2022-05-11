@@ -15,6 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SimulateTheWorld.Core\SimulateTheWorld.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Rendering\Textures\Diffuse\Paths.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
