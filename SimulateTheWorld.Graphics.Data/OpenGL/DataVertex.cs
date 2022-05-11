@@ -14,16 +14,14 @@ public struct DataVertex
     public float lifeStandard;
     public float urbanization;
 
-    public DataVertex(Vector3 position, float tileType, float terrainType, float popByTribe, float countries, float lifeStandard, float urbanization)
+    public DataVertex(Vector3 position)
     {
         this.position = position;
-
-        this.tileType = tileType;
-        this.terrainType = terrainType;
-
-        this.popByTribe = popByTribe;
-        this.countries = countries;
-        this.lifeStandard = lifeStandard;
-        this.urbanization = urbanization;
+        tileType = 0;
+        terrainType = 0;
+        popByTribe = 0;
+        countries = 0;
+        lifeStandard = 0;
+        urbanization = 0;
     }
 }

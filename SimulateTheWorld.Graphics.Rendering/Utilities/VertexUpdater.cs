@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Threading.Tasks;
 using System.Windows.Threading;
 using SimulateTheWorld.Graphics.Data.Components;
 using SimulateTheWorld.Graphics.Data.Interfaces;
@@ -10,7 +9,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Utilities;
 
 public static class VertexUpdater
 {
-    public static void UpdateVertexData(IDrawable drawable, Dispatcher dispatcher)
+    public static void UpdateVertexData(IDrawable drawable, Dispatcher? dispatcher = null)
     {
         int updatedVerticesCount = 0;
 
@@ -23,10 +22,17 @@ public static class VertexUpdater
                     TerrainTile tile = STWWorld.Instance.Terrain.Tiles[i];
                     pointCloud.Vertices[i].tileType = (int)tile.TileType;
                     pointCloud.Vertices[i].terrainType = (int)tile.TerrainType;
+                    pointCloud.Vertices[i].popByTribe = tile.PopulationValues.Population.Quantity;
+                    pointCloud.Vertices[i].countries = tile.PopulationValues.Population.Quantity;
+                    pointCloud.Vertices[i].lifeStandard = tile.PopulationValues.LifeStandard;
+                    pointCloud.Vertices[i].urbanization = tile.PopulationValues.Urbanization;
                     updatedVerticesCount++;
                 }
 
-                dispatcher.Invoke(pointCloud.UpdateVertexData);
+                if (dispatcher != null)
+                    dispatcher.Invoke(pointCloud.UpdateVertexData);
+                else
+                    pointCloud.UpdateVertexData();
                 Debug.WriteLine($"\tUpdated vertices: {updatedVerticesCount}");
             }
         }

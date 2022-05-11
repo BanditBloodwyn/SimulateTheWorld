@@ -12,13 +12,14 @@ public static class WorldObjectProvider
     {
         STWShape shape = new STWShape(0);
 
-        shape.Drawable = new PointCloud(CreateData());
+        shape.Drawable = new PointCloud(CreateInitialVertices());
+        VertexUpdater.UpdateVertexData(shape.Drawable);
         shape.Transform.Rotate(0, 90, 0);
 
         return shape;
     }
 
-    private static DataVertex[] CreateData()
+    private static DataVertex[] CreateInitialVertices()
     {
         DataVertex[] vertices = new DataVertex[STWTerrain.TerrainSize * STWTerrain.TerrainSize];
 
@@ -27,17 +28,7 @@ public static class WorldObjectProvider
             for (int y = 0; y < STWTerrain.TerrainSize; y++)
             {
                 int i = x + y * STWTerrain.TerrainSize;
-
-                TerrainTile tile = STWWorld.Instance.Terrain.Tiles[i];
-
-                vertices[i] = new DataVertex(
-                    new Vector3(x * STWTerrain.TileSize, 0, y * STWTerrain.TileSize),
-                    (int)tile.TileType,
-                    (int)tile.TerrainType,
-                    tile.PopulationValues.Population.Quantity,
-                    0,
-                    tile.PopulationValues.LifeStandard,
-                    tile.PopulationValues.Urbanization);
+                vertices[i] = new DataVertex(new Vector3(x * STWTerrain.TileSize, 0, y * STWTerrain.TileSize));
             }
         }
 
