@@ -1,4 +1,4 @@
-﻿using System.Security.RightsManagement;
+﻿using System;
 using SimulateTheWorld.Core.MVVM;
 
 namespace SimulateTheWorld.Models.SidePanel.Panels.MapFilters;
@@ -6,6 +6,8 @@ namespace SimulateTheWorld.Models.SidePanel.Panels.MapFilters;
 public class MapFilter : ObservableObject
 {
     private bool _active;
+
+    public event Action? MapFilterChanged;
 
     public string? DisplayName { get; set; }
     
@@ -19,6 +21,7 @@ public class MapFilter : ObservableObject
             if (_active != value)
             {
                 _active = value;
+                MapFilterChanged?.Invoke();
                 OnPropertyChanged();
             }
         }

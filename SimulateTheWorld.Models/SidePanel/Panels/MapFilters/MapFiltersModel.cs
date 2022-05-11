@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace SimulateTheWorld.Models.SidePanel.Panels.MapFilters;
 
@@ -7,7 +8,7 @@ public class MapFiltersModel
     private readonly MapFilter[] _filters;
 
     private static MapFiltersModel? _instance;
-
+    
     public MapFilter PopByTribeFilter { get; }
     public MapFilter CountriesFilter { get; }
     public MapFilter LifeStandardFilter { get; }
@@ -28,5 +29,12 @@ public class MapFiltersModel
         UrbanizationFilter = new MapFilter(MapFilterType.Urbanization);
 
         _filters = new[] { PopByTribeFilter, CountriesFilter, LifeStandardFilter, UrbanizationFilter };
+
+    }
+
+    public void SetOnMapFilterChanged(Action onMapFilterChanged)
+    {
+        foreach (MapFilter mapFilter in _filters)
+            mapFilter.MapFilterChanged += onMapFilterChanged;
     }
 }

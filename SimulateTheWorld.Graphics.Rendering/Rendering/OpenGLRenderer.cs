@@ -4,9 +4,9 @@ using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using SimulateTheWorld.Graphics.Data;
 using SimulateTheWorld.Graphics.Data.OpenGL;
-using SimulateTheWorld.Graphics.Rendering.Container;
 using SimulateTheWorld.Graphics.Rendering.Utilities;
 using SimulateTheWorld.Graphics.Shapes;
+using SimulateTheWorld.Models.SidePanel.Panels.MapFilters;
 using SimulateTheWorld.World.Data.Instances;
 
 namespace SimulateTheWorld.Graphics.Rendering.Rendering;
@@ -18,8 +18,6 @@ public class OpenGLRenderer
 
     public FPSCounter FpsCounter { get; private set; }
 
-    public RendererInputData? InputData { get; set; }
-
     public Camera Camera { get; }
     
     public OpenGLRenderer()
@@ -29,10 +27,17 @@ public class OpenGLRenderer
 
         Camera = new Camera(new Vector3(STWTerrain.TerrainSize / 2.0f * STWTerrain.TileSize, 15.0f, 0));
         FpsCounter = new FPSCounter();
+        MapFiltersModel.Instance.SetOnMapFilterChanged(OnMapFilterChanged);
 
         GL.Enable(EnableCap.DepthTest);
         GL.Enable(EnableCap.CullFace);
         GL.FrontFace(FrontFaceDirection.Cw);
+    }
+
+    private void OnMapFilterChanged()
+    {
+        if (MapFiltersModel.Instance.ActiveFilter != null)
+            _pointShader.SetInt("uFilterMode", (int)MapFiltersModel.Instance.ActiveFilter.Type);
     }
 
     public void OnLoaded() { }

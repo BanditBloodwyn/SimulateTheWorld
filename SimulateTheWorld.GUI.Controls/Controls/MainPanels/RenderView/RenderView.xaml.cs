@@ -10,15 +10,10 @@ namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.RenderView
     /// </summary>
     public partial class RenderView : UserControl
     {
-        private readonly RendererInputData InputData;
-
         public RenderView()
         {
             InitializeComponent();
             
-            InputData = new RendererInputData();
-            _renderingControl.InputData = InputData;
-
             _renderingControl.OnDebugInfoChanged += RenderingControlOnOnDebugInfoChanged;
         }
 
