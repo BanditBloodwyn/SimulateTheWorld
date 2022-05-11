@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Threading;
 using OpenTK.Graphics.OpenGL4;
@@ -43,6 +44,8 @@ public class OpenGLRenderer
             Color[] colors = MapFilterColors.GetColorsByFilterType(MapFiltersModel.Instance.ActiveFilter.Type);
             Vector4 filterColorZero = new Vector4(colors[0].R / 255f, colors[0].G / 255f, colors[0].B / 255f, 1);
             Vector4 filterColorHundred = new Vector4(colors[1].R / 255f, colors[1].G / 255f, colors[1].B / 255f, 1);
+            
+            Debug.WriteLine($"Changing map filter\nNew map filter: {MapFiltersModel.Instance.ActiveFilter.DisplayName}, Colors: {filterColorZero}, {filterColorHundred}");
 
             _pointShader.SetVector4("uFilterColorZero", filterColorZero);
             _pointShader.SetVector4("uFilterColorHundred", filterColorHundred);
