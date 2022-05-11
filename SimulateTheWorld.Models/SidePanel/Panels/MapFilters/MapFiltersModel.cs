@@ -8,7 +8,8 @@ public class MapFiltersModel
     private readonly MapFilter[] _filters;
 
     private static MapFiltersModel? _instance;
-    
+
+    public MapFilter TerrainFilter { get; }
     public MapFilter PopByTribeFilter { get; }
     public MapFilter CountriesFilter { get; }
     public MapFilter LifeStandardFilter { get; }
@@ -23,13 +24,13 @@ public class MapFiltersModel
 
     private MapFiltersModel()
     {
-        PopByTribeFilter = new MapFilter(MapFilterType.PopByTribe, true);
+        TerrainFilter = new MapFilter(MapFilterType.Terrain, true);
+        PopByTribeFilter = new MapFilter(MapFilterType.PopByTribe);
         CountriesFilter = new MapFilter(MapFilterType.Countries);
         LifeStandardFilter = new MapFilter(MapFilterType.LifeStandard);
         UrbanizationFilter = new MapFilter(MapFilterType.Urbanization);
 
-        _filters = new[] { PopByTribeFilter, CountriesFilter, LifeStandardFilter, UrbanizationFilter };
-
+        _filters = new[] { TerrainFilter, PopByTribeFilter, CountriesFilter, LifeStandardFilter, UrbanizationFilter };
     }
 
     public void SetOnMapFilterChanged(Action onMapFilterChanged)

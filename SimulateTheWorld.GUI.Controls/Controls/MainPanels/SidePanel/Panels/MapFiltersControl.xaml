@@ -20,9 +20,12 @@
     <Border Height="300" BorderThickness="0,1,0,0">
         <Grid Margin="0,5">
             <TreeView x:Name="tv_mapFilters" BorderBrush="Transparent">
+                <CheckBox IsChecked="{Binding Model.TerrainFilter.Active}" 
+                          Content="{Binding Model.TerrainFilter.DisplayName}"
+                          Style="{StaticResource CheckBoxStyle}"/>
                 <CheckBox IsChecked="{Binding Model.PopByTribeFilter.Active}" 
-                      Content="{Binding Model.PopByTribeFilter.DisplayName}"
-                      Style="{StaticResource CheckBoxStyle}"/>
+                          Content="{Binding Model.PopByTribeFilter.DisplayName}"
+                          Style="{StaticResource CheckBoxStyle}"/>
                 <CheckBox IsChecked="{Binding Model.CountriesFilter.Active}" 
                       Content="{Binding Model.CountriesFilter.DisplayName}"                     
                       Style="{StaticResource CheckBoxStyle}"/>

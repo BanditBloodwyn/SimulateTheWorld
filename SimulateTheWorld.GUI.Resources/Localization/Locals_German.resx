@@ -126,6 +126,9 @@
   <data name="mapfilters_popByTribe" xml:space="preserve">
     <value>Bewohner nach Stamm</value>
   </data>
+  <data name="mapfilters_terrain" xml:space="preserve">
+    <value>Terrain</value>
+  </data>
   <data name="mapfilters_urbanization" xml:space="preserve">
     <value>Urbanisierung</value>
   </data>
