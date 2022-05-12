@@ -19,6 +19,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
     {
         private readonly OpenGLRenderer _renderer;
         private readonly InputController _inputController;
+        private readonly RayCaster rayCaster;
 
         public event Action<DebugInformation>? OnDebugInfoChanged;
         private int _millisecs;
@@ -35,6 +36,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
             _renderer = new OpenGLRenderer();
 
             _inputController = new InputController();
+            rayCaster = new RayCaster(_renderer.Camera);
 
             DebugInformation = new DebugInformation();
         }
@@ -47,6 +49,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
         private void GlControl_OnRender(TimeSpan elapsedTimeSpan)
         {
             _renderer.OnRender(elapsedTimeSpan);
+            rayCaster.Update(_inputController.NewMousePosition, GlControl.ActualWidth, GlControl.ActualHeight);
 
             _millisecs += elapsedTimeSpan.Milliseconds;
             if (_millisecs >= FPSCounter.Interval)
@@ -56,6 +59,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
                 _millisecs = 0;
             }
             DebugInformation.CameraPosition = _renderer.Camera.Transform.Position;
+            DebugInformation.RayCastDirection = rayCaster.CurrentRay;
             OnDebugInfoChanged?.Invoke(DebugInformation);
         }
 
