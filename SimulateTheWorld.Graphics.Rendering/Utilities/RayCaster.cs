@@ -6,23 +6,52 @@ namespace SimulateTheWorld.Graphics.Rendering.Utilities;
 
 public class RayCaster
 {
+    private static int RECURSION_COUNT = 200;
+    private static float RAY_RANGE = 600;
+
     private readonly Camera camera;
 
     public Vector3 CurrentRay { get; private set; }
+    public Vector3? CurrentTileCoordinates { get; private set; }
 
     public RayCaster(Camera camera)
     {
         this.camera = camera;
     }
 
-    public Vector3 GetClickedTileCoordinates()
-    {
-        return Vector3.Zero;
-    }
-
     public void Update(Point mousePosition, double screenWidth, double screenHeight)
     {
         CurrentRay = CalculateMouseRay(mousePosition, screenWidth, screenHeight);
+
+        CurrentTileCoordinates = IntersectionInRange(0, RAY_RANGE, CurrentRay) 
+            ? BinarySearch(0, 0, RAY_RANGE, CurrentRay) 
+            : null;
+    }
+
+    private Vector3? BinarySearch(int count, float start, float finish, Vector3 ray)
+    {
+        float half = start + ((finish - start) / 2f);
+        if (count >= RECURSION_COUNT)
+            return GetPointOnRay(ray, half);
+        
+        return IntersectionInRange(start, half, ray) 
+            ? BinarySearch(count + 1, start, half, ray) 
+            : BinarySearch(count + 1, half, finish, ray);
+    }
+
+    private bool IntersectionInRange(float start, float finish, Vector3 ray)
+    {
+        Vector3 startPoint = GetPointOnRay(ray, start);
+        Vector3 endPoint = GetPointOnRay(ray, finish);
+        return startPoint.Y > 0 && endPoint.Y < 0;
+    }
+
+    private Vector3 GetPointOnRay(Vector3 ray, float distance)
+    {
+        Vector3 camPos = camera.Transform.Position;
+        Vector3 start = new Vector3(camPos.X, camPos.Y, camPos.Z);
+        Vector3 scaledRay = new Vector3(ray.X * distance, ray.Y * distance, ray.Z * distance);
+        return Vector3.Add(start, scaledRay);
     }
 
     private Vector3 CalculateMouseRay(Point mousePosition, double screenWidth, double screenHeight)
@@ -57,7 +86,7 @@ public class RayCaster
     {
         Matrix4 invertedViewMatrix = Matrix4.Invert(camera.ViewMatrix);
         Vector4 rayWorld = invertedViewMatrix * eyeCoords;
-        Vector3 mouseRay = new Vector3(rayWorld.X, rayWorld.Y, rayWorld.Z);
+        Vector3 mouseRay = new Vector3(rayWorld.X, -rayWorld.Y, rayWorld.Z);
         mouseRay.Normalize();
         return mouseRay;
     }

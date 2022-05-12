@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Text;
 using System.Windows.Controls;
 using SimulateTheWorld.Graphics.Rendering.Container;
 
@@ -24,7 +25,12 @@ namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.RenderView
             _fpsc_fpsControl.lbl_FpsSec.Content = info.FPS.ToString("N");
             _fpsc_fpsControl.lbl_FpsMilliSec.Content = ((info.FPS - Math.Truncate(info.FPS)) * 100).ToString("N");
 
-            _lbl_rayCast.Content = $"Raycast direction: {info.RayCastDirection.X:0.000}, {info.RayCastDirection.Y:0.000}, {info.RayCastDirection.Z:0.000}";
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"Raycast direction: {info.RayCastDirection.X:0.000}, {info.RayCastDirection.Y:0.000}, {info.RayCastDirection.Z:0.000}");
+            if(info.CurrentTileCoordinates.HasValue)
+                sb.Append($" | Current Tile Coords: {info.CurrentTileCoordinates.Value.X:0.00}, {info.CurrentTileCoordinates.Value.Y:0.00}, {info.CurrentTileCoordinates.Value.Z:0.00}");
+
+            _lbl_rayCast.Content = sb.ToString();
         }
 
         public void UpdateWorldRendering()
