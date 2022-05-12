@@ -3,14 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:SimulateTheWorld.GUI.Controls.Controls.DisplayControls"
              mc:Ignorable="d" 
-             d:DesignHeight="25" d:DesignWidth="75">
+             d:DesignHeight="25" d:DesignWidth="120">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="31"/>
             <ColumnDefinition Width="17"/>
             <ColumnDefinition Width="8"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="15"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
@@ -18,6 +20,8 @@
         <Label Grid.Column="1" x:Name="lbl_FpsSec" Margin="-8,0" HorizontalAlignment="Right" Content="165"/>
         <Label Grid.Column="2" Margin="-3,0"  Content=","/>
         <Label Grid.Column="3" x:Name="lbl_FpsMilliSec" Margin="-8,0,0,0" Content="00"/>
-
+        <Label Grid.Column="4" Margin="-8,0,0,0" Content="|"/>
+        <Label Grid.Column="5" x:Name="lbl_MilliSec" Margin="-8,0,0,0" Content="00"/>
+        <Label Grid.Column="6" Margin="-8,0,0,0" Content="ms"/>
     </Grid>
 </UserControl>

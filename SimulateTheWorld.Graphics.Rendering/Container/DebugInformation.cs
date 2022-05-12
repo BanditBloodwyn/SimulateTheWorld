@@ -5,7 +5,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Container;
 public class DebugInformation
 {
     public Vector3 CameraPosition { private get; set; }
-    public string CameraPositionString => $"Camera Pos: {CameraPosition.X:0.000}, {CameraPosition.Y:0.000}, {CameraPosition.Z:0.000}";
+    public string CameraPositionString => $"Camera Pos: {CameraPosition.X:0.00}, {CameraPosition.Y:0.00}, {CameraPosition.Z:0.00}";
 
     public Vector3 RayCastDirection { private get; set; }
     public string RayCastDirectionString => $"Raycast direction: {RayCastDirection.X:0.000}, {RayCastDirection.Y:0.000}, {RayCastDirection.Z:0.000}";
