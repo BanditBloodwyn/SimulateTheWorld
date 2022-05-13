@@ -1,7 +1,5 @@
 ﻿#version 450 core
 
-const vec4 MARKED_COLOR = vec4(1, 1, 1, 1);
-
 out vec4 FragColor;
 
 flat in float marked;
@@ -13,6 +11,8 @@ flat in float lifeStandard;
 flat in float urbanization;
 
 flat in vec3 colorShading;
+
+uniform vec4 uMarkedTileColor;
 
 uniform int uFilterMode;
 uniform vec4 uFilterColorZero;
@@ -52,7 +52,7 @@ void main()
 {
     if (marked == 1.0)
     {
-        FragColor = MARKED_COLOR * vec4(colorShading, 0);
+        FragColor = uMarkedTileColor * vec4(colorShading, 0);
         return;
     }
     
