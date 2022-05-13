@@ -8,7 +8,6 @@ using SimulateTheWorld.Graphics.Data;
 using SimulateTheWorld.Graphics.Data.OpenGL;
 using SimulateTheWorld.Graphics.Rendering.Utilities;
 using SimulateTheWorld.Graphics.Resources.Rendering;
-using SimulateTheWorld.Graphics.Shapes;
 using SimulateTheWorld.Models.SidePanel.Panels.MapFilters;
 using SimulateTheWorld.World.Data.Instances;
 
@@ -17,7 +16,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Rendering;
 public class OpenGLRenderer
 {
     private readonly ShaderProgram _pointShader;
-    private readonly STWShape _world;
+    private readonly GameObject _world;
 
     public FPSCounter FpsCounter { get; }
 

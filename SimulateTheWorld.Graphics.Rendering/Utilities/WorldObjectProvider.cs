@@ -1,22 +1,22 @@
 ﻿using OpenTK.Mathematics;
+using SimulateTheWorld.Graphics.Data;
 using SimulateTheWorld.Graphics.Data.Components;
 using SimulateTheWorld.Graphics.Data.OpenGL;
-using SimulateTheWorld.Graphics.Shapes;
 using SimulateTheWorld.World.Data.Instances;
 
 namespace SimulateTheWorld.Graphics.Rendering.Utilities;
 
 public static class WorldObjectProvider
 {
-    public static STWShape CreateWorldObject()
+    public static GameObject CreateWorldObject()
     {
-        STWShape shape = new STWShape(0);
+        GameObject gameObject = new GameObject(0);
 
-        shape.Drawable = new PointCloud(CreateInitialVertices());
-        VertexUpdater.UpdateVertexData(shape.Drawable);
-        shape.Transform.Rotate(0, 90, 0);
+        gameObject.Drawable = new PointCloud(CreateInitialVertices());
+        VertexUpdater.UpdateVertexData(gameObject.Drawable);
+        gameObject.Transform.Rotate(0, 90, 0);
 
-        return shape;
+        return gameObject;
     }
 
     private static DataVertex[] CreateInitialVertices()

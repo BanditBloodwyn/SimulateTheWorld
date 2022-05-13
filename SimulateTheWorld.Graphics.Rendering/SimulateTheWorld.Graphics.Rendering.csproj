@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SimulateTheWorld.Graphics.Data\SimulateTheWorld.Graphics.Data.csproj" />
     <ProjectReference Include="..\SimulateTheWorld.Graphics.Resources\SimulateTheWorld.Graphics.Resources.csproj" />
-    <ProjectReference Include="..\SimulateTheWorld.Graphics.Shapes\SimulateTheWorld.Graphics.Shapes.csproj" />
     <ProjectReference Include="..\SimulateTheWorld.Models\SimulateTheWorld.Models.csproj" />
     <ProjectReference Include="..\SimulateTheWorld.World.Data\SimulateTheWorld.World.Data.csproj" />
   </ItemGroup>

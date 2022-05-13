@@ -2,15 +2,14 @@
 using System.Drawing.Imaging;
 using OpenTK.Graphics.OpenGL4;
 using SimulateTheWorld.Graphics.Data.Enums;
-using SimulateTheWorld.Graphics.Data.OpenGL;
 using PixelFormat = OpenTK.Graphics.OpenGL4.PixelFormat;
 
-namespace SimulateTheWorld.Graphics.Data;
+namespace SimulateTheWorld.Graphics.Data.OpenGL;
 
 public class Texture
 {
     private int ID { get; }
-    
+
     public TextureType Type { get; }
 
     public static Texture LoadFromFile(string path, TextureUnit unit, TextureType type)
