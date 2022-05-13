@@ -1,6 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using OpenTK.Mathematics;
 using SimulateTheWorld.Graphics.Data;
+using SimulateTheWorld.World.Data.Instances;
 
 namespace SimulateTheWorld.Graphics.Rendering.Utilities;
 
@@ -13,6 +15,9 @@ public class RayCaster
 
     public Vector3 CurrentRay { get; private set; }
     public Vector3? CurrentTileCoordinates { get; private set; }
+    public int CurrentTileID => CurrentTileCoordinates != null 
+        ? (int)Math.Round(Math.Abs(CurrentTileCoordinates.Value.X / STWTerrain.TileSize), 0) + (int)Math.Round(Math.Abs(CurrentTileCoordinates.Value.Z / STWTerrain.TileSize), 0) * STWTerrain.TerrainSize 
+        : -1;
 
     public RayCaster(Camera camera)
     {

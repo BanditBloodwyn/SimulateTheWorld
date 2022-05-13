@@ -61,6 +61,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
             DebugInformation.CameraPosition = _renderer.Camera.Transform.Position;
             DebugInformation.RayCastDirection = rayCaster.CurrentRay;
             DebugInformation.CurrentTileCoordinates = rayCaster.CurrentTileCoordinates;
+            DebugInformation.CurrentTileID = rayCaster.CurrentTileID;
             OnDebugInfoChanged?.Invoke(DebugInformation);
         }
 

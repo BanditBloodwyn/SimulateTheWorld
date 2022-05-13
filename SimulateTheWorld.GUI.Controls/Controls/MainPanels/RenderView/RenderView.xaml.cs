@@ -25,7 +25,7 @@ namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.RenderView
             _fpsc_fpsControl.lbl_FpsMilliSec.Content = ((info.FPS - Math.Truncate(info.FPS)) * 100).ToString("N");
             _fpsc_fpsControl.lbl_MilliSec.Content = info.Milliseconds.ToString("00");
 
-            _lbl_rayCast.Content = $"{info.RayCastDirectionString} | {info.CurrentTileCoordinatesString}";
+            _lbl_rayCast.Content = $"{info.RayCastDirectionString} | {info.CurrentTileCoordinatesString} | TileID: {info.CurrentTileID}";
         }
 
         public void UpdateWorldRendering()

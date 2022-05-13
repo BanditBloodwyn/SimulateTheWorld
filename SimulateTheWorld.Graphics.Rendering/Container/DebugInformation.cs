@@ -14,6 +14,7 @@ public class DebugInformation
     public string CurrentTileCoordinatesString => CurrentTileCoordinates != null 
         ? $"Current Tile Coords: {CurrentTileCoordinates.Value.X:0.00}, {CurrentTileCoordinates.Value.Y:0.00}, {CurrentTileCoordinates.Value.Z:0.00}" 
         : string.Empty;
+    public int CurrentTileID { get; set; }
 
     public double FPS { get; set; }
     public double Milliseconds { get; set; }

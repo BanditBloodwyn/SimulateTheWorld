@@ -8,7 +8,7 @@ namespace SimulateTheWorld.World.Data.Instances;
 public class STWTerrain
 {
     public const int TerrainSize = 2000;
-    public const float TileSize = 1f;
+    public const float TileSize = 0.1f;
 
     public TerrainTile[] Tiles { get; }
 
