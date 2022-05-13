@@ -3,18 +3,22 @@ using System.Diagnostics;
 using SimulateTheWorld.Core.Extentions;
 using SimulateTheWorld.World.Data.Data.Enums;
 
-namespace SimulateTheWorld.World.Data.Instances;
+namespace SimulateTheWorld.World.System.Instances;
 
 public class STWTerrain
 {
     public const int TerrainSize = 200;
     public const float TileSize = 0.1f;
 
+    private readonly TileMarker _tileMarker;
+   
     public TerrainTile[] Tiles { get; }
-
+    
     public STWTerrain()
     {
         Tiles = new TerrainTile[TerrainSize * TerrainSize];
+        
+        _tileMarker = new TileMarker();
 
         CreateTerrain();
     }
@@ -59,5 +63,10 @@ public class STWTerrain
         }
 
         Debug.WriteLine($"\tUpdated tiles: {updatedTilesCount}");
+    }
+
+    public void MarkTile(int tileID)
+    {
+        _tileMarker.MarkTile(tileID, true);
     }
 }

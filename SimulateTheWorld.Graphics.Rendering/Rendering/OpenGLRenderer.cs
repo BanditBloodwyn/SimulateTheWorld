@@ -9,7 +9,7 @@ using SimulateTheWorld.Graphics.Data.OpenGL;
 using SimulateTheWorld.Graphics.Rendering.Utilities;
 using SimulateTheWorld.Graphics.Resources.Rendering;
 using SimulateTheWorld.Models.SidePanel.Panels.MapFilters;
-using SimulateTheWorld.World.Data.Instances;
+using SimulateTheWorld.World.System.Instances;
 
 namespace SimulateTheWorld.Graphics.Rendering.Rendering;
 

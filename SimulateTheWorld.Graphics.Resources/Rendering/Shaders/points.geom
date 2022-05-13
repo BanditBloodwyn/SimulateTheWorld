@@ -5,6 +5,8 @@ layout(triangle_strip, max_vertices = 24) out;
 
 in DATA
 {
+    float marked;
+   
     float tileType;
     float terrainType;
 
@@ -15,6 +17,8 @@ in DATA
 
     mat4 projection;
 } data_in[];
+
+flat out float marked;
 
 flat out float tileType;
 flat out float terrainType;
@@ -107,6 +111,8 @@ void build_right(vec4 position)
 
 void main()
 {
+    marked = data_in[0].marked;
+
     tileType = data_in[0].tileType;
     terrainType = data_in[0].terrainType;
     

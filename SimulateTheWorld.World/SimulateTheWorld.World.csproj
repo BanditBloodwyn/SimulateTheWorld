@@ -7,13 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\SimulateTheWorld.Core\SimulateTheWorld.Core.csproj" />
-    <ProjectReference Include="..\SimulateTheWorld.GUI.Resources\SimulateTheWorld.GUI.Resources.csproj" />
-    <ProjectReference Include="..\SimulateTheWorld.Models\SimulateTheWorld.Models.csproj" />
     <ProjectReference Include="..\SimulateTheWorld.World.Data\SimulateTheWorld.World.Data.csproj" />
     <ProjectReference Include="..\SimulateTheWorld.World.System\SimulateTheWorld.World.System.csproj" />
   </ItemGroup>

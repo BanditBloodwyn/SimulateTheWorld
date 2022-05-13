@@ -8,6 +8,7 @@ using OpenTK.Wpf;
 using SimulateTheWorld.Graphics.Rendering.Container;
 using SimulateTheWorld.Graphics.Rendering.Rendering;
 using SimulateTheWorld.Graphics.Rendering.Utilities;
+using SimulateTheWorld.World.System.Instances;
 using MouseWheelEventArgs = System.Windows.Input.MouseWheelEventArgs;
 
 namespace SimulateTheWorld.Graphics.Rendering.Control
@@ -103,8 +104,13 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
 
         private void GlControl_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            if(_rayCaster.CurrentTileID.HasValue) 
-                OnTileSelected?.Invoke(_rayCaster.CurrentTileID.Value);
+            if (!_rayCaster.CurrentTileID.HasValue)
+                return;
+            
+            STWWorld.Instance.Terrain.MarkTile(_rayCaster.CurrentTileID.Value);
+            OnUpdateVertexData();
+
+            OnTileSelected?.Invoke(_rayCaster.CurrentTileID.Value);
         }
     }
 }

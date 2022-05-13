@@ -1,15 +1,18 @@
 ﻿#version 450 core
 
 layout (location = 0) in vec3 aPos;
-layout (location = 1) in float aTileType;
-layout (location = 2) in float aTerrainType;
-layout (location = 3) in float aPopByTribe;
-layout (location = 4) in float aCountries;
-layout (location = 5) in float aLifeStandard;
-layout (location = 6) in float aUrbanization;
+layout (location = 1) in float aMarked;
+layout (location = 2) in float aTileType;
+layout (location = 3) in float aTerrainType;
+layout (location = 4) in float aPopByTribe;
+layout (location = 5) in float aCountries;
+layout (location = 6) in float aLifeStandard;
+layout (location = 7) in float aUrbanization;
 
 out DATA
 {
+    float marked;
+
     float tileType;
     float terrainType;
     
@@ -27,6 +30,8 @@ uniform mat4 uProjection;
 
 void main()
 {
+    data_out.marked = aMarked;
+
     data_out.tileType = aTileType;
     data_out.terrainType = aTerrainType;
     
@@ -42,9 +47,9 @@ void main()
     if (aTileType != 0)
     {
         position = position + vec3(0, 0.01, 0);
-        if (aTerrainType == 1)
-            position = position + vec3(0, 0.01, 0);
         if (aTerrainType == 2)
+            position = position + vec3(0, 0.01, 0);
+        if (aTerrainType == 3)
             position = position + vec3(0, 0.05, 0);
     }
     gl_Position = vec4(position, 1.0) * uModel;

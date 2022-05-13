@@ -36,14 +36,15 @@ public class PointCloud : IDrawable
         VBO vbo1 = new VBO(Vertices);
 
         VAO.LinkAttrib(vbo1, 0, 3, VertexAttribPointerType.Float, sizeof(DataVertex), 0);                                       // Position
+        VAO.LinkAttrib(vbo1, 1, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float));                       // Marked
 
-        VAO.LinkAttrib(vbo1, 1, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float));                       // TileType
-        VAO.LinkAttrib(vbo1, 2, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 1 * sizeof(float));   // TerrainType
+        VAO.LinkAttrib(vbo1, 2, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 1 * sizeof(float));   // TileType
+        VAO.LinkAttrib(vbo1, 3, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 2 * sizeof(float));   // TerrainType
 
-        VAO.LinkAttrib(vbo1, 3, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 2 * sizeof(float));   // PopByTribe
-        VAO.LinkAttrib(vbo1, 4, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 3 * sizeof(float));   // Countries
-        VAO.LinkAttrib(vbo1, 5, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 4 * sizeof(float));   // LifeStandard
-        VAO.LinkAttrib(vbo1, 6, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 5 * sizeof(float));   // Urbanization
+        VAO.LinkAttrib(vbo1, 4, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 3 * sizeof(float));   // PopByTribe
+        VAO.LinkAttrib(vbo1, 5, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 4 * sizeof(float));   // Countries
+        VAO.LinkAttrib(vbo1, 6, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 5 * sizeof(float));   // LifeStandard
+        VAO.LinkAttrib(vbo1, 7, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 6 * sizeof(float));   // Urbanization
 
         VAO.Unbind();
         vbo1.Unbind();

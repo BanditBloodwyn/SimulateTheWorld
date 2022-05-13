@@ -6,4 +6,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SimulateTheWorld.World.Data\SimulateTheWorld.World.Data.csproj" />
+  </ItemGroup>
+
 </Project>

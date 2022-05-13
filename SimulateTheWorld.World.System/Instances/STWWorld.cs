@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace SimulateTheWorld.World.Data.Instances;
+namespace SimulateTheWorld.World.System.Instances;
 
 public class STWWorld
 {

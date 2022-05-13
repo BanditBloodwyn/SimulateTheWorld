@@ -2,12 +2,14 @@
 using SimulateTheWorld.World.Data.Data.Container;
 using SimulateTheWorld.World.Data.Data.Enums;
 
-namespace SimulateTheWorld.World.Data.Instances;
+namespace SimulateTheWorld.World.System.Instances;
 
 public class TerrainTile
 {
     public int ID { get; set; }
 
+    public bool Marked { get; set; }
+   
     public TileType TileType { get; set; }
     public TerrainType TerrainType { get; set; }
 

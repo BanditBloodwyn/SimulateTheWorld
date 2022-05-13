@@ -6,6 +6,8 @@ public struct DataVertex
 {
     public Vector3 position;
 
+    public float marked;
+
     public float tileType;
     public float terrainType;
 
@@ -17,8 +19,12 @@ public struct DataVertex
     public DataVertex(Vector3 position)
     {
         this.position = position;
+
+        marked = 0.0f;
+
         tileType = 0;
         terrainType = 0;
+
         popByTribe = 0;
         countries = 0;
         lifeStandard = 0;

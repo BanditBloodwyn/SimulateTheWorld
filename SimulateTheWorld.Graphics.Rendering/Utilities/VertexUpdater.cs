@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Windows.Threading;
 using SimulateTheWorld.Graphics.Data.Components;
 using SimulateTheWorld.Graphics.Data.Interfaces;
-using SimulateTheWorld.World.Data.Instances;
+using SimulateTheWorld.World.System.Instances;
 
 namespace SimulateTheWorld.Graphics.Rendering.Utilities;
 
@@ -20,12 +20,15 @@ public static class VertexUpdater
                 for (int i = 0; i < pointCloud.Vertices.Length; i++)
                 {
                     TerrainTile tile = STWWorld.Instance.Terrain.Tiles[i];
+
+                    pointCloud.Vertices[i].marked = tile.Marked ? 1.0f : 0.0f;
                     pointCloud.Vertices[i].tileType = (int)tile.TileType;
                     pointCloud.Vertices[i].terrainType = (int)tile.TerrainType;
                     pointCloud.Vertices[i].popByTribe = tile.PopulationValues.Population.Quantity;
                     pointCloud.Vertices[i].countries = tile.PopulationValues.Population.Quantity;
                     pointCloud.Vertices[i].lifeStandard = tile.PopulationValues.LifeStandard;
                     pointCloud.Vertices[i].urbanization = tile.PopulationValues.Urbanization;
+
                     updatedVerticesCount++;
                 }
 

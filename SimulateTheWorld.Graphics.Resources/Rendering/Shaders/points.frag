@@ -1,7 +1,10 @@
 ﻿#version 450 core
 
+const vec4 MARKED_COLOR = vec4(1, 1, 1, 1);
+
 out vec4 FragColor;
 
+flat in float marked;
 flat in float tileType;
 flat in float terrainType;
 flat in float popByTribe;
@@ -47,6 +50,12 @@ vec4 GetTerrainColor()
 
 void main()
 {
+    if (marked == 1.0)
+    {
+        FragColor = MARKED_COLOR * vec4(colorShading, 0);
+        return;
+    }
+    
     if (uFilterMode == 0)
         FragColor = GetTerrainColor() * vec4(colorShading, 0);
     else if (uFilterMode == 1)
