@@ -13,7 +13,6 @@ public static class WorldObjectProvider
 
         gameObject.Drawable = new PointCloud(CreateInitialVertices());
         VertexUpdater.UpdateVertexData(gameObject.Drawable);
-        gameObject.Transform.Rotate(0, 90, 0);
 
         return gameObject;
     }

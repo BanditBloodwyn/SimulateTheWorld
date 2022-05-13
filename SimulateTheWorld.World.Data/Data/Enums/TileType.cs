@@ -2,6 +2,6 @@
 
 public enum TileType
 {
-    Land,
-    Water
+    Water,
+    Land
 }

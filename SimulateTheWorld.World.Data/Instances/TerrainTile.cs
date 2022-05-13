@@ -27,6 +27,9 @@ public class TerrainTile
     public void Randomize()
     {
         TileType = EnumExtentions.RandomOf<TileType>();
-        TerrainType = EnumExtentions.RandomOf<TerrainType>();
+        if (TileType == TileType.Water)
+            TerrainType = TerrainType.Water;
+        else
+            TerrainType = EnumExtentions.RandomOf<TerrainType>(1);
     }
 }

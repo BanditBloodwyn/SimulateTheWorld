@@ -27,7 +27,7 @@ public class OpenGLRenderer
         _pointShader = new ShaderProgram("Rendering/Shaders/point.vert", "Rendering/Shaders/points.frag", "Rendering/Shaders/points.geom");
         _world = WorldObjectProvider.CreateWorldObject();
 
-        Camera = new Camera(new Vector3(STWTerrain.TerrainSize / 2.0f * STWTerrain.TileSize, 15.0f, 0));
+        Camera = new Camera(new Vector3(STWTerrain.TerrainSize / 2.0f * STWTerrain.TileSize, 15.0f, STWTerrain.TerrainSize / 2.0f * STWTerrain.TileSize));
         FpsCounter = new FPSCounter();
         MapFiltersModel.Instance.SetOnMapFilterChanged(OnMapFilterChanged);
 

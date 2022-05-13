@@ -7,7 +7,7 @@ namespace SimulateTheWorld.World.Data.Instances;
 
 public class STWTerrain
 {
-    public const int TerrainSize = 20;
+    public const int TerrainSize = 200;
     public const float TileSize = 0.1f;
 
     public TerrainTile[] Tiles { get; }
@@ -32,7 +32,10 @@ public class STWTerrain
 
         tile.ID = tileID;
         tile.TileType = EnumExtentions.RandomOf<TileType>();
-        tile.TerrainType = EnumExtentions.RandomOf<TerrainType>();
+        if (tile.TileType == TileType.Water)
+            tile.TerrainType = TerrainType.Water;
+        else
+            tile.TerrainType = EnumExtentions.RandomOf<TerrainType>(1);
 
         return tile;
     }

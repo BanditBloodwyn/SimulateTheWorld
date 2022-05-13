@@ -2,6 +2,7 @@
 
 public enum TerrainType
 {
+    Water,
     Plain,
     Hills,
     Mountains
