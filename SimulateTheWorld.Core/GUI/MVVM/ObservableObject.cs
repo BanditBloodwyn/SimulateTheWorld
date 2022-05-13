@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace SimulateTheWorld.Core.MVVM;
+namespace SimulateTheWorld.Core.GUI.MVVM;
 
 public class ObservableObject : INotifyPropertyChanged
 {

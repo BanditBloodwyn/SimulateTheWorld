@@ -1,4 +1,4 @@
-﻿using SimulateTheWorld.Core.MVVM;
+﻿using SimulateTheWorld.Core.GUI.MVVM;
 
 namespace SimulateTheWorld.Start.Models;
 

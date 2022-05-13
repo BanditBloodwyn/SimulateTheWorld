@@ -1,5 +1,5 @@
 ﻿using System.Windows.Controls;
-using SimulateTheWorld.Core.MVVM;
+using SimulateTheWorld.Core.GUI.MVVM;
 
 namespace SimulateTheWorld.GUI.ViewModels.ViewModels.Toolbar;
 

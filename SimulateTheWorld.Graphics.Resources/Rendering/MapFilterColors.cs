@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Drawing;
-using SimulateTheWorld.Models.SidePanel.Panels.MapFilters;
+using SimulateTheWorld.Core.Types.Enums;
 
 namespace SimulateTheWorld.Graphics.Resources.Rendering;
 

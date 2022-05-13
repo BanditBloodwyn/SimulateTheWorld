@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using SimulateTheWorld.Core.MVVM;
+using SimulateTheWorld.Core.GUI.MVVM;
 using SimulateTheWorld.Core.Types;
 
 namespace SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel.Panels.MarkedLocations;

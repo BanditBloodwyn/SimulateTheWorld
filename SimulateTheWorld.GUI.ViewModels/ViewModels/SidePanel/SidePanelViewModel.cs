@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
-using SimulateTheWorld.Core.MVVM;
+using SimulateTheWorld.Core.GUI.MVVM;
 using SimulateTheWorld.GUI.ViewModels.Commands;
 
 namespace SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel;

@@ -1,4 +1,4 @@
-﻿namespace SimulateTheWorld.Models.SidePanel.Panels.MapFilters;
+﻿namespace SimulateTheWorld.Core.Types.Enums;
 
 public enum MapFilterType
 {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using SimulateTheWorld.Core.Types.Enums;
 
 namespace SimulateTheWorld.Models.SidePanel.Panels.MapFilters;
 
