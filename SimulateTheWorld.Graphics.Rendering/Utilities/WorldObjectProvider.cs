@@ -1,7 +1,6 @@
 ﻿using OpenTK.Mathematics;
 using SimulateTheWorld.Graphics.Data;
 using SimulateTheWorld.Graphics.Data.Components;
-using SimulateTheWorld.Graphics.Data.OpenGL;
 using SimulateTheWorld.World.Data.Instances;
 
 namespace SimulateTheWorld.Graphics.Rendering.Utilities;

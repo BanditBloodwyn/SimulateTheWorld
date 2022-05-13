@@ -1,6 +1,6 @@
 ﻿using OpenTK.Mathematics;
 
-namespace SimulateTheWorld.Graphics.Data.OpenGL;
+namespace SimulateTheWorld.Graphics.Data.Components;
 
 public struct DataVertex
 {
