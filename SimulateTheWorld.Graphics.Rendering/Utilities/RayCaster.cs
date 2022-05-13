@@ -6,8 +6,8 @@ namespace SimulateTheWorld.Graphics.Rendering.Utilities;
 
 public class RayCaster
 {
-    private static int RECURSION_COUNT = 200;
-    private static float RAY_RANGE = 600;
+    private const int RECURSION_COUNT = 200;
+    private const float RAY_RANGE = 600;
 
     private readonly Camera camera;
 
@@ -30,7 +30,7 @@ public class RayCaster
 
     private Vector3? BinarySearch(int count, float start, float finish, Vector3 ray)
     {
-        float half = start + ((finish - start) / 2f);
+        float half = start + (finish - start) / 2f;
         if (count >= RECURSION_COUNT)
             return GetPointOnRay(ray, half);
         

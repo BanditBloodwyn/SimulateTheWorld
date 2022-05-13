@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Text;
 using System.Windows.Controls;
 using SimulateTheWorld.Graphics.Rendering.Container;
 

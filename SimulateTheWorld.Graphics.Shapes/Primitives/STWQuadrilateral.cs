@@ -10,12 +10,12 @@ public class STWQuadrilateral : STWShape
     public STWQuadrilateral(long id, float length, float width, Texture texture)
         : base(id)
     {
-        Vertex[] vertices = new[]
+        Vertex[] vertices = 
         {
-            new Vertex(new Vector3(length / 2, 0.0f, width / 2), new Vector3(0.0f, 1.0f, 0.0f), Vector3.One, new Vector2(1.0f, 1.0f)),      // top right
-            new Vertex(new Vector3(length / 2, 0.0f, -width / 2), new Vector3(0.0f, 1.0f, 0.0f), Vector3.One, new Vector2(1.0f, 0.0f)),     // bottom right
-            new Vertex(new Vector3(-length / 2, 0.0f, -width / 2), new Vector3(0.0f, 1.0f, 0.0f), Vector3.One, new Vector2(0.0f, 0.0f)),    // bottom left
-            new Vertex(new Vector3(-length / 2, 0.0f, width / 2), new Vector3(0.0f, 1.0f, 0.0f), Vector3.One, new Vector2(0.0f, 1.0f))      // top left
+            new(new Vector3(length / 2, 0.0f, width / 2), new Vector3(0.0f, 1.0f, 0.0f), Vector3.One, new Vector2(1.0f, 1.0f)),      // top right
+            new(new Vector3(length / 2, 0.0f, -width / 2), new Vector3(0.0f, 1.0f, 0.0f), Vector3.One, new Vector2(1.0f, 0.0f)),     // bottom right
+            new(new Vector3(-length / 2, 0.0f, -width / 2), new Vector3(0.0f, 1.0f, 0.0f), Vector3.One, new Vector2(0.0f, 0.0f)),    // bottom left
+            new(new Vector3(-length / 2, 0.0f, width / 2), new Vector3(0.0f, 1.0f, 0.0f), Vector3.One, new Vector2(0.0f, 1.0f))      // top left
         };
 
         int[] indices = 

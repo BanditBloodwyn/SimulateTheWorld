@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using SimulateTheWorld.Core.Extentions;
 using SimulateTheWorld.World.Data.Data.Enums;
 
 namespace SimulateTheWorld.World.Data.Instances;
@@ -21,24 +22,19 @@ public class STWTerrain
     private void CreateTerrain()
     {
         for (int x = 0; x < TerrainSize; x++)
-        {
             for (int y = 0; y < TerrainSize; y++)
-            {
                 Tiles[x * TerrainSize + y] = CreateTerrainTile(x * TerrainSize + y);
-            }
-        }
     }
 
     private TerrainTile CreateTerrainTile(int tileID)
     {
-        Random random = new();
+        TerrainTile tile = new();
 
-        return new TerrainTile
-        {
-            ID = tileID,
-            TileType = (TileType)random.Next(0, 2),
-            TerrainType = (TerrainType)random.Next(0, 3)
-        };
+        tile.ID = tileID;
+        tile.TileType = EnumExtentions.RandomOf<TileType>();
+        tile.TerrainType = EnumExtentions.RandomOf<TerrainType>();
+
+        return tile;
     }
 
     public void RandomizeTiles()

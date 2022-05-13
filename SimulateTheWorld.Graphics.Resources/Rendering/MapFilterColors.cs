@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using SimulateTheWorld.Core.Types.Enums;
 
 namespace SimulateTheWorld.Graphics.Resources.Rendering;

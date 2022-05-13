@@ -26,7 +26,7 @@ public class TerrainTile
 
     public void Randomize()
     {
-        TileType = TileType.RandomOf();
-        TerrainType = TerrainType.RandomOf();
+        TileType = EnumExtentions.RandomOf<TileType>();
+        TerrainType = EnumExtentions.RandomOf<TerrainType>();
     }
 }

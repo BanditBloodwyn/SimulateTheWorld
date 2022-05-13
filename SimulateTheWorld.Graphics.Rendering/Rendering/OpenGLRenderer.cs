@@ -19,7 +19,7 @@ public class OpenGLRenderer
     private readonly ShaderProgram _pointShader;
     private readonly STWShape _world;
 
-    public FPSCounter FpsCounter { get; private set; }
+    public FPSCounter FpsCounter { get; }
 
     public Camera Camera { get; }
     

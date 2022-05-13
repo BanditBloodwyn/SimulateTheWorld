@@ -8,8 +8,8 @@ namespace SimulateTheWorld.Graphics.Shapes;
 
 public class STWShape : IDrawable
 {
-    public long ID { get; protected set; }
-    public Transform Transform { get; set; }
+    public long ID { get; }
+    public Transform Transform { get; }
     public IDrawable? Drawable { get; set; }
 
     public STWShape(long id)

@@ -10,7 +10,7 @@ public class STWToolbarViewModel : ObservableObject
     public STWToolbarViewModel()
     {
         OpenMenuCommand = new DelegateCommand(
-            (o) =>
+            o =>
             {
                 if (o is ContextMenu contextMenu)
                 {
