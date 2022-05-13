@@ -14,6 +14,13 @@ namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.MainWindow
 
             if (v_SidePanel.DataContext is SidePanelViewModel spViewModel)
                 spViewModel.SetUpdateWorldRendering(v_RenderView.UpdateWorldRendering);
+
+            v_RenderView.OnTileSelected += OnTileSelected;
+        }
+
+        private void OnTileSelected(int tileID)
+        {
+            v_SidePanel.SetTile(tileID);
         }
     }
 }

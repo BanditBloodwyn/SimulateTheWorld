@@ -15,9 +15,9 @@ public class RayCaster
 
     public Vector3 CurrentRay { get; private set; }
     public Vector3? CurrentTileCoordinates { get; private set; }
-    public int CurrentTileID => CurrentTileCoordinates != null 
+    public int? CurrentTileID => CurrentTileCoordinates != null 
         ? (int)Math.Round(Math.Abs(CurrentTileCoordinates.Value.X / STWTerrain.TileSize), 0) + (int)Math.Round(Math.Abs(CurrentTileCoordinates.Value.Z / STWTerrain.TileSize), 0) * STWTerrain.TerrainSize 
-        : -1;
+        : null;
 
     public RayCaster(Camera camera)
     {

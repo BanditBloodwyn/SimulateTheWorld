@@ -19,10 +19,12 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
     {
         private readonly OpenGLRenderer _renderer;
         private readonly InputController _inputController;
-        private readonly RayCaster rayCaster;
+        private readonly RayCaster _rayCaster;
 
-        public event Action<DebugInformation>? OnDebugInfoChanged;
         private int _millisecs;
+        
+        public event Action<DebugInformation>? OnDebugInfoChanged;
+        public event Action<int>? OnTileSelected;
 
         private DebugInformation DebugInformation { get; }
 
@@ -36,7 +38,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
             _renderer = new OpenGLRenderer();
 
             _inputController = new InputController();
-            rayCaster = new RayCaster(_renderer.Camera);
+            _rayCaster = new RayCaster(_renderer.Camera);
 
             DebugInformation = new DebugInformation();
         }
@@ -49,7 +51,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
         private void GlControl_OnRender(TimeSpan elapsedTimeSpan)
         {
             _renderer.OnRender(elapsedTimeSpan);
-            rayCaster.Update(_inputController.NewMousePosition, GlControl.ActualWidth, GlControl.ActualHeight);
+            _rayCaster.Update(_inputController.NewMousePosition, GlControl.ActualWidth, GlControl.ActualHeight);
 
             _millisecs += elapsedTimeSpan.Milliseconds;
             if (_millisecs >= FPSCounter.Interval)
@@ -59,9 +61,9 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
                 _millisecs = 0;
             }
             DebugInformation.CameraPosition = _renderer.Camera.Transform.Position;
-            DebugInformation.RayCastDirection = rayCaster.CurrentRay;
-            DebugInformation.CurrentTileCoordinates = rayCaster.CurrentTileCoordinates;
-            DebugInformation.CurrentTileID = rayCaster.CurrentTileID;
+            DebugInformation.RayCastDirection = _rayCaster.CurrentRay;
+            DebugInformation.CurrentTileCoordinates = _rayCaster.CurrentTileCoordinates;
+            DebugInformation.CurrentTileID = _rayCaster.CurrentTileID;
             OnDebugInfoChanged?.Invoke(DebugInformation);
         }
 
@@ -97,6 +99,12 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
                 _renderer.Camera.Rotate(new Vector3(0, delta.Y, 0.0f));
 
             _inputController.OldMousePosition = e.GetPosition(this);
+        }
+
+        private void GlControl_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if(_rayCaster.CurrentTileID.HasValue) 
+                OnTileSelected?.Invoke(_rayCaster.CurrentTileID.Value);
         }
     }
 }

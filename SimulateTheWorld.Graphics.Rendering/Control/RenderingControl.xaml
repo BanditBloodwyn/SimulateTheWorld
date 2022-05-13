@@ -14,6 +14,7 @@
         Unloaded="GlControl_OnUnloaded"
         SizeChanged="GlControl_OnSizeChanged"
         MouseWheel="GlControl_OnMouseWheel"
-        MouseMove="GlControl_OnMouseMove"/>
+        MouseMove="GlControl_OnMouseMove" 
+        MouseUp="GlControl_MouseUp"/>
 
 </UserControl>

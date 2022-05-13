@@ -11,5 +11,10 @@ namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.SidePanel
         {
             InitializeComponent();
         }
+
+        public void SetTile(int tileID)
+        {
+            _ctrl_markedTile.SetTile(tileID);
+        }
     }
 }

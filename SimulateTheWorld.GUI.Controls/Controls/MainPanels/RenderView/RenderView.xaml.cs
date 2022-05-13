@@ -10,11 +10,19 @@ namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.RenderView
     /// </summary>
     public partial class RenderView : UserControl
     {
+        public event Action<int>? OnTileSelected;
+
         public RenderView()
         {
             InitializeComponent();
             
             _renderingControl.OnDebugInfoChanged += RenderingControlOnOnDebugInfoChanged;
+            _renderingControl.OnTileSelected += OnOnTileSelected;
+        }
+
+        private void OnOnTileSelected(int tileID)
+        {
+            OnTileSelected?.Invoke(tileID);
         }
 
         private void RenderingControlOnOnDebugInfoChanged(DebugInformation info)
