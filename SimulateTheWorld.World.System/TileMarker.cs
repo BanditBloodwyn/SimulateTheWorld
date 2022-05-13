@@ -16,6 +16,9 @@ namespace SimulateTheWorld.World.System
                 markedIDs.Clear();
             }
 
+            if (tileID > STWWorld.Instance.Terrain.Tiles.Length - 1)
+                return;
+
             STWWorld.Instance.Terrain.Tiles[tileID].Marked = true;
             markedIDs.Add(tileID);
         }

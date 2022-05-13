@@ -104,6 +104,9 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
 
         private void GlControl_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (e.ChangedButton != MouseButton.Left)
+                return;
+
             if (!_rayCaster.CurrentTileID.HasValue)
                 return;
             

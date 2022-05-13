@@ -24,6 +24,9 @@ namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.SidePanel.Panels
                 return;
             }
 
+            if (tileID > STWWorld.Instance.Terrain.Tiles.Length - 1)
+                return;
+
             TerrainTile tile = STWWorld.Instance.Terrain.Tiles[tileID];
 
             _lbl_TileType.Content = $"Type: {tile.TileType}";
