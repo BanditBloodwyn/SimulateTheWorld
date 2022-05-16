@@ -3,13 +3,42 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:markedTile="clr-namespace:SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel.Panels.MarkedTile;assembly=SimulateTheWorld.GUI.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+   
+    <UserControl.DataContext>
+        <markedTile:MarkedTileViewModel/>
+    </UserControl.DataContext>
+
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
         <StackPanel>
-            <Label x:Name="_lbl_ID" Content ="Marked tile:"/>
-            <Label x:Name="_lbl_TileType" Content ="Type:"/>
-            <Label x:Name="_lbl_TerrainType" Content ="Terrain:"/>
+            <StackPanel Orientation="Horizontal">
+                <Label Content ="Marked tile:"/>
+                <Label Content ="{Binding Tile.ID}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content ="Type:"/>
+                <Label Content ="{Binding Tile.TileType}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content ="Terrain:"/>
+                <Label Content ="{Binding Tile.TerrainType}"/>
+            </StackPanel>
         </StackPanel>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Margin="30" Content="{Binding TileMarkedTest}" />
+        </Grid>
     </Grid>
 </UserControl>

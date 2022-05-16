@@ -26,8 +26,8 @@
                 </Border>
             </Expander>
 
-            <Expander Header="{x:Static resources:Locals_German.sidepanel_expander_markedLocations}" ExpandDirection="Down" IsExpanded="False">
-                <panels:MarkedLocationsControl/>
+            <Expander Header="{x:Static resources:Locals_German.sidepanel_expander_pinnedLocations}" ExpandDirection="Down" IsExpanded="False">
+                <panels:PinnedLocationsControl/>
             </Expander>
 
             <Expander Header="{x:Static resources:Locals_German.sidepanel_expander_mapFilters}" ExpandDirection="Down" IsExpanded="False">

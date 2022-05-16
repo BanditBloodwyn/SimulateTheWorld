@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel.Panels.MarkedTile;
 
 namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.SidePanel
 {
@@ -14,7 +15,7 @@ namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.SidePanel
 
         public void SetTile(int tileID)
         {
-            _ctrl_markedTile.SetTile(tileID);
+            (_ctrl_markedTile.DataContext as MarkedTileViewModel)?.SetTile(tileID);
         }
     }
 }

@@ -135,8 +135,8 @@
   <data name="sidepanel_expander_mapFilters" xml:space="preserve">
     <value>Kartenfilter</value>
   </data>
-  <data name="sidepanel_expander_markedLocations" xml:space="preserve">
-    <value>Markierte Orte</value>
+  <data name="sidepanel_expander_pinnedLocations" xml:space="preserve">
+    <value>Angepinnte Orte</value>
   </data>
   <data name="sidepanel_expander_search" xml:space="preserve">
     <value>Suchen</value>

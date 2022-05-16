@@ -106,11 +106,11 @@ namespace SimulateTheWorld.GUI.Resources.Localization {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Marked Locations ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Pinned Locations ähnelt.
         /// </summary>
-        public static string sidepanel_expander_markedLocations {
+        public static string sidepanel_expander_pinnedLocations {
             get {
-                return ResourceManager.GetString("sidepanel_expander_markedLocations", resourceCulture);
+                return ResourceManager.GetString("sidepanel_expander_pinnedLocations", resourceCulture);
             }
         }
         

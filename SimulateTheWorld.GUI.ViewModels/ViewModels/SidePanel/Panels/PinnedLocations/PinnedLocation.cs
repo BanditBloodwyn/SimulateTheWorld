@@ -1,14 +1,14 @@
 ﻿using SimulateTheWorld.Core.Types;
 
-namespace SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel.Panels.MarkedLocations;
+namespace SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel.Panels.PinnedLocations;
 
-public class MarkedLocation
+public class PinnedLocation
 {
     public string Name { get; set; }
 
     public Coordinate Location { get; set; }
 
-    public MarkedLocation(string name, Coordinate location)
+    public PinnedLocation(string name, Coordinate location)
     {
         Name = name;
         Location = location;

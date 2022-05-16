@@ -3,11 +3,11 @@
 namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.SidePanel.Panels
 {
     /// <summary>
-    /// Interaktionslogik für MarkedLocationsControl.xaml
+    /// Interaktionslogik für PinnedLocationsControl.xaml
     /// </summary>
-    public partial class MarkedLocationsControl : UserControl
+    public partial class PinnedLocationsControl : UserControl
     {
-        public MarkedLocationsControl()
+        public PinnedLocationsControl()
         {
             InitializeComponent();
         }

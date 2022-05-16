@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="Commands\" />
+    <Folder Include="ViewModels\SidePanel\Panels\MarkedTile\" />
   </ItemGroup>
 
   <ItemGroup>

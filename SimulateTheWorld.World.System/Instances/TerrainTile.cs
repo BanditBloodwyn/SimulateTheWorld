@@ -9,7 +9,8 @@ public class TerrainTile
     public int ID { get; set; }
 
     public bool Marked { get; set; }
-   
+    public bool Pinned { get; set; }
+
     public TileType TileType { get; set; }
     public TerrainType TerrainType { get; set; }
 
