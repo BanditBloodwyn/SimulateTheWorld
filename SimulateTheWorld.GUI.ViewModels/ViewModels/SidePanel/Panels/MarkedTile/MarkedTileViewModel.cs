@@ -42,6 +42,7 @@ public class MarkedTileViewModel : ObservableObject, ISubscriber<LocationMessage
                 _locationMediator.Publish(new LocationMessage { Location = location, Pin = !Tile.Pinned });
               
                 Tile.Pinned = !Tile.Pinned;
+                OnPropertyChanged(nameof(TileMarkedTest));
             });
     }
 
