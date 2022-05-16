@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.Graphics.R
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.Core", "SimulateTheWorld.Core\SimulateTheWorld.Core.csproj", "{3ECC793E-9E25-47C0-8436-10BD68221DAB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.Models", "SimulateTheWorld.Models\SimulateTheWorld.Models.csproj", "{FD6FD9BF-78CE-48AB-A10C-5DBCE7D2311E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.GUI.Models", "SimulateTheWorld.GUI.Models\SimulateTheWorld.GUI.Models.csproj", "{FD6FD9BF-78CE-48AB-A10C-5DBCE7D2311E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.World.Data", "SimulateTheWorld.World.Data\SimulateTheWorld.World.Data.csproj", "{87E8AB51-1EB0-4E0A-B089-BDDC18B26AEA}"
 EndProject
