@@ -3,5 +3,5 @@
 public interface IMediator
 {
     public void Publish(IMessage message);
-    public void Subscribe(ISubscriber subscriber);
+    public void Subscribe(ISubscriber<IMessage> subscriber);
 }

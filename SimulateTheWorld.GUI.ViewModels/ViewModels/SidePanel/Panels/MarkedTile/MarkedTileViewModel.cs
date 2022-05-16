@@ -1,11 +1,19 @@
 ﻿using SimulateTheWorld.Core.GUI.MVVM;
+using SimulateTheWorld.Core.GUI.MVVM.Mediator;
+using SimulateTheWorld.Core.Types;
+using SimulateTheWorld.Models.Mediators;
+using SimulateTheWorld.World.Data.Data.Types;
 using SimulateTheWorld.World.System.Instances;
 
 namespace SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel.Panels.MarkedTile;
 
-public class MarkedTileViewModel : ObservableObject
+public class MarkedTileViewModel : ObservableObject, ISubscriber<LocationMessage>
 {
+    private readonly IMediator _locationMediator;
+
     public TerrainTile? Tile { get; private set; }
+    
+    public DelegateCommand PinnLocationCommand { get; }
 
     public string TileMarkedTest
     {
@@ -18,7 +26,24 @@ public class MarkedTileViewModel : ObservableObject
                 ? "Demark" 
                 : "Mark";
         }
-    } 
+    }
+
+    public MarkedTileViewModel()
+    {
+        _locationMediator = LocationMediator.Instance;
+
+        PinnLocationCommand = new DelegateCommand(
+            _ =>
+            {
+                if (Tile == null)
+                    return;
+
+                Location location = new Location($"Tile: {Tile.ID}", new Coordinate());
+                _locationMediator.Publish(new LocationMessage { Location = location, Pin = !Tile.Pinned });
+              
+                Tile.Pinned = !Tile.Pinned;
+            });
+    }
 
     public void SetTile(int tileID)
     {
@@ -29,4 +54,6 @@ public class MarkedTileViewModel : ObservableObject
         OnPropertyChanged(nameof(Tile));
         OnPropertyChanged(nameof(TileMarkedTest));
     }
+
+    public void Handle(LocationMessage message) { }
 }
