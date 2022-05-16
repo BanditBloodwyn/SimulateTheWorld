@@ -18,7 +18,7 @@
                         <StackPanel Orientation="Horizontal">
                             <Label Content="{Binding Name}" Width="200" Padding="0"/>
                             <Label Content=" - " Width="50" Padding="0"/>
-                            <Label Content="{Binding Location}" Padding="0"/>
+                            <Label Content="{Binding Coordinate}" Padding="0"/>
                         </StackPanel>
                     </HierarchicalDataTemplate>
                 </TreeView.ItemTemplate>

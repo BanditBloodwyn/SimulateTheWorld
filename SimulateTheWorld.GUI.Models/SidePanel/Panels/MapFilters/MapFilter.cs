@@ -2,7 +2,7 @@
 using SimulateTheWorld.Core.GUI.MVVM;
 using SimulateTheWorld.Core.Types.Enums;
 
-namespace SimulateTheWorld.Models.SidePanel.Panels.MapFilters;
+namespace SimulateTheWorld.GUI.Models.SidePanel.Panels.MapFilters;
 
 public class MapFilter : ObservableObject
 {

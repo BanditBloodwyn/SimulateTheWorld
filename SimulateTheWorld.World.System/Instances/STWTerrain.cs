@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
 using SimulateTheWorld.Core.Extentions;
+using SimulateTheWorld.Core.Types;
 using SimulateTheWorld.World.Data.Data.Enums;
+using SimulateTheWorld.World.Data.Data.Types;
 
 namespace SimulateTheWorld.World.System.Instances;
 
@@ -13,7 +15,7 @@ public class STWTerrain
     private readonly TileMarker _tileMarker;
    
     public TerrainTile[] Tiles { get; }
-    
+
     public STWTerrain()
     {
         Tiles = new TerrainTile[TerrainSize * TerrainSize];
@@ -27,19 +29,22 @@ public class STWTerrain
     {
         for (int x = 0; x < TerrainSize; x++)
             for (int y = 0; y < TerrainSize; y++)
-                Tiles[x * TerrainSize + y] = CreateTerrainTile(x * TerrainSize + y);
+                Tiles[x * TerrainSize + y] = CreateTerrainTile(x, y);
     }
 
-    private TerrainTile CreateTerrainTile(int tileID)
+    private TerrainTile CreateTerrainTile(int x, int y)
     {
+        int tileID = x * TerrainSize + y;
+
         TerrainTile tile = new();
 
         tile.ID = tileID;
+        tile.Location = new Location($"Tile {tileID}", new Coordinate(y, x));
         tile.TileType = EnumExtentions.RandomOf<TileType>();
-        if (tile.TileType == TileType.Water)
-            tile.TerrainType = TerrainType.Water;
-        else
-            tile.TerrainType = EnumExtentions.RandomOf<TerrainType>(1);
+
+        tile.TerrainType = tile.TileType == TileType.Water 
+            ? TerrainType.Water 
+            : EnumExtentions.RandomOf<TerrainType>(1);
 
         return tile;
     }

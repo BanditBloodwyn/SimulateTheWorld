@@ -3,7 +3,7 @@ using System.Drawing;
 using OpenTK.Mathematics;
 using SimulateTheWorld.Graphics.Data.OpenGL;
 using SimulateTheWorld.Graphics.Resources.Rendering;
-using SimulateTheWorld.Models.SidePanel.Panels.MapFilters;
+using SimulateTheWorld.GUI.Models.SidePanel.Panels.MapFilters;
 using SimulateTheWorld.World.System.Instances;
 
 namespace SimulateTheWorld.Graphics.Rendering.Rendering;

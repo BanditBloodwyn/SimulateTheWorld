@@ -2,23 +2,20 @@
 using System.Linq;
 using SimulateTheWorld.Core.GUI.MVVM;
 using SimulateTheWorld.Core.GUI.MVVM.Mediator;
-using SimulateTheWorld.Models.Mediators;
+using SimulateTheWorld.GUI.Models.Mediators;
 using SimulateTheWorld.World.Data.Data.Types;
 
 namespace SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel.Panels.PinnedLocations;
 
 public class PinnedLocationsViewModel : ObservableObject, ISubscriber<IMessage>
 {
-    private readonly IMediator _locationMediator;
-
-    public ObservableCollection<Location> Locations { get; set; }
+    public ObservableCollection<Location?> Locations { get; }
 
     public PinnedLocationsViewModel()
     {
-        _locationMediator = LocationMediator.Instance;
-        _locationMediator.Subscribe(this);
+        LocationMediator.Instance.Subscribe(this);
 
-        Locations = new ObservableCollection<Location>();
+        Locations = new ObservableCollection<Location?>();
     }
 
 
@@ -26,10 +23,13 @@ public class PinnedLocationsViewModel : ObservableObject, ISubscriber<IMessage>
     {
         if (message is LocationMessage locationMessage)
         {
-            if (locationMessage.Pin)
-                Locations.Add(locationMessage.Location);
+            if (locationMessage.Location == null)
+                return;
+
+            if (Locations.Any(loc => loc != null && loc.Name == locationMessage.Location.Name))
+                Locations.Remove(Locations.First(loc => loc != null && loc.Name == locationMessage.Location.Name));
             else
-                Locations.Remove(Locations.First(loc => loc.Name == locationMessage.Location.Name));
+                Locations.Add(locationMessage.Location);
         }
     }
 }

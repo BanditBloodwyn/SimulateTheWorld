@@ -2,7 +2,7 @@
 using System.Linq;
 using SimulateTheWorld.Core.Types.Enums;
 
-namespace SimulateTheWorld.Models.SidePanel.Panels.MapFilters;
+namespace SimulateTheWorld.GUI.Models.SidePanel.Panels.MapFilters;
 
 public class MapFiltersModel
 {

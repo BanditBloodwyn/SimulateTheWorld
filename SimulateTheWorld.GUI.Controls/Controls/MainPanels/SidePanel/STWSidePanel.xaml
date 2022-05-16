@@ -20,17 +20,17 @@
         </Grid.RowDefinitions>
         
         <StackPanel Grid.Row="0" Margin="0,0,5,0">
-            <Expander Header="{x:Static resources:Locals_German.sidepanel_expander_search}" ExpandDirection="Down" IsExpanded="False">
+            <Expander Header="{x:Static resources:Locals_German.sidepanel_expander_search}" ExpandDirection="Down" IsExpanded="True">
                 <Border Background="Gray">
                     <panels:SearchLocationControl/>
                 </Border>
             </Expander>
 
-            <Expander Header="{x:Static resources:Locals_German.sidepanel_expander_pinnedLocations}" ExpandDirection="Down" IsExpanded="False">
+            <Expander Header="{x:Static resources:Locals_German.sidepanel_expander_pinnedLocations}" ExpandDirection="Down" IsExpanded="True">
                 <panels:PinnedLocationsControl/>
             </Expander>
 
-            <Expander Header="{x:Static resources:Locals_German.sidepanel_expander_mapFilters}" ExpandDirection="Down" IsExpanded="False">
+            <Expander Header="{x:Static resources:Locals_German.sidepanel_expander_mapFilters}" ExpandDirection="Down" IsExpanded="True">
                 <panels:MapFiltersControl/>
             </Expander>
         </StackPanel>

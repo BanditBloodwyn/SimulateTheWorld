@@ -2,18 +2,18 @@
 
 public struct Coordinate
 {
-    public double Latitude { get; set; }
+    public int X { get; }
 
-    public double Longitude { get; set; }
+    public int Y { get; }
 
-    public Coordinate(double latitude, double longitude)
+    public Coordinate(int x, int y)
     {
-        Latitude = latitude;
-        Longitude = longitude;
+        X = x;
+        Y = y;
     }
 
     public readonly override string ToString()
     {
-        return $"{Latitude}°N {Longitude}°O";
+        return $"{Y}°N {X}°O";
     }
 }

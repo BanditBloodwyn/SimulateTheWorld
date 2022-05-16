@@ -1,5 +1,5 @@
 ﻿using SimulateTheWorld.Core.GUI.MVVM;
-using SimulateTheWorld.Models.SidePanel.Panels.MapFilters;
+using SimulateTheWorld.GUI.Models.SidePanel.Panels.MapFilters;
 
 namespace SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel.Panels.MapFilters;
 
