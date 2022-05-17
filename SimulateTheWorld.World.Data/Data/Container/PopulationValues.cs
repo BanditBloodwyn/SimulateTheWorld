@@ -12,14 +12,5 @@ public class PopulationValues
     [Range(0, 100)]
     public float Urbanization { get; set; }
 
-    public Population Population { get; set; }
-
-    public PopulationValues()
-    {
-        Random random = new Random();
-
-        LifeStandard = (float)random.NextDouble() * 100;
-        Urbanization = (float)random.NextDouble() * 100;
-        Population = new Population();
-    }
+    public Population Population { get; set; } = new();
 }

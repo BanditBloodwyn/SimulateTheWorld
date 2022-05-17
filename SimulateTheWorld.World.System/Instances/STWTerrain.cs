@@ -4,15 +4,17 @@ using SimulateTheWorld.Core.Extentions;
 using SimulateTheWorld.Core.Types;
 using SimulateTheWorld.World.Data.Data.Enums;
 using SimulateTheWorld.World.Data.Data.Types;
+using SimulateTheWorld.World.System.Generation;
 
 namespace SimulateTheWorld.World.System.Instances;
 
 public class STWTerrain
 {
-    public const int TerrainSize = 200;
+    public const int TerrainSize = 1000;
     public const float TileSize = 0.1f;
 
     private readonly TileMarker _tileMarker;
+    private readonly WorldGenerator _worldGenerator;
    
     public TerrainTile[] Tiles { get; }
 
@@ -21,8 +23,15 @@ public class STWTerrain
         Tiles = new TerrainTile[TerrainSize * TerrainSize];
         
         _tileMarker = new TileMarker();
+        _worldGenerator = new WorldGenerator();
 
+        CreateCatalog();
         CreateTerrain();
+    }
+
+    private void CreateCatalog()
+    {
+        _worldGenerator.CreateCatalog();
     }
 
     private void CreateTerrain()
@@ -40,11 +49,13 @@ public class STWTerrain
 
         tile.ID = tileID;
         tile.Location = new Location($"Tile {tileID}", new Coordinate(y, x));
-        tile.TileType = EnumExtentions.RandomOf<TileType>();
 
-        tile.TerrainType = tile.TileType == TileType.Water 
-            ? TerrainType.Water 
-            : EnumExtentions.RandomOf<TerrainType>(1);
+        if (_worldGenerator.CatalogCollection.TerrainHeights == null)
+            return tile;
+
+        tile.TerrainValues.Height = _worldGenerator.CatalogCollection.TerrainHeights[tileID];
+        tile.TileType = TerrainSampler.GeTileTypeByHeight(_worldGenerator.CatalogCollection.TerrainHeights[tileID]);
+        tile.TerrainType = TerrainSampler.GeTerrainTypeByHeight(_worldGenerator.CatalogCollection.TerrainHeights[tileID]);
 
         return tile;
     }

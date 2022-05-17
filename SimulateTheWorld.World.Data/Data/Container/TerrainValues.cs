@@ -2,5 +2,6 @@
 
 public class TerrainValues
 {
-    
+    public float Height { get; set; }
+
 }

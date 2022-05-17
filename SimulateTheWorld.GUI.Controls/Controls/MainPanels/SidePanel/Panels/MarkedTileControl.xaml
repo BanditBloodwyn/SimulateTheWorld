@@ -23,6 +23,10 @@
                 <Label Content ="{Binding Tile.ID}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
+                <Label Content ="Height:"/>
+                <Label Content ="{Binding Tile.TerrainValues.Height}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
                 <Label Content ="Type:"/>
                 <Label Content ="{Binding Tile.TileType}"/>
             </StackPanel>

@@ -8,8 +8,8 @@
 
   <ItemGroup>
     <Folder Include="GUI\MVVM\Mediator\" />
-    <Folder Include="Math\" />
     <Folder Include="Extentions\" />
+    <Folder Include="Math\Noise\Filters\" />
   </ItemGroup>
 
 </Project>
