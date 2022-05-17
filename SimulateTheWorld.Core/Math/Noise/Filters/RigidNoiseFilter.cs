@@ -3,7 +3,7 @@ using System.Numerics;
 
 namespace SimulateTheWorld.Core.Math.Noise.Filters;
 
-public class StandardNoiseFilter : INoiseFilter
+public class RigidNoiseFilter : INoiseFilter
 {
     private readonly PerlinNoise _perlinNoise;
 
@@ -13,9 +13,10 @@ public class StandardNoiseFilter : INoiseFilter
     private readonly float _roughness;
     private readonly float _baseRoughness;
     private readonly float _persistance;
+    private readonly float _weightMultiplier;
     private readonly Vector3 _center;
 
-    public StandardNoiseFilter(int numberOfLayers, float strength, float minValue, float roughness, float baseRoughness, float persistance, Vector3 center)
+    public RigidNoiseFilter(int numberOfLayers, float strength, float minValue, float roughness, float baseRoughness, float persistance, float weightMultiplier, Vector3 center)
     {
         _perlinNoise = new PerlinNoise();
         _numberOfLayers = numberOfLayers;
@@ -24,6 +25,7 @@ public class StandardNoiseFilter : INoiseFilter
         _roughness = roughness;
         _baseRoughness = baseRoughness;
         _persistance = persistance;
+        _weightMultiplier = weightMultiplier;
         _center = center;
     }
 
@@ -32,11 +34,17 @@ public class StandardNoiseFilter : INoiseFilter
         float noiseValue = 0;
         float frequency = _baseRoughness;
         float amplitude = 1;
+        float weight = 1;
 
         for (int i = 0; i < _numberOfLayers; i++)
         {
-            float v = _perlinNoise.Evaluate(point * frequency + _center);
-            noiseValue += (v + 1) * 0.5f * amplitude;
+            float v = 1 - MathF.Abs(_perlinNoise.Evaluate(point * frequency + _center));
+
+            v *= v;
+            v *= weight;
+            weight = System.Math.Clamp(v * _weightMultiplier, 0, 1);
+
+            noiseValue += v * amplitude;
             frequency *= _roughness;
             amplitude *= _persistance;
         }

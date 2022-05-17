@@ -1,18 +1,16 @@
-﻿using System.Numerics;
-using SimulateTheWorld.Core.Math.Noise.Filters;
-using SimulateTheWorld.World.System.Instances;
+﻿using SimulateTheWorld.World.System.Instances;
 
 namespace SimulateTheWorld.World.System.Generation;
 
 public class CatalogCollection
 {
-    public float[]? TerrainHeights { get; set; }
+    private readonly NoiseGenerator _noiseGenerator;
 
-    private readonly StandardNoiseFilter _standardNoiseFilter;
-
+    public float[]? TerrainHeights { get; private set; }
+    
     public CatalogCollection()
     {
-        _standardNoiseFilter = new StandardNoiseFilter(10, 100, 0.4f, 10f, 0.003f, 0.1f, Vector3.Zero);
+        _noiseGenerator = new NoiseGenerator();
     }
 
     public void CreateCatalog()
@@ -21,6 +19,6 @@ public class CatalogCollection
         
         for (int x = 0; x < STWTerrain.TerrainSize; x++) 
             for (int z = 0; z < STWTerrain.TerrainSize; z++) 
-                TerrainHeights[x * STWTerrain.TerrainSize + z] = _standardNoiseFilter.Evaluate(new Vector3(x, 0, z));
+                TerrainHeights[x * STWTerrain.TerrainSize + z] = _noiseGenerator.CalculateHeight(x, z);
     }
 }
