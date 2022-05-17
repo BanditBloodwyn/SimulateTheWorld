@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
-using SimulateTheWorld.Core.Extentions;
 using SimulateTheWorld.Core.Types;
-using SimulateTheWorld.World.Data.Data.Enums;
 using SimulateTheWorld.World.Data.Data.Types;
 using SimulateTheWorld.World.System.Generation;
 
@@ -10,7 +8,7 @@ namespace SimulateTheWorld.World.System.Instances;
 
 public class STWTerrain
 {
-    public const int TerrainSize = 1000;
+    public const int TerrainSize = 2000;
     public const float TileSize = 0.1f;
 
     private readonly TileMarker _tileMarker;

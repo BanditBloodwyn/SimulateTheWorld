@@ -125,7 +125,7 @@ void main()
     build_tile(gl_in[0].gl_Position);
     
     colorShading = vec3(0.5, 0.5, 0.5);
-    build_front(gl_in[0].gl_Position);
-    build_left(gl_in[0].gl_Position);
-    build_right(gl_in[0].gl_Position);
+    //build_front(gl_in[0].gl_Position);
+    //build_left(gl_in[0].gl_Position);
+    //build_right(gl_in[0].gl_Position);
 }
