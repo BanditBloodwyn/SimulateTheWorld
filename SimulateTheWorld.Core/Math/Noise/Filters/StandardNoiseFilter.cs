@@ -17,7 +17,9 @@ public class StandardNoiseFilter : INoiseFilter
 
     public StandardNoiseFilter(int numberOfLayers, float strength, float minValue, float roughness, float baseRoughness, float persistance, Vector3 center)
     {
-        _perlinNoise = new PerlinNoise();
+        Random random = new Random();
+
+        _perlinNoise = new PerlinNoise(random.Next(9999));
         _numberOfLayers = numberOfLayers;
         _strength = strength;
         _minValue = minValue;

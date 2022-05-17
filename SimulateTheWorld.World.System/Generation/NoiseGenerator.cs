@@ -8,16 +8,19 @@ public class NoiseGenerator
     private readonly INoiseFilter[] _noiseFilters;
 
     private readonly StandardNoiseFilter _standardNoiseFilter;
+    private readonly StandardNoiseFilter _terrainNoiseFilter;
     private readonly RigidNoiseFilter _mountainsNoiseFilter;
 
     public NoiseGenerator()
     {
-        _standardNoiseFilter = new StandardNoiseFilter(10, 80, 0.4f, 10f, 0.003f, 0.1f, Vector3.Zero);
-        _mountainsNoiseFilter = new RigidNoiseFilter(10, 2, 0.6f, 50f, 0.005f, 0.1f, 1f, Vector3.Zero);
+        _standardNoiseFilter = new StandardNoiseFilter(10, 80, 0.4f, 10f, 0.002f, 0.1f, Vector3.Zero);
+        _terrainNoiseFilter = new StandardNoiseFilter(10, 0.1f, 0.0f, 50f, 1.0f, 0.5f, Vector3.Zero);
+        _mountainsNoiseFilter = new RigidNoiseFilter(10, 1.8f, 0.65f, 10f, 0.004f, 0.1f, 1f, Vector3.Zero);
 
         _noiseFilters = new INoiseFilter[]
         {
             _standardNoiseFilter,
+            _terrainNoiseFilter,
             _mountainsNoiseFilter
         };
     }

@@ -14,7 +14,7 @@ public static class TerrainSampler
             return TerrainType.Water;
         if (height <= 30)
             return TerrainType.Plain;
-        if (height <= 50)
+        if (height <= 60)
             return TerrainType.Hills;
         if (height <= 100)
             return TerrainType.Mountains;

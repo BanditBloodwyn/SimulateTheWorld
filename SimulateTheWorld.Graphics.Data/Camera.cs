@@ -1,4 +1,5 @@
-﻿using OpenTK.Mathematics;
+﻿using System.Data;
+using OpenTK.Mathematics;
 using SimulateTheWorld.Graphics.Data.Components;
 using SimulateTheWorld.Graphics.Data.OpenGL;
 
@@ -43,9 +44,11 @@ public class Camera
     {
         Vector3 position = Transform.Position;
         position.X += delta.X * Speed;
-        position.Y += delta.Y * Speed;
+        position.Y += delta.Y * 0.01f;
         position.Z += delta.Z * Speed;
         Transform.Position = position;
+
+        Update();
     }
 
     public void Rotate(Vector3 delta)
@@ -56,4 +59,10 @@ public class Camera
         rotation.Z += delta.Z * Sensitivity;
         Front = rotation;
     }
+
+    private void Update()
+    {
+        Speed = Transform.PositionY / 700;
+    }
+
 }
