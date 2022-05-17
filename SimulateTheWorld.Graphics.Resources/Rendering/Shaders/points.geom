@@ -10,6 +10,7 @@ in DATA
     float tileType;
     float terrainType;
 
+    float height;
     float popByTribe;
     float countries;
     float lifeStandard;
@@ -23,6 +24,7 @@ flat out float marked;
 flat out float tileType;
 flat out float terrainType;
 
+flat out float height;
 flat out float popByTribe;
 flat out float countries;
 flat out float lifeStandard;
@@ -116,6 +118,7 @@ void main()
     tileType = data_in[0].tileType;
     terrainType = data_in[0].terrainType;
     
+    height = data_in[0].height;
     popByTribe = data_in[0].popByTribe;
     countries = data_in[0].countries;
     lifeStandard = data_in[0].lifeStandard;

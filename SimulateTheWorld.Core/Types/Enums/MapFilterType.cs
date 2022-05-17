@@ -3,8 +3,9 @@
 public enum MapFilterType
 {
     Terrain,
+    Height,
     PopByTribe,
     Countries,
     LifeStandard,
-    Urbanization
+    Urbanization,
 }

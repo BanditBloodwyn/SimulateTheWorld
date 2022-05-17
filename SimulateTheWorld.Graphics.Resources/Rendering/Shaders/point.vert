@@ -4,10 +4,11 @@ layout (location = 0) in vec3 aPos;
 layout (location = 1) in float aMarked;
 layout (location = 2) in float aTileType;
 layout (location = 3) in float aTerrainType;
-layout (location = 4) in float aPopByTribe;
-layout (location = 5) in float aCountries;
-layout (location = 6) in float aLifeStandard;
-layout (location = 7) in float aUrbanization;
+layout (location = 4) in float aHeight;
+layout (location = 5) in float aPopByTribe;
+layout (location = 6) in float aCountries;
+layout (location = 7) in float aLifeStandard;
+layout (location = 8) in float aUrbanization;
 
 out DATA
 {
@@ -16,6 +17,7 @@ out DATA
     float tileType;
     float terrainType;
     
+    float height;
     float popByTribe;
     float countries;
     float lifeStandard;
@@ -35,6 +37,7 @@ void main()
     data_out.tileType = aTileType;
     data_out.terrainType = aTerrainType;
     
+    data_out.height = aHeight;
     data_out.popByTribe = aPopByTribe;
     data_out.countries = aCountries;
     data_out.lifeStandard = aLifeStandard;

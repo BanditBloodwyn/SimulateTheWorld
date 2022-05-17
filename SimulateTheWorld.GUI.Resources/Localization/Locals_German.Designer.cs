@@ -70,6 +70,15 @@ namespace SimulateTheWorld.GUI.Resources.Localization {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Höhe ähnelt.
+        /// </summary>
+        public static string mapfilters_height {
+            get {
+                return ResourceManager.GetString("mapfilters_height", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Lebensstandard ähnelt.
         /// </summary>
         public static string mapfilters_lifeStandard {

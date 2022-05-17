@@ -11,6 +11,7 @@ public class MapFiltersModel
     private static MapFiltersModel? _instance;
 
     public MapFilter TerrainFilter { get; }
+    public MapFilter HeightFilter { get; }
     public MapFilter PopByTribeFilter { get; }
     public MapFilter CountriesFilter { get; }
     public MapFilter LifeStandardFilter { get; }
@@ -26,12 +27,13 @@ public class MapFiltersModel
     private MapFiltersModel()
     {
         TerrainFilter = new MapFilter(MapFilterType.Terrain, true);
+        HeightFilter = new MapFilter(MapFilterType.Height);
         PopByTribeFilter = new MapFilter(MapFilterType.PopByTribe);
         CountriesFilter = new MapFilter(MapFilterType.Countries);
         LifeStandardFilter = new MapFilter(MapFilterType.LifeStandard);
         UrbanizationFilter = new MapFilter(MapFilterType.Urbanization);
 
-        _filters = new[] { TerrainFilter, PopByTribeFilter, CountriesFilter, LifeStandardFilter, UrbanizationFilter };
+        _filters = new[] { TerrainFilter, HeightFilter, PopByTribeFilter, CountriesFilter, LifeStandardFilter, UrbanizationFilter };
     }
 
     public void SetOnMapFilterChanged(Action onMapFilterChanged)

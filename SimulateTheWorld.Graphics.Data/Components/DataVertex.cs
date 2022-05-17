@@ -11,6 +11,7 @@ public struct DataVertex
     public float tileType;
     public float terrainType;
 
+    public float height;
     public float popByTribe;
     public float countries;
     public float lifeStandard;
@@ -25,6 +26,7 @@ public struct DataVertex
         tileType = 0;
         terrainType = 0;
 
+        height = 0;
         popByTribe = 0;
         countries = 0;
         lifeStandard = 0;

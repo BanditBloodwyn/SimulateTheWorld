@@ -22,8 +22,11 @@ public static class VertexUpdater
                     TerrainTile tile = STWWorld.Instance.Terrain.Tiles[i];
 
                     pointCloud.Vertices[i].marked = tile.Marked ? 1.0f : 0.0f;
+
                     pointCloud.Vertices[i].tileType = (int)tile.TileType;
                     pointCloud.Vertices[i].terrainType = (int)tile.TerrainType;
+
+                    pointCloud.Vertices[i].height = tile.TerrainValues.Height;
                     pointCloud.Vertices[i].popByTribe = tile.PopulationValues.Population.Quantity;
                     pointCloud.Vertices[i].countries = tile.PopulationValues.Population.Quantity;
                     pointCloud.Vertices[i].lifeStandard = tile.PopulationValues.LifeStandard;

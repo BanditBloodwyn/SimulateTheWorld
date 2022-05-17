@@ -5,6 +5,7 @@ out vec4 FragColor;
 flat in float marked;
 flat in float tileType;
 flat in float terrainType;
+flat in float height;
 flat in float popByTribe;
 flat in float countries;
 flat in float lifeStandard;
@@ -59,11 +60,13 @@ void main()
     if (uFilterMode == 0)
         FragColor = GetTerrainColor() * vec4(colorShading, 0);
     else if (uFilterMode == 1)
-        FragColor = SampleColor(popByTribe) * vec4(colorShading, 0);
+        FragColor = SampleColor(height) * vec4(colorShading, 0);
     else if (uFilterMode == 2)
-        FragColor = SampleColor(countries) * vec4(colorShading, 0);
+        FragColor = SampleColor(popByTribe) * vec4(colorShading, 0);
     else if (uFilterMode == 3)
-        FragColor = SampleColor(lifeStandard) * vec4(colorShading, 0);
+        FragColor = SampleColor(countries) * vec4(colorShading, 0);
     else if (uFilterMode == 4)
+        FragColor = SampleColor(lifeStandard) * vec4(colorShading, 0);
+    else if (uFilterMode == 5)
         FragColor = SampleColor(urbanization) * vec4(colorShading, 0);
 }

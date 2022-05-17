@@ -23,6 +23,9 @@
                 <CheckBox IsChecked="{Binding Model.TerrainFilter.Active}" 
                           Content="{Binding Model.TerrainFilter.DisplayName}"
                           Style="{StaticResource CheckBoxStyle}"/>
+                <CheckBox IsChecked="{Binding Model.HeightFilter.Active}" 
+                          Content="{Binding Model.HeightFilter.DisplayName}"
+                          Style="{StaticResource CheckBoxStyle}"/>
                 <CheckBox IsChecked="{Binding Model.PopByTribeFilter.Active}" 
                           Content="{Binding Model.PopByTribeFilter.DisplayName}"
                           Style="{StaticResource CheckBoxStyle}"/>

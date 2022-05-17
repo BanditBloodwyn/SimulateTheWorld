@@ -120,6 +120,9 @@
   <data name="mapfilters_countries" xml:space="preserve">
     <value>Länder</value>
   </data>
+  <data name="mapfilters_height" xml:space="preserve">
+    <value>Höhe</value>
+  </data>
   <data name="mapfilters_lifeStandard" xml:space="preserve">
     <value>Lebensstandard</value>
   </data>
