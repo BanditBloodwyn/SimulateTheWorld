@@ -13,7 +13,7 @@ public class NoiseGenerator
     public NoiseGenerator()
     {
         _standardNoiseFilter = new StandardNoiseFilter(10, 80, 0.4f, 10f, 0.003f, 0.1f, Vector3.Zero);
-        _mountainsNoiseFilter = new RigidNoiseFilter(10, 20, 1f, 1f, 0.003f, 0.1f, 1, Vector3.Zero);
+        _mountainsNoiseFilter = new RigidNoiseFilter(10, 2, 0.6f, 50f, 0.005f, 0.1f, 1f, Vector3.Zero);
 
         _noiseFilters = new INoiseFilter[]
         {
