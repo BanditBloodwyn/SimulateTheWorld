@@ -58,27 +58,6 @@ public class STWTerrain
         return tile;
     }
 
-    public void RandomizeTiles()
-    {
-        int updatedTilesCount = 0;
-
-        foreach (TerrainTile terrainTile in Tiles)
-        {
-            try
-            {
-                terrainTile.Randomize();
-                updatedTilesCount++;
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine($"Tile randomization failed: {e}");
-                throw;
-            }
-        }
-
-        Debug.WriteLine($"\tUpdated tiles: {updatedTilesCount}");
-    }
-
     public void MarkTile(int tileID)
     {
         _tileMarker.MarkTile(tileID, true);

@@ -21,13 +21,5 @@ public class STWWorld
     public void Update()
     {
         Debug.WriteLine("Update world");
-
-        // Debugging
-        RandomizeTiles();
-    }
-
-    private void RandomizeTiles()
-    {
-        Terrain.RandomizeTiles();
     }
 }
