@@ -40,13 +40,40 @@
                 </StackPanel>
             </TabItem>
             <TabItem Header="Flora">
-
+                <StackPanel>
+                    <displayControls:ValueDisplayControl>
+                        <Label Grid.Column="0" Content ="Deciduous trees:"/>
+                        <Label Grid.Column="1" Content ="{Binding Tile.FloraValues.DeciduousTrees}"/>
+                    </displayControls:ValueDisplayControl>
+                    <displayControls:ValueDisplayControl>
+                        <Label Grid.Column="0" Content ="Evergreen trees:"/>
+                        <Label Grid.Column="1" Content ="{Binding Tile.FloraValues.EvergreenTrees}"/>
+                    </displayControls:ValueDisplayControl>
+                </StackPanel>
             </TabItem>
             <TabItem Header="Fauna">
-
+                <StackPanel>
+                    <displayControls:ValueDisplayControl>
+                        <Label Grid.Column="0" Content ="Carnivores:"/>
+                        <Label Grid.Column="1" Content ="{Binding Tile.FaunaValues.Carnivores}"/>
+                    </displayControls:ValueDisplayControl>
+                    <displayControls:ValueDisplayControl>
+                        <Label Grid.Column="0" Content ="Herbivores:"/>
+                        <Label Grid.Column="1" Content ="{Binding Tile.FaunaValues.Herbivores}"/>
+                    </displayControls:ValueDisplayControl>
+                </StackPanel>
             </TabItem>
             <TabItem Header="Population">
-
+                <StackPanel>
+                    <displayControls:ValueDisplayControl>
+                        <Label Grid.Column="0" Content ="Life standard:"/>
+                        <Label Grid.Column="1" Content ="{Binding Tile.PopulationValues.LifeStandard}"/>
+                    </displayControls:ValueDisplayControl>
+                    <displayControls:ValueDisplayControl>
+                        <Label Grid.Column="0" Content ="Urbanization:"/>
+                        <Label Grid.Column="1" Content ="{Binding Tile.PopulationValues.Urbanization}"/>
+                    </displayControls:ValueDisplayControl>
+                </StackPanel>
             </TabItem>
         </displayControls:CustomTabControl>
 

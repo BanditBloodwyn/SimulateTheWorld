@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using SimulateTheWorld.World.Data.Data.Types;
 
 namespace SimulateTheWorld.World.Data.Data.Container;
