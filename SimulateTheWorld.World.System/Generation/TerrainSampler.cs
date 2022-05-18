@@ -13,11 +13,19 @@ public static class TerrainSampler
         if(height <= 10)
             return TerrainType.Water;
         if (height <= 30)
-            return TerrainType.Plain;
+            return TerrainType.Kolline;
+        if (height <= 50)
+            return TerrainType.Montane;
         if (height <= 60)
-            return TerrainType.Hills;
-        if (height <= 100)
-            return TerrainType.Mountains;
+            return TerrainType.Subalpine;
+        if (height <= 70)
+            return TerrainType.Alpine_Trees;
+        if (height <= 80)
+            return TerrainType.Alpine_Bushes;
+        if (height <= 90)
+            return TerrainType.Subnivale;
+        if (height > 90)
+            return TerrainType.Nivale;
 
         return TerrainType.Water;
     }

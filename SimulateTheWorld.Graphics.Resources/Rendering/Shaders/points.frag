@@ -1,7 +1,28 @@
 ﻿#version 450 core
 
+// ================ Enums ================
+
+// === TileType ===
+const int TILETYPE_WATER = 0;
+const int TILETYPE_LAND = 1;
+
+// === TerrainType ===
+const int TERRAIN_WATER = 0;
+const int TERRAIN_KOLLINE = 1;
+const int TERRAIN_MONTANE = 2;
+const int TERRAIN_SUBALPINE = 3;
+const int TERRAIN_ALPINE_TREES = 4;
+const int TERRAIN_ALPINE_BUSHES = 5;
+const int TERRAIN_SUBNIVALE = 6;
+const int TERRAIN_NIVALE = 7;
+
+
+// ================ Gloabal variables ================
+
+// === Out ===
 out vec4 FragColor;
 
+// === In ===
 flat in float marked;
 flat in float tileType;
 flat in float terrainType;
@@ -13,12 +34,14 @@ flat in float urbanization;
 
 flat in vec3 colorShading;
 
+// === Uniforms ===
 uniform vec4 uMarkedTileColor;
 
 uniform int uFilterMode;
 uniform vec4 uFilterColorZero;
 uniform vec4 uFilterColorHundred;
 
+// ================================
 vec4 SampleColor(float value)
 {
     if (value > 100 || value < 0)
@@ -36,16 +59,24 @@ vec4 SampleColor(float value)
 
 vec4 GetTerrainColor()
 {
-    if (tileType == 0)
+    if (tileType == TILETYPE_WATER)
         return vec4(0.2f, 0.2f, 1.0f, 1.0f);
     else
     {
-        if (terrainType == 1)
+        if (terrainType == TERRAIN_KOLLINE)
             return vec4(0.4f, 1.0f, 0.4f, 1.0f);
-        if (terrainType == 2)
-            return vec4(0.0f, 0.5f, 0.0f, 1.0f);
-        if (terrainType == 3)
+        if (terrainType == TERRAIN_MONTANE)
+            return vec4(0.0f, 0.8f, 0.0f, 1.0f);
+        if (terrainType == TERRAIN_SUBALPINE)
+            return vec4(0.0f, 0.6f, 0.0f, 1.0f);
+        if (terrainType == TERRAIN_ALPINE_TREES)
+            return vec4(0.3f, 0.6f, 0.3f, 1.0f);
+        if (terrainType == TERRAIN_ALPINE_BUSHES)
+            return vec4(0.4f, 0.6f, 0.4f, 1.0f);
+        if (terrainType == TERRAIN_SUBNIVALE)
             return vec4(0.5f, 0.5f, 0.5f, 1.0f);
+        if (terrainType == TERRAIN_NIVALE)
+            return vec4(1.0f, 1.0f, 1.0f, 1.0f);
     }
 }
 

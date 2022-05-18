@@ -3,7 +3,11 @@
 public enum TerrainType
 {
     Water,
-    Plain,
-    Hills,
-    Mountains
+    Kolline,
+    Montane,
+    Subalpine,
+    Alpine_Trees,
+    Alpine_Bushes,
+    Subnivale,
+    Nivale
 }
