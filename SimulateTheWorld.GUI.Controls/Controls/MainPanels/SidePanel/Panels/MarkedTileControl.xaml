@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:markedTile="clr-namespace:SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel.Panels.MarkedTile;assembly=SimulateTheWorld.GUI.ViewModels"
+             xmlns:displayControls="clr-namespace:SimulateTheWorld.GUI.Controls.Controls.DisplayControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
    
@@ -17,24 +18,37 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
-        <StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Content ="Marked tile:"/>
-                <Label Content ="{Binding Tile.ID}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Content ="Height:"/>
-                <Label Content ="{Binding Tile.TerrainValues.Height}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Content ="Type:"/>
-                <Label Content ="{Binding Tile.TileType}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Content ="Vegetation:"/>
-                <Label Content ="{Binding Tile.VegetationType}"/>
-            </StackPanel>
-        </StackPanel>
+        <displayControls:CustomTabControl Grid.Row="0">
+            <TabItem Header="Allgemein">
+                <StackPanel>
+                    <displayControls:ValueDisplayControl>
+                        <Label Grid.Column="0" Content ="Marked tile:"/>
+                        <Label Grid.Column="1" Content ="{Binding Tile.ID}"/>
+                    </displayControls:ValueDisplayControl>
+                    <displayControls:ValueDisplayControl>
+                        <Label Grid.Column="0" Content ="Height:"/>
+                        <Label Grid.Column="1" Content ="{Binding Tile.TerrainValues.Height}"/>
+                    </displayControls:ValueDisplayControl>
+                    <displayControls:ValueDisplayControl>
+                        <Label Grid.Column="0" Content ="Type:"/>
+                        <Label Grid.Column="1" Content ="{Binding Tile.TileType}"/>
+                    </displayControls:ValueDisplayControl>
+                    <displayControls:ValueDisplayControl>
+                        <Label Grid.Column="0" Content ="Vegetation:"/>
+                        <Label Grid.Column="1" Content ="{Binding Tile.VegetationType}"/>
+                    </displayControls:ValueDisplayControl>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Flora">
+
+            </TabItem>
+            <TabItem Header="Fauna">
+
+            </TabItem>
+            <TabItem Header="Population">
+
+            </TabItem>
+        </displayControls:CustomTabControl>
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
