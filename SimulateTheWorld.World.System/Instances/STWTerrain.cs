@@ -1,6 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using SimulateTheWorld.Core.Types;
+﻿using SimulateTheWorld.Core.Types;
 using SimulateTheWorld.World.Data.Data.Types;
 using SimulateTheWorld.World.System.Generation;
 

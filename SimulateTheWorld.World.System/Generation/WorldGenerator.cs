@@ -1,6 +1,4 @@
-﻿using NotImplementedException = System.NotImplementedException;
-
-namespace SimulateTheWorld.World.System.Generation;
+﻿namespace SimulateTheWorld.World.System.Generation;
 
 public class WorldGenerator
 {

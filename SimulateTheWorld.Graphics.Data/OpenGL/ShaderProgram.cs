@@ -4,7 +4,6 @@ using System.IO;
 using System.Text;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
-using OpenTK.Windowing.GraphicsLibraryFramework;
 
 namespace SimulateTheWorld.Graphics.Data.OpenGL
 {
