@@ -9,7 +9,7 @@ public struct DataVertex
     public float marked;
 
     public float tileType;
-    public float terrainType;
+    public float vegetationType;
 
     public float height;
     public float popByTribe;
@@ -24,7 +24,7 @@ public struct DataVertex
         marked = 0.0f;
 
         tileType = 0;
-        terrainType = 0;
+        vegetationType = 0;
 
         height = 0;
         popByTribe = 0;

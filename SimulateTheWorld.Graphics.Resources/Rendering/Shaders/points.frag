@@ -6,15 +6,15 @@
 const int TILETYPE_WATER = 0;
 const int TILETYPE_LAND = 1;
 
-// === TerrainType ===
-const int TERRAIN_WATER = 0;
-const int TERRAIN_KOLLINE = 1;
-const int TERRAIN_MONTANE = 2;
-const int TERRAIN_SUBALPINE = 3;
-const int TERRAIN_ALPINE_TREES = 4;
-const int TERRAIN_ALPINE_BUSHES = 5;
-const int TERRAIN_SUBNIVALE = 6;
-const int TERRAIN_NIVALE = 7;
+// === vegetationType ===
+const int VEGETATION_WATER = 0;
+const int VEGETATION_KOLLINE = 1;
+const int VEGETATION_MONTANE = 2;
+const int VEGETATION_SUBALPINE = 3;
+const int VEGETATION_ALPINE_TREES = 4;
+const int VEGETATION_ALPINE_BUSHES = 5;
+const int VEGETATION_SUBNIVALE = 6;
+const int VEGETATION_NIVALE = 7;
 
 
 // ================ Gloabal variables ================
@@ -25,7 +25,7 @@ out vec4 FragColor;
 // === In ===
 flat in float marked;
 flat in float tileType;
-flat in float terrainType;
+flat in float vegetationType;
 flat in float height;
 flat in float popByTribe;
 flat in float countries;
@@ -57,25 +57,25 @@ vec4 SampleColor(float value)
     return vec4(r, g, b, 1);
 }
 
-vec4 GetTerrainColor()
+vec4 GetVegetationColor()
 {
     if (tileType == TILETYPE_WATER)
         return vec4(0.2f, 0.2f, 1.0f, 1.0f);
     else
     {
-        if (terrainType == TERRAIN_KOLLINE)
+        if (vegetationType == VEGETATION_KOLLINE)
             return vec4(0.4f, 1.0f, 0.4f, 1.0f);
-        if (terrainType == TERRAIN_MONTANE)
+        if (vegetationType == VEGETATION_MONTANE)
             return vec4(0.0f, 0.8f, 0.0f, 1.0f);
-        if (terrainType == TERRAIN_SUBALPINE)
+        if (vegetationType == VEGETATION_SUBALPINE)
             return vec4(0.0f, 0.6f, 0.0f, 1.0f);
-        if (terrainType == TERRAIN_ALPINE_TREES)
+        if (vegetationType == VEGETATION_ALPINE_TREES)
             return vec4(0.3f, 0.6f, 0.3f, 1.0f);
-        if (terrainType == TERRAIN_ALPINE_BUSHES)
+        if (vegetationType == VEGETATION_ALPINE_BUSHES)
             return vec4(0.4f, 0.6f, 0.4f, 1.0f);
-        if (terrainType == TERRAIN_SUBNIVALE)
+        if (vegetationType == VEGETATION_SUBNIVALE)
             return vec4(0.5f, 0.5f, 0.5f, 1.0f);
-        if (terrainType == TERRAIN_NIVALE)
+        if (vegetationType == VEGETATION_NIVALE)
             return vec4(1.0f, 1.0f, 1.0f, 1.0f);
     }
 }
@@ -89,7 +89,7 @@ void main()
     }
     
     if (uFilterMode == 0)
-        FragColor = GetTerrainColor() * vec4(colorShading, 0);
+        FragColor = GetVegetationColor() * vec4(colorShading, 0);
     else if (uFilterMode == 1)
         FragColor = SampleColor(height) * vec4(colorShading, 0);
     else if (uFilterMode == 2)

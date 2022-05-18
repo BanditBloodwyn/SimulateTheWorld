@@ -39,7 +39,7 @@ public class PointCloud : IDrawable
         VAO.LinkAttrib(vbo1, 1, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float));                       // Marked
 
         VAO.LinkAttrib(vbo1, 2, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 1 * sizeof(float));   // TileType
-        VAO.LinkAttrib(vbo1, 3, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 2 * sizeof(float));   // TerrainType
+        VAO.LinkAttrib(vbo1, 3, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 2 * sizeof(float));   // VegetationType
 
         VAO.LinkAttrib(vbo1, 4, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 3 * sizeof(float));   // Height
         VAO.LinkAttrib(vbo1, 5, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 4 * sizeof(float));   // PopByTribe

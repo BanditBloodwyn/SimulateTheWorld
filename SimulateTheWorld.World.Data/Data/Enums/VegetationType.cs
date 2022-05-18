@@ -1,6 +1,6 @@
 ﻿namespace SimulateTheWorld.World.Data.Data.Enums;
 
-public enum TerrainType
+public enum VegetationType
 {
     Water,
     Kolline,

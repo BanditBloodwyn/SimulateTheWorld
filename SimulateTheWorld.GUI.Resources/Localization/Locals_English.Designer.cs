@@ -97,11 +97,11 @@ namespace SimulateTheWorld.GUI.Resources.Localization {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Terrain ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Vegetation ähnelt.
         /// </summary>
-        public static string mapfilters_terrain {
+        public static string mapfilters_vegetation {
             get {
-                return ResourceManager.GetString("mapfilters_terrain", resourceCulture);
+                return ResourceManager.GetString("mapfilters_vegetation", resourceCulture);
             }
         }
         

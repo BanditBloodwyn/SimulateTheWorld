@@ -20,8 +20,8 @@
     <Border Height="300" BorderThickness="0,1,0,0">
         <Grid Margin="0,5">
             <TreeView x:Name="tv_mapFilters" BorderBrush="Transparent">
-                <CheckBox IsChecked="{Binding Model.TerrainFilter.Active}" 
-                          Content="{Binding Model.TerrainFilter.DisplayName}"
+                <CheckBox IsChecked="{Binding Model.Vegetation.Active}" 
+                          Content="{Binding Model.Vegetation.DisplayName}"
                           Style="{StaticResource CheckBoxStyle}"/>
                 <CheckBox IsChecked="{Binding Model.HeightFilter.Active}" 
                           Content="{Binding Model.HeightFilter.DisplayName}"

@@ -129,8 +129,8 @@
   <data name="mapfilters_popByTribe" xml:space="preserve">
     <value>Population By Tribe</value>
   </data>
-  <data name="mapfilters_terrain" xml:space="preserve">
-    <value>Terrain</value>
+  <data name="mapfilters_vegetation" xml:space="preserve">
+    <value>Vegetation</value>
   </data>
   <data name="sidepanel_expander_mapFilters" xml:space="preserve">
     <value>Map Filters</value>

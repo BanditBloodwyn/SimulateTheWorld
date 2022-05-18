@@ -8,7 +8,7 @@ in DATA
     float marked;
    
     float tileType;
-    float terrainType;
+    float vegetationType;
 
     float height;
     float popByTribe;
@@ -22,7 +22,7 @@ in DATA
 flat out float marked;
 
 flat out float tileType;
-flat out float terrainType;
+flat out float vegetationType;
 
 flat out float height;
 flat out float popByTribe;
@@ -116,7 +116,7 @@ void main()
     marked = data_in[0].marked;
 
     tileType = data_in[0].tileType;
-    terrainType = data_in[0].terrainType;
+    vegetationType = data_in[0].vegetationType;
     
     height = data_in[0].height;
     popByTribe = data_in[0].popByTribe;

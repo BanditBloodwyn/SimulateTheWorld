@@ -53,7 +53,7 @@ public class STWTerrain
 
         tile.TerrainValues.Height = _worldGenerator.CatalogCollection.TerrainHeights[tileID];
         tile.TileType = TerrainSampler.GeTileTypeByHeight(_worldGenerator.CatalogCollection.TerrainHeights[tileID]);
-        tile.TerrainType = TerrainSampler.GeTerrainTypeByHeight(_worldGenerator.CatalogCollection.TerrainHeights[tileID]);
+        tile.VegetationType = TerrainSampler.GetVegetationTypeByHeight(_worldGenerator.CatalogCollection.TerrainHeights[tileID]);
 
         return tile;
     }

@@ -6,15 +6,15 @@
 const int TILETYPE_WATER = 0;
 const int TILETYPE_LAND = 1;
 
-// === TerrainType ===
-const int TERRAIN_WATER = 0;
-const int TERRAIN_KOLLINE = 1;
-const int TERRAIN_MONTANE = 2;
-const int TERRAIN_SUBALPINE = 3;
-const int TERRAIN_ALPINE_TREES = 4;
-const int TERRAIN_ALPINE_BUSHES = 5;
-const int TERRAIN_SUBNIVALE = 6;
-const int TERRAIN_NIVALE = 7;
+// === VegetationType ===
+const int VEGETATION_WATER = 0;
+const int VEGETATION_KOLLINE = 1;
+const int VEGETATION_MONTANE = 2;
+const int VEGETATION_SUBALPINE = 3;
+const int VEGETATION_ALPINE_TREES = 4;
+const int VEGETATION_ALPINE_BUSHES = 5;
+const int VEGETATION_SUBNIVALE = 6;
+const int VEGETATION_NIVALE = 7;
 
 
 // ================ Gloabal variables ================
@@ -23,7 +23,7 @@ const int TERRAIN_NIVALE = 7;
 layout (location = 0) in vec3 aPos;
 layout (location = 1) in float aMarked;
 layout (location = 2) in float aTileType;
-layout (location = 3) in float aTerrainType;
+layout (location = 3) in float aVegetationType;
 layout (location = 4) in float aHeight;
 layout (location = 5) in float aPopByTribe;
 layout (location = 6) in float aCountries;
@@ -36,7 +36,7 @@ out DATA
     float marked;
 
     float tileType;
-    float terrainType;
+    float vegetationType;
     
     float height;
     float popByTribe;
@@ -57,7 +57,7 @@ void main()
     data_out.marked = aMarked;
 
     data_out.tileType = aTileType;
-    data_out.terrainType = aTerrainType;
+    data_out.vegetationType = aVegetationType;
     
     data_out.height = aHeight;
     data_out.popByTribe = aPopByTribe;
@@ -73,17 +73,17 @@ void main()
     {
         position = position + vec3(0, 0.01, 0);
        
-        if (aTerrainType == TERRAIN_MONTANE)
+        if (aVegetationType == VEGETATION_MONTANE)
             position = position + vec3(0, 0.01, 0);
-        if (aTerrainType == TERRAIN_SUBALPINE)
+        if (aVegetationType == VEGETATION_SUBALPINE)
             position = position + vec3(0, 0.02, 0);
-        if (aTerrainType == TERRAIN_ALPINE_TREES)
+        if (aVegetationType == VEGETATION_ALPINE_TREES)
             position = position + vec3(0, 0.03, 0);
-        if (aTerrainType == TERRAIN_ALPINE_BUSHES)
+        if (aVegetationType == VEGETATION_ALPINE_BUSHES)
             position = position + vec3(0, 0.04, 0);
-        if (aTerrainType == TERRAIN_SUBNIVALE)
+        if (aVegetationType == VEGETATION_SUBNIVALE)
             position = position + vec3(0, 0.06, 0);
-        if (aTerrainType == TERRAIN_NIVALE)
+        if (aVegetationType == VEGETATION_NIVALE)
             position = position + vec3(0, 0.08, 0);
     }
     gl_Position = vec4(position, 1.0) * uModel;

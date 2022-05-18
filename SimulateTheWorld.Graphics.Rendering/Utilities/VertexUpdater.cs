@@ -24,7 +24,7 @@ public static class VertexUpdater
                     pointCloud.Vertices[i].marked = tile.Marked ? 1.0f : 0.0f;
 
                     pointCloud.Vertices[i].tileType = (int)tile.TileType;
-                    pointCloud.Vertices[i].terrainType = (int)tile.TerrainType;
+                    pointCloud.Vertices[i].vegetationType = (int)tile.VegetationType;
 
                     pointCloud.Vertices[i].height = tile.TerrainValues.Height;
                     pointCloud.Vertices[i].popByTribe = tile.PopulationValues.Population.Quantity;

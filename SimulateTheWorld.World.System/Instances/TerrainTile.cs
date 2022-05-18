@@ -14,7 +14,7 @@ public class TerrainTile
     public bool Marked { get; set; }
 
     public TileType TileType { get; set; }
-    public TerrainType TerrainType { get; set; }
+    public VegetationType VegetationType { get; set; }
 
     public TerrainValues TerrainValues { get; set; }
     public FloraValues FloraValues { get; set; }
@@ -32,8 +32,8 @@ public class TerrainTile
     public void Randomize()
     {
         TileType = EnumExtentions.RandomOf<TileType>();
-        TerrainType = TileType == TileType.Water 
-            ? TerrainType.Water 
-            : EnumExtentions.RandomOf<TerrainType>(1);
+        VegetationType = TileType == TileType.Water 
+            ? VegetationType.Water 
+            : EnumExtentions.RandomOf<VegetationType>(1);
     }
 }

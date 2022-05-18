@@ -31,8 +31,8 @@
                 <Label Content ="{Binding Tile.TileType}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Label Content ="Terrain:"/>
-                <Label Content ="{Binding Tile.TerrainType}"/>
+                <Label Content ="Vegetation:"/>
+                <Label Content ="{Binding Tile.VegetationType}"/>
             </StackPanel>
         </StackPanel>
 

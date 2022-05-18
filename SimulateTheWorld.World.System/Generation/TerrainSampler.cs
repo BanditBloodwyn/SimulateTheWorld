@@ -8,25 +8,25 @@ public static class TerrainSampler
         ? TileType.Water 
         : TileType.Land;
 
-    public static TerrainType GeTerrainTypeByHeight(float height)
+    public static VegetationType GetVegetationTypeByHeight(float height)
     {
         if(height <= 10)
-            return TerrainType.Water;
+            return VegetationType.Water;
         if (height <= 30)
-            return TerrainType.Kolline;
+            return VegetationType.Kolline;
         if (height <= 50)
-            return TerrainType.Montane;
+            return VegetationType.Montane;
         if (height <= 60)
-            return TerrainType.Subalpine;
+            return VegetationType.Subalpine;
         if (height <= 70)
-            return TerrainType.Alpine_Trees;
+            return VegetationType.Alpine_Trees;
         if (height <= 80)
-            return TerrainType.Alpine_Bushes;
+            return VegetationType.Alpine_Bushes;
         if (height <= 90)
-            return TerrainType.Subnivale;
+            return VegetationType.Subnivale;
         if (height > 90)
-            return TerrainType.Nivale;
+            return VegetationType.Nivale;
 
-        return TerrainType.Water;
+        return VegetationType.Water;
     }
 }
