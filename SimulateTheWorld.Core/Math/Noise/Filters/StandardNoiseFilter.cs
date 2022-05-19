@@ -13,7 +13,7 @@ public class StandardNoiseFilter : INoiseFilter
     private readonly float _roughness;
     private readonly float _baseRoughness;
     private readonly float _persistance;
-    private readonly Vector3 _center;
+    public Vector3 Center { get; set; }
 
     public StandardNoiseFilter(int numberOfLayers, float strength, float minValue, float roughness, float baseRoughness, float persistance, Vector3 center)
     {
@@ -26,7 +26,7 @@ public class StandardNoiseFilter : INoiseFilter
         _roughness = roughness;
         _baseRoughness = baseRoughness;
         _persistance = persistance;
-        _center = center;
+        Center = center;
     }
 
     public float Evaluate(Vector3 point)
@@ -37,7 +37,7 @@ public class StandardNoiseFilter : INoiseFilter
 
         for (int i = 0; i < _numberOfLayers; i++)
         {
-            float v = _perlinNoise.Evaluate(point * frequency + _center);
+            float v = _perlinNoise.Evaluate(point * frequency + Center);
             noiseValue += (v + 1) * 0.5f * amplitude;
             frequency *= _roughness;
             amplitude *= _persistance;
