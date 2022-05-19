@@ -12,7 +12,7 @@ public static class ShaderPreparer
 {
     public static void PrepareShader(ShaderProgram shader)
     {
-        shader.SetFloat("uTileSize", STWTerrain.TileSize * 1.0f);
+        shader.SetFloat("uTileSize", STWWorld.TileSize * 1.0f);
         shader.SetVector4("uMarkedTileColor", new Vector4(MapColors.MarkedTileColor.R, MapColors.MarkedTileColor.G, MapColors.MarkedTileColor.B, MapColors.MarkedTileColor.A));
     }
 

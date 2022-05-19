@@ -10,8 +10,4 @@
     <ProjectReference Include="..\SimulateTheWorld.World.Data\SimulateTheWorld.World.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Generation\" />
-  </ItemGroup>
-
 </Project>

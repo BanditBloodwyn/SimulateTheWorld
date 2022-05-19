@@ -26,7 +26,7 @@ public class OpenGLRenderer
 
         _world = WorldObjectProvider.CreateWorldObject();
 
-        Camera = new Camera(new Vector3(STWTerrain.TerrainSize / 2.0f * STWTerrain.TileSize, 15.0f, STWTerrain.TerrainSize / 2.0f * STWTerrain.TileSize));
+        Camera = new Camera(new Vector3(STWWorld.TerrainSize / 2.0f * STWWorld.TileSize, 15.0f, STWWorld.TerrainSize / 2.0f * STWWorld.TileSize));
         FpsCounter = new FPSCounter();
         MapFiltersModel.Instance.SetOnMapFilterChanged(() => ShaderPreparer.SetFilterColors(_pointShader));
 

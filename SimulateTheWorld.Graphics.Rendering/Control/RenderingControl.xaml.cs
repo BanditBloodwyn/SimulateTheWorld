@@ -20,7 +20,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
     {
         private readonly OpenGLRenderer _renderer;
         private readonly InputController _inputController;
-        private readonly RayCaster _rayCaster;
+        private readonly TileFinder _tileFinder;
 
         private int _millisecs;
         
@@ -39,7 +39,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
             _renderer = new OpenGLRenderer();
 
             _inputController = new InputController();
-            _rayCaster = new RayCaster(_renderer.Camera);
+            _tileFinder = new TileFinder(_renderer.Camera);
 
             DebugInformation = new DebugInformation();
         }
@@ -52,7 +52,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
         private void GlControl_OnRender(TimeSpan elapsedTimeSpan)
         {
             _renderer.OnRender(elapsedTimeSpan);
-            _rayCaster.Update(_inputController.NewMousePosition, GlControl.ActualWidth, GlControl.ActualHeight);
+            _tileFinder.Update(_inputController.NewMousePosition, GlControl.ActualWidth, GlControl.ActualHeight);
 
             _millisecs += elapsedTimeSpan.Milliseconds;
             if (_millisecs >= FPSCounter.Interval)
@@ -62,9 +62,9 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
                 _millisecs = 0;
             }
             DebugInformation.CameraPosition = _renderer.Camera.Transform.Position;
-            DebugInformation.RayCastDirection = _rayCaster.CurrentRay;
-            DebugInformation.CurrentTileCoordinates = _rayCaster.CurrentTileCoordinates;
-            DebugInformation.CurrentTileID = _rayCaster.CurrentTileID;
+            DebugInformation.RayCastDirection = _tileFinder.CurrentRay;
+            DebugInformation.CurrentTileCoordinates = _tileFinder.CurrentTileCoordinates;
+            DebugInformation.CurrentTileID = _tileFinder.CurrentTileID;
             OnDebugInfoChanged?.Invoke(DebugInformation);
         }
 
@@ -107,13 +107,13 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
             if (e.ChangedButton != MouseButton.Left)
                 return;
 
-            if (!_rayCaster.CurrentTileID.HasValue)
+            if (!_tileFinder.CurrentTileID.HasValue)
                 return;
             
-            STWWorld.Instance.Terrain.MarkTile(_rayCaster.CurrentTileID.Value);
+            STWWorld.Instance.Terrain.MarkTile(_tileFinder.CurrentTileID.Value);
             OnUpdateVertexData();
 
-            OnTileSelected?.Invoke(_rayCaster.CurrentTileID.Value);
+            OnTileSelected?.Invoke(_tileFinder.CurrentTileID.Value);
         }
     }
 }

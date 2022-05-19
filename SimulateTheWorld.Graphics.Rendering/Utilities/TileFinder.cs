@@ -6,7 +6,7 @@ using SimulateTheWorld.World.System.Instances;
 
 namespace SimulateTheWorld.Graphics.Rendering.Utilities;
 
-public class RayCaster
+public class TileFinder
 {
     private const int RECURSION_COUNT = 200;
     private const float RAY_RANGE = 600;
@@ -16,10 +16,10 @@ public class RayCaster
     public Vector3 CurrentRay { get; private set; }
     public Vector3? CurrentTileCoordinates { get; private set; }
     public int? CurrentTileID => CurrentTileCoordinates != null 
-        ? (int)Math.Round(Math.Abs(CurrentTileCoordinates.Value.X / STWTerrain.TileSize), 0) + (int)Math.Round(Math.Abs(CurrentTileCoordinates.Value.Z / STWTerrain.TileSize), 0) * STWTerrain.TerrainSize 
+        ? (int)Math.Round(Math.Abs(CurrentTileCoordinates.Value.X / STWWorld.TileSize), 0) + (int)Math.Round(Math.Abs(CurrentTileCoordinates.Value.Z / STWWorld.TileSize), 0) * STWWorld.TerrainSize 
         : null;
 
-    public RayCaster(Camera camera)
+    public TileFinder(Camera camera)
     {
         this.camera = camera;
     }

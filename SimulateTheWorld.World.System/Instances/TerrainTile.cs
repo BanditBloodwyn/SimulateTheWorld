@@ -15,16 +15,8 @@ public class TerrainTile
     public TileType TileType { get; set; }
     public VegetationType VegetationType { get; set; }
 
-    public TerrainValues TerrainValues { get; set; }
-    public FloraValues FloraValues { get; set; }
-    public FaunaValues FaunaValues { get; set; }
-    public PopulationValues PopulationValues { get; set; }
-
-    public TerrainTile()
-    {
-        TerrainValues = new TerrainValues();
-        FloraValues = new FloraValues();
-        FaunaValues = new FaunaValues();
-        PopulationValues = new PopulationValues();
-    }
+    public TerrainValues TerrainValues { get; set; } = new();
+    public FloraValues FloraValues { get; set; } = new();
+    public FaunaValues FaunaValues { get; set; } = new();
+    public PopulationValues PopulationValues { get; set; } = new();
 }

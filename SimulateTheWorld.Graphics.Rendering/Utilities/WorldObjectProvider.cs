@@ -19,14 +19,14 @@ public static class WorldObjectProvider
 
     private static DataVertex[] CreateInitialVertices()
     {
-        DataVertex[] vertices = new DataVertex[STWTerrain.TerrainSize * STWTerrain.TerrainSize];
+        DataVertex[] vertices = new DataVertex[STWWorld.TerrainSize * STWWorld.TerrainSize];
 
-        for (int x = 0; x < STWTerrain.TerrainSize; x++)
+        for (int x = 0; x < STWWorld.TerrainSize; x++)
         {
-            for (int y = 0; y < STWTerrain.TerrainSize; y++)
+            for (int y = 0; y < STWWorld.TerrainSize; y++)
             {
-                int i = x + y * STWTerrain.TerrainSize;
-                vertices[i] = new DataVertex(new Vector3(x * STWTerrain.TileSize, 0, y * STWTerrain.TileSize));
+                int i = x + y * STWWorld.TerrainSize;
+                vertices[i] = new DataVertex(new Vector3(x * STWWorld.TileSize, 0, y * STWWorld.TileSize));
             }
         }
 
