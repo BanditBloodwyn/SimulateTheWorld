@@ -132,6 +132,18 @@
   <data name="mapfilters_ressource_coal" xml:space="preserve">
     <value>Coal</value>
   </data>
+  <data name="mapfilters_ressource_Gas" xml:space="preserve">
+    <value>Gas</value>
+  </data>
+  <data name="mapfilters_ressource_goldOre" xml:space="preserve">
+    <value>Gold ore</value>
+  </data>
+  <data name="mapfilters_ressource_ironOre" xml:space="preserve">
+    <value>Iron ore</value>
+  </data>
+  <data name="mapfilters_ressource_Oil" xml:space="preserve">
+    <value>Oil</value>
+  </data>
   <data name="mapfilters_vegetation" xml:space="preserve">
     <value>Vegetation</value>
   </data>

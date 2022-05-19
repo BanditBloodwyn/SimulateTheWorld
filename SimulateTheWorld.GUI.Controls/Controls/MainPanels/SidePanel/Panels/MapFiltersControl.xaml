@@ -38,9 +38,22 @@
                 <CheckBox IsChecked="{Binding Model.UrbanizationFilter.Active}" 
                       Content="{Binding Model.UrbanizationFilter.DisplayName}"
                       Style="{StaticResource CheckBoxStyle}"/>
-                
-                <CheckBox IsChecked="{Binding Model.Ressource_CoalFilter.Active}" 
+
+                <CheckBox Margin="0,10,0,0" 
+                          IsChecked="{Binding Model.Ressource_CoalFilter.Active}" 
                           Content="{Binding Model.Ressource_CoalFilter.DisplayName}"
+                          Style="{StaticResource CheckBoxStyle}"/>
+                <CheckBox IsChecked="{Binding Model.Ressource_IronOreFilter.Active}" 
+                          Content="{Binding Model.Ressource_IronOreFilter.DisplayName}"
+                          Style="{StaticResource CheckBoxStyle}"/>
+                <CheckBox IsChecked="{Binding Model.Ressource_GoldOreFilter.Active}" 
+                          Content="{Binding Model.Ressource_GoldOreFilter.DisplayName}"
+                          Style="{StaticResource CheckBoxStyle}"/>
+                <CheckBox IsChecked="{Binding Model.Ressource_OilFilter.Active}" 
+                          Content="{Binding Model.Ressource_OilFilter.DisplayName}"
+                          Style="{StaticResource CheckBoxStyle}"/>
+                <CheckBox IsChecked="{Binding Model.Ressource_GasFilter.Active}" 
+                          Content="{Binding Model.Ressource_GasFilter.DisplayName}"
                           Style="{StaticResource CheckBoxStyle}"/>
             </TreeView>
         </Grid>

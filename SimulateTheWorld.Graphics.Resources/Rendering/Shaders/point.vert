@@ -29,7 +29,12 @@ layout (location = 5) in float aPopByTribe;
 layout (location = 6) in float aCountries;
 layout (location = 7) in float aLifeStandard;
 layout (location = 8) in float aUrbanization;
+
 layout (location = 9) in float aRessource_coal;
+layout (location = 10) in float aRessource_ironOre;
+layout (location = 11) in float aRessource_goldOre;
+layout (location = 12) in float aRessource_oil;
+layout (location = 13) in float aRessource_gas;
 
 // === Out ===
 out DATA
@@ -46,6 +51,10 @@ out DATA
     float urbanization;
     
     float ressource_coal;
+    float ressource_ironOre;
+    float ressource_goldOre;
+    float ressource_oil;
+    float ressource_gas;
 
     mat4 projection;
 } data_out;
@@ -69,6 +78,10 @@ void main()
     data_out.urbanization = aUrbanization;
     
     data_out.ressource_coal = aRessource_coal;
+    data_out.ressource_ironOre = aRessource_ironOre;
+    data_out.ressource_goldOre = aRessource_goldOre;
+    data_out.ressource_oil = aRessource_oil;
+    data_out.ressource_gas = aRessource_gas;
 
     data_out.projection = uView * uProjection;
     

@@ -33,6 +33,10 @@ public static class VertexUpdater
                     pointCloud.Vertices[i].urbanization = tile.PopulationValues.Urbanization;
                     
                     pointCloud.Vertices[i].ressource_coal = tile.TerrainValues.Coal;
+                    pointCloud.Vertices[i].ressource_ironOre = tile.TerrainValues.IronOre;
+                    pointCloud.Vertices[i].ressource_goldOre = tile.TerrainValues.GoldOre;
+                    pointCloud.Vertices[i].ressource_oil = tile.TerrainValues.Oil;
+                    pointCloud.Vertices[i].ressource_gas = tile.TerrainValues.Gas;
 
                     updatedVerticesCount++;
                 }

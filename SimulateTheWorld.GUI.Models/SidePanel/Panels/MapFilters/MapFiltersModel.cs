@@ -18,7 +18,10 @@ public class MapFiltersModel
     public MapFilter UrbanizationFilter { get; }
 
     public MapFilter Ressource_CoalFilter { get; }
-
+    public MapFilter Ressource_IronOreFilter { get; }
+    public MapFilter Ressource_GoldOreFilter { get; }
+    public MapFilter Ressource_OilFilter { get; }
+    public MapFilter Ressource_GasFilter { get; }
 
     public MapFilter? ActiveFilter => _filters.FirstOrDefault(filter => filter.Active);
 
@@ -37,8 +40,14 @@ public class MapFiltersModel
         UrbanizationFilter = new MapFilter(MapFilterType.Urbanization);
 
         Ressource_CoalFilter = new MapFilter(MapFilterType.Ressource_Coal);
+        Ressource_IronOreFilter = new MapFilter(MapFilterType.Ressource_IronOre);
+        Ressource_GoldOreFilter = new MapFilter(MapFilterType.Ressource_GoldOre);
+        Ressource_OilFilter = new MapFilter(MapFilterType.Ressource_Oil);
+        Ressource_GasFilter = new MapFilter(MapFilterType.Ressource_Gas);
 
-        _filters = new[] { Vegetation, HeightFilter, PopByTribeFilter, CountriesFilter, LifeStandardFilter, UrbanizationFilter, Ressource_CoalFilter };
+        _filters = new[] { 
+            Vegetation, HeightFilter, PopByTribeFilter, CountriesFilter, LifeStandardFilter, UrbanizationFilter, 
+            Ressource_CoalFilter, Ressource_IronOreFilter, Ressource_GoldOreFilter, Ressource_OilFilter, Ressource_GasFilter };
     }
 
     public void SetOnMapFilterChanged(Action onMapFilterChanged)

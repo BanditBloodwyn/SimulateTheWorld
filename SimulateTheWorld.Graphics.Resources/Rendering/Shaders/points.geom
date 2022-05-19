@@ -21,6 +21,10 @@ in DATA
     float urbanization;
 
     float ressource_coal;
+    float ressource_ironOre;
+    float ressource_goldOre;
+    float ressource_oil;
+    float ressource_gas;
 
     mat4 projection;
 } data_in[];
@@ -38,6 +42,10 @@ flat out float lifeStandard;
 flat out float urbanization;
 
 flat out float ressource_coal;
+flat out float ressource_ironOre;
+flat out float ressource_goldOre;
+flat out float ressource_oil;
+flat out float ressource_gas;
 
 flat out vec3 colorShading;
 
@@ -134,7 +142,12 @@ void main()
     countries = data_in[0].countries;
     lifeStandard = data_in[0].lifeStandard;
     urbanization = data_in[0].urbanization;
+   
     ressource_coal = data_in[0].ressource_coal;
+    ressource_ironOre = data_in[0].ressource_ironOre;
+    ressource_goldOre = data_in[0].ressource_goldOre;
+    ressource_oil = data_in[0].ressource_oil;
+    ressource_gas = data_in[0].ressource_gas;
 
     colorShading = vec3(1, 1, 1);
     build_tile(gl_in[0].gl_Position);

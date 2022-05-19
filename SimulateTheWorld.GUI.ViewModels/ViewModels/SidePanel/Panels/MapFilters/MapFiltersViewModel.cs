@@ -24,5 +24,9 @@ public class MapFiltersViewModel : ObservableObject
         Model.UrbanizationFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_urbanization;
       
         Model.Ressource_CoalFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_ressource_coal;
+        Model.Ressource_IronOreFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_ressource_ironOre;
+        Model.Ressource_GoldOreFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_ressource_goldOre;
+        Model.Ressource_OilFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_ressource_Oil;
+        Model.Ressource_GasFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_ressource_Gas;
     }
 }

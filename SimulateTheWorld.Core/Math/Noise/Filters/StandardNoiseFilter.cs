@@ -7,12 +7,13 @@ public class StandardNoiseFilter : INoiseFilter
 {
     private readonly PerlinNoise _perlinNoise;
 
-    private readonly int _numberOfLayers;
     private readonly float _strength;
-    private readonly float _minValue;
     private readonly float _roughness;
     private readonly float _baseRoughness;
     private readonly float _persistance;
+
+    public int NumberOfLayers { get; set; }
+    public float MinValue { get; set; }
     public Vector3 Center { get; set; }
 
     public StandardNoiseFilter(int numberOfLayers, float strength, float minValue, float roughness, float baseRoughness, float persistance, Vector3 center)
@@ -20,12 +21,12 @@ public class StandardNoiseFilter : INoiseFilter
         Random random = new Random();
 
         _perlinNoise = new PerlinNoise(random.Next(9999));
-        _numberOfLayers = numberOfLayers;
         _strength = strength;
-        _minValue = minValue;
         _roughness = roughness;
         _baseRoughness = baseRoughness;
         _persistance = persistance;
+        NumberOfLayers = numberOfLayers;
+        MinValue = minValue;
         Center = center;
     }
 
@@ -35,7 +36,7 @@ public class StandardNoiseFilter : INoiseFilter
         float frequency = _baseRoughness;
         float amplitude = 1;
 
-        for (int i = 0; i < _numberOfLayers; i++)
+        for (int i = 0; i < NumberOfLayers; i++)
         {
             float v = _perlinNoise.Evaluate(point * frequency + Center);
             noiseValue += (v + 1) * 0.5f * amplitude;
@@ -43,7 +44,7 @@ public class StandardNoiseFilter : INoiseFilter
             amplitude *= _persistance;
         }
 
-        noiseValue = MathF.Max(0, noiseValue - _minValue);
+        noiseValue = MathF.Max(0, noiseValue - MinValue);
         return noiseValue * _strength;
     }
 }

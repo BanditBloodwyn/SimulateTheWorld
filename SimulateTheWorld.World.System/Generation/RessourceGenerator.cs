@@ -15,14 +15,14 @@ public class RessourceGenerator
 
     public void GenerateRessources(TerrainTile tile)
     {
-        tile.TerrainValues.Coal = CalculateRessource(tile, tile.TerrainValues.Height, Vector3.Zero);
-        tile.TerrainValues.IronOre = CalculateRessource(tile, tile.TerrainValues.Height, new Vector3(0, 0, STWWorld.TerrainSize / 2f));
-        tile.TerrainValues.GoldOre = CalculateRessource(tile, tile.TerrainValues.Height, new Vector3(0, STWWorld.TerrainSize / 2f, 0));
-        tile.TerrainValues.Oil = CalculateRessource(tile, 100, Vector3.Zero);
-        tile.TerrainValues.Gas = CalculateRessource(tile, 100, new Vector3(STWWorld.TerrainSize / 2f, 0, 0));
+        tile.TerrainValues.Coal = CalculateRessource(tile, tile.TerrainValues.Height, Vector3.Zero, 4, 0);
+        tile.TerrainValues.IronOre = CalculateRessource(tile, tile.TerrainValues.Height, new Vector3(0, 0, STWWorld.TerrainSize / 2f), 4, 0);
+        tile.TerrainValues.GoldOre = CalculateRessource(tile, tile.TerrainValues.Height, new Vector3(0, STWWorld.TerrainSize / 2f, 0), 4, 0);
+        tile.TerrainValues.Oil = CalculateRessource(tile, 100, Vector3.Zero, 1, 0.1f);
+        tile.TerrainValues.Gas = CalculateRessource(tile, 100, new Vector3(STWWorld.TerrainSize / 2f, 0, 0), 1, 0.1f);
     }
 
-    private float CalculateRessource(TerrainTile tile, float frequency, Vector3 offset)
+    private float CalculateRessource(TerrainTile tile, float frequency, Vector3 offset, int layers, float minValue)
     {
         if (tile.Location == null)
             return 0;
@@ -30,6 +30,8 @@ public class RessourceGenerator
         int x = tile.Location.Coordinate.X;
         int z = tile.Location.Coordinate.Y;
 
+        _standardNoiseFilter.NumberOfLayers = layers;
+        _standardNoiseFilter.MinValue = minValue;
         _standardNoiseFilter.Center = offset;
         float value = _standardNoiseFilter.Evaluate(new Vector3(x, 0, z));
 

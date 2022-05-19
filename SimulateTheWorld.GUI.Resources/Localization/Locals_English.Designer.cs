@@ -106,6 +106,42 @@ namespace SimulateTheWorld.GUI.Resources.Localization {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Gas ähnelt.
+        /// </summary>
+        public static string mapfilters_ressource_Gas {
+            get {
+                return ResourceManager.GetString("mapfilters_ressource_Gas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Gold ore ähnelt.
+        /// </summary>
+        public static string mapfilters_ressource_goldOre {
+            get {
+                return ResourceManager.GetString("mapfilters_ressource_goldOre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Iron ore ähnelt.
+        /// </summary>
+        public static string mapfilters_ressource_ironOre {
+            get {
+                return ResourceManager.GetString("mapfilters_ressource_ironOre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Oil ähnelt.
+        /// </summary>
+        public static string mapfilters_ressource_Oil {
+            get {
+                return ResourceManager.GetString("mapfilters_ressource_Oil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Vegetation ähnelt.
         /// </summary>
         public static string mapfilters_vegetation {

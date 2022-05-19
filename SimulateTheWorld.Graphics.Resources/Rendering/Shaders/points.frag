@@ -33,6 +33,10 @@ flat in float lifeStandard;
 flat in float urbanization;
 
 flat in float ressource_coal;
+flat in float ressource_ironOre;
+flat in float ressource_goldOre;
+flat in float ressource_oil;
+flat in float ressource_gas;
 
 flat in vec3 colorShading;
 
@@ -104,4 +108,12 @@ void main()
         FragColor = SampleColor(urbanization) * vec4(colorShading, 0);
     else if (uFilterMode == 6)
         FragColor = SampleColor(ressource_coal) * vec4(colorShading, 0);
+    else if (uFilterMode == 7)
+        FragColor = SampleColor(ressource_ironOre) * vec4(colorShading, 0);
+    else if (uFilterMode == 8)
+        FragColor = SampleColor(ressource_goldOre) * vec4(colorShading, 0);
+    else if (uFilterMode == 9)
+        FragColor = SampleColor(ressource_oil) * vec4(colorShading, 0);
+    else if (uFilterMode == 10)
+        FragColor = SampleColor(ressource_gas) * vec4(colorShading, 0);
 }
