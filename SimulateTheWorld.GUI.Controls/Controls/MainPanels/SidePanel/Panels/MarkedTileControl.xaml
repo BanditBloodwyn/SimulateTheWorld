@@ -75,6 +75,31 @@
                     </displayControls:ValueDisplayControl>
                 </StackPanel>
             </TabItem>
+            <TabItem Header="Ressourcen">
+                <StackPanel>
+                    <displayControls:ValueDisplayControl>
+                        <Label Grid.Column="0" Content ="Coal:"/>
+                        <Label Grid.Column="1" Content ="{Binding Tile.TerrainValues.Coal}"/>
+                    </displayControls:ValueDisplayControl>
+                    <displayControls:ValueDisplayControl>
+                        <Label Grid.Column="0" Content ="Iron ore:"/>
+                        <Label Grid.Column="1" Content ="{Binding Tile.TerrainValues.IronOre}"/>
+                    </displayControls:ValueDisplayControl>
+                    <displayControls:ValueDisplayControl>
+                        <Label Grid.Column="0" Content ="Gold ore:"/>
+                        <Label Grid.Column="1" Content ="{Binding Tile.TerrainValues.GoldOre}"/>
+                    </displayControls:ValueDisplayControl>
+                    <displayControls:ValueDisplayControl>
+                        <Label Grid.Column="0" Content ="Oil:"/>
+                        <Label Grid.Column="1" Content ="{Binding Tile.TerrainValues.Oil}"/>
+                    </displayControls:ValueDisplayControl>
+                    <displayControls:ValueDisplayControl>
+                        <Label Grid.Column="0" Content ="Gas:"/>
+                        <Label Grid.Column="1" Content ="{Binding Tile.TerrainValues.Gas}"/>
+                    </displayControls:ValueDisplayControl>
+                </StackPanel>
+            </TabItem>
+
         </displayControls:CustomTabControl>
 
         <Grid Grid.Row="1">
