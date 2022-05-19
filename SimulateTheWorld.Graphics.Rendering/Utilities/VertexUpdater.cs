@@ -31,6 +31,8 @@ public static class VertexUpdater
                     pointCloud.Vertices[i].countries = tile.PopulationValues.Population.Quantity;
                     pointCloud.Vertices[i].lifeStandard = tile.PopulationValues.LifeStandard;
                     pointCloud.Vertices[i].urbanization = tile.PopulationValues.Urbanization;
+                    
+                    pointCloud.Vertices[i].ressource_coal = tile.TerrainValues.Coal;
 
                     updatedVerticesCount++;
                 }

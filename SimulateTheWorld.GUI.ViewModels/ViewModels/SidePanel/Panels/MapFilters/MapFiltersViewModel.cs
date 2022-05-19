@@ -22,5 +22,7 @@ public class MapFiltersViewModel : ObservableObject
         Model.CountriesFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_countries;
         Model.LifeStandardFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_lifeStandard;
         Model.UrbanizationFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_urbanization;
+      
+        Model.Ressource_CoalFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_ressource_coal;
     }
 }

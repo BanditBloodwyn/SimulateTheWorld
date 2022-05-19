@@ -129,6 +129,9 @@
   <data name="mapfilters_popByTribe" xml:space="preserve">
     <value>Population By Tribe</value>
   </data>
+  <data name="mapfilters_ressource_coal" xml:space="preserve">
+    <value>Coal</value>
+  </data>
   <data name="mapfilters_vegetation" xml:space="preserve">
     <value>Vegetation</value>
   </data>

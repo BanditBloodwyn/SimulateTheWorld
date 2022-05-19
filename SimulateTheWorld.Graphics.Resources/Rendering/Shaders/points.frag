@@ -32,6 +32,8 @@ flat in float countries;
 flat in float lifeStandard;
 flat in float urbanization;
 
+flat in float ressource_coal;
+
 flat in vec3 colorShading;
 
 // === Uniforms ===
@@ -100,4 +102,6 @@ void main()
         FragColor = SampleColor(lifeStandard) * vec4(colorShading, 0);
     else if (uFilterMode == 5)
         FragColor = SampleColor(urbanization) * vec4(colorShading, 0);
+    else if (uFilterMode == 6)
+        FragColor = SampleColor(ressource_coal) * vec4(colorShading, 0);
 }

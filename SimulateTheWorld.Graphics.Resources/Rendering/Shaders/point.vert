@@ -29,6 +29,7 @@ layout (location = 5) in float aPopByTribe;
 layout (location = 6) in float aCountries;
 layout (location = 7) in float aLifeStandard;
 layout (location = 8) in float aUrbanization;
+layout (location = 9) in float aRessource_coal;
 
 // === Out ===
 out DATA
@@ -44,6 +45,8 @@ out DATA
     float lifeStandard;
     float urbanization;
     
+    float ressource_coal;
+
     mat4 projection;
 } data_out;
 
@@ -64,6 +67,8 @@ void main()
     data_out.countries = aCountries;
     data_out.lifeStandard = aLifeStandard;
     data_out.urbanization = aUrbanization;
+    
+    data_out.ressource_coal = aRessource_coal;
 
     data_out.projection = uView * uProjection;
     

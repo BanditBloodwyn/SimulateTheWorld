@@ -46,6 +46,7 @@ public class PointCloud : IDrawable
         VAO.LinkAttrib(vbo1, 6, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 5 * sizeof(float));   // Countries
         VAO.LinkAttrib(vbo1, 7, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 6 * sizeof(float));   // LifeStandard
         VAO.LinkAttrib(vbo1, 8, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 7 * sizeof(float));   // Urbanization
+        VAO.LinkAttrib(vbo1, 9, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 8 * sizeof(float));   // Ressouce_Coal
 
         VAO.Unbind();
         vbo1.Unbind();

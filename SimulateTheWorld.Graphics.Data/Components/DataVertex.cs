@@ -16,6 +16,7 @@ public struct DataVertex
     public float countries;
     public float lifeStandard;
     public float urbanization;
+    public float ressource_coal;
 
     public DataVertex(Vector3 position)
     {
@@ -31,5 +32,7 @@ public struct DataVertex
         countries = 0;
         lifeStandard = 0;
         urbanization = 0;
+
+        ressource_coal = 0;
     }
 }

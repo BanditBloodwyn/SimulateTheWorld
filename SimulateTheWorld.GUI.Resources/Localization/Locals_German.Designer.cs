@@ -97,6 +97,15 @@ namespace SimulateTheWorld.GUI.Resources.Localization {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Kohle ähnelt.
+        /// </summary>
+        public static string mapfilters_ressource_coal {
+            get {
+                return ResourceManager.GetString("mapfilters_ressource_coal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Urbanisierung ähnelt.
         /// </summary>
         public static string mapfilters_urbanization {

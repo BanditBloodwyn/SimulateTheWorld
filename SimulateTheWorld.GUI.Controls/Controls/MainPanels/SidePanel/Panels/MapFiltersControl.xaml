@@ -38,6 +38,10 @@
                 <CheckBox IsChecked="{Binding Model.UrbanizationFilter.Active}" 
                       Content="{Binding Model.UrbanizationFilter.DisplayName}"
                       Style="{StaticResource CheckBoxStyle}"/>
+                
+                <CheckBox IsChecked="{Binding Model.Ressource_CoalFilter.Active}" 
+                          Content="{Binding Model.Ressource_CoalFilter.DisplayName}"
+                          Style="{StaticResource CheckBoxStyle}"/>
             </TreeView>
         </Grid>
     </Border>

@@ -16,7 +16,10 @@ public class MapFiltersModel
     public MapFilter CountriesFilter { get; }
     public MapFilter LifeStandardFilter { get; }
     public MapFilter UrbanizationFilter { get; }
-   
+
+    public MapFilter Ressource_CoalFilter { get; }
+
+
     public MapFilter? ActiveFilter => _filters.FirstOrDefault(filter => filter.Active);
 
     public static MapFiltersModel Instance
@@ -33,7 +36,9 @@ public class MapFiltersModel
         LifeStandardFilter = new MapFilter(MapFilterType.LifeStandard);
         UrbanizationFilter = new MapFilter(MapFilterType.Urbanization);
 
-        _filters = new[] { Vegetation, HeightFilter, PopByTribeFilter, CountriesFilter, LifeStandardFilter, UrbanizationFilter };
+        Ressource_CoalFilter = new MapFilter(MapFilterType.Ressource_Coal);
+
+        _filters = new[] { Vegetation, HeightFilter, PopByTribeFilter, CountriesFilter, LifeStandardFilter, UrbanizationFilter, Ressource_CoalFilter };
     }
 
     public void SetOnMapFilterChanged(Action onMapFilterChanged)
