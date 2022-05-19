@@ -10,7 +10,7 @@ public class RessourceGenerator
 
     public RessourceGenerator()
     {
-        _standardNoiseFilter = new StandardNoiseFilter(10, 80, 0.4f, 10f, 0.002f, 0.1f, Vector3.Zero);
+        _standardNoiseFilter = new StandardNoiseFilter(10, 100, 0.4f, 5f, 0.002f, 0.3f, Vector3.Zero);
     }
 
     public void GenerateRessources(TerrainTile tile)
