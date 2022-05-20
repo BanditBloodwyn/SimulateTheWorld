@@ -43,7 +43,7 @@ public class Camera
     {
         Vector3 position = Transform.Position;
         position.X += delta.X * Speed;
-        position.Y += delta.Y * 0.02f;
+        position.Y += delta.Y * Speed;
         position.Z += delta.Z * Speed;
 
         if(position.Y <= 0) 
