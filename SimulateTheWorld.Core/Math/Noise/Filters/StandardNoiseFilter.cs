@@ -7,12 +7,12 @@ public class StandardNoiseFilter : INoiseFilter
 {
     private readonly PerlinNoise _perlinNoise;
 
-    private readonly float _strength;
     private readonly float _roughness;
     private readonly float _baseRoughness;
     private readonly float _persistance;
 
     public int NumberOfLayers { get; set; }
+    public  float Strength { get; set; }
     public float MinValue { get; set; }
     public Vector3 Center { get; set; }
 
@@ -21,11 +21,12 @@ public class StandardNoiseFilter : INoiseFilter
         Random random = new Random();
 
         _perlinNoise = new PerlinNoise(random.Next(9999));
-        _strength = strength;
         _roughness = roughness;
         _baseRoughness = baseRoughness;
         _persistance = persistance;
+
         NumberOfLayers = numberOfLayers;
+        Strength = strength;
         MinValue = minValue;
         Center = center;
     }
@@ -45,6 +46,6 @@ public class StandardNoiseFilter : INoiseFilter
         }
 
         noiseValue = MathF.Max(0, noiseValue - MinValue);
-        return noiseValue * _strength;
+        return noiseValue * Strength;
     }
 }
