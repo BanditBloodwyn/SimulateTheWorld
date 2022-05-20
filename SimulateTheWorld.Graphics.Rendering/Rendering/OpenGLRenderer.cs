@@ -12,19 +12,19 @@ namespace SimulateTheWorld.Graphics.Rendering.Rendering;
 
 public class OpenGLRenderer
 {
-    private readonly ShaderProgram _pointShader;
-    private readonly GameObject _world;
+    private ShaderProgram? _pointShader;
+    private GameObject? _world;
 
-    public FPSCounter FpsCounter { get; }
+    public FPSCounter FpsCounter { get; private set; }
 
-    public Camera Camera { get; }
+    public Camera Camera { get; private set; }
     
-    public OpenGLRenderer()
+    public void OnLoaded()
     {
+        _world = WorldObjectProvider.CreateWorldObject();
+       
         _pointShader = new ShaderProgram("Rendering/Shaders/point.vert", "Rendering/Shaders/points.frag", "Rendering/Shaders/points.geom");
         ShaderPreparer.PrepareShader(_pointShader);
-
-        _world = WorldObjectProvider.CreateWorldObject();
 
         Camera = new Camera(new Vector3(STWWorld.TerrainSize / 2.0f * STWWorld.TileSize, 15.0f, STWWorld.TerrainSize / 2.0f * STWWorld.TileSize));
         FpsCounter = new FPSCounter();
@@ -35,10 +35,11 @@ public class OpenGLRenderer
         GL.FrontFace(FrontFaceDirection.Cw);
     }
 
-    public void OnLoaded() { }
-
     public void OnRender(TimeSpan elapsedTimeSpan)
     {
+        if (_world == null)
+            return;
+
         FpsCounter.TimeDifference = elapsedTimeSpan.Milliseconds;
 
         GL.ClearColor(new Color4(0, 0, 80, 0));

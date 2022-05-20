@@ -18,12 +18,14 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
     /// </summary>
     public sealed partial class RenderingControl : UserControl
     {
-        private readonly OpenGLRenderer _renderer;
-        private readonly InputController _inputController;
-        private readonly TileFinder _tileFinder;
+        private OpenGLRenderer? _renderer;
+        private InputController? _inputController;
+        private TileFinder? _tileFinder;
+
+        private bool _loaded;
 
         private int _millisecs;
-        
+
         public event Action<DebugInformation>? OnDebugInfoChanged;
         public event Action<int>? OnTileSelected;
 
@@ -33,24 +35,36 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
         {
             InitializeComponent();
 
-            GLWpfControlSettings mainSettings = new GLWpfControlSettings { MajorVersion = 4, MinorVersion = 5, GraphicsProfile = ContextProfile.Core, GraphicsContextFlags = ContextFlags.Default, RenderContinuously = true};
+            GLWpfControlSettings mainSettings = new GLWpfControlSettings
+            {
+                MajorVersion = 4, MinorVersion = 5, GraphicsProfile = ContextProfile.Core,
+                GraphicsContextFlags = ContextFlags.Default, RenderContinuously = true
+            };
             GlControl.Start(mainSettings);
-
-            _renderer = new OpenGLRenderer();
-
-            _inputController = new InputController();
-            _tileFinder = new TileFinder(_renderer.Camera);
 
             DebugInformation = new DebugInformation();
         }
 
+        public void Load()
+        {
+            _renderer = new OpenGLRenderer();
+            _renderer.OnLoaded();
+
+            _inputController = new InputController();
+            _tileFinder = new TileFinder(_renderer.Camera);
+            _loaded = true;
+        }
+
         public void OnUpdateVertexData()
         {
-            _renderer.OnUpdateVertexData(Dispatcher);
+            _renderer?.OnUpdateVertexData(Dispatcher);
         }
 
         private void GlControl_OnRender(TimeSpan elapsedTimeSpan)
         {
+            if (!_loaded || _renderer == null || _tileFinder == null || _inputController == null)
+                return;
+
             _renderer.OnRender(elapsedTimeSpan);
             _tileFinder.Update(_inputController.NewMousePosition, GlControl.ActualWidth, GlControl.ActualHeight);
 
@@ -61,6 +75,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
                 DebugInformation.Milliseconds = _renderer.FpsCounter.Milliseconds;
                 _millisecs = 0;
             }
+
             DebugInformation.CameraPosition = _renderer.Camera.Transform.Position;
             DebugInformation.RayCastDirection = _tileFinder.CurrentRay;
             DebugInformation.CurrentTileCoordinates = _tileFinder.CurrentTileCoordinates;
@@ -68,28 +83,29 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
             OnDebugInfoChanged?.Invoke(DebugInformation);
         }
 
-        private void GlControl_OnLoaded(object sender, RoutedEventArgs e)
-        {
-            _renderer.OnLoaded();
-        }
-
         private void GlControl_OnUnloaded(object sender, RoutedEventArgs e)
         {
-            _renderer.OnUnLoaded();
+            _renderer?.OnUnLoaded();
         }
 
         private void GlControl_OnSizeChanged(object sender, SizeChangedEventArgs e)
         {
-            _renderer.UpdateViewPort(GlControl.ActualWidth, GlControl.ActualHeight);
+            if (!_loaded)
+                return;
+
+            _renderer?.UpdateViewPort(GlControl.ActualWidth, GlControl.ActualHeight);
         }
 
         private void GlControl_OnMouseWheel(object sender, MouseWheelEventArgs e)
         {
-            _renderer.Camera.Translate(new Vector3(0.0f, -e.Delta, 0.0f));
+            _renderer?.Camera.Translate(new Vector3(0.0f, -e.Delta, 0.0f));
         }
 
         private void GlControl_OnMouseMove(object sender, MouseEventArgs e)
         {
+            if (!_loaded || _renderer == null || _tileFinder == null || _inputController == null)
+                return;
+
             _inputController.NewMousePosition = e.GetPosition(this);
             Vector2 delta = _inputController.GetDelta();
 
@@ -104,12 +120,15 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
 
         private void GlControl_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (!_loaded || _renderer == null || _tileFinder == null || _inputController == null)
+                return;
+            
             if (e.ChangedButton != MouseButton.Left)
                 return;
 
             if (!_tileFinder.CurrentTileID.HasValue)
                 return;
-            
+
             STWWorld.Instance.Terrain.MarkTile(_tileFinder.CurrentTileID.Value);
             OnUpdateVertexData();
 

@@ -1,0 +1,12 @@
+﻿<Window x:Class="SimulateTheWorld.GUI.Controls.Controls.WaitingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="WaitingWindow" Height="150" Width="400" ResizeMode="NoResize" SizeToContent="Manual" Topmost="True" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Margin="30" Content="Creating world ..." HorizontalAlignment="Center"/>
+        <ProgressBar Margin="40" IsIndeterminate="True" Height="20"/>
+    </Grid>
+</Window>

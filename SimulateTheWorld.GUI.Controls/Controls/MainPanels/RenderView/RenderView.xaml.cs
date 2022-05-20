@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Windows.Controls;
 using SimulateTheWorld.Graphics.Rendering.Container;
+using SimulateTheWorld.World.System.Instances;
 
 namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.RenderView
 {
@@ -18,6 +20,20 @@ namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.RenderView
             
             _renderingControl.OnDebugInfoChanged += RenderingControlOnOnDebugInfoChanged;
             _renderingControl.OnTileSelected += OnOnTileSelected;
+
+            WaitingWindow waitingWindow = new WaitingWindow();
+            waitingWindow.Show();
+
+            Task.Factory
+                .StartNew(() => STWWorld.Instance)
+                .ContinueWith(_ =>
+                {
+                    Dispatcher.Invoke(() =>
+                    {
+                        _renderingControl.Load();
+                        waitingWindow.Close();
+                    });
+                });
         }
 
         private void OnOnTileSelected(int tileID)
