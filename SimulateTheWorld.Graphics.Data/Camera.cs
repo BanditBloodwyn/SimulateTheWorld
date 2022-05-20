@@ -45,6 +45,10 @@ public class Camera
         position.X += delta.X * Speed;
         position.Y += delta.Y * 0.02f;
         position.Z += delta.Z * Speed;
+
+        if(position.Y <= 0) 
+            return;
+
         Transform.Position = position;
 
         Update();
