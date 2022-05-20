@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mapFilters="clr-namespace:SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel.Panels.MapFilters;assembly=SimulateTheWorld.GUI.ViewModels"
+             xmlns:displayControls="clr-namespace:SimulateTheWorld.GUI.Controls.Controls.DisplayControls"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="400">
     <UserControl.DataContext>
@@ -13,49 +14,58 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="../../../../Styles/CheckboxStyle.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="../../../../Styles/RadioButtonStyle.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
 
     <Border Height="300" BorderThickness="0,1,0,0">
         <Grid Margin="0,5">
-            <TreeView x:Name="tv_mapFilters" BorderBrush="Transparent">
-                <CheckBox IsChecked="{Binding Model.Vegetation.Active}" 
-                          Content="{Binding Model.Vegetation.DisplayName}"
-                          Style="{StaticResource CheckBoxStyle}"/>
-                <CheckBox IsChecked="{Binding Model.HeightFilter.Active}" 
-                          Content="{Binding Model.HeightFilter.DisplayName}"
-                          Style="{StaticResource CheckBoxStyle}"/>
-                <CheckBox IsChecked="{Binding Model.PopByTribeFilter.Active}" 
-                          Content="{Binding Model.PopByTribeFilter.DisplayName}"
-                          Style="{StaticResource CheckBoxStyle}"/>
-                <CheckBox IsChecked="{Binding Model.CountriesFilter.Active}" 
-                      Content="{Binding Model.CountriesFilter.DisplayName}"                     
-                      Style="{StaticResource CheckBoxStyle}"/>
-                <CheckBox IsChecked="{Binding Model.LifeStandardFilter.Active}" 
-                      Content="{Binding Model.LifeStandardFilter.DisplayName}"
-                      Style="{StaticResource CheckBoxStyle}"/>
-                <CheckBox IsChecked="{Binding Model.UrbanizationFilter.Active}" 
-                      Content="{Binding Model.UrbanizationFilter.DisplayName}"
-                      Style="{StaticResource CheckBoxStyle}"/>
+            <StackPanel Margin="10">
+                <RadioButton IsChecked="{Binding Model.Vegetation.Active}" 
+                             Content="{Binding Model.Vegetation.DisplayName}"
+                             Style="{StaticResource RadioButtonStyle}"/>
+                <RadioButton IsChecked="{Binding Model.HeightFilter.Active}" 
+                             Content="{Binding Model.HeightFilter.DisplayName}"
+                             Style="{StaticResource RadioButtonStyle}"
+                             Margin="0,0,0,5"/>
 
-                <CheckBox Margin="0,10,0,0" 
-                          IsChecked="{Binding Model.Ressource_CoalFilter.Active}" 
-                          Content="{Binding Model.Ressource_CoalFilter.DisplayName}"
-                          Style="{StaticResource CheckBoxStyle}"/>
-                <CheckBox IsChecked="{Binding Model.Ressource_IronOreFilter.Active}" 
-                          Content="{Binding Model.Ressource_IronOreFilter.DisplayName}"
-                          Style="{StaticResource CheckBoxStyle}"/>
-                <CheckBox IsChecked="{Binding Model.Ressource_GoldOreFilter.Active}" 
-                          Content="{Binding Model.Ressource_GoldOreFilter.DisplayName}"
-                          Style="{StaticResource CheckBoxStyle}"/>
-                <CheckBox IsChecked="{Binding Model.Ressource_OilFilter.Active}" 
-                          Content="{Binding Model.Ressource_OilFilter.DisplayName}"
-                          Style="{StaticResource CheckBoxStyle}"/>
-                <CheckBox IsChecked="{Binding Model.Ressource_GasFilter.Active}" 
-                          Content="{Binding Model.Ressource_GasFilter.DisplayName}"
-                          Style="{StaticResource CheckBoxStyle}"/>
-            </TreeView>
+                <Rectangle Stroke="Gray" StrokeThickness="1"/>
+
+                <RadioButton IsChecked="{Binding Model.LifeStandardFilter.Active}" 
+                             Content="{Binding Model.LifeStandardFilter.DisplayName}"
+                             Style="{StaticResource RadioButtonStyle}"
+                             Margin="0,5,0,0"/>
+                <RadioButton IsChecked="{Binding Model.UrbanizationFilter.Active}" 
+                             Content="{Binding Model.UrbanizationFilter.DisplayName}"
+                             Style="{StaticResource RadioButtonStyle}"/>
+                <RadioButton IsChecked="{Binding Model.CountriesFilter.Active}" 
+                             Content="{Binding Model.CountriesFilter.DisplayName}"                     
+                             Style="{StaticResource RadioButtonStyle}"/>
+                <RadioButton IsChecked="{Binding Model.PopByTribeFilter.Active}" 
+                             Content="{Binding Model.PopByTribeFilter.DisplayName}"
+                             Style="{StaticResource RadioButtonStyle}"
+                             Margin="0,0,0,5"/>
+
+                <Rectangle Stroke="Gray" StrokeThickness="1"/>
+
+                <RadioButton IsChecked="{Binding Model.Ressource_CoalFilter.Active}" 
+                             Content="{Binding Model.Ressource_CoalFilter.DisplayName}"
+                             Style="{StaticResource RadioButtonStyle}"
+                             Margin="0,5,0,0"/>
+                <RadioButton IsChecked="{Binding Model.Ressource_IronOreFilter.Active}" 
+                             Content="{Binding Model.Ressource_IronOreFilter.DisplayName}"
+                             Style="{StaticResource RadioButtonStyle}"/>
+                <RadioButton IsChecked="{Binding Model.Ressource_GoldOreFilter.Active}" 
+                             Content="{Binding Model.Ressource_GoldOreFilter.DisplayName}"
+                             Style="{StaticResource RadioButtonStyle}"/>
+                <RadioButton IsChecked="{Binding Model.Ressource_OilFilter.Active}" 
+                             Content="{Binding Model.Ressource_OilFilter.DisplayName}"
+                             Style="{StaticResource RadioButtonStyle}"/>
+                <RadioButton IsChecked="{Binding Model.Ressource_GasFilter.Active}" 
+                             Content="{Binding Model.Ressource_GasFilter.DisplayName}"
+                             Style="{StaticResource RadioButtonStyle}"/>
+            </StackPanel>
         </Grid>
     </Border>
 </UserControl>
