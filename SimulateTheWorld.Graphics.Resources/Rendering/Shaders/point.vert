@@ -6,7 +6,7 @@
 const int TILETYPE_WATER = 0;
 const int TILETYPE_LAND = 1;
 
-// === VegetationType ===
+// === Vegetation zones ===
 const int VEGETATION_WATER = 0;
 const int VEGETATION_KOLLINE = 1;
 const int VEGETATION_MONTANE = 2;
@@ -23,7 +23,7 @@ const int VEGETATION_NIVALE = 7;
 layout (location = 0) in vec3 aPos;
 layout (location = 1) in float aMarked;
 layout (location = 2) in float aTileType;
-layout (location = 3) in float aVegetationType;
+layout (location = 3) in float aVegetationZone;
 layout (location = 4) in float aHeight;
 layout (location = 5) in float aPopByTribe;
 layout (location = 6) in float aCountries;
@@ -42,7 +42,7 @@ out DATA
     float marked;
 
     float tileType;
-    float vegetationType;
+    float vegetationZone;
     
     float height;
     float popByTribe;
@@ -69,7 +69,7 @@ void main()
     data_out.marked = aMarked;
 
     data_out.tileType = aTileType;
-    data_out.vegetationType = aVegetationType;
+    data_out.vegetationZone = aVegetationZone;
     
     data_out.height = aHeight;
     data_out.popByTribe = aPopByTribe;
@@ -91,17 +91,17 @@ void main()
     {
         position = position + vec3(0, 0.01, 0);
        
-        if (aVegetationType == VEGETATION_MONTANE)
+        if (aVegetationZone == VEGETATION_MONTANE)
             position = position + vec3(0, 0.01, 0);
-        if (aVegetationType == VEGETATION_SUBALPINE)
+        if (aVegetationZone == VEGETATION_SUBALPINE)
             position = position + vec3(0, 0.02, 0);
-        if (aVegetationType == VEGETATION_ALPINE_TREES)
+        if (aVegetationZone == VEGETATION_ALPINE_TREES)
             position = position + vec3(0, 0.03, 0);
-        if (aVegetationType == VEGETATION_ALPINE_BUSHES)
+        if (aVegetationZone == VEGETATION_ALPINE_BUSHES)
             position = position + vec3(0, 0.04, 0);
-        if (aVegetationType == VEGETATION_SUBNIVALE)
+        if (aVegetationZone == VEGETATION_SUBNIVALE)
             position = position + vec3(0, 0.06, 0);
-        if (aVegetationType == VEGETATION_NIVALE)
+        if (aVegetationZone == VEGETATION_NIVALE)
             position = position + vec3(0, 0.08, 0);
     }
     gl_Position = vec4(position, 1.0) * uModel;

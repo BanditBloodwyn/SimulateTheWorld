@@ -16,7 +16,7 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBox Grid.Column="0" x:Name ="tb_searchText"/>
-                    <Button Grid.Column="1" x:Name="btn_Search" Width="75" HorizontalAlignment="Center" Content="{x:Static resources:Locals_German.sidepanel_search}"/>
+                    <Button Grid.Column="1" x:Name="btn_Search" Width="75" HorizontalAlignment="Center" Content="{x:Static resources:Locals_German.sidepanel_expander_search}"/>
                 </Grid>
             </StackPanel>
         </Grid>

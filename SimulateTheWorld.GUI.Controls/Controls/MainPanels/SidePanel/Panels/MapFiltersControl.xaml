@@ -22,8 +22,8 @@
     <Border Height="300" BorderThickness="0,1,0,0">
         <Grid Margin="0,5">
             <StackPanel Margin="10">
-                <RadioButton IsChecked="{Binding Model.Vegetation.Active}" 
-                             Content="{Binding Model.Vegetation.DisplayName}"
+                <RadioButton IsChecked="{Binding Model.VegetationZone.Active}" 
+                             Content="{Binding Model.VegetationZone.DisplayName}"
                              Style="{StaticResource RadioButtonStyle}"/>
                 <RadioButton IsChecked="{Binding Model.HeightFilter.Active}" 
                              Content="{Binding Model.HeightFilter.DisplayName}"

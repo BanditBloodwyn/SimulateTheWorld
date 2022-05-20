@@ -151,11 +151,11 @@ namespace SimulateTheWorld.GUI.Resources.Localization {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Vegetation ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Vegetations-Zonen ähnelt.
         /// </summary>
-        public static string mapfilters_vegetation {
+        public static string mapfilters_vegetationZone {
             get {
-                return ResourceManager.GetString("mapfilters_vegetation", resourceCulture);
+                return ResourceManager.GetString("mapfilters_vegetationZone", resourceCulture);
             }
         }
         

@@ -16,7 +16,7 @@ public class MapFiltersViewModel : ObservableObject
 
     private void GetMapFilterNames()
     {
-        Model.Vegetation.DisplayName = Resources.Localization.Locals_German.mapfilters_vegetation;
+        Model.VegetationZone.DisplayName = Resources.Localization.Locals_German.mapfilters_vegetationZone;
         Model.HeightFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_height;
         Model.PopByTribeFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_popByTribe;
         Model.CountriesFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_countries;

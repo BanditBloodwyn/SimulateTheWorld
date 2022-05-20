@@ -6,7 +6,7 @@
 const int TILETYPE_WATER = 0;
 const int TILETYPE_LAND = 1;
 
-// === vegetationType ===
+// === vegetation zones ===
 const int VEGETATION_WATER = 0;
 const int VEGETATION_KOLLINE = 1;
 const int VEGETATION_MONTANE = 2;
@@ -25,7 +25,7 @@ out vec4 FragColor;
 // === In ===
 flat in float marked;
 flat in float tileType;
-flat in float vegetationType;
+flat in float vegetationZone;
 flat in float height;
 flat in float popByTribe;
 flat in float countries;
@@ -69,19 +69,19 @@ vec4 GetVegetationColor()
         return vec4(0.2f, 0.2f, 1.0f, 1.0f);
     else
     {
-        if (vegetationType == VEGETATION_KOLLINE)
+        if (vegetationZone == VEGETATION_KOLLINE)
             return vec4(0.4f, 1.0f, 0.4f, 1.0f);
-        if (vegetationType == VEGETATION_MONTANE)
+        if (vegetationZone == VEGETATION_MONTANE)
             return vec4(0.0f, 0.8f, 0.0f, 1.0f);
-        if (vegetationType == VEGETATION_SUBALPINE)
+        if (vegetationZone == VEGETATION_SUBALPINE)
             return vec4(0.0f, 0.6f, 0.0f, 1.0f);
-        if (vegetationType == VEGETATION_ALPINE_TREES)
+        if (vegetationZone == VEGETATION_ALPINE_TREES)
             return vec4(0.3f, 0.6f, 0.3f, 1.0f);
-        if (vegetationType == VEGETATION_ALPINE_BUSHES)
+        if (vegetationZone == VEGETATION_ALPINE_BUSHES)
             return vec4(0.4f, 0.6f, 0.4f, 1.0f);
-        if (vegetationType == VEGETATION_SUBNIVALE)
+        if (vegetationZone == VEGETATION_SUBNIVALE)
             return vec4(0.5f, 0.5f, 0.5f, 1.0f);
-        if (vegetationType == VEGETATION_NIVALE)
+        if (vegetationZone == VEGETATION_NIVALE)
             return vec4(1.0f, 1.0f, 1.0f, 1.0f);
     }
 }

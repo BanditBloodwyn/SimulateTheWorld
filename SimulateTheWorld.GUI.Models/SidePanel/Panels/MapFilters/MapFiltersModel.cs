@@ -10,7 +10,7 @@ public class MapFiltersModel
 
     private static MapFiltersModel? _instance;
 
-    public MapFilter Vegetation { get; }
+    public MapFilter VegetationZone { get; }
     public MapFilter HeightFilter { get; }
     public MapFilter PopByTribeFilter { get; }
     public MapFilter CountriesFilter { get; }
@@ -32,7 +32,7 @@ public class MapFiltersModel
 
     private MapFiltersModel()
     {
-        Vegetation = new MapFilter(MapFilterType.Vegetation, true);
+        VegetationZone = new MapFilter(MapFilterType.VegetationZone, true);
         HeightFilter = new MapFilter(MapFilterType.Height);
         PopByTribeFilter = new MapFilter(MapFilterType.PopByTribe);
         CountriesFilter = new MapFilter(MapFilterType.Countries);
@@ -46,7 +46,7 @@ public class MapFiltersModel
         Ressource_GasFilter = new MapFilter(MapFilterType.Ressource_Gas);
 
         _filters = new[] { 
-            Vegetation, HeightFilter, PopByTribeFilter, CountriesFilter, LifeStandardFilter, UrbanizationFilter, 
+            VegetationZone, HeightFilter, PopByTribeFilter, CountriesFilter, LifeStandardFilter, UrbanizationFilter, 
             Ressource_CoalFilter, Ressource_IronOreFilter, Ressource_GoldOreFilter, Ressource_OilFilter, Ressource_GasFilter };
     }
 

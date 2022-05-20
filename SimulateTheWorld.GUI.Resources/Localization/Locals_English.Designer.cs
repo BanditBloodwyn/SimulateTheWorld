@@ -142,11 +142,20 @@ namespace SimulateTheWorld.GUI.Resources.Localization {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Vegetation ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Urbanization ähnelt.
         /// </summary>
-        public static string mapfilters_vegetation {
+        public static string mapfilters_urbanization {
             get {
-                return ResourceManager.GetString("mapfilters_vegetation", resourceCulture);
+                return ResourceManager.GetString("mapfilters_urbanization", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Vegetation zones ähnelt.
+        /// </summary>
+        public static string mapfilters_vegetationZone {
+            get {
+                return ResourceManager.GetString("mapfilters_vegetationZone", resourceCulture);
             }
         }
         
@@ -174,6 +183,15 @@ namespace SimulateTheWorld.GUI.Resources.Localization {
         public static string sidepanel_expander_search {
             get {
                 return ResourceManager.GetString("sidepanel_expander_search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Search ähnelt.
+        /// </summary>
+        public static string sidepanel_search {
+            get {
+                return ResourceManager.GetString("sidepanel_search", resourceCulture);
             }
         }
         
@@ -228,15 +246,6 @@ namespace SimulateTheWorld.GUI.Resources.Localization {
         public static string toolbar_view {
             get {
                 return ResourceManager.GetString("toolbar_view", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Urbanization ähnelt.
-        /// </summary>
-        public static string urbanization {
-            get {
-                return ResourceManager.GetString("urbanization", resourceCulture);
             }
         }
     }

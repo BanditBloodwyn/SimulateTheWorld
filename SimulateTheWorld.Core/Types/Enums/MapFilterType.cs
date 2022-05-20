@@ -2,7 +2,7 @@
 
 public enum MapFilterType
 {
-    Vegetation,
+    VegetationZone,
     Height,
     PopByTribe,
     Countries,
