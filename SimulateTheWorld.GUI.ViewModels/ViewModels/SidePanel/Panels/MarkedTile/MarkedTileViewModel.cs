@@ -11,7 +11,9 @@ public class MarkedTileViewModel : ObservableObject, ISubscriber<LocationMessage
     
     public DelegateCommand PinnLocationCommand { get; }
 
-    public string TileMarkedTest => Tile == null ? string.Empty : "Mark";
+    public string TileMarkedTest => Tile == null 
+        ? string.Empty 
+        : "Pin";
 
     public MarkedTileViewModel()
     {
