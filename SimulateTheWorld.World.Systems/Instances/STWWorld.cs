@@ -8,7 +8,7 @@ namespace SimulateTheWorld.World.Systems.Instances;
 
 public class STWWorld
 {
-    public const int TerrainSize = 2000;
+    public const int TerrainSize = 200;
     public const float TileSize = 0.1f;
 
     private List<IWorldSystem> _worldSystems = new List<IWorldSystem>();

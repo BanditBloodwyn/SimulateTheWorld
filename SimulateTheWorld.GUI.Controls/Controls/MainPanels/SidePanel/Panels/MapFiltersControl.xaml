@@ -27,10 +27,9 @@
                              Style="{StaticResource RadioButtonStyle}"/>
                 <RadioButton IsChecked="{Binding Model.HeightFilter.Active}" 
                              Content="{Binding Model.HeightFilter.DisplayName}"
-                             Style="{StaticResource RadioButtonStyle}"
-                             Margin="0,0,0,5"/>
+                             Style="{StaticResource RadioButtonStyle}"/>
 
-                <Rectangle Stroke="Gray" StrokeThickness="1"/>
+                <Rectangle Stroke="Gray" StrokeThickness="1" Margin="0,5,0,5"/>
 
                 <RadioButton IsChecked="{Binding Model.LifeStandardFilter.Active}" 
                              Content="{Binding Model.LifeStandardFilter.DisplayName}"
@@ -44,15 +43,28 @@
                              Style="{StaticResource RadioButtonStyle}"/>
                 <RadioButton IsChecked="{Binding Model.PopByTribeFilter.Active}" 
                              Content="{Binding Model.PopByTribeFilter.DisplayName}"
-                             Style="{StaticResource RadioButtonStyle}"
-                             Margin="0,0,0,5"/>
+                             Style="{StaticResource RadioButtonStyle}"/>
 
-                <Rectangle Stroke="Gray" StrokeThickness="1"/>
+                <Rectangle Stroke="Gray" StrokeThickness="1" Margin="0,5,0,5"/>
+
+                <RadioButton IsChecked="{Binding Model.Flora_DeciduousTrees.Active}" 
+                             Content="{Binding Model.Flora_DeciduousTrees.DisplayName}"
+                             Style="{StaticResource RadioButtonStyle}"/>
+                <RadioButton IsChecked="{Binding Model.Flora_EvergreenTrees.Active}" 
+                             Content="{Binding Model.Flora_EvergreenTrees.DisplayName}"
+                             Style="{StaticResource RadioButtonStyle}"/>
+                <RadioButton IsChecked="{Binding Model.Flora_Vegetables.Active}" 
+                             Content="{Binding Model.Flora_Vegetables.DisplayName}"                     
+                             Style="{StaticResource RadioButtonStyle}"/>
+                <RadioButton IsChecked="{Binding Model.Flora_Fruits.Active}" 
+                             Content="{Binding Model.Flora_Fruits.DisplayName}"
+                             Style="{StaticResource RadioButtonStyle}"/>
+
+                <Rectangle Stroke="Gray" StrokeThickness="1" Margin="0,5,0,5"/>
 
                 <RadioButton IsChecked="{Binding Model.Ressource_CoalFilter.Active}" 
                              Content="{Binding Model.Ressource_CoalFilter.DisplayName}"
-                             Style="{StaticResource RadioButtonStyle}"
-                             Margin="0,5,0,0"/>
+                             Style="{StaticResource RadioButtonStyle}"/>
                 <RadioButton IsChecked="{Binding Model.Ressource_IronOreFilter.Active}" 
                              Content="{Binding Model.Ressource_IronOreFilter.DisplayName}"
                              Style="{StaticResource RadioButtonStyle}"/>

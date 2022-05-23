@@ -2,9 +2,9 @@
 
 public class FloraValues
 {
-    public double DeciduousTrees { get; set; }      // Laubbäume
-    public double EvergreenTrees { get; set; }      // Nadelbäume
+    public float DeciduousTrees { get; set; }      // Laubbäume
+    public float EvergreenTrees { get; set; }      // Nadelbäume
 
-    public double Vegetables { get; set; }
-    public double Fruits { get; set; }
+    public float Vegetables { get; set; }
+    public float Fruits { get; set; }
 }

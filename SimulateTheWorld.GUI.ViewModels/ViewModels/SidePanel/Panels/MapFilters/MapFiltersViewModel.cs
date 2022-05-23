@@ -22,7 +22,12 @@ public class MapFiltersViewModel : ObservableObject
         Model.CountriesFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_countries;
         Model.LifeStandardFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_lifeStandard;
         Model.UrbanizationFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_urbanization;
-      
+        
+        Model.Flora_DeciduousTrees.DisplayName = Resources.Localization.Locals_German.mapfilters_flora_deciduousTrees;
+        Model.Flora_EvergreenTrees.DisplayName = Resources.Localization.Locals_German.mapfilters_flora_evergreenTrees;
+        Model.Flora_Vegetables.DisplayName = Resources.Localization.Locals_German.mapfilters_flora_vegetables;
+        Model.Flora_Fruits.DisplayName = Resources.Localization.Locals_German.mapfilters_flora_fruits;
+
         Model.Ressource_CoalFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_ressource_coal;
         Model.Ressource_IronOreFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_ressource_ironOre;
         Model.Ressource_GoldOreFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_ressource_goldOre;

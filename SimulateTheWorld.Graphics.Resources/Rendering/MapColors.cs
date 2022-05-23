@@ -18,7 +18,12 @@ public static class MapColors
     private static Color[] Filter_Height => new[] { Color.Green, Color.Red };
     private static Color[] Filter_LifeStandard => new[] { Color.Red, Color.GreenYellow };
     private static Color[] Filter_Urbanization => new[] { Color.LimeGreen, Color.SaddleBrown };
-    
+
+    private static Color[] Filter_Flora_DeciduousTrees => new[] { Color.White, Color.ForestGreen };
+    private static Color[] Filter_Flora_EvergreenTrees => new[] { Color.White, Color.DarkGreen };
+    private static Color[] Filter_Flora_Vegetables => new[] { Color.White, Color.Green };
+    private static Color[] Filter_Flora_Fruits => new[] { Color.White, Color.Red };
+ 
     private static Color[] Filter_Ressource_Coal => new[] { Color.White, Color.Black };
     private static Color[] Filter_Ressource_IronOre => new[] { Color.White, Color.OrangeRed };
     private static Color[] Filter_Ressource_GoldOre => new[] { Color.White, Color.Gold };
@@ -34,7 +39,12 @@ public static class MapColors
             MapFilterType.Countries => Filter_Countries,
             MapFilterType.LifeStandard => Filter_LifeStandard,
             MapFilterType.Urbanization => Filter_Urbanization,
-            
+
+            MapFilterType.Flora_DeciduousTrees => Filter_Flora_DeciduousTrees,
+            MapFilterType.Flora_EvergreenTrees => Filter_Flora_EvergreenTrees,
+            MapFilterType.Flora_Vegetables => Filter_Flora_Vegetables,
+            MapFilterType.Flora_Fruits => Filter_Flora_Fruits,
+
             MapFilterType.Ressource_Coal => Filter_Ressource_Coal,
             MapFilterType.Ressource_IronOre => Filter_Ressource_IronOre,
             MapFilterType.Ressource_GoldOre => Filter_Ressource_GoldOre,

@@ -14,4 +14,9 @@ public enum MapFilterType
     Ressource_GoldOre,
     Ressource_Oil,
     Ressource_Gas,
+
+    Flora_DeciduousTrees,
+    Flora_EvergreenTrees,
+    Flora_Vegetables,
+    Flora_Fruits,
 }

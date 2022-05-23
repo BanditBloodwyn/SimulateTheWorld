@@ -120,6 +120,18 @@
   <data name="mapfilters_countries" xml:space="preserve">
     <value>Länder</value>
   </data>
+  <data name="mapfilters_flora_deciduousTrees" xml:space="preserve">
+    <value>Laubbäume</value>
+  </data>
+  <data name="mapfilters_flora_evergreenTrees" xml:space="preserve">
+    <value>Nadelbäume</value>
+  </data>
+  <data name="mapfilters_flora_fruits" xml:space="preserve">
+    <value>Früchte</value>
+  </data>
+  <data name="mapfilters_flora_vegetables" xml:space="preserve">
+    <value>Gemüse</value>
+  </data>
   <data name="mapfilters_height" xml:space="preserve">
     <value>Höhe</value>
   </data>

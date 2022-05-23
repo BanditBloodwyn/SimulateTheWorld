@@ -26,6 +26,11 @@ in DATA
     float ressource_oil;
     float ressource_gas;
 
+    float flora_DeciduousTrees;
+    float flora_EvergreenTrees;
+    float flora_Vegetables;
+    float flora_Fruits;
+
     mat4 projection;
 } data_in[];
 
@@ -46,6 +51,11 @@ flat out float ressource_ironOre;
 flat out float ressource_goldOre;
 flat out float ressource_oil;
 flat out float ressource_gas;
+
+flat out float flora_DeciduousTrees;
+flat out float flora_EvergreenTrees;
+flat out float flora_Vegetables;
+flat out float flora_Fruits;
 
 flat out vec3 colorShading;
 
@@ -148,6 +158,11 @@ void main()
     ressource_goldOre = data_in[0].ressource_goldOre;
     ressource_oil = data_in[0].ressource_oil;
     ressource_gas = data_in[0].ressource_gas;
+    
+    flora_DeciduousTrees = data_in[0].flora_DeciduousTrees;
+    flora_EvergreenTrees = data_in[0].flora_EvergreenTrees;
+    flora_Vegetables = data_in[0].flora_Vegetables;
+    flora_Fruits = data_in[0].flora_Fruits;
 
     colorShading = vec3(1, 1, 1);
     build_tile(gl_in[0].gl_Position);

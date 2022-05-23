@@ -38,6 +38,11 @@ flat in float ressource_goldOre;
 flat in float ressource_oil;
 flat in float ressource_gas;
 
+flat in float flora_DeciduousTrees;
+flat in float flora_EvergreenTrees;
+flat in float flora_Vegetables;
+flat in float flora_Fruits;
+
 flat in vec3 colorShading;
 
 // === Uniforms ===
@@ -106,6 +111,7 @@ void main()
         FragColor = SampleColor(lifeStandard) * vec4(colorShading, 0);
     else if (uFilterMode == 5)
         FragColor = SampleColor(urbanization) * vec4(colorShading, 0);
+   
     else if (uFilterMode == 6)
         FragColor = SampleColor(ressource_coal) * vec4(colorShading, 0);
     else if (uFilterMode == 7)
@@ -116,4 +122,13 @@ void main()
         FragColor = SampleColor(ressource_oil) * vec4(colorShading, 0);
     else if (uFilterMode == 10)
         FragColor = SampleColor(ressource_gas) * vec4(colorShading, 0);
+    
+    else if (uFilterMode == 11)
+        FragColor = SampleColor(flora_DeciduousTrees) * vec4(colorShading, 0);
+    else if (uFilterMode == 12)
+        FragColor = SampleColor(flora_EvergreenTrees) * vec4(colorShading, 0);
+    else if (uFilterMode == 13)
+        FragColor = SampleColor(flora_Vegetables) * vec4(colorShading, 0);
+    else if (uFilterMode == 14)
+        FragColor = SampleColor(flora_Fruits) * vec4(colorShading, 0);
 }

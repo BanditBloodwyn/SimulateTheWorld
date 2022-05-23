@@ -70,6 +70,42 @@ namespace SimulateTheWorld.GUI.Resources.Localization {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Deciduous trees ähnelt.
+        /// </summary>
+        public static string mapfilters_flora_deciduousTrees {
+            get {
+                return ResourceManager.GetString("mapfilters_flora_deciduousTrees", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Evergreen trees ähnelt.
+        /// </summary>
+        public static string mapfilters_flora_evergreenTrees {
+            get {
+                return ResourceManager.GetString("mapfilters_flora_evergreenTrees", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fruits ähnelt.
+        /// </summary>
+        public static string mapfilters_flora_fruits {
+            get {
+                return ResourceManager.GetString("mapfilters_flora_fruits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Vegetables ähnelt.
+        /// </summary>
+        public static string mapfilters_flora_vegetables {
+            get {
+                return ResourceManager.GetString("mapfilters_flora_vegetables", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Height ähnelt.
         /// </summary>
         public static string mapfilters_height {

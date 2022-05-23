@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SimulateTheWorld.World.Systems.Instances;
 
 namespace SimulateTheWorld.World.Systems.WorldSystems;
@@ -15,8 +16,8 @@ public class VegetationSpreading : IWorldSystem
 
             foreach (TerrainTile tileToModify in tilesToModify)
             {
-                tileToModify.FloraValues.DeciduousTrees += tile.FloraValues.DeciduousTrees * 0.2f;
-                tileToModify.FloraValues.EvergreenTrees += tile.FloraValues.EvergreenTrees * 0.2f;
+                tileToModify.FloraValues.DeciduousTrees = MathF.Min(tileToModify.FloraValues.DeciduousTrees + tile.FloraValues.DeciduousTrees * 0.02f, 100);  
+                tileToModify.FloraValues.EvergreenTrees = MathF.Min(tileToModify.FloraValues.EvergreenTrees + tile.FloraValues.EvergreenTrees * 0.02f, 100);
             }
         }
     }
@@ -41,7 +42,7 @@ public class VegetationSpreading : IWorldSystem
         {
             if(id < 0)
                 continue;
-            if(id > STWWorld.Instance.Terrain.Tiles.Length)
+            if(id >= STWWorld.Instance.Terrain.Tiles.Length)
                 continue;
 
             tilesToModify.Add(STWWorld.Instance.Terrain.Tiles[id]);

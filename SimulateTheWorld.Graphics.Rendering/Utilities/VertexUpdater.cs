@@ -37,6 +37,11 @@ public static class VertexUpdater
                     pointCloud.Vertices[i].ressource_goldOre = tile.TerrainValues.GoldOre;
                     pointCloud.Vertices[i].ressource_oil = tile.TerrainValues.Oil;
                     pointCloud.Vertices[i].ressource_gas = tile.TerrainValues.Gas;
+                    
+                    pointCloud.Vertices[i].flora_deciduousTrees = tile.FloraValues.DeciduousTrees;
+                    pointCloud.Vertices[i].flora_evergreenTrees = tile.FloraValues.EvergreenTrees;
+                    pointCloud.Vertices[i].flora_vegetables = tile.FloraValues.Vegetables;
+                    pointCloud.Vertices[i].flora_fruits = tile.FloraValues.Fruits;
 
                     updatedVerticesCount++;
                 }

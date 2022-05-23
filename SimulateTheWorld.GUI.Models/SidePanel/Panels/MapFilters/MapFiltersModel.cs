@@ -17,6 +17,11 @@ public class MapFiltersModel
     public MapFilter LifeStandardFilter { get; }
     public MapFilter UrbanizationFilter { get; }
 
+    public MapFilter Flora_DeciduousTrees { get; }
+    public MapFilter Flora_EvergreenTrees { get; }
+    public MapFilter Flora_Vegetables { get; }
+    public MapFilter Flora_Fruits { get; }
+
     public MapFilter Ressource_CoalFilter { get; }
     public MapFilter Ressource_IronOreFilter { get; }
     public MapFilter Ressource_GoldOreFilter { get; }
@@ -39,6 +44,11 @@ public class MapFiltersModel
         LifeStandardFilter = new MapFilter(MapFilterType.LifeStandard);
         UrbanizationFilter = new MapFilter(MapFilterType.Urbanization);
 
+        Flora_DeciduousTrees = new MapFilter(MapFilterType.Flora_DeciduousTrees);
+        Flora_EvergreenTrees = new MapFilter(MapFilterType.Flora_EvergreenTrees);
+        Flora_Vegetables = new MapFilter(MapFilterType.Flora_Vegetables);
+        Flora_Fruits = new MapFilter(MapFilterType.Flora_Fruits);
+
         Ressource_CoalFilter = new MapFilter(MapFilterType.Ressource_Coal);
         Ressource_IronOreFilter = new MapFilter(MapFilterType.Ressource_IronOre);
         Ressource_GoldOreFilter = new MapFilter(MapFilterType.Ressource_GoldOre);
@@ -46,7 +56,8 @@ public class MapFiltersModel
         Ressource_GasFilter = new MapFilter(MapFilterType.Ressource_Gas);
 
         _filters = new[] { 
-            VegetationZone, HeightFilter, PopByTribeFilter, CountriesFilter, LifeStandardFilter, UrbanizationFilter, 
+            VegetationZone, HeightFilter, PopByTribeFilter, CountriesFilter, LifeStandardFilter, UrbanizationFilter,
+            Flora_DeciduousTrees, Flora_EvergreenTrees, Flora_Vegetables, Flora_Fruits,
             Ressource_CoalFilter, Ressource_IronOreFilter, Ressource_GoldOreFilter, Ressource_OilFilter, Ressource_GasFilter };
     }
 

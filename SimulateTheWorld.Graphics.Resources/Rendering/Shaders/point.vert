@@ -36,6 +36,11 @@ layout (location = 11) in float aRessource_goldOre;
 layout (location = 12) in float aRessource_oil;
 layout (location = 13) in float aRessource_gas;
 
+layout (location = 14) in float aFlora_DeciduousTrees;
+layout (location = 15) in float aFlora_EvergreenTrees;
+//layout (location = 16) in float aFlora_Vegetables;
+//layout (location = 17) in float aFlora_Fruits;
+
 // === Out ===
 out DATA
 {
@@ -55,6 +60,11 @@ out DATA
     float ressource_goldOre;
     float ressource_oil;
     float ressource_gas;
+
+    float flora_DeciduousTrees;
+    float flora_EvergreenTrees;
+    float flora_Vegetables;
+    float flora_Fruits;
 
     mat4 projection;
 } data_out;
@@ -82,6 +92,11 @@ void main()
     data_out.ressource_goldOre = aRessource_goldOre;
     data_out.ressource_oil = aRessource_oil;
     data_out.ressource_gas = aRessource_gas;
+    
+    data_out.flora_DeciduousTrees = aFlora_DeciduousTrees;
+    data_out.flora_EvergreenTrees = aFlora_EvergreenTrees;
+    //data_out.flora_Vegetables = aFlora_Vegetables;
+    //data_out.flora_Fruits = aFlora_Fruits;
 
     data_out.projection = uView * uProjection;
     
