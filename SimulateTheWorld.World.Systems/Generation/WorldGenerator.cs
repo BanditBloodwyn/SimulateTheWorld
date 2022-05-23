@@ -8,6 +8,7 @@ public class WorldGenerator
 {
     private readonly HeightGenerator _heightGenerator;
     private readonly RessourceGenerator _ressourceGenerator;
+    private readonly VegetationGenerator _vegetationGenerator;
 
     public CatalogCollection CatalogCollection { get; set; }
 
@@ -15,6 +16,7 @@ public class WorldGenerator
     {
         _heightGenerator = new HeightGenerator();
         _ressourceGenerator = new RessourceGenerator();
+        _vegetationGenerator = new VegetationGenerator();
 
         CatalogCollection = new CatalogCollection();
     }
@@ -43,7 +45,9 @@ public class WorldGenerator
         tile.TerrainValues.Height = CatalogCollection.TerrainHeights[tileID];
         tile.TileType = TerrainSampler.GeTileTypeByHeight(CatalogCollection.TerrainHeights[tileID]);
         tile.VegetationType = TerrainSampler.GetVegetationTypeByHeight(CatalogCollection.TerrainHeights[tileID]);
+        
         _ressourceGenerator.GenerateRessources(tile);
+        _vegetationGenerator.GenerateVegetation(tile);
 
         return tile;
     }
