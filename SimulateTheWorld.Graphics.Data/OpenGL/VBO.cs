@@ -23,6 +23,12 @@ public class VBO
         GL.BufferData(BufferTarget.ArrayBuffer, vertices.Length * sizeof(DataVertex), vertices, BufferUsageHint.StaticDraw);
     }
 
+    public unsafe void Update(DataVertex[] vertices)
+    {
+        GL.BindBuffer(BufferTarget.ArrayBuffer, ID);
+        GL.BufferData(BufferTarget.ArrayBuffer, vertices.Length * sizeof(DataVertex), vertices, BufferUsageHint.StaticDraw);
+    }
+
     public void Bind() => GL.BindBuffer(BufferTarget.ArrayBuffer, ID);
 
     public void Unbind() => GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
