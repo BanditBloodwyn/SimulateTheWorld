@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using SimulateTheWorld.Graphics.Rendering.Container;
-using SimulateTheWorld.World.System.Instances;
+using SimulateTheWorld.World.Systems.Instances;
 
 namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.RenderView
 {

@@ -1,8 +1,8 @@
 ﻿using System;
 using SimulateTheWorld.World.Data.Data.Enums;
-using SimulateTheWorld.World.System.Instances;
+using SimulateTheWorld.World.Systems.Instances;
 
-namespace SimulateTheWorld.World.System.Generation;
+namespace SimulateTheWorld.World.Systems.Generation;
 
 public class TileFiller
 {

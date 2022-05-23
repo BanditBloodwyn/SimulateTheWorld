@@ -1,6 +1,6 @@
-﻿using SimulateTheWorld.World.System.Generation;
+﻿using SimulateTheWorld.World.Systems.Generation;
 
-namespace SimulateTheWorld.World.System.Instances;
+namespace SimulateTheWorld.World.Systems.Instances;
 
 public class STWTerrain
 {

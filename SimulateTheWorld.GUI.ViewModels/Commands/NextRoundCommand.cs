@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using SimulateTheWorld.World.System.Instances;
+using SimulateTheWorld.World.Systems.Instances;
 
 namespace SimulateTheWorld.GUI.ViewModels.Commands;
 

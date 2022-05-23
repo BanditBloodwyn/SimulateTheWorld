@@ -1,7 +1,7 @@
 ﻿using System.Numerics;
 using SimulateTheWorld.Core.Math.Noise.Filters;
 
-namespace SimulateTheWorld.World.System.Generation;
+namespace SimulateTheWorld.World.Systems.Generation;
 
 public class HeightGenerator
 {

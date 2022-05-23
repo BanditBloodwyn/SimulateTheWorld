@@ -1,8 +1,8 @@
 ﻿using SimulateTheWorld.Core.Types;
 using SimulateTheWorld.World.Data.Data.Types;
-using SimulateTheWorld.World.System.Instances;
+using SimulateTheWorld.World.Systems.Instances;
 
-namespace SimulateTheWorld.World.System.Generation;
+namespace SimulateTheWorld.World.Systems.Generation;
 
 public class WorldGenerator
 {

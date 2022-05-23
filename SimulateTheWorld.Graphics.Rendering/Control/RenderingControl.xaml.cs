@@ -8,7 +8,7 @@ using OpenTK.Wpf;
 using SimulateTheWorld.Graphics.Rendering.Container;
 using SimulateTheWorld.Graphics.Rendering.Rendering;
 using SimulateTheWorld.Graphics.Rendering.Utilities;
-using SimulateTheWorld.World.System.Instances;
+using SimulateTheWorld.World.Systems.Instances;
 using MouseWheelEventArgs = System.Windows.Input.MouseWheelEventArgs;
 
 namespace SimulateTheWorld.Graphics.Rendering.Control

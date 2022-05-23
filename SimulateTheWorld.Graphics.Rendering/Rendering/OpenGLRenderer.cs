@@ -6,7 +6,7 @@ using SimulateTheWorld.Graphics.Data;
 using SimulateTheWorld.Graphics.Data.OpenGL;
 using SimulateTheWorld.Graphics.Rendering.Utilities;
 using SimulateTheWorld.GUI.Models.SidePanel.Panels.MapFilters;
-using SimulateTheWorld.World.System.Instances;
+using SimulateTheWorld.World.Systems.Instances;
 
 namespace SimulateTheWorld.Graphics.Rendering.Rendering;
 

@@ -2,7 +2,7 @@
 using SimulateTheWorld.World.Data.Data.Enums;
 using SimulateTheWorld.World.Data.Data.Types;
 
-namespace SimulateTheWorld.World.System.Instances;
+namespace SimulateTheWorld.World.Systems.Instances;
 
 public class TerrainTile
 {

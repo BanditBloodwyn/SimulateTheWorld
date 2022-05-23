@@ -1,7 +1,7 @@
 ﻿using SimulateTheWorld.Core.GUI.MVVM;
 using SimulateTheWorld.Core.GUI.MVVM.Mediator;
 using SimulateTheWorld.GUI.Models.Mediators;
-using SimulateTheWorld.World.System.Instances;
+using SimulateTheWorld.World.Systems.Instances;
 
 namespace SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel.Panels.MarkedTile;
 

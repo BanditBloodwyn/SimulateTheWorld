@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Windows.Threading;
 using SimulateTheWorld.Graphics.Data.Components;
 using SimulateTheWorld.Graphics.Data.Interfaces;
-using SimulateTheWorld.World.System.Instances;
+using SimulateTheWorld.World.Systems.Instances;
 
 namespace SimulateTheWorld.Graphics.Rendering.Utilities;
 

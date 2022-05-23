@@ -2,7 +2,7 @@
 using System.Windows;
 using OpenTK.Mathematics;
 using SimulateTheWorld.Graphics.Data;
-using SimulateTheWorld.World.System.Instances;
+using SimulateTheWorld.World.Systems.Instances;
 
 namespace SimulateTheWorld.Graphics.Rendering.Utilities;
 

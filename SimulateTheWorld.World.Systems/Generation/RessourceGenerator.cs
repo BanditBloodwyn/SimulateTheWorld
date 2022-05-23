@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Numerics;
-using System.Windows.Media.Media3D;
 using SimulateTheWorld.Core.Math.Noise.Filters;
-using SimulateTheWorld.World.System.Instances;
+using SimulateTheWorld.World.Systems.Instances;
 
-namespace SimulateTheWorld.World.System.Generation;
+namespace SimulateTheWorld.World.Systems.Generation;
 
 public class RessourceGenerator
 {
