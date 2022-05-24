@@ -49,6 +49,14 @@
                         <Label Grid.Column="0" Content ="Evergreen trees:"/>
                         <Label Grid.Column="1" Content ="{Binding Tile.FloraValues.EvergreenTrees}"/>
                     </displayControls:ValueDisplayControl>
+                    <displayControls:ValueDisplayControl>
+                        <Label Grid.Column="0" Content ="Vegetables:"/>
+                        <Label Grid.Column="1" Content ="{Binding Tile.FloraValues.Vegetables}"/>
+                    </displayControls:ValueDisplayControl>
+                    <displayControls:ValueDisplayControl>
+                        <Label Grid.Column="0" Content ="Fruits:"/>
+                        <Label Grid.Column="1" Content ="{Binding Tile.FloraValues.Fruits}"/>
+                    </displayControls:ValueDisplayControl>
                 </StackPanel>
             </TabItem>
             <TabItem Header="Fauna">
