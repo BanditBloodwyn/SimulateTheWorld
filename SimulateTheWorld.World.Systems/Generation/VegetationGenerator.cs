@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Numerics;
 using SimulateTheWorld.Core.Math.Noise.Filters;
+using SimulateTheWorld.World.Data.Data.Enums;
 using SimulateTheWorld.World.Systems.Instances;
 
 namespace SimulateTheWorld.World.Systems.Generation;
@@ -16,6 +17,9 @@ public class VegetationGenerator
 
     public void GenerateVegetation(TerrainTile tile)
     {
+        if (tile.TileType == TileType.Water)
+            return;
+
         tile.FloraValues.DeciduousTrees = CalculateVegetation(tile, tile.TerrainValues.Height, Vector3.Zero);
         tile.FloraValues.EvergreenTrees = CalculateVegetation(tile, tile.TerrainValues.Height, new Vector3(0, 0, STWWorld.TerrainSize / 2f));
         tile.FloraValues.Fruits = CalculateVegetation(tile, tile.TerrainValues.Height, new Vector3(0, STWWorld.TerrainSize / 2f, 0));

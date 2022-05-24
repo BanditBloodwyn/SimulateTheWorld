@@ -44,7 +44,7 @@ public class STWWorld
     {
         foreach (Type type in Assembly.GetExecutingAssembly().GetTypes())
         {
-            if (!typeof(IWorldSystem).IsAssignableFrom(type) || type.IsInterface) 
+            if (!typeof(IWorldSystem).IsAssignableFrom(type) || type.IsInterface || type.IsAbstract) 
                 continue;
 
             ConstructorInfo? constructorInfo = type.GetConstructor(Array.Empty<Type>());
