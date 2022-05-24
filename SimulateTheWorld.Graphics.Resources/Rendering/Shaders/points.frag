@@ -17,6 +17,11 @@ const int VEGETATION_SUBNIVALE = 6;
 const int VEGETATION_NIVALE = 7;
 
 
+// ================ Colors ================
+const vec4 COLOR_WATER = vec4(0.2f, 0.2f, 1.0f, 1.0f);
+const vec4 COLOR_WATER_FILTERED = vec4(0.55f, 0.55f, 1.0f, 1.0f);
+
+
 // ================ Gloabal variables ================
 
 // === Out ===
@@ -55,6 +60,9 @@ uniform vec4 uFilterColorHundred;
 // ================================
 vec4 SampleColor(float value)
 {
+    if (tileType == TILETYPE_WATER)
+        return COLOR_WATER_FILTERED;
+
     if (value > 100 || value < 0)
         return vec4(1, 1, 1, 1);
 
@@ -71,7 +79,7 @@ vec4 SampleColor(float value)
 vec4 GetVegetationColor()
 {
     if (tileType == TILETYPE_WATER)
-        return vec4(0.2f, 0.2f, 1.0f, 1.0f);
+        return COLOR_WATER;
     else
     {
         if (vegetationZone == VEGETATION_KOLLINE)
