@@ -54,10 +54,11 @@ public class PointCloud : IDrawable
         VAO.LinkAttrib(VBO, 12, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 11 * sizeof(float)); // Ressouce_Oil
         VAO.LinkAttrib(VBO, 13, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 12 * sizeof(float)); // Ressouce_Gas
 
-        VAO.LinkAttrib(VBO, 14, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 13 * sizeof(float));  // Flora_DeciduousTrees
-        VAO.LinkAttrib(VBO, 15, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 14 * sizeof(float)); // Flora_EvergreenTrees
-        VAO.LinkAttrib(VBO, 16, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 15 * sizeof(float)); // Flora_Vegetables
-        VAO.LinkAttrib(VBO, 17, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 16 * sizeof(float)); // Flora_Fruits
+        VAO.LinkAttrib(VBO, 14, 4, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 13 * sizeof(float));  // floraValues
+        //VAO.LinkAttrib(VBO, 14, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 13 * sizeof(float));  // Flora_DeciduousTrees
+        //VAO.LinkAttrib(VBO, 15, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 14 * sizeof(float)); // Flora_EvergreenTrees
+        //VAO.LinkAttrib(VBO, 16, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 15 * sizeof(float)); // Flora_Vegetables
+        //VAO.LinkAttrib(VBO, 17, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 16 * sizeof(float)); // Flora_Fruits
 
         VAO.Unbind();
         VBO.Unbind();

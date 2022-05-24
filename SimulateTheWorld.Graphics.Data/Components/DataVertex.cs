@@ -22,11 +22,12 @@ public struct DataVertex
     public float ressource_goldOre;
     public float ressource_oil;
     public float ressource_gas;
-    
-    public float flora_deciduousTrees;
-    public float flora_evergreenTrees;
-    public float flora_vegetables;
-    public float flora_fruits;
+
+    public Vector4 floraValues;
+    //public float flora_deciduousTrees;
+    //public float flora_evergreenTrees;
+    //public float flora_vegetables;
+    //public float flora_fruits;
 
     public DataVertex(Vector3 position)
     {
@@ -49,9 +50,10 @@ public struct DataVertex
         ressource_oil = 0;
         ressource_gas = 0;
 
-        flora_deciduousTrees = 0;
-        flora_evergreenTrees = 0;
-        flora_vegetables = 0;
-        flora_fruits = 0;
+        floraValues = Vector4.Zero;
+        //flora_deciduousTrees = 0;
+        //flora_evergreenTrees = 0;
+        //flora_vegetables = 0;
+        //flora_fruits = 0;
     }
 }

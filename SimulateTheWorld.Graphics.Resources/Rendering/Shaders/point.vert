@@ -36,8 +36,8 @@ layout (location = 11) in float aRessource_goldOre;
 layout (location = 12) in float aRessource_oil;
 layout (location = 13) in float aRessource_gas;
 
-layout (location = 14) in float aFlora_DeciduousTrees;
-layout (location = 15) in float aFlora_EvergreenTrees;
+layout (location = 14) in vec4 aFloraValues;
+//layout (location = 15) in float aFlora_EvergreenTrees;
 //layout (location = 16) in float aFlora_Vegetables;
 //layout (location = 17) in float aFlora_Fruits;
 
@@ -93,10 +93,10 @@ void main()
     data_out.ressource_oil = aRessource_oil;
     data_out.ressource_gas = aRessource_gas;
     
-    data_out.flora_DeciduousTrees = aFlora_DeciduousTrees;
-    data_out.flora_EvergreenTrees = aFlora_EvergreenTrees;
-    //data_out.flora_Vegetables = aFlora_Vegetables;
-    //data_out.flora_Fruits = aFlora_Fruits;
+    data_out.flora_DeciduousTrees = aFloraValues.x;
+    data_out.flora_EvergreenTrees = aFloraValues.y;
+    data_out.flora_Vegetables = aFloraValues.z;
+    data_out.flora_Fruits = aFloraValues.w;
 
     data_out.projection = uView * uProjection;
     
