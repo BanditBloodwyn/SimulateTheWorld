@@ -13,6 +13,9 @@ public class VegetationSpreading : SurroundingsInfluencingSystem
             if(tileToModify.TileType == TileType.Water)
                 return;
 
+            if (tileToModify.FloraValues.DeciduousTrees + tileToModify.FloraValues.EvergreenTrees >= 100)
+                return;
+
             tileToModify.FloraValues.DeciduousTrees = MathF.Min(tileToModify.FloraValues.DeciduousTrees + currentTile.FloraValues.DeciduousTrees * 0.02f, 100);
             tileToModify.FloraValues.EvergreenTrees = MathF.Min(tileToModify.FloraValues.EvergreenTrees + currentTile.FloraValues.EvergreenTrees * 0.02f, 100);
         };
