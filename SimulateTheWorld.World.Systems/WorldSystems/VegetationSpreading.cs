@@ -13,6 +13,12 @@ public class VegetationSpreading : SurroundingsInfluencingSystem
             if(tileToModify.TileType == TileType.Water)
                 return;
 
+            if (tileToModify.VegetationType 
+                is VegetationType.Alpine_Bushes 
+                or VegetationType.Subnivale 
+                or VegetationType.Nivale)
+                return;
+
             if (tileToModify.FloraValues.DeciduousTrees + tileToModify.FloraValues.EvergreenTrees >= 100)
                 return;
 
