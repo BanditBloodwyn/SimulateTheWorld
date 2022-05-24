@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
-using SimulateTheWorld.World.Systems.WorldSystems;
+using SimulateTheWorld.World.Systems.WorldSystems.Base;
 
 namespace SimulateTheWorld.World.Systems.Instances;
 
@@ -11,7 +11,7 @@ public class STWWorld
     public const int TerrainSize = 200;
     public const float TileSize = 0.1f;
 
-    private List<IWorldSystem> _worldSystems = new List<IWorldSystem>();
+    private readonly List<IWorldSystem> _worldSystems;
 
     public STWTerrain Terrain { get; }
 
