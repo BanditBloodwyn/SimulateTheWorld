@@ -41,7 +41,7 @@ public static class VertexUpdater
                     pointCloud.Vertices[i].floraValues.X = tile.FloraValues.DeciduousTrees;
                     pointCloud.Vertices[i].floraValues.Y = tile.FloraValues.EvergreenTrees;
                     pointCloud.Vertices[i].floraValues.Z = tile.FloraValues.Vegetables;
-                    pointCloud.Vertices[i].floraValues.Z = tile.FloraValues.Fruits;
+                    pointCloud.Vertices[i].floraValues.W = tile.FloraValues.Fruits;
 
                     updatedVerticesCount++;
                 }
