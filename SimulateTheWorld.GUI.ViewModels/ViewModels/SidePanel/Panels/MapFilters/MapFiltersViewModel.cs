@@ -18,8 +18,6 @@ public class MapFiltersViewModel : ObservableObject
     {
         Model.VegetationZone.DisplayName = Resources.Localization.Locals_German.mapfilters_vegetationZone;
         Model.HeightFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_height;
-        Model.PopByTribeFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_popByTribe;
-        Model.CountriesFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_countries;
         Model.LifeStandardFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_lifeStandard;
         Model.UrbanizationFilter.DisplayName = Resources.Localization.Locals_German.mapfilters_urbanization;
         

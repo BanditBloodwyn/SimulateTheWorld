@@ -4,8 +4,7 @@ public enum MapFilterType
 {
     VegetationZone,
     Height,
-    PopByTribe,
-    Countries,
+
     LifeStandard,
     Urbanization,
 

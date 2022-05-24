@@ -43,22 +43,16 @@ public class PointCloud : IDrawable
         VAO.LinkAttrib(VBO, 3, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 2 * sizeof(float));   // VegetationType
 
         VAO.LinkAttrib(VBO, 4, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 3 * sizeof(float));   // Height
-        VAO.LinkAttrib(VBO, 5, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 4 * sizeof(float));   // PopByTribe
-        VAO.LinkAttrib(VBO, 6, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 5 * sizeof(float));   // Countries
-        VAO.LinkAttrib(VBO, 7, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 6 * sizeof(float));   // LifeStandard
-        VAO.LinkAttrib(VBO, 8, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 7 * sizeof(float));   // Urbanization
+        VAO.LinkAttrib(VBO, 5, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 4 * sizeof(float));   // LifeStandard
+        VAO.LinkAttrib(VBO, 6, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 5 * sizeof(float));   // Urbanization
 
-        VAO.LinkAttrib(VBO, 9, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 8 * sizeof(float));   // Ressouce_Coal
-        VAO.LinkAttrib(VBO, 10, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 9 * sizeof(float));  // Ressouce_IronOre
-        VAO.LinkAttrib(VBO, 11, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 10 * sizeof(float)); // Ressouce_GoldOre
-        VAO.LinkAttrib(VBO, 12, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 11 * sizeof(float)); // Ressouce_Oil
-        VAO.LinkAttrib(VBO, 13, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 12 * sizeof(float)); // Ressouce_Gas
+        VAO.LinkAttrib(VBO, 7, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 6 * sizeof(float));   // Ressouce_Coal
+        VAO.LinkAttrib(VBO, 8, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 7 * sizeof(float));  // Ressouce_IronOre
+        VAO.LinkAttrib(VBO, 9, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 8 * sizeof(float)); // Ressouce_GoldOre
+        VAO.LinkAttrib(VBO, 10, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 9 * sizeof(float)); // Ressouce_Oil
+        VAO.LinkAttrib(VBO, 11, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 10 * sizeof(float)); // Ressouce_Gas
 
-        VAO.LinkAttrib(VBO, 14, 4, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 13 * sizeof(float));  // floraValues
-        //VAO.LinkAttrib(VBO, 14, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 13 * sizeof(float));  // Flora_DeciduousTrees
-        //VAO.LinkAttrib(VBO, 15, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 14 * sizeof(float)); // Flora_EvergreenTrees
-        //VAO.LinkAttrib(VBO, 16, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 15 * sizeof(float)); // Flora_Vegetables
-        //VAO.LinkAttrib(VBO, 17, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 16 * sizeof(float)); // Flora_Fruits
+        VAO.LinkAttrib(VBO, 12, 4, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 11 * sizeof(float));  // floraValues
 
         VAO.Unbind();
         VBO.Unbind();

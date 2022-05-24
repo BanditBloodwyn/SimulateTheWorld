@@ -12,8 +12,7 @@ public struct DataVertex
     public float vegetationType;
 
     public float height;
-    public float popByTribe;
-    public float countries;
+
     public float lifeStandard;
     public float urbanization;
 
@@ -24,10 +23,6 @@ public struct DataVertex
     public float ressource_gas;
 
     public Vector4 floraValues;
-    //public float flora_deciduousTrees;
-    //public float flora_evergreenTrees;
-    //public float flora_vegetables;
-    //public float flora_fruits;
 
     public DataVertex(Vector3 position)
     {
@@ -39,8 +34,6 @@ public struct DataVertex
         vegetationType = 0;
 
         height = 0;
-        popByTribe = 0;
-        countries = 0;
         lifeStandard = 0;
         urbanization = 0;
 
@@ -51,9 +44,5 @@ public struct DataVertex
         ressource_gas = 0;
 
         floraValues = Vector4.Zero;
-        //flora_deciduousTrees = 0;
-        //flora_evergreenTrees = 0;
-        //flora_vegetables = 0;
-        //flora_fruits = 0;
     }
 }

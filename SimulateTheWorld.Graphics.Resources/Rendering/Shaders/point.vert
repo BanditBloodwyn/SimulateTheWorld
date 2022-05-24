@@ -21,25 +21,24 @@ const int VEGETATION_NIVALE = 7;
 
 // === Layouts ===
 layout (location = 0) in vec3 aPos;
+
 layout (location = 1) in float aMarked;
+
 layout (location = 2) in float aTileType;
 layout (location = 3) in float aVegetationZone;
+
 layout (location = 4) in float aHeight;
-layout (location = 5) in float aPopByTribe;
-layout (location = 6) in float aCountries;
-layout (location = 7) in float aLifeStandard;
-layout (location = 8) in float aUrbanization;
 
-layout (location = 9) in float aRessource_coal;
-layout (location = 10) in float aRessource_ironOre;
-layout (location = 11) in float aRessource_goldOre;
-layout (location = 12) in float aRessource_oil;
-layout (location = 13) in float aRessource_gas;
+layout (location = 5) in float aLifeStandard;
+layout (location = 6) in float aUrbanization;
 
-layout (location = 14) in vec4 aFloraValues;
-//layout (location = 15) in float aFlora_EvergreenTrees;
-//layout (location = 16) in float aFlora_Vegetables;
-//layout (location = 17) in float aFlora_Fruits;
+layout (location = 7) in float aRessource_coal;
+layout (location = 8) in float aRessource_ironOre;
+layout (location = 9) in float aRessource_goldOre;
+layout (location = 10) in float aRessource_oil;
+layout (location = 11) in float aRessource_gas;
+
+layout (location = 12) in vec4 aFloraValues;
 
 // === Out ===
 out DATA
@@ -48,10 +47,8 @@ out DATA
 
     float tileType;
     float vegetationZone;
-    
     float height;
-    float popByTribe;
-    float countries;
+
     float lifeStandard;
     float urbanization;
     
@@ -82,8 +79,6 @@ void main()
     data_out.vegetationZone = aVegetationZone;
     
     data_out.height = aHeight;
-    data_out.popByTribe = aPopByTribe;
-    data_out.countries = aCountries;
     data_out.lifeStandard = aLifeStandard;
     data_out.urbanization = aUrbanization;
     

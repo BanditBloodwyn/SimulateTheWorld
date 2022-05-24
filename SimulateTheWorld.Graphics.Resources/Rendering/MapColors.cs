@@ -11,8 +11,6 @@ public static class MapColors
 
     // ======================== FILTER COLORS ========================
     // Color sets
-    private static Color[] Filter_PopByTribe => new[] { Color.Red, Color.GreenYellow }; // TODO: needs to be changed
-    private static Color[] Filter_Countries => new[] { Color.Red, Color.GreenYellow }; // TODO: needs to be changed
 
     // Color pairs
     private static Color[] Filter_Height => new[] { Color.Green, Color.Red };
@@ -35,8 +33,7 @@ public static class MapColors
         return type switch
         {
             MapFilterType.Height => Filter_Height,
-            MapFilterType.PopByTribe => Filter_PopByTribe,
-            MapFilterType.Countries => Filter_Countries,
+
             MapFilterType.LifeStandard => Filter_LifeStandard,
             MapFilterType.Urbanization => Filter_Urbanization,
 

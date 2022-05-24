@@ -33,16 +33,9 @@
 
                 <RadioButton IsChecked="{Binding Model.LifeStandardFilter.Active}" 
                              Content="{Binding Model.LifeStandardFilter.DisplayName}"
-                             Style="{StaticResource RadioButtonStyle}"
-                             Margin="0,5,0,0"/>
+                             Style="{StaticResource RadioButtonStyle}"/>
                 <RadioButton IsChecked="{Binding Model.UrbanizationFilter.Active}" 
                              Content="{Binding Model.UrbanizationFilter.DisplayName}"
-                             Style="{StaticResource RadioButtonStyle}"/>
-                <RadioButton IsChecked="{Binding Model.CountriesFilter.Active}" 
-                             Content="{Binding Model.CountriesFilter.DisplayName}"                     
-                             Style="{StaticResource RadioButtonStyle}"/>
-                <RadioButton IsChecked="{Binding Model.PopByTribeFilter.Active}" 
-                             Content="{Binding Model.PopByTribeFilter.DisplayName}"
                              Style="{StaticResource RadioButtonStyle}"/>
 
                 <Rectangle Stroke="Gray" StrokeThickness="1" Margin="0,5,0,5"/>
