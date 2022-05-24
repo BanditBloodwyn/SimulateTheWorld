@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Numerics;
+using SimulateTheWorld.Core.Math;
 using SimulateTheWorld.Core.Math.Noise.Filters;
 using SimulateTheWorld.World.Data.Data.Enums;
 using SimulateTheWorld.World.Systems.Instances;
@@ -17,13 +18,29 @@ public class VegetationGenerator
 
     public void GenerateVegetation(TerrainTile tile)
     {
-        if (tile.TileType == TileType.Water)
+        if (tile.TileType == TileType.Water || 
+            tile.VegetationType is VegetationType.Subnivale or VegetationType.Nivale)
             return;
 
-        tile.FloraValues.DeciduousTrees = CalculateVegetation(tile, tile.TerrainValues.Height, Vector3.Zero);
-        tile.FloraValues.EvergreenTrees = CalculateVegetation(tile, tile.TerrainValues.Height, new Vector3(0, 0, STWWorld.TerrainSize / 2f));
-        tile.FloraValues.Fruits = CalculateVegetation(tile, tile.TerrainValues.Height, new Vector3(0, STWWorld.TerrainSize / 2f, 0));
-        tile.FloraValues.Vegetables = CalculateVegetation(tile, 100, Vector3.Zero, 2, 1f, 700);
+        tile.FloraValues.DeciduousTrees = CalculateVegetation(
+            tile, 
+            MathSci.Bump(tile.TerrainValues.Height, 100, 20, 20, 5), 
+            Vector3.Zero);
+        tile.FloraValues.EvergreenTrees = CalculateVegetation(
+            tile,
+            MathSci.Bump(tile.TerrainValues.Height, 100, 15, 50, 5),
+            new Vector3(0, 0, STWWorld.TerrainSize / 2f));
+        tile.FloraValues.Fruits = CalculateVegetation(
+            tile, 
+            tile.TerrainValues.Height, 
+            new Vector3(0, STWWorld.TerrainSize / 2f, 0));
+        tile.FloraValues.Vegetables = CalculateVegetation(
+            tile, 
+            100, 
+            Vector3.Zero, 
+            2, 
+            1f, 
+            700);
     }
 
     private float CalculateVegetation(TerrainTile tile, float frequency, Vector3 offset, int layers = 4, float minValue = 0, float strength = 72)
