@@ -37,16 +37,11 @@ flat in float height;
 flat in float lifeStandard;
 flat in float urbanization;
 
-flat in float ressource_coal;
-flat in float ressource_ironOre;
-flat in float ressource_goldOre;
-flat in float ressource_oil;
-flat in float ressource_gas;
+in vec3 ressource_fossils;          // coal, oil, gas
+in vec4 ressource_standardOres;     // copper, aluminum, iron, titan
+in vec3 ressource_preciousOres;     // gold, silver, platin
 
-flat in float flora_DeciduousTrees;
-flat in float flora_EvergreenTrees;
-flat in float flora_Vegetables;
-flat in float flora_Fruits;
+in vec4 floraValues;                // deciduousTrees, evergreenTrees, vegetables, fruits
 
 flat in vec3 colorShading;
 
@@ -117,22 +112,22 @@ void main()
         FragColor = SampleColor(urbanization) * vec4(colorShading, 0);
    
     else if (uFilterMode == 4)
-        FragColor = SampleColor(ressource_coal) * vec4(colorShading, 0);
+        FragColor = SampleColor(ressource_fossils.x) * vec4(colorShading, 0);
     else if (uFilterMode == 5)
-        FragColor = SampleColor(ressource_ironOre) * vec4(colorShading, 0);
+        FragColor = SampleColor(ressource_standardOres.z) * vec4(colorShading, 0);
     else if (uFilterMode == 6)
-        FragColor = SampleColor(ressource_goldOre) * vec4(colorShading, 0);
+        FragColor = SampleColor(ressource_preciousOres.x) * vec4(colorShading, 0);
     else if (uFilterMode == 7)
-        FragColor = SampleColor(ressource_oil) * vec4(colorShading, 0);
+        FragColor = SampleColor(ressource_fossils.y) * vec4(colorShading, 0);
     else if (uFilterMode == 8)
-        FragColor = SampleColor(ressource_gas) * vec4(colorShading, 0);
+        FragColor = SampleColor(ressource_fossils.z) * vec4(colorShading, 0);
     
     else if (uFilterMode == 9)
-        FragColor = SampleColor(flora_DeciduousTrees) * vec4(colorShading, 0);
+        FragColor = SampleColor(floraValues.x) * vec4(colorShading, 0);
     else if (uFilterMode == 10)
-        FragColor = SampleColor(flora_EvergreenTrees) * vec4(colorShading, 0);
+        FragColor = SampleColor(floraValues.y) * vec4(colorShading, 0);
     else if (uFilterMode == 11)
-        FragColor = SampleColor(flora_Vegetables) * vec4(colorShading, 0);
+        FragColor = SampleColor(floraValues.z) * vec4(colorShading, 0);
     else if (uFilterMode == 12)
-        FragColor = SampleColor(flora_Fruits) * vec4(colorShading, 0);
+        FragColor = SampleColor(floraValues.w) * vec4(colorShading, 0);
 }

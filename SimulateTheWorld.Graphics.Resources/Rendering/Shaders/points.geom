@@ -19,16 +19,11 @@ in DATA
     float lifeStandard;
     float urbanization;
 
-    float ressource_coal;
-    float ressource_ironOre;
-    float ressource_goldOre;
-    float ressource_oil;
-    float ressource_gas;
+    vec3 ressource_fossils;         // coal, oil, gas
+    vec4 ressource_standardOres;    // copper, aluminum, iron, titan
+    vec3 ressource_preciousOres;    // gold, silver, platin
 
-    float flora_DeciduousTrees;
-    float flora_EvergreenTrees;
-    float flora_Vegetables;
-    float flora_Fruits;
+    vec4 floraValues;               // deciduousTrees, evergreenTrees, vegetables, fruits
 
     mat4 projection;
 } data_in[];
@@ -44,16 +39,21 @@ flat out float height;
 flat out float lifeStandard;
 flat out float urbanization;
 
-flat out float ressource_coal;
-flat out float ressource_ironOre;
-flat out float ressource_goldOre;
-flat out float ressource_oil;
-flat out float ressource_gas;
+//flat out float ressource_coal;
+//flat out float ressource_ironOre;
+//flat out float ressource_goldOre;
+//flat out float ressource_oil;
+//flat out float ressource_gas;
 
-flat out float flora_DeciduousTrees;
-flat out float flora_EvergreenTrees;
-flat out float flora_Vegetables;
-flat out float flora_Fruits;
+//flat out float flora_DeciduousTrees;
+//flat out float flora_EvergreenTrees;
+//flat out float flora_Vegetables;
+//flat out float flora_Fruits;
+
+out vec3 ressource_fossils;
+out vec4 ressource_standardOres;
+out vec3 ressource_preciousOres;
+out vec4 floraValues;
 
 flat out vec3 colorShading;
 
@@ -93,16 +93,10 @@ void main()
     lifeStandard = data_in[0].lifeStandard;
     urbanization = data_in[0].urbanization;
    
-    ressource_coal = data_in[0].ressource_coal;
-    ressource_ironOre = data_in[0].ressource_ironOre;
-    ressource_goldOre = data_in[0].ressource_goldOre;
-    ressource_oil = data_in[0].ressource_oil;
-    ressource_gas = data_in[0].ressource_gas;
-    
-    flora_DeciduousTrees = data_in[0].flora_DeciduousTrees;
-    flora_EvergreenTrees = data_in[0].flora_EvergreenTrees;
-    flora_Vegetables = data_in[0].flora_Vegetables;
-    flora_Fruits = data_in[0].flora_Fruits;
+    ressource_fossils = data_in[0].ressource_fossils;
+    ressource_standardOres = data_in[0].ressource_standardOres;
+    ressource_preciousOres = data_in[0].ressource_preciousOres;
+    floraValues = data_in[0].floraValues;
 
     colorShading = vec3(1, 1, 1);
     build_tile(gl_in[0].gl_Position);

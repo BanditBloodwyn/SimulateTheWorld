@@ -46,13 +46,11 @@ public class PointCloud : IDrawable
         VAO.LinkAttrib(VBO, 5, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 4 * sizeof(float));   // LifeStandard
         VAO.LinkAttrib(VBO, 6, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 5 * sizeof(float));   // Urbanization
 
-        VAO.LinkAttrib(VBO, 7, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 6 * sizeof(float));   // Ressouce_Coal
-        VAO.LinkAttrib(VBO, 8, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 7 * sizeof(float));  // Ressouce_IronOre
-        VAO.LinkAttrib(VBO, 9, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 8 * sizeof(float)); // Ressouce_GoldOre
-        VAO.LinkAttrib(VBO, 10, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 9 * sizeof(float)); // Ressouce_Oil
-        VAO.LinkAttrib(VBO, 11, 1, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 10 * sizeof(float)); // Ressouce_Gas
+        VAO.LinkAttrib(VBO, 7, 3, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 6 * sizeof(float));   // ressource_fossils
+        VAO.LinkAttrib(VBO, 8, 4, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 9 * sizeof(float));  // ressource_standardOres
+        VAO.LinkAttrib(VBO, 9, 3, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 13 * sizeof(float)); // ressource_preciousOres
 
-        VAO.LinkAttrib(VBO, 12, 4, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 11 * sizeof(float));  // floraValues
+        VAO.LinkAttrib(VBO, 10, 4, VertexAttribPointerType.Float, sizeof(DataVertex), 3 * sizeof(float) + 16 * sizeof(float));  // floraValues
 
         VAO.Unbind();
         VBO.Unbind();

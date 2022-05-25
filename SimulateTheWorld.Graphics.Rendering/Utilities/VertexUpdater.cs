@@ -31,11 +31,12 @@ public static class VertexUpdater
                     pointCloud.Vertices[i].lifeStandard = tile.PopulationValues.LifeStandard;
                     pointCloud.Vertices[i].urbanization = tile.PopulationValues.Urbanization;
                     
-                    pointCloud.Vertices[i].ressource_coal = tile.TerrainValues.Coal;
-                    pointCloud.Vertices[i].ressource_ironOre = tile.TerrainValues.IronOre;
-                    pointCloud.Vertices[i].ressource_goldOre = tile.TerrainValues.GoldOre;
-                    pointCloud.Vertices[i].ressource_oil = tile.TerrainValues.Oil;
-                    pointCloud.Vertices[i].ressource_gas = tile.TerrainValues.Gas;
+                    pointCloud.Vertices[i].ressource_fossils.X = tile.TerrainValues.Coal;
+                    pointCloud.Vertices[i].ressource_fossils.Y = tile.TerrainValues.Oil;
+                    pointCloud.Vertices[i].ressource_fossils.Z = tile.TerrainValues.Gas;
+
+                    pointCloud.Vertices[i].ressource_standardOres.Z = tile.TerrainValues.IronOre;
+                    pointCloud.Vertices[i].ressource_preciousOres.X = tile.TerrainValues.GoldOre;
                     
                     pointCloud.Vertices[i].floraValues.X = tile.FloraValues.DeciduousTrees;
                     pointCloud.Vertices[i].floraValues.Y = tile.FloraValues.EvergreenTrees;

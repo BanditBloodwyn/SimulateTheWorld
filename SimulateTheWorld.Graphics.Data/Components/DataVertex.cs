@@ -16,11 +16,9 @@ public struct DataVertex
     public float lifeStandard;
     public float urbanization;
 
-    public float ressource_coal;
-    public float ressource_ironOre;
-    public float ressource_goldOre;
-    public float ressource_oil;
-    public float ressource_gas;
+    public Vector3 ressource_fossils;
+    public Vector4 ressource_standardOres;
+    public Vector3 ressource_preciousOres;
 
     public Vector4 floraValues;
 
@@ -36,12 +34,10 @@ public struct DataVertex
         height = 0;
         lifeStandard = 0;
         urbanization = 0;
-
-        ressource_coal = 0;
-        ressource_ironOre = 0;
-        ressource_goldOre = 0;
-        ressource_oil = 0;
-        ressource_gas = 0;
+        
+        ressource_fossils = Vector3.Zero;
+        ressource_standardOres = Vector4.Zero;
+        ressource_preciousOres = Vector3.Zero;
 
         floraValues = Vector4.Zero;
     }

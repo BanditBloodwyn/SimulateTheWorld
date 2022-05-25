@@ -32,13 +32,11 @@ layout (location = 4) in float aHeight;
 layout (location = 5) in float aLifeStandard;
 layout (location = 6) in float aUrbanization;
 
-layout (location = 7) in float aRessource_coal;
-layout (location = 8) in float aRessource_ironOre;
-layout (location = 9) in float aRessource_goldOre;
-layout (location = 10) in float aRessource_oil;
-layout (location = 11) in float aRessource_gas;
+layout (location = 7) in vec3 aRessource_fossils;       // coal, oil, gas
+layout (location = 8) in vec4 aRessource_standardOres;  // copper, aluminum, iron, titan
+layout (location = 9) in vec3 aRessource_preciousOres;  // gold, silver, platin
 
-layout (location = 12) in vec4 aFloraValues;
+layout (location = 10) in vec4 aFloraValues;             // deciduousTrees, evergreenTrees, vegetables, fruits
 
 // === Out ===
 out DATA
@@ -52,16 +50,11 @@ out DATA
     float lifeStandard;
     float urbanization;
     
-    float ressource_coal;
-    float ressource_ironOre;
-    float ressource_goldOre;
-    float ressource_oil;
-    float ressource_gas;
+    vec3 ressource_fossils;
+    vec4 ressource_standardOres;
+    vec3 ressource_preciousOres;
 
-    float flora_DeciduousTrees;
-    float flora_EvergreenTrees;
-    float flora_Vegetables;
-    float flora_Fruits;
+    vec4 floraValues;
 
     mat4 projection;
 } data_out;
@@ -79,19 +72,15 @@ void main()
     data_out.vegetationZone = aVegetationZone;
     
     data_out.height = aHeight;
+    
     data_out.lifeStandard = aLifeStandard;
     data_out.urbanization = aUrbanization;
     
-    data_out.ressource_coal = aRessource_coal;
-    data_out.ressource_ironOre = aRessource_ironOre;
-    data_out.ressource_goldOre = aRessource_goldOre;
-    data_out.ressource_oil = aRessource_oil;
-    data_out.ressource_gas = aRessource_gas;
+    data_out.ressource_fossils = aRessource_fossils;
+    data_out.ressource_standardOres = aRessource_standardOres;
+    data_out.ressource_preciousOres = aRessource_preciousOres;
     
-    data_out.flora_DeciduousTrees = aFloraValues.x;
-    data_out.flora_EvergreenTrees = aFloraValues.y;
-    data_out.flora_Vegetables = aFloraValues.z;
-    data_out.flora_Fruits = aFloraValues.w;
+    data_out.floraValues = aFloraValues;
 
     data_out.projection = uView * uProjection;
     
