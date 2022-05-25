@@ -58,7 +58,7 @@ vec4 SampleColor(float value)
     if (tileType == TILETYPE_WATER)
         return COLOR_WATER_FILTERED;
 
-    if (value > 100 || value < 0)
+    if (value > 100.01f || value < 0)
         return vec4(1, 1, 1, 1);
 
     value /= 100;
