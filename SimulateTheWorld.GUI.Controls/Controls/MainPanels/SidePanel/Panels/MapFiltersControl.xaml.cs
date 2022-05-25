@@ -10,6 +10,7 @@ namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.SidePanel.Panels
         public MapFiltersControl()
         {
             InitializeComponent();
+
         }
     }
 }

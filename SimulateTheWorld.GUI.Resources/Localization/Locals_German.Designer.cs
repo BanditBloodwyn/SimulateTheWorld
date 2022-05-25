@@ -187,7 +187,7 @@ namespace SimulateTheWorld.GUI.Resources.Localization {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Vegetations-Zonen ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Vegetationszonen ähnelt.
         /// </summary>
         public static string mapfilters_vegetationZone {
             get {
