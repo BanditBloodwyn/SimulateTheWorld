@@ -55,7 +55,7 @@ uniform vec4 uFilterColorHundred;
 // ================================
 vec4 SampleColor(float value)
 {
-    if (tileType == TILETYPE_WATER)
+    if (tileType == TILETYPE_WATER && uFilterMode != 7 && uFilterMode != 8)
         return COLOR_WATER_FILTERED;
 
     if (value > 100.01f || value < 0)
