@@ -62,6 +62,17 @@ public class MapFiltersModel
     public void SetOnMapFilterChanged(Action onMapFilterChanged)
     {
         foreach (MapFilter mapFilter in _filters)
+        {
             mapFilter.MapFilterChanged += onMapFilterChanged;
+            mapFilter.OnMapFilterChanged += OnMapFilterChanged;
+        }
+    }
+
+    private void OnMapFilterChanged(MapFilter mapFilter)
+    {
+        foreach (MapFilter filter in _filters.Except(new []{ mapFilter }))
+        {
+            filter.Active = false;
+        }
     }
 }
