@@ -5,7 +5,8 @@ public class WorldProperties
     private static WorldProperties? _instance;
 
     public int WorldSize { get; set; }
-    public float TileSize { get; set; }
+    public float TileTotalSize { get; set; }
+    public float TileFillSize { get; set; }
 
     public static WorldProperties Instance
     {
@@ -15,6 +16,7 @@ public class WorldProperties
     private WorldProperties()
     {
         WorldSize = 500; 
-        TileSize = 0.1f;
+        TileTotalSize = 0.1f;
+        TileFillSize = 0.1f;
     }
 }

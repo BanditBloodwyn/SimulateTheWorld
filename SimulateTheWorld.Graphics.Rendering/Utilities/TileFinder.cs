@@ -16,7 +16,7 @@ public class TileFinder
     public Vector3 CurrentRay { get; private set; }
     public Vector3? CurrentTileCoordinates { get; private set; }
     public int? CurrentTileID => CurrentTileCoordinates != null 
-        ? (int)Math.Round(Math.Abs(CurrentTileCoordinates.Value.X / WorldProperties.Instance.TileSize), 0) + (int)Math.Round(Math.Abs(CurrentTileCoordinates.Value.Z / WorldProperties.Instance.TileSize), 0) * WorldProperties.Instance.WorldSize
+        ? (int)Math.Round(Math.Abs(CurrentTileCoordinates.Value.X / WorldProperties.Instance.TileTotalSize), 0) + (int)Math.Round(Math.Abs(CurrentTileCoordinates.Value.Z / WorldProperties.Instance.TileTotalSize), 0) * WorldProperties.Instance.WorldSize
         : null;
 
     public TileFinder(Camera camera)

@@ -26,7 +26,7 @@ public static class WorldObjectProvider
             for (int y = 0; y < WorldProperties.Instance.WorldSize; y++)
             {
                 int i = x + y * WorldProperties.Instance.WorldSize;
-                vertices[i] = new DataVertex(new Vector3(x * WorldProperties.Instance.TileSize, 0, y * WorldProperties.Instance.TileSize));
+                vertices[i] = new DataVertex(new Vector3(x * WorldProperties.Instance.TileTotalSize, 0, y * WorldProperties.Instance.TileTotalSize));
             }
         }
 
