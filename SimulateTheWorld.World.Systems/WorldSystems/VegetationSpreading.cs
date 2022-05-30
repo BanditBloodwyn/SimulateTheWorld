@@ -1,4 +1,5 @@
 ﻿using System;
+using SimulateTheWorld.World.Data.Data;
 using SimulateTheWorld.World.Data.Types.Enums;
 using SimulateTheWorld.World.Systems.WorldSystems.Base;
 
@@ -22,8 +23,8 @@ public class VegetationSpreading : SurroundingsInfluencingSystem
             if (tileToModify.FloraValues.DeciduousTrees + tileToModify.FloraValues.EvergreenTrees >= 100)
                 return;
 
-            tileToModify.FloraValues.DeciduousTrees = MathF.Min(tileToModify.FloraValues.DeciduousTrees + currentTile.FloraValues.DeciduousTrees * 0.02f, 100);
-            tileToModify.FloraValues.EvergreenTrees = MathF.Min(tileToModify.FloraValues.EvergreenTrees + currentTile.FloraValues.EvergreenTrees * 0.02f, 100);
+            tileToModify.FloraValues.DeciduousTrees = MathF.Min(tileToModify.FloraValues.DeciduousTrees + currentTile.FloraValues.DeciduousTrees * WorldProperties.Instance.VegetationSpreadingSpeed, 100);
+            tileToModify.FloraValues.EvergreenTrees = MathF.Min(tileToModify.FloraValues.EvergreenTrees + currentTile.FloraValues.EvergreenTrees * WorldProperties.Instance.VegetationSpreadingSpeed, 100);
         };
     }
 }

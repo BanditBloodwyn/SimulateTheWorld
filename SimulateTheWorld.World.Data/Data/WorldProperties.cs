@@ -1,4 +1,10 @@
-﻿namespace SimulateTheWorld.World.Data.Data;
+﻿using System;
+using System.Diagnostics;
+using System.IO;
+using Newtonsoft.Json;
+using SimulateTheWorld.World.Resources;
+
+namespace SimulateTheWorld.World.Data.Data;
 
 public class WorldProperties
 {
@@ -7,16 +13,36 @@ public class WorldProperties
     public int WorldSize { get; set; }
     public float TileTotalSize { get; set; }
     public float TileFillSize { get; set; }
+    public float VegetationSpreadingSpeed { get; set; }
 
-    public static WorldProperties Instance
-    {
-        get { return _instance ??= new WorldProperties(); }
-    }
+    public static WorldProperties Instance => _instance ??= new WorldProperties();
 
     private WorldProperties()
     {
-        WorldSize = 500; 
-        TileTotalSize = 0.1f;
-        TileFillSize = 0.1f;
+        WorldPropertiesContainer container = ReadJson();
+
+        WorldSize = container.WorldSize; 
+        TileTotalSize = container.TileTotalSize;
+        TileFillSize = container.TileFillSize;
+
+        VegetationSpreadingSpeed = container.VegetationSpreadingSpeed;
+    }
+
+    private WorldPropertiesContainer ReadJson()
+    {
+        try
+        {
+            string jsonFromFile;
+            using (var reader = new StreamReader(Jsons.WorldData))
+                jsonFromFile = reader.ReadToEnd();
+
+            WorldPropertiesContainer? container = JsonConvert.DeserializeObject<WorldPropertiesContainer>(jsonFromFile);
+            return container ?? new WorldPropertiesContainer();
+        }
+        catch (Exception e)
+        {
+            Debug.WriteLine(e);
+            throw;
+        }
     }
 }

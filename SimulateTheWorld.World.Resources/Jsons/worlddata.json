@@ -1,0 +1,7 @@
+{
+  "WorldSize": 500,
+  "TileTotalSize": 0.1,
+  "TileFillSize": 0.1,
+
+  "VegetationSpreadingSpeed": 0.02 
+}
