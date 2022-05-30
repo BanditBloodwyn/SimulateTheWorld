@@ -1,4 +1,4 @@
-﻿namespace SimulateTheWorld.World.Data.Data.Enums;
+﻿namespace SimulateTheWorld.World.Data.Types.Enums;
 
 public enum VegetationType
 {

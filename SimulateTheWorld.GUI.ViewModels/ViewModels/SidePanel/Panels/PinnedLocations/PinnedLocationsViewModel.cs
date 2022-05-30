@@ -3,7 +3,7 @@ using System.Linq;
 using SimulateTheWorld.Core.GUI.MVVM;
 using SimulateTheWorld.Core.GUI.MVVM.Mediator;
 using SimulateTheWorld.GUI.Models.Mediators;
-using SimulateTheWorld.World.Data.Data.Types;
+using SimulateTheWorld.World.Data.Types.Classes;
 
 namespace SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel.Panels.PinnedLocations;
 

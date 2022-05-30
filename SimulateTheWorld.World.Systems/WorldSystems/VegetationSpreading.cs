@@ -1,5 +1,5 @@
 ﻿using System;
-using SimulateTheWorld.World.Data.Data.Enums;
+using SimulateTheWorld.World.Data.Types.Enums;
 using SimulateTheWorld.World.Systems.WorldSystems.Base;
 
 namespace SimulateTheWorld.World.Systems.WorldSystems;

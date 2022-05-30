@@ -1,4 +1,4 @@
-﻿using SimulateTheWorld.World.Data.Data.Enums;
+﻿using SimulateTheWorld.World.Data.Types.Enums;
 
 namespace SimulateTheWorld.World.Systems.Generation;
 

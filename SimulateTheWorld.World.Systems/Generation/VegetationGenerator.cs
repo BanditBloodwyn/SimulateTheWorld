@@ -2,7 +2,7 @@
 using System.Numerics;
 using SimulateTheWorld.Core.Math;
 using SimulateTheWorld.Core.Math.Noise.Filters;
-using SimulateTheWorld.World.Data.Data.Enums;
+using SimulateTheWorld.World.Data.Types.Enums;
 using SimulateTheWorld.World.Systems.Instances;
 
 namespace SimulateTheWorld.World.Systems.Generation;

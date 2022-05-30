@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using SimulateTheWorld.World.Data.Data.Types;
+using SimulateTheWorld.World.Data.Types.Classes;
 
-namespace SimulateTheWorld.World.Data.Data.Container;
+namespace SimulateTheWorld.World.Data.Types.Container;
 
 public class PopulationValues
 {

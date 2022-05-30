@@ -1,4 +1,4 @@
-﻿namespace SimulateTheWorld.World.Data.Data.Types;
+﻿namespace SimulateTheWorld.World.Data.Types.Classes;
 
 public class Population
 {

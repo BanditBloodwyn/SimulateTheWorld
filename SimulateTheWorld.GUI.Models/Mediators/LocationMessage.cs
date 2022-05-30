@@ -1,5 +1,5 @@
 ﻿using SimulateTheWorld.Core.GUI.MVVM.Mediator;
-using SimulateTheWorld.World.Data.Data.Types;
+using SimulateTheWorld.World.Data.Types.Classes;
 
 namespace SimulateTheWorld.GUI.Models.Mediators;
 

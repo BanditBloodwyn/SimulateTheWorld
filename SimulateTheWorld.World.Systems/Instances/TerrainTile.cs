@@ -1,6 +1,6 @@
-﻿using SimulateTheWorld.World.Data.Data.Container;
-using SimulateTheWorld.World.Data.Data.Enums;
-using SimulateTheWorld.World.Data.Data.Types;
+﻿using SimulateTheWorld.World.Data.Types.Classes;
+using SimulateTheWorld.World.Data.Types.Container;
+using SimulateTheWorld.World.Data.Types.Enums;
 
 namespace SimulateTheWorld.World.Systems.Instances;
 

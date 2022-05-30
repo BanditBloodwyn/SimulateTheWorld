@@ -1,4 +1,4 @@
-﻿namespace SimulateTheWorld.World.Data.Data.Container;
+﻿namespace SimulateTheWorld.World.Data.Types.Container;
 
 public class FaunaValues
 {
