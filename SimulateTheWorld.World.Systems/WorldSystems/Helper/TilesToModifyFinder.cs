@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SimulateTheWorld.World.Data.Data;
 using SimulateTheWorld.World.Systems.Instances;
 
 namespace SimulateTheWorld.World.Systems.WorldSystems.Helper;
@@ -11,14 +12,14 @@ public static class TilesToModifyFinder
 
         int[] idsToModify = 
         {
-            tileId - STWWorld.TerrainSize - 1,
-            tileId - STWWorld.TerrainSize,
-            tileId - STWWorld.TerrainSize + 1,
+            tileId - WorldProperties.Instance.WorldSize - 1,
+            tileId - WorldProperties.Instance.WorldSize,
+            tileId - WorldProperties.Instance.WorldSize + 1,
             tileId - 1,
             tileId + 1,
-            tileId + STWWorld.TerrainSize - 1,
-            tileId + STWWorld.TerrainSize,
-            tileId + STWWorld.TerrainSize + 1,
+            tileId + WorldProperties.Instance.WorldSize - 1,
+            tileId + WorldProperties.Instance.WorldSize,
+            tileId + WorldProperties.Instance.WorldSize + 1,
         };
 
         foreach (int id in idsToModify)

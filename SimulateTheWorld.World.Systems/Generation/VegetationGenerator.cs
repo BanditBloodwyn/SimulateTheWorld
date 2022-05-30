@@ -2,6 +2,7 @@
 using System.Numerics;
 using SimulateTheWorld.Core.Math;
 using SimulateTheWorld.Core.Math.Noise.Filters;
+using SimulateTheWorld.World.Data.Data;
 using SimulateTheWorld.World.Data.Types.Enums;
 using SimulateTheWorld.World.Systems.Instances;
 
@@ -29,7 +30,7 @@ public class VegetationGenerator
         tile.FloraValues.EvergreenTrees = CalculateVegetation(
             tile,
             MathSci.Bump(tile.TerrainValues.Height, 100, 15, 50, 5),
-            new Vector3(0, 0, STWWorld.TerrainSize / 2f));
+            new Vector3(0, 0, WorldProperties.Instance.WorldSize / 2f));
         tile.FloraValues.Vegetables = CalculateVegetation(
             tile,
             MathSci.Bump(tile.TerrainValues.Height, 50, 45, 10, 5), 
@@ -38,7 +39,7 @@ public class VegetationGenerator
         tile.FloraValues.Fruits = CalculateVegetation(
             tile,
             MathSci.Bump(tile.TerrainValues.Height, 30, 25, 10, 5), 
-            new Vector3(0, STWWorld.TerrainSize / 2f, 0), 
+            new Vector3(0, WorldProperties.Instance.WorldSize / 2f, 0), 
             2, 0.5f, 200);
     }
 

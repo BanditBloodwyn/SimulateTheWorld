@@ -6,7 +6,7 @@ using SimulateTheWorld.Graphics.Data;
 using SimulateTheWorld.Graphics.Data.OpenGL;
 using SimulateTheWorld.Graphics.Rendering.Utilities;
 using SimulateTheWorld.GUI.Models.SidePanel.Panels.MapFilters;
-using SimulateTheWorld.World.Systems.Instances;
+using SimulateTheWorld.World.Data.Data;
 
 namespace SimulateTheWorld.Graphics.Rendering.Rendering;
 
@@ -15,9 +15,9 @@ public class OpenGLRenderer
     private ShaderProgram? _pointShader;
     private GameObject? _world;
 
-    public FPSCounter FpsCounter { get; private set; }
+    public FPSCounter? FpsCounter { get; private set; }
 
-    public Camera Camera { get; private set; }
+    public Camera? Camera { get; private set; }
     
     public void OnLoaded()
     {
@@ -26,7 +26,7 @@ public class OpenGLRenderer
         _pointShader = new ShaderProgram("Rendering/Shaders/point.vert", "Rendering/Shaders/points.frag", "Rendering/Shaders/points.geom");
         ShaderPreparer.PrepareShader(_pointShader);
 
-        Camera = new Camera(new Vector3(STWWorld.TerrainSize / 2.0f * STWWorld.TileSize, 15.0f, STWWorld.TerrainSize / 2.0f * STWWorld.TileSize));
+        Camera = new Camera(new Vector3(WorldProperties.Instance.WorldSize / 2.0f * WorldProperties.Instance.TileSize, 15.0f, WorldProperties.Instance.WorldSize / 2.0f * WorldProperties.Instance.TileSize));
         FpsCounter = new FPSCounter();
         MapFiltersModel.Instance.SetOnMapFilterChanged(() => ShaderPreparer.SetFilterColors(_pointShader));
 
@@ -39,13 +39,14 @@ public class OpenGLRenderer
     {
         if (_world == null)
             return;
-
-        FpsCounter.TimeDifference = elapsedTimeSpan.Milliseconds;
+        if(FpsCounter != null) 
+            FpsCounter.TimeDifference = elapsedTimeSpan.Milliseconds;
 
         GL.ClearColor(new Color4(0, 0, 80, 0));
         GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
-        _world.Draw(_pointShader, Camera);
+        if(_pointShader != null && Camera != null) 
+            _world.Draw(_pointShader, Camera);
     }
 
     public void OnUpdateVertexData(Dispatcher dispatcher)

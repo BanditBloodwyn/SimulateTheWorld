@@ -7,14 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Data\**" />
-    <EmbeddedResource Remove="Data\**" />
-    <None Remove="Data\**" />
-    <Page Remove="Data\**" />
+    <ProjectReference Include="..\SimulateTheWorld.Core\SimulateTheWorld.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SimulateTheWorld.Core\SimulateTheWorld.Core.csproj" />
+    <Folder Include="Data\" />
   </ItemGroup>
 
 </Project>

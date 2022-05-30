@@ -1,4 +1,5 @@
-﻿using SimulateTheWorld.World.Systems.Generation;
+﻿using SimulateTheWorld.World.Data.Data;
+using SimulateTheWorld.World.Systems.Generation;
 
 namespace SimulateTheWorld.World.Systems.Instances;
 
@@ -11,7 +12,7 @@ public class STWTerrain
 
     public STWTerrain()
     {
-        Tiles = new TerrainTile[STWWorld.TerrainSize * STWWorld.TerrainSize];
+        Tiles = new TerrainTile[WorldProperties.Instance.WorldSize * WorldProperties.Instance.WorldSize];
         
         _tileMarker = new TileMarker();
         _worldGenerator = new WorldGenerator();
@@ -22,9 +23,9 @@ public class STWTerrain
 
     private void CreateTiles()
     {
-        for (int x = 0; x < STWWorld.TerrainSize; x++)
-            for (int y = 0; y < STWWorld.TerrainSize; y++)
-                Tiles[x * STWWorld.TerrainSize + y] = _worldGenerator.CreateTerrainTile(x, y);
+        for (int x = 0; x < WorldProperties.Instance.WorldSize; x++)
+            for (int y = 0; y < WorldProperties.Instance.WorldSize; y++)
+                Tiles[x * WorldProperties.Instance.WorldSize + y] = _worldGenerator.CreateTerrainTile(x, y);
     }
     
     public void MarkTile(int tileID)

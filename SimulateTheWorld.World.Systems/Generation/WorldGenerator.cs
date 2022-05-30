@@ -1,4 +1,5 @@
 ﻿using SimulateTheWorld.Core.Types;
+using SimulateTheWorld.World.Data.Data;
 using SimulateTheWorld.World.Data.Types.Classes;
 using SimulateTheWorld.World.Systems.Instances;
 
@@ -23,16 +24,16 @@ public class WorldGenerator
 
     public void CreateCatalog()
     {
-        CatalogCollection.TerrainHeights = new float[STWWorld.TerrainSize * STWWorld.TerrainSize];
+        CatalogCollection.TerrainHeights = new float[WorldProperties.Instance.WorldSize * WorldProperties.Instance.WorldSize];
 
-        for (int x = 0; x < STWWorld.TerrainSize; x++)
-        for (int z = 0; z < STWWorld.TerrainSize; z++)
-            CatalogCollection.TerrainHeights[x * STWWorld.TerrainSize + z] = _heightGenerator.CalculateHeight(x, z);
+        for (int x = 0; x < WorldProperties.Instance.WorldSize; x++)
+        for (int z = 0; z < WorldProperties.Instance.WorldSize; z++)
+            CatalogCollection.TerrainHeights[x * WorldProperties.Instance.WorldSize + z] = _heightGenerator.CalculateHeight(x, z);
     }
 
     public TerrainTile CreateTerrainTile(int x, int y)
     {
-        int tileID = x * STWWorld.TerrainSize + y;
+        int tileID = x * WorldProperties.Instance.WorldSize + y;
 
         TerrainTile tile = new();
 

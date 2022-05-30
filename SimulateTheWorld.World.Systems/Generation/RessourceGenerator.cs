@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Numerics;
 using SimulateTheWorld.Core.Math.Noise.Filters;
+using SimulateTheWorld.World.Data.Data;
 using SimulateTheWorld.World.Systems.Instances;
 
 namespace SimulateTheWorld.World.Systems.Generation;
@@ -17,10 +18,10 @@ public class RessourceGenerator
     public void GenerateRessources(TerrainTile tile)
     {
         tile.TerrainValues.Coal = CalculateRessource(tile, tile.TerrainValues.Height, Vector3.Zero);
-        tile.TerrainValues.IronOre = CalculateRessource(tile, tile.TerrainValues.Height, new Vector3(0, 0, STWWorld.TerrainSize / 2f));
-        tile.TerrainValues.GoldOre = CalculateRessource(tile, tile.TerrainValues.Height, new Vector3(0, STWWorld.TerrainSize / 2f, 0));
+        tile.TerrainValues.IronOre = CalculateRessource(tile, tile.TerrainValues.Height, new Vector3(0, 0, WorldProperties.Instance.WorldSize / 2f));
+        tile.TerrainValues.GoldOre = CalculateRessource(tile, tile.TerrainValues.Height, new Vector3(0, WorldProperties.Instance.WorldSize / 2f, 0));
         tile.TerrainValues.Oil = CalculateRessource(tile, 100, Vector3.Zero, 2, 1f, 700);
-        tile.TerrainValues.Gas = CalculateRessource(tile, 100, new Vector3(STWWorld.TerrainSize / 2f, 0, 0), 2, 1f, 700);
+        tile.TerrainValues.Gas = CalculateRessource(tile, 100, new Vector3(WorldProperties.Instance.WorldSize / 2f, 0, 0), 2, 1f, 700);
     }
 
     private float CalculateRessource(TerrainTile tile, float frequency, Vector3 offset, int layers = 4, float minValue = 0, float strength = 72)

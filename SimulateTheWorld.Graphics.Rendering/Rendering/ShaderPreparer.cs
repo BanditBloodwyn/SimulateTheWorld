@@ -4,7 +4,7 @@ using OpenTK.Mathematics;
 using SimulateTheWorld.Graphics.Data.OpenGL;
 using SimulateTheWorld.Graphics.Resources.Rendering;
 using SimulateTheWorld.GUI.Models.SidePanel.Panels.MapFilters;
-using SimulateTheWorld.World.Systems.Instances;
+using SimulateTheWorld.World.Data.Data;
 
 namespace SimulateTheWorld.Graphics.Rendering.Rendering;
 
@@ -12,7 +12,7 @@ public static class ShaderPreparer
 {
     public static void PrepareShader(ShaderProgram shader)
     {
-        shader.SetFloat("uTileSize", STWWorld.TileSize * 1.0f);
+        shader.SetFloat("uTileSize", WorldProperties.Instance.TileSize * 1.0f);
         shader.SetVector4("uMarkedTileColor", new Vector4(MapColors.MarkedTileColor.R, MapColors.MarkedTileColor.G, MapColors.MarkedTileColor.B, MapColors.MarkedTileColor.A));
     }
 

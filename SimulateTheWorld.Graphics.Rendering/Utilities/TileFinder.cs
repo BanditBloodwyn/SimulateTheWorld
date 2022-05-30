@@ -2,7 +2,7 @@
 using System.Windows;
 using OpenTK.Mathematics;
 using SimulateTheWorld.Graphics.Data;
-using SimulateTheWorld.World.Systems.Instances;
+using SimulateTheWorld.World.Data.Data;
 
 namespace SimulateTheWorld.Graphics.Rendering.Utilities;
 
@@ -16,7 +16,7 @@ public class TileFinder
     public Vector3 CurrentRay { get; private set; }
     public Vector3? CurrentTileCoordinates { get; private set; }
     public int? CurrentTileID => CurrentTileCoordinates != null 
-        ? (int)Math.Round(Math.Abs(CurrentTileCoordinates.Value.X / STWWorld.TileSize), 0) + (int)Math.Round(Math.Abs(CurrentTileCoordinates.Value.Z / STWWorld.TileSize), 0) * STWWorld.TerrainSize 
+        ? (int)Math.Round(Math.Abs(CurrentTileCoordinates.Value.X / WorldProperties.Instance.TileSize), 0) + (int)Math.Round(Math.Abs(CurrentTileCoordinates.Value.Z / WorldProperties.Instance.TileSize), 0) * WorldProperties.Instance.WorldSize
         : null;
 
     public TileFinder(Camera camera)
