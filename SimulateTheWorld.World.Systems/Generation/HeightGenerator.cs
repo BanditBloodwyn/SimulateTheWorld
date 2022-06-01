@@ -7,21 +7,17 @@ public class HeightGenerator
 {
     private readonly INoiseFilter[] _terrainNoiseFilters;
 
-    private readonly StandardNoiseFilter _standardNoiseFilter;
-    private readonly StandardNoiseFilter _terrainNoiseFilter;
-    private readonly RigidNoiseFilter _mountainsNoiseFilter;
-
     public HeightGenerator()
     {
-        _standardNoiseFilter = new StandardNoiseFilter(10, 80, 0.4f, 10f, 0.002f, 0.1f, Vector3.Zero);
-        _terrainNoiseFilter = new StandardNoiseFilter(10, 0.1f, 0.0f, 50f, 1.0f, 0.5f, Vector3.Zero);
-        _mountainsNoiseFilter = new RigidNoiseFilter(10, 2.5f, 0.65f, 10f, 0.004f, 0.1f, 1f, Vector3.Zero);
+        StandardNoiseFilter standardNoiseFilter = new StandardNoiseFilter(10, 80, 0.4f, 10f, 0.002f, 0.1f, Vector3.Zero);
+        StandardNoiseFilter terrainNoiseFilter = new StandardNoiseFilter(10, 0.1f, 0.0f, 50f, 1.0f, 0.5f, Vector3.Zero);
+        RigidNoiseFilter mountainsNoiseFilter = new RigidNoiseFilter(10, 2.5f, 0.65f, 10f, 0.004f, 0.1f, 1f, Vector3.Zero);
 
         _terrainNoiseFilters = new INoiseFilter[]
         {
-            _standardNoiseFilter,
-            _terrainNoiseFilter,
-            _mountainsNoiseFilter
+            standardNoiseFilter,
+            terrainNoiseFilter,
+            mountainsNoiseFilter
         };
     }
 
