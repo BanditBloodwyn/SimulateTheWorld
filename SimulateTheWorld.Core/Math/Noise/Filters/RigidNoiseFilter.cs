@@ -7,26 +7,27 @@ public class RigidNoiseFilter : INoiseFilter
 {
     private readonly PerlinNoise _perlinNoise;
 
-    private readonly int _numberOfLayers;
-    private readonly float _strength;
-    private readonly float _minValue;
     private readonly float _roughness;
     private readonly float _baseRoughness;
     private readonly float _persistance;
     private readonly float _weightMultiplier;
-    private readonly Vector3 _center;
+    
+    public int NumberOfLayers { get; set; }
+    public float Strength { get; set; }
+    public float MinValue { get; set; }
+    public Vector3 Center { get; set; }
 
     public RigidNoiseFilter(int numberOfLayers, float strength, float minValue, float roughness, float baseRoughness, float persistance, float weightMultiplier, Vector3 center)
     {
         _perlinNoise = new PerlinNoise();
-        _numberOfLayers = numberOfLayers;
-        _strength = strength;
-        _minValue = minValue;
+        NumberOfLayers = numberOfLayers;
+        Strength = strength;
+        MinValue = minValue;
         _roughness = roughness;
         _baseRoughness = baseRoughness;
         _persistance = persistance;
         _weightMultiplier = weightMultiplier;
-        _center = center;
+        Center = center;
     }
 
     public float Evaluate(Vector3 point)
@@ -36,9 +37,9 @@ public class RigidNoiseFilter : INoiseFilter
         float amplitude = 1;
         float weight = 1;
 
-        for (int i = 0; i < _numberOfLayers; i++)
+        for (int i = 0; i < NumberOfLayers; i++)
         {
-            float v = 1 - MathF.Abs(_perlinNoise.Evaluate(point * frequency + _center));
+            float v = 1 - MathF.Abs(_perlinNoise.Evaluate(point * frequency + Center));
 
             v *= v;
             v *= weight;
@@ -49,7 +50,7 @@ public class RigidNoiseFilter : INoiseFilter
             amplitude *= _persistance;
         }
 
-        noiseValue = MathF.Max(0, noiseValue - _minValue);
-        return noiseValue * _strength;
+        noiseValue = MathF.Max(0, noiseValue - MinValue);
+        return noiseValue * Strength;
     }
 }
