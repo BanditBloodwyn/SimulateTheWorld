@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Numerics;
+using SimulateTheWorld.Core.Math.Noise.Filters;
 using SimulateTheWorld.Core.Types;
 
-namespace SimulateTheWorld.Core.Math.Noise.Filters;
+namespace SimulateTheWorld.Core.Extentions;
 
-public static class NoiseFilterHelper
+public static class NoiseFilterExtentions
 {
     public static float Calculate(this INoiseFilter filter, Coordinate? coordinate, float frequency, Vector3 offset, int layers, float minValue, float strength)
     {
