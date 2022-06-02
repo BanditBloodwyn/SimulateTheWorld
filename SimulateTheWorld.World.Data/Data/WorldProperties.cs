@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using Newtonsoft.Json;
+using SimulateTheWorld.Core.Logging;
 using SimulateTheWorld.World.Resources;
 
 namespace SimulateTheWorld.World.Data.Data;
@@ -41,7 +41,7 @@ public class WorldProperties
         }
         catch (Exception e)
         {
-            Debug.WriteLine(e);
+            Logger.Info(this, "ReadJson failed", e.ToString());
             throw;
         }
     }

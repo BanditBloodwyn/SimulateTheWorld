@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Text;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
+using SimulateTheWorld.Core.Logging;
 
 namespace SimulateTheWorld.Graphics.Data.OpenGL
 {
@@ -36,7 +36,7 @@ namespace SimulateTheWorld.Graphics.Data.OpenGL
 
             GL.GetProgramInfoLog(ID, 10000, out var length, out string programInfoLog);
             if (programInfoLog != string.Empty)
-                Log(ShaderType.VertexShader, programInfoLog);
+                Logger.Error(this, "Shader Log: linked program", programInfoLog);
 
             // detach and delete individual shaders (because they are copied to the final program while linking
             GL.DetachShader(ID, VertexShader);
@@ -81,7 +81,7 @@ namespace SimulateTheWorld.Graphics.Data.OpenGL
 
             string infoLogVert = GL.GetShaderInfoLog(VertexShader);
             if (infoLogVert != string.Empty)
-                Log(ShaderType.VertexShader, infoLogVert);
+                Logger.Error(this, $"Shader Log: {ShaderType.VertexShader}", infoLogVert);
 
             return VertexShader;
         }
@@ -99,7 +99,7 @@ namespace SimulateTheWorld.Graphics.Data.OpenGL
 
             string infoLogFrag = GL.GetShaderInfoLog(FragmentShader);
             if (infoLogFrag != string.Empty)
-                Log(ShaderType.FragmentShader, infoLogFrag);
+                Logger.Error(this, $"Shader Log: {ShaderType.FragmentShader}", infoLogFrag);
 
             return FragmentShader;
         }
@@ -117,20 +117,9 @@ namespace SimulateTheWorld.Graphics.Data.OpenGL
 
             string infoLogGeom = GL.GetShaderInfoLog(GeometryShader);
             if (infoLogGeom != string.Empty)
-                Log(ShaderType.GeometryShader, infoLogGeom);
+                Logger.Error(this, $"Shader Log: {ShaderType.GeometryShader}", infoLogGeom);
 
             return GeometryShader;
-        }
-
-        private void Log(ShaderType source, string infoLogFrag)
-        {
-            Debug.WriteLine("");
-            Debug.WriteLine("=== Shader Log ===");
-            Debug.WriteLine("");
-            Debug.WriteLine($"Source: {source}");
-            Debug.WriteLine(infoLogFrag);
-            Debug.WriteLine("==================");
-            Debug.WriteLine("");
         }
 
         public void Use() => GL.UseProgram(ID);

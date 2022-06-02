@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Diagnostics;
 using SimulateTheWorld.Core.GUI.MVVM;
+using SimulateTheWorld.Core.Logging;
 using SimulateTheWorld.GUI.ViewModels.Commands;
 
 namespace SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel;
@@ -35,7 +35,8 @@ public class SidePanelViewModel : ObservableObject
     private void OnEnableNextRoundButton(bool enable)
     {
         string en = enable ? "true" : "false";
-        Debug.WriteLine($"Set \"Next Round\" button enable {en}");
+        Logger.Info(this, $"Set \"Next Round\" button enable {en}");
+        
         NextRoundEnabled = enable;
     }
 

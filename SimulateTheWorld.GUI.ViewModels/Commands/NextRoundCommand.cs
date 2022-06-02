@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using SimulateTheWorld.Core.Logging;
 using SimulateTheWorld.World.Systems.Instances;
 
 namespace SimulateTheWorld.GUI.ViewModels.Commands;
@@ -19,14 +19,14 @@ public class NextRoundCommand : ICommand
 
     public void Execute(object? parameter)
     {
-        Debug.WriteLine("\n==================");
+        Logger.Info(this, "================== NextRoundCommand ==================");
 
         Task.Factory
             .StartNew(() => OnEnableNextRoundButton?.Invoke(false))
             .ContinueWith(_ => STWWorld.Instance.Update())
             .ContinueWith(_ => TriggerUpdateWorldRendering?.Invoke())
             .ContinueWith(_ => OnEnableNextRoundButton?.Invoke(true))
-            .ContinueWith(_ => Debug.WriteLine("==================\n"));
+            .ContinueWith(_ => Logger.Info(this, "================== NextRoundCommand =================="));
     }
 
     public void OnCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);

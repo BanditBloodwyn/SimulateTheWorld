@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Windows.Threading;
+using SimulateTheWorld.Core.Logging;
 using SimulateTheWorld.Graphics.Data.Components;
 using SimulateTheWorld.Graphics.Data.Interfaces;
 using SimulateTheWorld.World.Systems.Instances;
@@ -50,12 +50,13 @@ public static class VertexUpdater
                     dispatcher.Invoke(pointCloud.UpdateVertexData);
                 else
                     pointCloud.UpdateVertexData();
-                Debug.WriteLine($"\tUpdated vertices: {updatedVerticesCount}");
+               
+                Logger.Info(typeof(VertexUpdater), $"Updated vertices: {updatedVerticesCount}");
             }
         }
         catch (Exception e)
         {
-            Debug.WriteLine($"Vertex randomization failed: {e}");
+            Logger.Error(typeof(VertexUpdater), "Vertex randomization failed", e.ToString());
             throw;
         }
     }

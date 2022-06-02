@@ -12,6 +12,11 @@ public abstract class SurroundingsInfluencingSystem : IWorldSystem
     /// </summary>
     protected Action<TerrainTile, TerrainTile>? _modifier;
 
+    public void InitialTrigger()
+    {
+
+    }
+
     public void Trigger()
     {
         TerrainTile[] tiles = STWWorld.Instance.Terrain.Tiles;
@@ -21,9 +26,7 @@ public abstract class SurroundingsInfluencingSystem : IWorldSystem
             TerrainTile[] tilesToModify = TilesToModifyFinder.GetTilesToModify(currentTile.ID);
 
             foreach (TerrainTile tileToModify in tilesToModify)
-            {
                 _modifier?.Invoke(currentTile, tileToModify);
-            }
         }
     }
 }

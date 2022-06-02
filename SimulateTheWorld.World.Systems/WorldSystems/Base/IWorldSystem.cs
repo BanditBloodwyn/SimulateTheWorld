@@ -2,5 +2,7 @@
 
 public interface IWorldSystem
 {
+    public void InitialTrigger();
+
     public void Trigger();
 }

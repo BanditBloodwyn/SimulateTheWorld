@@ -1,6 +1,6 @@
-﻿using System.Diagnostics;
-using System.Drawing;
+﻿using System.Drawing;
 using OpenTK.Mathematics;
+using SimulateTheWorld.Core.Logging;
 using SimulateTheWorld.Graphics.Data.OpenGL;
 using SimulateTheWorld.Graphics.Resources.Rendering;
 using SimulateTheWorld.GUI.Models.SidePanel.Panels.MapFilters;
@@ -24,7 +24,7 @@ public static class ShaderPreparer
             Vector4 filterColorZero = new Vector4(colors[0].R / 255f, colors[0].G / 255f, colors[0].B / 255f, 1);
             Vector4 filterColorHundred = new Vector4(colors[1].R / 255f, colors[1].G / 255f, colors[1].B / 255f, 1);
 
-            Debug.WriteLine($"Changing map filter\nNew map filter: {MapFiltersModel.Instance.ActiveFilter.DisplayName}, Colors: {filterColorZero}, {filterColorHundred}");
+            Logger.Info(typeof(ShaderPreparer), $"Changing map filter\nNew map filter: {MapFiltersModel.Instance.ActiveFilter.DisplayName}, Colors: {filterColorZero}, {filterColorHundred}");
 
             shader.SetVector4("uFilterColorZero", filterColorZero);
             shader.SetVector4("uFilterColorHundred", filterColorHundred);

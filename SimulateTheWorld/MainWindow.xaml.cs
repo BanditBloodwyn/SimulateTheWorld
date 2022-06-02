@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using SimulateTheWorld.Core.Logging;
 
 namespace SimulateTheWorld.Start
 {
@@ -10,6 +11,9 @@ namespace SimulateTheWorld.Start
         public MainWindow()
         {
             InitializeComponent();
+
+            FileLogger fileLogger = new FileLogger();
+            Logger.LogMessage += fileLogger.Log;
         }
     }
 }

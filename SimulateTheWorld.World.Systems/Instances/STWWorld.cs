@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Reflection;
+using SimulateTheWorld.Core.Logging;
 using SimulateTheWorld.World.Systems.WorldSystems.Base;
 
 namespace SimulateTheWorld.World.Systems.Instances;
@@ -26,14 +26,24 @@ public class STWWorld
         _worldSystems = new List<IWorldSystem>();
 
         GetWorldSystems();
+        SystemsInitialTrigger();
     }
 
     public void Update()
     {
         foreach (IWorldSystem system in _worldSystems)
         {
-            Debug.WriteLine($"Trigger system {system.GetType().Name}");
+            Logger.Info(this, $"Trigger system {system.GetType().Name}");
             system.Trigger();
+        }
+    }
+
+    private void SystemsInitialTrigger()
+    {
+        foreach (IWorldSystem system in _worldSystems)
+        {
+            Logger.Info(this, $"InitialTrigger system {system.GetType().Name}");
+            system.InitialTrigger();
         }
     }
 

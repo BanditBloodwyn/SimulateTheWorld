@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using SimulateTheWorld.Core.Logging;
 using SimulateTheWorld.Graphics.Rendering.Container;
 using SimulateTheWorld.World.Systems.Instances;
 
@@ -54,7 +54,7 @@ namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.RenderView
 
         public void UpdateWorldRendering()
         {
-            Debug.WriteLine("Update world rendering");
+            Logger.Info(this, "Update world rendering");
 
             _renderingControl.OnUpdateVertexData();
         }
