@@ -5,10 +5,17 @@ namespace SimulateTheWorld.Core.Logging;
 public static class Logger
 {
     public static event Action<LoggerMessage>? LogMessage;
+    
+    public static void Group(string group)
+    {
+        LoggerMessage msg = new LoggerMessage(MessageType.Group, group);
+
+        LogMessage?.Invoke(msg);
+    }
 
     public static void Debug(object sender, string message, string details = null)
     {
-        var msg = new LoggerMessage(
+        LoggerMessage msg = new LoggerMessage(
             MessageType.Debug,
             GetSender(sender),
             message,
@@ -19,7 +26,7 @@ public static class Logger
 
     public static void Warning(object sender, string message, string details = null)
     {
-        var msg = new LoggerMessage(
+        LoggerMessage msg = new LoggerMessage(
             MessageType.Warning,
             GetSender(sender),
             message,
@@ -30,7 +37,7 @@ public static class Logger
 
     public static void Error(object sender, string message, string details = null)
     {
-        var msg = new LoggerMessage(
+        LoggerMessage msg = new LoggerMessage(
             MessageType.Error,
             GetSender(sender),
             message,
@@ -41,7 +48,7 @@ public static class Logger
 
     public static void Info(object sender, string message, string details = null)
     {
-        var msg = new LoggerMessage(
+        LoggerMessage msg = new LoggerMessage(
             MessageType.Info,
             GetSender(sender),
             message,

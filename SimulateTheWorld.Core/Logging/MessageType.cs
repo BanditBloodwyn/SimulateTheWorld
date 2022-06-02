@@ -5,5 +5,6 @@ public enum MessageType
     Debug,
     Warning,
     Error,
-    Info
+    Info,
+    Group
 }

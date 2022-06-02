@@ -21,6 +21,6 @@ public class FileLogger
 
     public void Log(LoggerMessage message)
     {
-        writer.WriteLine(message.Message);
+        writer.WriteLine(message.ToString());
     }
 }

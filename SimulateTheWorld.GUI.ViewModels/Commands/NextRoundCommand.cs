@@ -19,14 +19,14 @@ public class NextRoundCommand : ICommand
 
     public void Execute(object? parameter)
     {
-        Logger.Info(this, "================== NextRoundCommand ==================");
+        Logger.Group("NextRoundCommand");
 
         Task.Factory
             .StartNew(() => OnEnableNextRoundButton?.Invoke(false))
             .ContinueWith(_ => STWWorld.Instance.Update())
             .ContinueWith(_ => TriggerUpdateWorldRendering?.Invoke())
             .ContinueWith(_ => OnEnableNextRoundButton?.Invoke(true))
-            .ContinueWith(_ => Logger.Info(this, "================== NextRoundCommand =================="));
+            .ContinueWith(_ => Logger.Group("NextRoundCommand"));
     }
 
     public void OnCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
