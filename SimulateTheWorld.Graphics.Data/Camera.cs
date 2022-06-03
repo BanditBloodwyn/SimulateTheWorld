@@ -8,7 +8,7 @@ public class Camera
 {
     private static Camera? _instance;
 
-    private Vector3 _up = Vector3.UnitY;
+    private readonly Vector3 _up = Vector3.UnitY;
 
     public static Camera Instance
     {
