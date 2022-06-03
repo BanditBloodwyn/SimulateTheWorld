@@ -6,6 +6,7 @@ using System.Windows.Input;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 using OpenTK.Wpf;
+using SimulateTheWorld.Graphics.Data;
 using SimulateTheWorld.Graphics.Rendering.Container;
 using SimulateTheWorld.Graphics.Rendering.Rendering;
 using SimulateTheWorld.Graphics.Rendering.Utilities;
@@ -54,9 +55,7 @@ public sealed partial class RenderingControl : UserControl
         _renderer.OnLoaded();
 
         _inputController = new InputController();
-            
-        if (_renderer.Camera != null) 
-            _tileFinder = new TileFinder(_renderer.Camera);
+        _tileFinder = new TileFinder(Camera.Instance);
             
         _loaded = true;
     }
@@ -73,7 +72,7 @@ public sealed partial class RenderingControl : UserControl
 
     private void GlControl_OnRender(TimeSpan elapsedTimeSpan)
     {
-        if (!_loaded || _renderer?.FpsCounter == null || _renderer?.Camera == null || _tileFinder == null || _inputController == null)
+        if (!_loaded || _renderer?.FpsCounter == null || _tileFinder == null || _inputController == null)
             return;
 
         _renderer.OnRender(elapsedTimeSpan);
@@ -87,7 +86,7 @@ public sealed partial class RenderingControl : UserControl
             _millisecs = 0;
         }
 
-        DebugInformation.CameraPosition = _renderer.Camera.Transform.Position;
+        DebugInformation.CameraPosition = Camera.Instance.Transform.Position;
         DebugInformation.RayCastDirection = _tileFinder.CurrentRay;
         DebugInformation.CurrentTileCoordinates = _tileFinder.CurrentTileCoordinates;
         DebugInformation.CurrentTileID = _tileFinder.CurrentTileID;
@@ -109,7 +108,7 @@ public sealed partial class RenderingControl : UserControl
 
     private void GlControl_OnMouseWheel(object sender, MouseWheelEventArgs e)
     {
-        _renderer?.Camera?.Translate(new Vector3(0.0f, -e.Delta, 0.0f));
+        Camera.Instance.Translate(new Vector3(0.0f, -e.Delta, 0.0f));
     }
 
     private void GlControl_OnMouseMove(object sender, MouseEventArgs e)
@@ -121,10 +120,10 @@ public sealed partial class RenderingControl : UserControl
         Vector2 delta = _inputController.GetDelta();
 
         if (e.RightButton == MouseButtonState.Pressed)
-            _renderer.Camera?.Translate(new Vector3(delta.X, 0.0f, delta.Y));
+            Camera.Instance.Translate(new Vector3(delta.X, 0.0f, delta.Y));
 
         if (e.MiddleButton == MouseButtonState.Pressed)
-            _renderer.Camera?.Rotate(new Vector3(0, delta.Y, 0.0f));
+            Camera.Instance.Rotate(new Vector3(0, delta.Y, 0.0f));
 
         _inputController.OldMousePosition = e.GetPosition(this);
     }

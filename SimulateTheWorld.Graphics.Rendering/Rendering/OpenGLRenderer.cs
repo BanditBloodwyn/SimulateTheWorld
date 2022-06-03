@@ -17,8 +17,6 @@ public class OpenGLRenderer
 
     public FPSCounter? FpsCounter { get; private set; }
 
-    public Camera? Camera { get; private set; }
-    
     public void OnLoaded()
     {
         _world = WorldObjectProvider.CreateWorldObject();
@@ -26,7 +24,7 @@ public class OpenGLRenderer
         _pointShader = new ShaderProgram("Rendering/Shaders/point.vert", "Rendering/Shaders/points.frag", "Rendering/Shaders/points.geom");
         ShaderPreparer.PrepareShader(_pointShader);
 
-        Camera = new Camera(new Vector3(WorldProperties.Instance.WorldSize / 2.0f * WorldProperties.Instance.TileTotalSize, 15.0f, WorldProperties.Instance.WorldSize / 2.0f * WorldProperties.Instance.TileTotalSize));
+        Camera.Instance.Transform.Position = new Vector3(WorldProperties.Instance.WorldSize / 2.0f * WorldProperties.Instance.TileTotalSize, 15.0f, WorldProperties.Instance.WorldSize / 2.0f * WorldProperties.Instance.TileTotalSize);
         FpsCounter = new FPSCounter();
         MapFiltersModel.Instance.SetOnMapFilterChanged(() => ShaderPreparer.SetFilterColors(_pointShader));
 
@@ -45,8 +43,8 @@ public class OpenGLRenderer
         GL.ClearColor(new Color4(0, 0, 80, 0));
         GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
-        if(_pointShader != null && Camera != null) 
-            _world.Draw(_pointShader, Camera);
+        if(_pointShader != null) 
+            _world.Draw(_pointShader, Camera.Instance);
     }
 
     public void OnUpdateVertexData(Dispatcher dispatcher)
@@ -60,6 +58,6 @@ public class OpenGLRenderer
     public void UpdateViewPort(double width, double height)
     {
         GL.Viewport(0, 0, (int)width, (int)height);
-        Camera.AspectRatio = (float)width / (float)height;
+        Camera.Instance.AspectRatio = (float)width / (float)height;
     }
 }

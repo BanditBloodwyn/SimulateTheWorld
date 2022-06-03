@@ -6,7 +6,14 @@ namespace SimulateTheWorld.Graphics.Data;
 
 public class Camera
 {
+    private static Camera? _instance;
+
     private Vector3 _up = Vector3.UnitY;
+
+    public static Camera Instance
+    {
+        get { return _instance ??= new Camera(); }
+    }
 
     public Transform Transform { get; set; } = new Transform();
 
@@ -19,9 +26,8 @@ public class Camera
     public float Speed { get; set; }
     public float Sensitivity { get; set; }
     
-    public Camera(Vector3 position)
+    private Camera()
     {
-        Transform.Position = position;
         AspectRatio = 1.0f;
         Sensitivity = 0.001f;
         Speed = 0.003f;
