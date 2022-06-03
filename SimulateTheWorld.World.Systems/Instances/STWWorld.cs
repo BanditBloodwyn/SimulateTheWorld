@@ -8,11 +8,13 @@ namespace SimulateTheWorld.World.Systems.Instances;
 
 public class STWWorld
 {
+    private static STWWorld? _instance;
+   
     private readonly List<IWorldSystem> _worldSystems;
 
     public STWTerrain Terrain { get; }
 
-    private static STWWorld? _instance;
+    public event Action? OnUpdateVertexData;
 
     public static STWWorld Instance
     {
@@ -22,11 +24,16 @@ public class STWWorld
     private STWWorld()
     {
         Terrain = new STWTerrain();
-
+        Terrain.OnUpdateVertexData += UpdateVertexData;
         _worldSystems = new List<IWorldSystem>();
 
         GetWorldSystems();
         SystemsInitialTrigger();
+    }
+
+    private void UpdateVertexData()
+    {
+        OnUpdateVertexData?.Invoke();
     }
 
     public void Update()

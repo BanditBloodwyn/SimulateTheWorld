@@ -1,4 +1,8 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Windows.Controls;
+using System.Windows.Input;
+using SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel.Panels.PinnedLocations;
+using SimulateTheWorld.World.Data.Types.Classes;
 
 namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.SidePanel.Panels
 {
@@ -10,6 +14,12 @@ namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.SidePanel.Panels
         public PinnedLocationsControl()
         {
             InitializeComponent();
+        }
+
+        private void OnPinnedLocationClicked(object sender, MouseButtonEventArgs e)
+        {
+            if((sender as TreeViewItem)?.DataContext is Tuple<Location?, int> location) 
+                (DataContext as PinnedLocationsViewModel)?.MoveToPinnedLocationCommand.Execute(location.Item2);
         }
     }
 }

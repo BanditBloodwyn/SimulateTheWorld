@@ -23,7 +23,7 @@ public class MarkedTileViewModel : ObservableObject, ISubscriber<LocationMessage
                 if (Tile == null)
                     return;
 
-                LocationMediator.Instance.Publish(new LocationMessage { Location = Tile.Location });
+                LocationMediator.Instance.Publish(new LocationMessage { Location = Tile.Location, ID = Tile.ID});
               
                 OnPropertyChanged(nameof(TileMarkedTest));
             });

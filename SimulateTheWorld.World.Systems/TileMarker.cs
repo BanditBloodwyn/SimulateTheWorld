@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using SimulateTheWorld.World.Systems.Instances;
 
@@ -7,9 +8,11 @@ namespace SimulateTheWorld.World.Systems
     {
         private readonly List<int> markedIDs = new();
 
+        public event Action? OnUpdateVertexData;
+
         public void MarkTile(int tileID, bool demarkRest)
         {
-            if(demarkRest)
+            if (demarkRest)
             {
                 foreach (int id in markedIDs)
                     STWWorld.Instance.Terrain.Tiles[id].Marked = false;
@@ -21,6 +24,8 @@ namespace SimulateTheWorld.World.Systems
 
             STWWorld.Instance.Terrain.Tiles[tileID].Marked = true;
             markedIDs.Add(tileID);
+
+            OnUpdateVertexData?.Invoke();
         }
     }
 }

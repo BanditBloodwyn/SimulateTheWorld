@@ -43,6 +43,8 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
             GlControl.Start(mainSettings);
 
             DebugInformation = new DebugInformation();
+
+            STWWorld.Instance.OnUpdateVertexData += OnUpdateVertexData;
         }
 
         public void Load()
@@ -51,18 +53,26 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
             _renderer.OnLoaded();
 
             _inputController = new InputController();
-            _tileFinder = new TileFinder(_renderer.Camera);
+            
+            if (_renderer.Camera != null) 
+                _tileFinder = new TileFinder(_renderer.Camera);
+            
             _loaded = true;
         }
 
         public void OnUpdateVertexData()
         {
             _renderer?.OnUpdateVertexData(Dispatcher);
+            Dispatcher.Invoke(() =>
+            {
+                if (_tileFinder?.CurrentTileID != null) 
+                    OnTileSelected?.Invoke(_tileFinder.CurrentTileID.Value);
+            });
         }
 
         private void GlControl_OnRender(TimeSpan elapsedTimeSpan)
         {
-            if (!_loaded || _renderer == null || _tileFinder == null || _inputController == null)
+            if (!_loaded || _renderer?.FpsCounter == null || _renderer?.Camera == null || _tileFinder == null || _inputController == null)
                 return;
 
             _renderer.OnRender(elapsedTimeSpan);
@@ -98,7 +108,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
 
         private void GlControl_OnMouseWheel(object sender, MouseWheelEventArgs e)
         {
-            _renderer?.Camera.Translate(new Vector3(0.0f, -e.Delta, 0.0f));
+            _renderer?.Camera?.Translate(new Vector3(0.0f, -e.Delta, 0.0f));
         }
 
         private void GlControl_OnMouseMove(object sender, MouseEventArgs e)
@@ -110,10 +120,10 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
             Vector2 delta = _inputController.GetDelta();
 
             if (e.RightButton == MouseButtonState.Pressed)
-                _renderer.Camera.Translate(new Vector3(delta.X, 0.0f, delta.Y));
+                _renderer.Camera?.Translate(new Vector3(delta.X, 0.0f, delta.Y));
 
             if (e.MiddleButton == MouseButtonState.Pressed)
-                _renderer.Camera.Rotate(new Vector3(0, delta.Y, 0.0f));
+                _renderer.Camera?.Rotate(new Vector3(0, delta.Y, 0.0f));
 
             _inputController.OldMousePosition = e.GetPosition(this);
         }
@@ -130,8 +140,6 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
                 return;
 
             STWWorld.Instance.Terrain.MarkTile(_tileFinder.CurrentTileID.Value);
-            OnUpdateVertexData();
-
             OnTileSelected?.Invoke(_tileFinder.CurrentTileID.Value);
         }
     }

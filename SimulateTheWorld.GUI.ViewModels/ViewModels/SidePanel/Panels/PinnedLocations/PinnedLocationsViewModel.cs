@@ -1,21 +1,27 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Linq;
 using SimulateTheWorld.Core.GUI.MVVM;
 using SimulateTheWorld.Core.GUI.MVVM.Mediator;
 using SimulateTheWorld.GUI.Models.Mediators;
+using SimulateTheWorld.GUI.ViewModels.Commands;
 using SimulateTheWorld.World.Data.Types.Classes;
 
 namespace SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel.Panels.PinnedLocations;
 
 public class PinnedLocationsViewModel : ObservableObject, ISubscriber<IMessage>
 {
-    public ObservableCollection<Location?> Locations { get; }
+    public ObservableCollection<Tuple<Location?, int>> Locations { get; }
+
+    public MoveToPinnedLocationCommand MoveToPinnedLocationCommand { get; }
 
     public PinnedLocationsViewModel()
     {
         LocationMediator.Instance.Subscribe(this);
 
-        Locations = new ObservableCollection<Location?>();
+        Locations = new ObservableCollection<Tuple<Location?, int>>();
+
+        MoveToPinnedLocationCommand = new MoveToPinnedLocationCommand();
     }
 
 
@@ -26,10 +32,10 @@ public class PinnedLocationsViewModel : ObservableObject, ISubscriber<IMessage>
             if (locationMessage.Location == null)
                 return;
 
-            if (Locations.Any(loc => loc != null && loc.Name == locationMessage.Location.Name))
-                Locations.Remove(Locations.First(loc => loc != null && loc.Name == locationMessage.Location.Name));
+            if (Locations.Any(loc => loc.Item1?.Name == locationMessage.Location.Name))
+                Locations.Remove(Locations.First(loc => loc.Item1?.Name == locationMessage.Location.Name));
             else
-                Locations.Add(locationMessage.Location);
+                Locations.Add(new Tuple<Location?, int>(locationMessage.Location, locationMessage.ID));
         }
     }
 }

@@ -6,4 +6,5 @@ namespace SimulateTheWorld.GUI.Models.Mediators;
 public class LocationMessage : IMessage
 {
     public Location? Location { get; init; }
+    public int ID { get; init; }
 }
