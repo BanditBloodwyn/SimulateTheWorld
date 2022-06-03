@@ -1,15 +1,14 @@
 ﻿using System.Windows.Controls;
 
-namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.Core
+namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.Core;
+
+/// <summary>
+/// Interaktionslogik für MainControl.xaml
+/// </summary>
+public partial class CoreControl : UserControl
 {
-    /// <summary>
-    /// Interaktionslogik für MainControl.xaml
-    /// </summary>
-    public partial class CoreControl : UserControl
+    public CoreControl()
     {
-        public CoreControl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

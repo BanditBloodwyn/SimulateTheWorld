@@ -1,15 +1,14 @@
 ﻿using System.Windows;
 
-namespace SimulateTheWorld.GUI.Controls.Controls
+namespace SimulateTheWorld.GUI.Controls.Controls;
+
+/// <summary>
+/// Interaktionslogik für WaitingWindow.xaml
+/// </summary>
+public partial class WaitingWindow : Window
 {
-    /// <summary>
-    /// Interaktionslogik für WaitingWindow.xaml
-    /// </summary>
-    public partial class WaitingWindow : Window
+    public WaitingWindow()
     {
-        public WaitingWindow()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

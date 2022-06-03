@@ -1,15 +1,14 @@
 ﻿using System.Windows.Controls;
 
-namespace SimulateTheWorld.GUI.Controls.Controls.DisplayControls
+namespace SimulateTheWorld.GUI.Controls.Controls.DisplayControls;
+
+/// <summary>
+/// Interaktionslogik für FPSControl.xaml
+/// </summary>
+public partial class FPSControl : UserControl
 {
-    /// <summary>
-    /// Interaktionslogik für FPSControl.xaml
-    /// </summary>
-    public partial class FPSControl : UserControl
+    public FPSControl()
     {
-        public FPSControl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

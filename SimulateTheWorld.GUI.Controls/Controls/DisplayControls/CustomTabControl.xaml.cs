@@ -1,15 +1,14 @@
 ﻿using System.Windows.Controls;
 
-namespace SimulateTheWorld.GUI.Controls.Controls.DisplayControls
+namespace SimulateTheWorld.GUI.Controls.Controls.DisplayControls;
+
+/// <summary>
+/// Interaktionslogik für CustomTabControl.xaml
+/// </summary>
+public partial class CustomTabControl : TabControl
 {
-    /// <summary>
-    /// Interaktionslogik für CustomTabControl.xaml
-    /// </summary>
-    public partial class CustomTabControl : TabControl
+    public CustomTabControl()
     {
-        public CustomTabControl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

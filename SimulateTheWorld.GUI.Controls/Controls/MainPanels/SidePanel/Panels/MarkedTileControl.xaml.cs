@@ -1,15 +1,14 @@
 ﻿using System.Windows.Controls;
 
-namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.SidePanel.Panels
+namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.SidePanel.Panels;
+
+/// <summary>
+/// Interaktionslogik für MarkedTileControl.xaml
+/// </summary>
+public partial class MarkedTileControl : UserControl
 {
-    /// <summary>
-    /// Interaktionslogik für MarkedTileControl.xaml
-    /// </summary>
-    public partial class MarkedTileControl : UserControl
+    public MarkedTileControl()
     {
-        public MarkedTileControl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }
