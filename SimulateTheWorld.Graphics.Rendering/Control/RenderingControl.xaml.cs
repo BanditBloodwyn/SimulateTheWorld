@@ -11,7 +11,8 @@ using SimulateTheWorld.Graphics.Data;
 using SimulateTheWorld.Graphics.Rendering.Container;
 using SimulateTheWorld.Graphics.Rendering.Rendering;
 using SimulateTheWorld.Graphics.Rendering.Utilities;
-using SimulateTheWorld.GUI.Models.Mediators.CameraMover;
+using SimulateTheWorld.GUI.ViewModels.Mediation.Mediators;
+using SimulateTheWorld.GUI.ViewModels.Mediation.Messages;
 using SimulateTheWorld.World.Systems.Instances;
 using MouseWheelEventArgs = System.Windows.Input.MouseWheelEventArgs;
 

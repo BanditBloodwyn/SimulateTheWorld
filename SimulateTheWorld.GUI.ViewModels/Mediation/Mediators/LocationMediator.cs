@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using SimulateTheWorld.Core.GUI.MVVM.Mediator;
 
-namespace SimulateTheWorld.GUI.Models.Mediators;
+namespace SimulateTheWorld.GUI.ViewModels.Mediation.Mediators;
 
 public class LocationMediator : IMediator
 {
@@ -9,7 +9,7 @@ public class LocationMediator : IMediator
 
     private readonly List<ISubscriber<IMessage>> _subscribers = new();
 
-    private LocationMediator() {}
+    private LocationMediator() { }
 
     public static IMediator Instance => _instance ??= new LocationMediator();
 

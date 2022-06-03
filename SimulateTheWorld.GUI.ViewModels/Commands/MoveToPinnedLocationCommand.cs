@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
-using SimulateTheWorld.GUI.Models.Mediators.CameraMover;
+using SimulateTheWorld.GUI.ViewModels.Mediation.Mediators;
+using SimulateTheWorld.GUI.ViewModels.Mediation.Messages;
 using SimulateTheWorld.World.Data.Data;
 using SimulateTheWorld.World.Data.Types.Classes;
 using SimulateTheWorld.World.Systems.Instances;
@@ -13,7 +14,7 @@ public class MoveToPinnedLocationCommand : ICommand
     
     public bool CanExecute(object? parameter)
     {
-        throw new NotImplementedException();
+        return true;
     }
 
     public void Execute(object? parameter)
@@ -32,4 +33,6 @@ public class MoveToPinnedLocationCommand : ICommand
             });
         }
     }
+
+    public void OnCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
 }

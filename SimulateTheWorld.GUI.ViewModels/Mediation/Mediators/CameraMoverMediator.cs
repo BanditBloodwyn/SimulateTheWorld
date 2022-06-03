@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using SimulateTheWorld.Core.GUI.MVVM.Mediator;
 
-namespace SimulateTheWorld.GUI.Models.Mediators.CameraMover;
+namespace SimulateTheWorld.GUI.ViewModels.Mediation.Mediators;
 
 public class CameraMoverMediator : IMediator
 {
