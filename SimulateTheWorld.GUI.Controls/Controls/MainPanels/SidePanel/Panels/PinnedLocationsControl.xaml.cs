@@ -19,6 +19,6 @@ public partial class PinnedLocationsControl : UserControl
     private void OnPinnedLocationClicked(object sender, MouseButtonEventArgs e)
     {
         if((sender as TreeViewItem)?.DataContext is Tuple<Location?, int> location) 
-            (DataContext as PinnedLocationsViewModel)?.MoveToPinnedLocationCommand.Execute(location.Item2);
+            (DataContext as PinnedLocationsViewModel)?.MoveToPinnedLocationCommand.Execute(location);
     }
 }

@@ -6,10 +6,12 @@ using System.Windows.Input;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 using OpenTK.Wpf;
+using SimulateTheWorld.Core.GUI.MVVM.Mediator;
 using SimulateTheWorld.Graphics.Data;
 using SimulateTheWorld.Graphics.Rendering.Container;
 using SimulateTheWorld.Graphics.Rendering.Rendering;
 using SimulateTheWorld.Graphics.Rendering.Utilities;
+using SimulateTheWorld.GUI.Models.Mediators.CameraMover;
 using SimulateTheWorld.World.Systems.Instances;
 using MouseWheelEventArgs = System.Windows.Input.MouseWheelEventArgs;
 
@@ -18,7 +20,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control;
 /// <summary>
 /// Interaktionslogik für RenderingControl.xaml
 /// </summary>
-public sealed partial class RenderingControl : UserControl
+public sealed partial class RenderingControl : UserControl, ISubscriber<IMessage>
 {
     private OpenGLRenderer? _renderer;
     private InputController? _inputController;
@@ -36,6 +38,7 @@ public sealed partial class RenderingControl : UserControl
     public RenderingControl()
     {
         InitializeComponent();
+        CameraMoverMediator.Instance.Subscribe(this);
 
         GLWpfControlSettings mainSettings = new GLWpfControlSettings
         {
@@ -45,8 +48,6 @@ public sealed partial class RenderingControl : UserControl
         GlControl.Start(mainSettings);
 
         DebugInformation = new DebugInformation();
-
-        STWWorld.Instance.OnUpdateVertexData += OnUpdateVertexData;
     }
 
     public void Load()
@@ -140,6 +141,19 @@ public sealed partial class RenderingControl : UserControl
             return;
 
         STWWorld.Instance.Terrain.TileMarker.MarkTile(_tileFinder.CurrentTileID.Value, true);
-        OnTileSelected?.Invoke(_tileFinder.CurrentTileID.Value);
+        OnUpdateVertexData();
+    }
+
+    public void Handle(IMessage message)
+    {
+        if (message is not CameraMoverMessage cameraMoverMessage)
+            return;
+
+        Camera.Instance.Transform.Position = new Vector3(
+            cameraMoverMessage.X,
+            Camera.Instance.Transform.PositionY,
+            cameraMoverMessage.Y +  Camera.Instance.Transform.PositionY/3);
+     
+        OnUpdateVertexData();
     }
 }

@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Mediators\" />
+    <Folder Include="Mediators\CameraMover\" />
   </ItemGroup>
 
 </Project>

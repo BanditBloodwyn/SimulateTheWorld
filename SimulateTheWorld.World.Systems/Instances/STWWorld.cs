@@ -14,8 +14,6 @@ public class STWWorld
 
     public STWTerrain Terrain { get; }
 
-    public event Action? OnUpdateVertexData;
-
     public static STWWorld Instance
     {
         get { return _instance ??= new STWWorld(); } 
@@ -24,16 +22,10 @@ public class STWWorld
     private STWWorld()
     {
         Terrain = new STWTerrain();
-        Terrain.OnUpdateVertexData += UpdateVertexData;
         _worldSystems = new List<IWorldSystem>();
 
         GetWorldSystems();
         SystemsInitialTrigger();
-    }
-
-    private void UpdateVertexData()
-    {
-        OnUpdateVertexData?.Invoke();
     }
 
     public void Update()
