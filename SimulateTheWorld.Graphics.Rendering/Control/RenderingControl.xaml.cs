@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -65,8 +66,8 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
             _renderer?.OnUpdateVertexData(Dispatcher);
             Dispatcher.Invoke(() =>
             {
-                if (_tileFinder?.CurrentTileID != null) 
-                    OnTileSelected?.Invoke(_tileFinder.CurrentTileID.Value);
+                if (STWWorld.Instance.Terrain.TileMarker.MarkedIDs.Count > 0) 
+                    OnTileSelected?.Invoke(STWWorld.Instance.Terrain.TileMarker.MarkedIDs.First());
             });
         }
 
@@ -139,7 +140,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Control
             if (!_tileFinder.CurrentTileID.HasValue)
                 return;
 
-            STWWorld.Instance.Terrain.MarkTile(_tileFinder.CurrentTileID.Value);
+            STWWorld.Instance.Terrain.TileMarker.MarkTile(_tileFinder.CurrentTileID.Value, true);
             OnTileSelected?.Invoke(_tileFinder.CurrentTileID.Value);
         }
     }

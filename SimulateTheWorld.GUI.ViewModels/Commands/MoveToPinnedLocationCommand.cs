@@ -16,6 +16,6 @@ public class MoveToPinnedLocationCommand : ICommand
     public void Execute(object? parameter)
     {
         if (parameter is int id)
-            STWWorld.Instance.Terrain.MarkTile(id);
+            STWWorld.Instance.Terrain.TileMarker.MarkTile(id, true);
     }
 }
