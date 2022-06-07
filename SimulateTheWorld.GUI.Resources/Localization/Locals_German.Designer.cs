@@ -232,15 +232,6 @@ namespace SimulateTheWorld.GUI.Resources.Localization {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Beenden ähnelt.
-        /// </summary>
-        public static string toolbar_close {
-            get {
-                return ResourceManager.GetString("toolbar_close", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Bearbeiten ähnelt.
         /// </summary>
         public static string toolbar_edit {
@@ -259,6 +250,24 @@ namespace SimulateTheWorld.GUI.Resources.Localization {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Beenden ähnelt.
+        /// </summary>
+        public static string toolbar_file_close {
+            get {
+                return ResourceManager.GetString("toolbar_file_close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Öffnen ähnelt.
+        /// </summary>
+        public static string toolbar_file_open {
+            get {
+                return ResourceManager.GetString("toolbar_file_open", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Hilfe ähnelt.
         /// </summary>
         public static string toolbar_help {
@@ -268,11 +277,11 @@ namespace SimulateTheWorld.GUI.Resources.Localization {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Öffnen ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Über ähnelt.
         /// </summary>
-        public static string toolbar_open {
+        public static string toolbar_help_about {
             get {
-                return ResourceManager.GetString("toolbar_open", resourceCulture);
+                return ResourceManager.GetString("toolbar_help_about", resourceCulture);
             }
         }
         

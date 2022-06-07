@@ -174,7 +174,7 @@
   <data name="sidepanel_search" xml:space="preserve">
     <value>Suche</value>
   </data>
-  <data name="toolbar_close" xml:space="preserve">
+  <data name="toolbar_file_close" xml:space="preserve">
     <value>Beenden</value>
   </data>
   <data name="toolbar_edit" xml:space="preserve">
@@ -186,7 +186,10 @@
   <data name="toolbar_help" xml:space="preserve">
     <value>Hilfe</value>
   </data>
-  <data name="toolbar_open" xml:space="preserve">
+  <data name="toolbar_help_about" xml:space="preserve">
+    <value>Über</value>
+  </data>
+  <data name="toolbar_file_open" xml:space="preserve">
     <value>Öffnen</value>
   </data>
   <data name="toolbar_view" xml:space="preserve">

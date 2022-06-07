@@ -15,22 +15,22 @@
     <Border BorderThickness="0, 0, 0, 2">
         <DockPanel>
             <Menu DockPanel.Dock="Top">
-                <MenuItem x:Name="mi_File" Header="{x:Static resources:Locals_German.toolbar_file}">
-                    <MenuItem Header="{x:Static resources:Locals_German.toolbar_open}" Foreground="White"></MenuItem>
+                <MenuItem Header="{x:Static resources:Locals_German.toolbar_file}">
+                    <MenuItem Header="{x:Static resources:Locals_German.toolbar_file_open}" Foreground="White"/>
                     <Separator/>
-                    <MenuItem Header="{x:Static resources:Locals_German.toolbar_close}" Foreground="White"></MenuItem>
+                    <MenuItem Header="{x:Static resources:Locals_German.toolbar_file_close}" Foreground="White"/>
                 </MenuItem>
 
-                <MenuItem x:Name="btn_Edit" Header="{x:Static resources:Locals_German.toolbar_edit}">
-                    <MenuItem Header="test" Foreground="White"></MenuItem>
+                <MenuItem Header="{x:Static resources:Locals_German.toolbar_edit}">
+                    <MenuItem Header="test" Foreground="White"/>
                 </MenuItem>
 
-                <MenuItem x:Name="btn_View" Header="{x:Static resources:Locals_German.toolbar_view}">
-                    <MenuItem Header="test" Foreground="White"></MenuItem>
+                <MenuItem Header="{x:Static resources:Locals_German.toolbar_view}">
+                    <MenuItem Header="test" Foreground="White"/>
                 </MenuItem>
 
-                <MenuItem x:Name="btn_Help" Header="{x:Static resources:Locals_German.toolbar_help}">
-                    <MenuItem Header="test" Foreground="White"></MenuItem>
+                <MenuItem Header="{x:Static resources:Locals_German.toolbar_help}">
+                    <MenuItem Header="{x:Static resources:Locals_German.toolbar_help_about}" Foreground="White"/>
                 </MenuItem>
             </Menu>
         </DockPanel>
