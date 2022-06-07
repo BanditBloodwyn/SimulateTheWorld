@@ -16,9 +16,9 @@
         <DockPanel>
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="{x:Static resources:Locals_German.toolbar_file}">
-                    <MenuItem Header="{x:Static resources:Locals_German.toolbar_file_open}" Foreground="White"/>
+                    <MenuItem Header="{x:Static resources:Locals_German.toolbar_file_open}"/>
                     <Separator/>
-                    <MenuItem Header="{x:Static resources:Locals_German.toolbar_file_close}" Foreground="White"/>
+                    <MenuItem Header="{x:Static resources:Locals_German.toolbar_file_close}"/>
                 </MenuItem>
 
                 <MenuItem Header="{x:Static resources:Locals_German.toolbar_edit}">
@@ -30,7 +30,7 @@
                 </MenuItem>
 
                 <MenuItem Header="{x:Static resources:Locals_German.toolbar_help}">
-                    <MenuItem Header="{x:Static resources:Locals_German.toolbar_help_about}" Foreground="White"/>
+                    <MenuItem Header="{x:Static resources:Locals_German.toolbar_help_about}" Command="{Binding OpenAboutPopupCommand}"/>
                 </MenuItem>
             </Menu>
         </DockPanel>

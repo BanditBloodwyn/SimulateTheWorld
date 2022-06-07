@@ -7,6 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Images\Images.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Images.resx</DependentUpon>
+    </Compile>
     <Compile Update="Localization\Locals_English.Designer.cs">
       <DependentUpon>Locals_English.resx</DependentUpon>
       <DesignTime>True</DesignTime>
@@ -20,6 +35,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Images\Images.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Images.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Localization\Locals_English.resx">
       <LastGenOutput>Locals_English.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>

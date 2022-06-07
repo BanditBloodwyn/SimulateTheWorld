@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="SimulateTheWorld.GUI.Dialogs.Popups.Toolbar.AboutControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:toolbar="clr-namespace:SimulateTheWorld.GUI.Dialogs.Popups.Toolbar"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" MinWidth="800">
+    <UserControl.DataContext>
+        <toolbar:AboutControlViewModel/>
+    </UserControl.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*" MinHeight="100"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="#FF2F2F2F">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Source="/SimulateTheWorld.GUI.Resources;Component/Images/Logo.png" VerticalAlignment="Top" Width="266" Height="266"/>
+
+            <StackPanel Grid.Column="1" Background="#FF2F2F2F" Margin="50,0">
+                <Label FontSize="40" FontWeight="Regular" FontFamily="Impact" Content="Simulate The World"/>
+                <Label Content="{Binding Version}" Margin="0,-19,0,0"/>
+                <StackPanel Orientation="Horizontal" Background="#FF2F2F2F">
+                    <Label Content="Erstellt am:"/>
+                    <Label Content="{Binding BuildDate}"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <Label Grid.Row="1" Content="[Platzhalter]"/>
+    </Grid>
+</UserControl>

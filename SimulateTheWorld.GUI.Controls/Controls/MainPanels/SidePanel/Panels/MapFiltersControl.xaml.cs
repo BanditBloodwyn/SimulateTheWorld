@@ -10,6 +10,5 @@ public partial class MapFiltersControl : UserControl
     public MapFiltersControl()
     {
         InitializeComponent();
-
     }
 }

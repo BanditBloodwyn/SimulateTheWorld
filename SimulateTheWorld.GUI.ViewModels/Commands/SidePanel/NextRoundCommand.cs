@@ -4,7 +4,7 @@ using System.Windows.Input;
 using SimulateTheWorld.Core.Logging;
 using SimulateTheWorld.World.Systems.Instances;
 
-namespace SimulateTheWorld.GUI.ViewModels.Commands;
+namespace SimulateTheWorld.GUI.ViewModels.Commands.SidePanel;
 
 public class NextRoundCommand : ICommand
 {

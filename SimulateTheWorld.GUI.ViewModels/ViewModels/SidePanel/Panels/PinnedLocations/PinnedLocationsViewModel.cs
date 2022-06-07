@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using SimulateTheWorld.Core.GUI.MVVM;
 using SimulateTheWorld.Core.GUI.MVVM.Mediator;
-using SimulateTheWorld.GUI.ViewModels.Commands;
+using SimulateTheWorld.GUI.ViewModels.Commands.SidePanel;
 using SimulateTheWorld.GUI.ViewModels.Mediation.Mediators;
 using SimulateTheWorld.GUI.ViewModels.Mediation.Messages;
 using SimulateTheWorld.World.Data.Types.Classes;

@@ -1,7 +1,7 @@
 ﻿using System;
 using SimulateTheWorld.Core.GUI.MVVM;
 using SimulateTheWorld.Core.Logging;
-using SimulateTheWorld.GUI.ViewModels.Commands;
+using SimulateTheWorld.GUI.ViewModels.Commands.SidePanel;
 
 namespace SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel;
 

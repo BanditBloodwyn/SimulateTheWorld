@@ -1,21 +1,14 @@
-﻿using System.Windows.Controls;
-using SimulateTheWorld.Core.GUI.MVVM;
+﻿using SimulateTheWorld.Core.GUI.MVVM;
+using SimulateTheWorld.GUI.ViewModels.Commands.Toolbar;
 
 namespace SimulateTheWorld.GUI.ViewModels.ViewModels.Toolbar;
 
 public class STWToolbarViewModel : ObservableObject
 {
-    public DelegateCommand OpenMenuCommand { get; }
+    public OpenAboutPopupCommand OpenAboutPopupCommand { get; set; }
 
     public STWToolbarViewModel()
     {
-        OpenMenuCommand = new DelegateCommand(
-            o =>
-            {
-                if (o is ContextMenu contextMenu)
-                {
-                    contextMenu.IsOpen = true;
-                }
-            });
+        OpenAboutPopupCommand = new OpenAboutPopupCommand();
     }
 }
