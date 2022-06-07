@@ -6,76 +6,33 @@
              xmlns:resources="clr-namespace:SimulateTheWorld.GUI.Resources.Localization;assembly=SimulateTheWorld.GUI.Resources"
              xmlns:toolbar="clr-namespace:SimulateTheWorld.GUI.ViewModels.ViewModels.Toolbar;assembly=SimulateTheWorld.GUI.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="50" d:DesignWidth="800">
+             d:DesignHeight="20" d:DesignWidth="800">
 
     <UserControl.DataContext>
         <toolbar:STWToolbarViewModel/>
     </UserControl.DataContext>
 
-    <UserControl.Resources>
-        <Style TargetType="Button">
-            <Setter Property="Background" Value="#FF1F1F1F"></Setter>
-            <Setter Property="Foreground" Value="White"></Setter>
-            <Setter Property="BorderBrush" Value="Transparent"></Setter>
-
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}" Padding="10,0">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#424242"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-    </UserControl.Resources>
-
     <Border BorderThickness="0, 0, 0, 2">
-        <StackPanel Orientation="Horizontal">
-            <Button x:Name="btn_File" Content="{x:Static resources:Locals_German.toolbar_file}" 
-                Command="{Binding OpenMenuCommand}" CommandParameter="{Binding ContextMenu, ElementName=btn_File}" MouseRightButtonUp="btn_RightClick"
-                ContextMenuService.Placement="Bottom">
-                <Button.ContextMenu>
-                    <ContextMenu>
-                        <MenuItem Header="{x:Static resources:Locals_German.toolbar_open}" Foreground="White"></MenuItem>
-                        <Separator/>
-                        <MenuItem Header="{x:Static resources:Locals_German.toolbar_close}" Foreground="White"></MenuItem>
-                    </ContextMenu>
-                </Button.ContextMenu>
-            </Button>
-            <Button x:Name="btn_Edit" Content="{x:Static resources:Locals_German.toolbar_edit}" 
-                Command="{Binding OpenMenuCommand}" CommandParameter="{Binding ContextMenu, ElementName=btn_Edit}" MouseRightButtonUp="btn_RightClick"
-                ContextMenuService.Placement="Bottom">
-                <Button.ContextMenu>
-                    <ContextMenu>
-                        <MenuItem Header="test" Foreground="White"></MenuItem>
-                    </ContextMenu>
-                </Button.ContextMenu>
-            </Button>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem x:Name="mi_File" Header="{x:Static resources:Locals_German.toolbar_file}">
+                    <MenuItem Header="{x:Static resources:Locals_German.toolbar_open}" Foreground="White"></MenuItem>
+                    <Separator/>
+                    <MenuItem Header="{x:Static resources:Locals_German.toolbar_close}" Foreground="White"></MenuItem>
+                </MenuItem>
 
-            <Button x:Name="btn_View" Content="{x:Static resources:Locals_German.toolbar_view}" 
-                Command="{Binding OpenMenuCommand}" CommandParameter="{Binding ContextMenu, ElementName=btn_View}" MouseRightButtonUp="btn_RightClick"
-                ContextMenuService.Placement="Bottom">
-                <Button.ContextMenu>
-                    <ContextMenu>
-                        <MenuItem Header="test" Foreground="White"></MenuItem>
-                    </ContextMenu>
-                </Button.ContextMenu>
-            </Button>
-            <Button x:Name="btn_Help" Content="{x:Static resources:Locals_German.toolbar_help}" 
-                Command="{Binding OpenMenuCommand}" CommandParameter="{Binding ContextMenu, ElementName=btn_Help}" MouseRightButtonUp="btn_RightClick"
-                ContextMenuService.Placement="Bottom">
-                <Button.ContextMenu>
-                    <ContextMenu>
-                        <MenuItem Header="test" Foreground="White"></MenuItem>
-                    </ContextMenu>
-                </Button.ContextMenu>
-            </Button>
-        </StackPanel>
+                <MenuItem x:Name="btn_Edit" Header="{x:Static resources:Locals_German.toolbar_edit}">
+                    <MenuItem Header="test" Foreground="White"></MenuItem>
+                </MenuItem>
+
+                <MenuItem x:Name="btn_View" Header="{x:Static resources:Locals_German.toolbar_view}">
+                    <MenuItem Header="test" Foreground="White"></MenuItem>
+                </MenuItem>
+
+                <MenuItem x:Name="btn_Help" Header="{x:Static resources:Locals_German.toolbar_help}">
+                    <MenuItem Header="test" Foreground="White"></MenuItem>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
     </Border>
 </UserControl>

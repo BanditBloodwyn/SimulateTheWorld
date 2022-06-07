@@ -27,6 +27,10 @@
         <Style TargetType="{x:Type StackPanel}">
             <Setter Property="Background" Value="#FF1F1F1F"/>
         </Style>
+        <Style TargetType="{x:Type Menu}">
+            <Setter Property="Background" Value="#FF1F1F1F"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
         <Style TargetType="{x:Type GridSplitter}">
             <Setter Property="Background" Value="Gray"/>
         </Style>
