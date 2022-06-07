@@ -22,7 +22,8 @@
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
 
-            <Image Grid.Column="0" Source="/SimulateTheWorld.GUI.Resources;Component/Images/Logo.png" VerticalAlignment="Top" Width="266" Height="266"/>
+            <Image Grid.Column="0" Source="/SimulateTheWorld.GUI.Resources;Component/Images/Logo.png" 
+                   VerticalAlignment="Top" Width="266" Height="266"/>
 
             <StackPanel Grid.Column="1" Background="#FF2F2F2F" Margin="50,0">
                 <Label FontSize="40" FontWeight="Regular" FontFamily="Impact" Content="Simulate The World"/>
@@ -31,6 +32,7 @@
                     <Label Content="Erstellt am:"/>
                     <Label Content="{Binding BuildDate}"/>
                 </StackPanel>
+                <Label Content="{Binding Intention}"/>
             </StackPanel>
         </Grid>
 

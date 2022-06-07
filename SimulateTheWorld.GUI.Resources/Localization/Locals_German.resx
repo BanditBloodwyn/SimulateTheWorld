@@ -195,4 +195,7 @@
   <data name="toolbar_view" xml:space="preserve">
     <value>Ansicht</value>
   </data>
+  <data name="toolbar_help_about_intention" xml:space="preserve">
+    <value>Intention</value>
+  </data>
 </root>

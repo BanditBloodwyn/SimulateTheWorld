@@ -21,5 +21,7 @@ public class AboutControlViewModel : ObservableObject
             return $"{datetime.ToLongDateString()}, {datetime.ToLongTimeString()}";
         }
     }
+
+    public string Intention => Resources.Localization.Locals_German.toolbar_help_about_intention;
 }
     

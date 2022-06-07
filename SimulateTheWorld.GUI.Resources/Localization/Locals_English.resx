@@ -189,6 +189,9 @@
   <data name="toolbar_help_about" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="toolbar_help_about_intention" xml:space="preserve">
+    <value>Intention</value>
+  </data>
   <data name="toolbar_open" xml:space="preserve">
     <value>Open</value>
   </data>

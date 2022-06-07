@@ -277,6 +277,15 @@ namespace SimulateTheWorld.GUI.Resources.Localization {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Intention ähnelt.
+        /// </summary>
+        public static string toolbar_help_about_intention {
+            get {
+                return ResourceManager.GetString("toolbar_help_about_intention", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Open ähnelt.
         /// </summary>
         public static string toolbar_open {
