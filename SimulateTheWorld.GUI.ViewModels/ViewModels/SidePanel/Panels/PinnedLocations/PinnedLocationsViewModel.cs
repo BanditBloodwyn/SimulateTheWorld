@@ -12,7 +12,7 @@ namespace SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel.Panels.PinnedLoca
 
 public class PinnedLocationsViewModel : ObservableObject, ISubscriber<IMessage>
 {
-    public ObservableCollection<(Location?, int)> Locations { get; }
+    public ObservableCollection<Tuple<Location?, int>> Locations { get; }
 
     public MoveToPinnedLocationCommand MoveToPinnedLocationCommand { get; }
 
@@ -20,7 +20,7 @@ public class PinnedLocationsViewModel : ObservableObject, ISubscriber<IMessage>
     {
         LocationMediator.Instance.Subscribe(this);
 
-        Locations = new ObservableCollection<(Location?, int)>();
+        Locations = new ObservableCollection<Tuple<Location?, int>>();
 
         MoveToPinnedLocationCommand = new MoveToPinnedLocationCommand();
     }
@@ -37,6 +37,6 @@ public class PinnedLocationsViewModel : ObservableObject, ISubscriber<IMessage>
         if (Locations.Any(loc => loc.Item1?.Name == locationMessage.Location.Name))
             Locations.Remove(Locations.First(loc => loc.Item1?.Name == locationMessage.Location.Name));
         else
-            Locations.Add( new ValueTuple<Location?, int>(locationMessage.Location, locationMessage.ID ));
+            Locations.Add( new Tuple<Location?, int>(locationMessage.Location, locationMessage.ID ));
     }
 }
