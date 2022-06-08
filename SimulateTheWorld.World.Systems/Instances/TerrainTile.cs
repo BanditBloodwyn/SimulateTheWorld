@@ -11,6 +11,7 @@ public class TerrainTile
     public Location? Location { get; set; }
 
     public bool Marked { get; set; }
+    public bool Pinned { get; set; }
 
     public TileType TileType { get; set; }
     public VegetationType VegetationType { get; set; }

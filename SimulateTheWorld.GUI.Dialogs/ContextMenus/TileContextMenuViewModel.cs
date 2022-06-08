@@ -11,7 +11,11 @@ public class TileContextMenuViewModel : ObservableObject
 
     public string Description => $"Tile ID: {_tile?.ID}";
 
-    public TerrainTile Tile
+    public string PinText => _tile != null && _tile.Pinned 
+        ? "Lösen" 
+        : "Anpinnen";
+
+    public TerrainTile? Tile
     {
         get => _tile;
         set
@@ -19,11 +23,16 @@ public class TileContextMenuViewModel : ObservableObject
             _tile = value;
             OnPropertyChanged();
             OnPropertyChanged(nameof(Description));
+            OnPropertyChanged(nameof(PinText));
         }
     }
 
     public void PinTile()
     {
-        LocationMediator.Instance.Publish(new LocationMessage { Location = Tile.Location, ID = Tile.ID });
+        if (_tile == null) 
+            return;
+
+        _tile.Pinned = !_tile.Pinned;
+        LocationMediator.Instance.Publish(new LocationMessage { Location = _tile.Location, ID = _tile.ID });
     }
 }
