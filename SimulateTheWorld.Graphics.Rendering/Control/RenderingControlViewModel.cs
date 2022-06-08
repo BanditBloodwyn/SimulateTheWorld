@@ -124,19 +124,7 @@ public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
         _renderer.OnRender(elapsedTimeSpan);
         _tileFinder.Update(_inputController.NewMousePosition, width, height);
 
-        _millisecs += elapsedTimeSpan.Milliseconds;
-        if (_millisecs >= FPSCounter.Interval)
-        {
-            _debugInformation.FPS = _renderer.FpsCounter.FPS;
-            _debugInformation.Milliseconds = _renderer.FpsCounter.Milliseconds;
-            _millisecs = 0;
-        }
-
-        _debugInformation.CameraPosition = Camera.Instance.Transform.Position;
-        _debugInformation.RayCastDirection = _tileFinder.CurrentRay;
-        _debugInformation.CurrentTileCoordinates = _tileFinder.CurrentTileCoordinates;
-        _debugInformation.CurrentTileID = _tileFinder.CurrentTileID;
-        OnDebugInfoChanged?.Invoke(_debugInformation);
+        UpdateDebugInformation(elapsedTimeSpan);
     }
 
     public void Handle(IMessage message)
@@ -151,5 +139,26 @@ public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
         Camera.Instance.Front = new Vector3(0, -2, -1);
 
         OnUpdateVertexData();
+    }
+
+    private void UpdateDebugInformation(TimeSpan elapsedTimeSpan)
+    {
+        _millisecs += elapsedTimeSpan.Milliseconds;
+        if (_millisecs >= FPSCounter.Interval)
+        {
+            if (_renderer.FpsCounter != null)
+            {
+                _debugInformation.FPS = _renderer.FpsCounter.FPS;
+                _debugInformation.Milliseconds = _renderer.FpsCounter.Milliseconds;
+            }
+
+            _millisecs = 0;
+        }
+
+        _debugInformation.CameraPosition = Camera.Instance.Transform.Position;
+        _debugInformation.RayCastDirection = _tileFinder.CurrentRay;
+        _debugInformation.CurrentTileCoordinates = _tileFinder.CurrentTileCoordinates;
+        _debugInformation.CurrentTileID = _tileFinder.CurrentTileID;
+        OnDebugInfoChanged?.Invoke(_debugInformation);
     }
 }
