@@ -20,7 +20,6 @@ public sealed partial class RenderingControl
 
         _viewModel = DataContext as RenderingControlViewModel 
                      ?? new RenderingControlViewModel();
-        _viewModel.SetDispatcher(Dispatcher);
 
         GLWpfControlSettings mainSettings = new GLWpfControlSettings
         {

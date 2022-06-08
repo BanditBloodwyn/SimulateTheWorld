@@ -46,10 +46,7 @@ public static class VertexUpdater
                     updatedVerticesCount++;
                 }
 
-                if (dispatcher != null)
-                    dispatcher.Invoke(pointCloud.UpdateVertexData);
-                else
-                    pointCloud.UpdateVertexData();
+                pointCloud.UpdateVertexData();
                
                 Logger.Info(typeof(VertexUpdater), $"Updated vertices: {updatedVerticesCount}");
             }

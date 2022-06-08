@@ -4,38 +4,38 @@ namespace SimulateTheWorld.Core.Logging;
 
 public class LoggerMessage
 {
-    public DateTime Timestamp { get; }
-    public MessageType MessageType { get; }
-    public string Sender { get; }
-    public string Message { get; }
-    public string Details { get; }
+    private readonly DateTime _timestamp;
+    private readonly MessageType _messageType;
+    private readonly string _message;
+    private readonly string? _sender;
+    private readonly string? _details;
 
-    public LoggerMessage(MessageType messageType, string sender, string message, string details)
+    public LoggerMessage(MessageType messageType, string sender, string message, string? details)
     {
-        Timestamp = DateTime.Now;
+        _timestamp = DateTime.Now;
 
-        MessageType = messageType;
-        Sender = sender;
-        Message = message;
-        Details = details;
+        _messageType = messageType;
+        _sender = sender;
+        _message = message;
+        _details = details;
     }
 
     public LoggerMessage(MessageType messageType, string group)
     {
-        Timestamp = DateTime.Now;
+        _timestamp = DateTime.Now;
 
-        MessageType = messageType;
-        Message = group;
+        _messageType = messageType;
+        _message = group;
     }
 
     public override string ToString()
     {
-        if (MessageType == MessageType.Group)
-            return $"{Timestamp} - ================== {Message} ==================";
+        if (_messageType == MessageType.Group)
+            return $"{_timestamp} - ================== {_message} ==================";
 
-        string message = $"{Timestamp} - {MessageType} - {Sender}:\t\t{Message}";
-        if (!string.IsNullOrEmpty(Details))
-            message += $"\n\t\t{Details}";
+        string message = $"{_timestamp} - {_messageType} - {_sender}:\t\t{_message}";
+        if (!string.IsNullOrEmpty(_details))
+            message += $"\n\t\t{_details}";
 
         return message;
     }

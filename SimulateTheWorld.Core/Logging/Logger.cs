@@ -13,7 +13,7 @@ public static class Logger
         LogMessage?.Invoke(msg);
     }
 
-    public static void Debug(object sender, string message, string details = null)
+    public static void Debug(object sender, string message, string? details = null)
     {
         LoggerMessage msg = new LoggerMessage(
             MessageType.Debug,
@@ -24,7 +24,7 @@ public static class Logger
         LogMessage?.Invoke(msg);
     }
 
-    public static void Warning(object sender, string message, string details = null)
+    public static void Warning(object sender, string message, string? details = null)
     {
         LoggerMessage msg = new LoggerMessage(
             MessageType.Warning,
@@ -35,7 +35,7 @@ public static class Logger
         LogMessage?.Invoke(msg);
     }
 
-    public static void Error(object sender, string message, string details = null)
+    public static void Error(object sender, string message, string? details = null)
     {
         LoggerMessage msg = new LoggerMessage(
             MessageType.Error,
@@ -46,7 +46,7 @@ public static class Logger
         LogMessage?.Invoke(msg);
     }
 
-    public static void Info(object sender, string message, string details = null)
+    public static void Info(object sender, string message, string? details = null)
     {
         LoggerMessage msg = new LoggerMessage(
             MessageType.Info,
@@ -57,7 +57,7 @@ public static class Logger
         LogMessage?.Invoke(msg);
     }
 
-    private static string GetSender(object sender)
+    private static string GetSender(object? sender)
     {
         if (sender == null)
             return "(unknown)";

@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Threading;
 using OpenTK.Mathematics;
 using SimulateTheWorld.Core.GUI.MVVM;
 using SimulateTheWorld.Core.GUI.MVVM.Mediator;
@@ -24,8 +23,6 @@ public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
     private readonly TileContextMenuHandler _tileContextMenuHandler;
     private readonly DebugInformation _debugInformation;
 
-    private Dispatcher _dispatcher = null!;
-    
     private bool _loaded;
     private bool _dragging;
     private int _millisecs;
@@ -46,19 +43,12 @@ public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
         _debugInformation = new DebugInformation();
     }
 
-    public void SetDispatcher(Dispatcher dispatcher)
-    {
-        _dispatcher = dispatcher;
-    }
-
     public void OnUpdateVertexData()
     {
-        _renderer.OnUpdateVertexData(_dispatcher);
-        _dispatcher.Invoke(() =>
-        {
-            if (STWWorld.Instance.Terrain.TileMarker.MarkedIDs.Count > 0)
-                OnTileSelected?.Invoke(STWWorld.Instance.Terrain.TileMarker.MarkedIDs.First());
-        });
+        _renderer.OnUpdateVertexData();
+        
+        if (STWWorld.Instance.Terrain.TileMarker.MarkedIDs.Count > 0) 
+            OnTileSelected?.Invoke(STWWorld.Instance.Terrain.TileMarker.MarkedIDs.First());
     }
 
     public void OnLoad()

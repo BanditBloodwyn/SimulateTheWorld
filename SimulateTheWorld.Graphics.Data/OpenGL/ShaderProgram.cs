@@ -34,7 +34,7 @@ public class ShaderProgram
         GL.AttachShader(ID, GeometryShader);
         GL.LinkProgram(ID);
 
-        GL.GetProgramInfoLog(ID, 10000, out var length, out string programInfoLog);
+        GL.GetProgramInfoLog(ID, 10000, out _, out string? programInfoLog);
         if (programInfoLog != string.Empty)
             Logger.Error(this, "Shader Log: linked program", programInfoLog);
 
@@ -79,7 +79,7 @@ public class ShaderProgram
             
         GL.CompileShader(VertexShader);
 
-        string infoLogVert = GL.GetShaderInfoLog(VertexShader);
+        string? infoLogVert = GL.GetShaderInfoLog(VertexShader);
         if (infoLogVert != string.Empty)
             Logger.Error(this, $"Shader Log: {ShaderType.VertexShader}", infoLogVert);
 
@@ -97,7 +97,7 @@ public class ShaderProgram
            
         GL.CompileShader(FragmentShader);
 
-        string infoLogFrag = GL.GetShaderInfoLog(FragmentShader);
+        string? infoLogFrag = GL.GetShaderInfoLog(FragmentShader);
         if (infoLogFrag != string.Empty)
             Logger.Error(this, $"Shader Log: {ShaderType.FragmentShader}", infoLogFrag);
 
@@ -115,7 +115,7 @@ public class ShaderProgram
 
         GL.CompileShader(GeometryShader);
 
-        string infoLogGeom = GL.GetShaderInfoLog(GeometryShader);
+        string? infoLogGeom = GL.GetShaderInfoLog(GeometryShader);
         if (infoLogGeom != string.Empty)
             Logger.Error(this, $"Shader Log: {ShaderType.GeometryShader}", infoLogGeom);
 

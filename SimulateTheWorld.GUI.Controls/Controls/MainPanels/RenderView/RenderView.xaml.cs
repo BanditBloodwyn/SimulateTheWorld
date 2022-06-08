@@ -56,6 +56,6 @@ public partial class RenderView
     {
         Logger.Info(this, "Update world rendering");
 
-        (_renderingControl.DataContext as RenderingControlViewModel)?.OnUpdateVertexData();
+        Dispatcher.Invoke(() => (_renderingControl.DataContext as RenderingControlViewModel)?.OnUpdateVertexData());
     }
 }

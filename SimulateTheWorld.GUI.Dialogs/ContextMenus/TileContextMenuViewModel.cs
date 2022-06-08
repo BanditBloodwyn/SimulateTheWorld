@@ -17,7 +17,6 @@ public class TileContextMenuViewModel : ObservableObject
 
     public TerrainTile? Tile
     {
-        get => _tile;
         set
         {
             _tile = value;

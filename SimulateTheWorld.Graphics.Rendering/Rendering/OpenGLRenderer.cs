@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows.Threading;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using SimulateTheWorld.Graphics.Data;
@@ -47,10 +46,10 @@ public class OpenGLRenderer
             _world.Draw(_pointShader, Camera.Instance);
     }
 
-    public void OnUpdateVertexData(Dispatcher dispatcher)
+    public void OnUpdateVertexData()
     {
         if (_world!.Drawable != null)
-            VertexUpdater.UpdateVertexData(_world.Drawable, dispatcher);
+            VertexUpdater.UpdateVertexData(_world.Drawable);
     }
 
     public static void OnUnLoaded() { }
