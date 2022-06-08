@@ -66,9 +66,9 @@ public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
         _loaded = true;
     }
 
-    public void OnUnload()
+    public static void OnUnload()
     {
-        _renderer.OnUnLoaded();
+        OpenGLRenderer.OnUnLoaded();
     }
 
     public void OnSizeChanged(double width, double height)
@@ -76,7 +76,7 @@ public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
         if (!_loaded)
             return;
 
-        _renderer.UpdateViewPort(width, height);
+        OpenGLRenderer.UpdateViewPort(width, height);
     }
 
     public static void OnMouseWheel(int delta)

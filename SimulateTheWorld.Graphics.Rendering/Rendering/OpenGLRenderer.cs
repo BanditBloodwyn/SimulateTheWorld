@@ -49,13 +49,13 @@ public class OpenGLRenderer
 
     public void OnUpdateVertexData(Dispatcher dispatcher)
     {
-        if (_world.Drawable != null)
+        if (_world!.Drawable != null)
             VertexUpdater.UpdateVertexData(_world.Drawable, dispatcher);
     }
 
-    public void OnUnLoaded() { }
+    public static void OnUnLoaded() { }
 
-    public void UpdateViewPort(double width, double height)
+    public static void UpdateViewPort(double width, double height)
     {
         GL.Viewport(0, 0, (int)width, (int)height);
         Camera.Instance.AspectRatio = (float)width / (float)height;
