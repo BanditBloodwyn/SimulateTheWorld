@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 using SimulateTheWorld.Core.Logging;
 using SimulateTheWorld.Graphics.Rendering.Container;
+using SimulateTheWorld.Graphics.Rendering.Control;
 using SimulateTheWorld.World.Systems.Instances;
 
 namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.RenderView;
@@ -10,16 +10,16 @@ namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.RenderView;
 /// <summary>
 /// Interaktionslogik für RenderView.xaml
 /// </summary>
-public partial class RenderView : UserControl
+public partial class RenderView
 {
     public event Action<int>? OnTileSelected;
 
     public RenderView()
     {
         InitializeComponent();
-            
-        _renderingControl.OnDebugInfoChanged += RenderingControlOnOnDebugInfoChanged;
-        _renderingControl.OnTileSelected += OnOnTileSelected;
+
+        (_renderingControl.DataContext as RenderingControlViewModel)!.OnDebugInfoChanged += RenderingControlOnOnDebugInfoChanged;
+        (_renderingControl.DataContext as RenderingControlViewModel)!.OnTileSelected += OnOnTileSelected;
 
         WaitingWindow waitingWindow = new WaitingWindow();
         waitingWindow.Show();
@@ -56,6 +56,6 @@ public partial class RenderView : UserControl
     {
         Logger.Info(this, "Update world rendering");
 
-        _renderingControl.OnUpdateVertexData();
+        (_renderingControl.DataContext as RenderingControlViewModel)?.OnUpdateVertexData();
     }
 }

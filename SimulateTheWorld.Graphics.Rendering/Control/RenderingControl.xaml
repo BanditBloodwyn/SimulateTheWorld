@@ -4,8 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:glWpfControl="clr-namespace:OpenTK.Wpf;assembly=GLWpfControl"
+             xmlns:control="clr-namespace:SimulateTheWorld.Graphics.Rendering.Control"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.DataContext>
+        <control:RenderingControlViewModel/>
+    </UserControl.DataContext>
 
     <glWpfControl:GLWpfControl
         x:Name="GlControl"
