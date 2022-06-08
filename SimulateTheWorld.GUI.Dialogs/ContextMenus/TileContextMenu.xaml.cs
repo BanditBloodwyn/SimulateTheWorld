@@ -1,15 +1,24 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
 
-namespace SimulateTheWorld.GUI.Dialogs.ContextMenus
+namespace SimulateTheWorld.GUI.Dialogs.ContextMenus;
+
+/// <summary>
+/// Interaktionslogik für TileContextMenu.xaml
+/// </summary>
+public partial class TileContextMenu
 {
-    /// <summary>
-    /// Interaktionslogik für TileContextMenu.xaml
-    /// </summary>
-    public partial class TileContextMenu : ContextMenu
+    private readonly TileContextMenuViewModel _viewModel;
+
+    public TileContextMenu()
     {
-        public TileContextMenu()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+
+        _viewModel = DataContext as TileContextMenuViewModel ?? new TileContextMenuViewModel();
+    }
+
+    private void MenuItem_OnClick(object sender, RoutedEventArgs e)
+    {
+        _viewModel.PinTile();
+        Hide();
     }
 }

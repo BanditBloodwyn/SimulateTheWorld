@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
 using SimulateTheWorld.Core.GUI.MVVM.Mediator;
 
-namespace SimulateTheWorld.GUI.ViewModels.Mediation.Mediators;
+namespace SimulateTheWorld.GUI.Mediators.Mediators;
 
-public class LocationMediator : IMediator
+public class CameraMoverMediator : IMediator
 {
     private static IMediator? _instance;
 
     private readonly List<ISubscriber<IMessage>> _subscribers = new();
 
-    private LocationMediator() { }
+    private CameraMoverMediator() { }
 
-    public static IMediator Instance => _instance ??= new LocationMediator();
+    public static IMediator Instance => _instance ??= new CameraMoverMediator();
 
     public void Publish(IMessage message)
     {

@@ -42,7 +42,7 @@ public sealed partial class RenderingControl
 
     private void GlControl_OnUnloaded(object sender, RoutedEventArgs e)
     {
-        RenderingControlViewModel.OnUnload();
+        _viewModel.OnUnload();
     }
 
     private void GlControl_OnSizeChanged(object sender, SizeChangedEventArgs e)

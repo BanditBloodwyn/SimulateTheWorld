@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
-using SimulateTheWorld.GUI.ViewModels.Mediation.Mediators;
-using SimulateTheWorld.GUI.ViewModels.Mediation.Messages;
+using SimulateTheWorld.GUI.Mediators.Mediators;
+using SimulateTheWorld.GUI.Mediators.Messages;
 using SimulateTheWorld.World.Data.Data;
 using SimulateTheWorld.World.Data.Types.Classes;
 using SimulateTheWorld.World.Systems.Instances;

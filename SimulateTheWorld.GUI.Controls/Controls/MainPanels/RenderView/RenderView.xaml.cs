@@ -25,7 +25,7 @@ public partial class RenderView
         waitingWindow.Show();
 
         Task.Factory
-            .StartNew(() => STWWorld.Instance)
+            .StartNew(static () => STWWorld.Instance)
             .ContinueWith(_ =>
             {
                 Dispatcher.Invoke(() =>

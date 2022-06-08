@@ -1,7 +1,7 @@
 ﻿using SimulateTheWorld.Core.GUI.MVVM.Mediator;
 using SimulateTheWorld.World.Data.Types.Classes;
 
-namespace SimulateTheWorld.GUI.ViewModels.Mediation.Messages;
+namespace SimulateTheWorld.GUI.Mediators.Messages;
 
 public class LocationMessage : IMessage
 {

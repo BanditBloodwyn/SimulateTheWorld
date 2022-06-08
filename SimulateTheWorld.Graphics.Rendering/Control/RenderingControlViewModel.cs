@@ -9,9 +9,8 @@ using SimulateTheWorld.Graphics.Data;
 using SimulateTheWorld.Graphics.Rendering.Container;
 using SimulateTheWorld.Graphics.Rendering.Rendering;
 using SimulateTheWorld.Graphics.Rendering.Utilities;
-using SimulateTheWorld.GUI.ViewModels.Commands.RenderingControl;
-using SimulateTheWorld.GUI.ViewModels.Mediation.Mediators;
-using SimulateTheWorld.GUI.ViewModels.Mediation.Messages;
+using SimulateTheWorld.GUI.Mediators.Mediators;
+using SimulateTheWorld.GUI.Mediators.Messages;
 using SimulateTheWorld.World.Systems.Instances;
 
 namespace SimulateTheWorld.Graphics.Rendering.Control;
@@ -21,6 +20,7 @@ public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
     private readonly OpenGLRenderer _renderer;
     private readonly InputController _inputController;
     private readonly TileFinder _tileFinder;
+    private readonly TileContextMenuHandler _tileContextMenuHandler;
     private readonly DebugInformation _debugInformation;
 
     private Dispatcher _dispatcher = null!;
@@ -32,17 +32,16 @@ public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
     public event Action<int>? OnTileSelected;
     public event Action<DebugInformation>? OnDebugInfoChanged;
 
-    private OpenTileContextMenuCommand OpenTileContextMenuCommand { get; }
 
     public RenderingControlViewModel()
     {
         CameraMoverMediator.Instance.Subscribe(this);
         
-        OpenTileContextMenuCommand = new OpenTileContextMenuCommand();
-
         _renderer = new OpenGLRenderer();
         _inputController = new InputController();
         _tileFinder = new TileFinder(Camera.Instance);
+        _tileContextMenuHandler = new TileContextMenuHandler();
+        
         _debugInformation = new DebugInformation();
     }
 
@@ -67,8 +66,9 @@ public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
         _loaded = true;
     }
 
-    public static void OnUnload()
+    public void OnUnload()
     {
+        _tileContextMenuHandler.Close();
         OpenGLRenderer.OnUnLoaded();
     }
 
@@ -93,11 +93,12 @@ public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
         _inputController.NewMousePosition = args.GetPosition(renderingControl);
         Vector2 delta = _inputController.GetDelta();
 
-        if (args.RightButton == MouseButtonState.Pressed)
+        if (args.RightButton == MouseButtonState.Pressed && !_tileContextMenuHandler.ContextMenuOpened)
         {
             _dragging = true;
             Camera.Instance.Translate(new Vector3(delta.X, 0.0f, delta.Y));
         }
+
         if (args.RightButton == MouseButtonState.Released)
             _dragging = false;
 
@@ -113,12 +114,16 @@ public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
             return;
 
         if (changedButton == MouseButton.Left)
+        {
             MarkTile();
+            _tileContextMenuHandler.Hide();
+        }
 
         if (changedButton == MouseButton.Right && !_dragging)
         {
             MarkTile();
-            OpenTileContextMenuCommand.Execute(this);
+            if (_tileFinder.CurrentTileID != null) 
+                _tileContextMenuHandler.Open(_tileFinder.CurrentTileID.Value);
         }
     }
 

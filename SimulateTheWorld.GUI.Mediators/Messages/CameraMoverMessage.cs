@@ -1,6 +1,6 @@
 ﻿using SimulateTheWorld.Core.GUI.MVVM.Mediator;
 
-namespace SimulateTheWorld.GUI.ViewModels.Mediation.Messages;
+namespace SimulateTheWorld.GUI.Mediators.Messages;
 
 public class CameraMoverMessage : IMessage
 {
