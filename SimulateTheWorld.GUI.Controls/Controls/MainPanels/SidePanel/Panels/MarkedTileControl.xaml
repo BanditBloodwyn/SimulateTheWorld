@@ -115,10 +115,6 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-
-            <Button Grid.Column="0" Margin="30"
-                    Command="{Binding PinnLocationCommand}"
-                    Content="{Binding TileMarkedTest}" />
         </Grid>
     </Grid>
 </UserControl>
