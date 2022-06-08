@@ -9,6 +9,7 @@
   <ItemGroup>
     <Folder Include="Commands\Base\" />
     <Folder Include="Commands\Toolbar\" />
+    <Folder Include="ViewModels\RenderingControl\" />
     <Folder Include="ViewModels\SidePanel\Panels\MarkedTile\" />
   </ItemGroup>
 
