@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
 using OpenTK.Mathematics;
@@ -108,22 +109,22 @@ public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
         _inputController.OldMousePosition = args.GetPosition(renderingControl);
     }
 
-    public void OnMouseUp(MouseButton changedButton)
+    public void OnMouseUp(MouseButtonEventArgs args, Point point)
     {
         if (!_loaded)
             return;
 
-        if (changedButton == MouseButton.Left)
+        if (args.ChangedButton == MouseButton.Left)
         {
             MarkTile();
             _tileContextMenuHandler.Hide();
         }
 
-        if (changedButton == MouseButton.Right && !_dragging)
+        if (args.ChangedButton == MouseButton.Right && !_dragging)
         {
             MarkTile();
             if (_tileFinder.CurrentTileID != null) 
-                _tileContextMenuHandler.Open(_tileFinder.CurrentTileID.Value);
+                _tileContextMenuHandler.Open(_tileFinder.CurrentTileID.Value, point);
         }
     }
 

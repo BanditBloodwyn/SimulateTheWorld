@@ -62,6 +62,6 @@ public sealed partial class RenderingControl
 
     private void GlControl_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
     {
-        _viewModel.OnMouseUp(e.ChangedButton);
+        _viewModel.OnMouseUp(e, PointToScreen(Mouse.GetPosition(this)));
     }
 }

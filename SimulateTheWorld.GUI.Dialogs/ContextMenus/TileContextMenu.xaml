@@ -6,13 +6,13 @@
              xmlns:local="clr-namespace:SimulateTheWorld.GUI.Dialogs.ContextMenus"
              mc:Ignorable="d" 
              d:DesignHeight="190" d:DesignWidth="190" MaxHeight="190" MaxWidth="190"
-             Topmost="True" WindowStartupLocation="CenterScreen" WindowStyle="None" ShowInTaskbar="False">
+             Topmost="True" WindowStyle="None" ShowInTaskbar="False" ResizeMode="NoResize">
     <Window.DataContext>
         <local:TileContextMenuViewModel/>
     </Window.DataContext>
 
     <StackPanel>
-        <Label Margin="0,30,0,0" Height="25" 
+        <Label Margin="0,20,0,0" Height="25" 
                Content="{Binding Description}"/>
         <Separator/>
         <MenuItem Header="Anpinnen" Click="MenuItem_OnClick"/>
