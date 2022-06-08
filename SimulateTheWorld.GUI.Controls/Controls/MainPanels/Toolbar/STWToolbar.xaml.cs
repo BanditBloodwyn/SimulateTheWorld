@@ -1,11 +1,9 @@
-﻿using System.Windows.Controls;
-
-namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.Toolbar;
+﻿namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.Toolbar;
 
 /// <summary>
 /// Interaktionslogik für STWToolbar.xaml
 /// </summary>
-public partial class STWToolbar : UserControl
+public partial class STWToolbar
 {
     public STWToolbar()
     {

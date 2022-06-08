@@ -1,11 +1,9 @@
-﻿using System.Windows.Controls;
-
-namespace SimulateTheWorld.GUI.Controls.Controls.DisplayControls;
+﻿namespace SimulateTheWorld.GUI.Controls.Controls.DisplayControls;
 
 /// <summary>
 /// Interaktionslogik für ValueDisplayControl.xaml
 /// </summary>
-public partial class ValueDisplayControl : Grid
+public partial class ValueDisplayControl
 {
     public ValueDisplayControl()
     {

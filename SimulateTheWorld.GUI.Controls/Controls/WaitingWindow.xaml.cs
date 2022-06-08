@@ -1,11 +1,9 @@
-﻿using System.Windows;
-
-namespace SimulateTheWorld.GUI.Controls.Controls;
+﻿namespace SimulateTheWorld.GUI.Controls.Controls;
 
 /// <summary>
 /// Interaktionslogik für WaitingWindow.xaml
 /// </summary>
-public partial class WaitingWindow : Window
+public partial class WaitingWindow
 {
     public WaitingWindow()
     {

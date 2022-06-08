@@ -1,12 +1,11 @@
-﻿using System.Windows.Controls;
-using SimulateTheWorld.GUI.ViewModels.SidePanel.Panels.MarkedTile;
+﻿using SimulateTheWorld.GUI.ViewModels.SidePanel.Panels.MarkedTile;
 
 namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.SidePanel;
 
 /// <summary>
 /// Interaktionslogik für STWSidePanel.xaml
 /// </summary>
-public partial class STWSidePanel : UserControl
+public partial class STWSidePanel
 {
     public STWSidePanel()
     {

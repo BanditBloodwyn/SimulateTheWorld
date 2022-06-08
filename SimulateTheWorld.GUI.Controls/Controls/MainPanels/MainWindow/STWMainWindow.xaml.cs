@@ -1,12 +1,11 @@
-﻿using System.Windows.Controls;
-using SimulateTheWorld.GUI.ViewModels.SidePanel;
+﻿using SimulateTheWorld.GUI.ViewModels.SidePanel;
 
 namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.MainWindow;
 
 /// <summary>
 /// Interaktionslogik für STWMainWindow.xaml
 /// </summary>
-public partial class STWMainWindow : UserControl
+public partial class STWMainWindow
 {
     public STWMainWindow()
     {

@@ -9,7 +9,7 @@ namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.SidePanel.Panels;
 /// <summary>
 /// Interaktionslogik für PinnedLocationsControl.xaml
 /// </summary>
-public partial class PinnedLocationsControl : UserControl
+public partial class PinnedLocationsControl
 {
     public PinnedLocationsControl()
     {

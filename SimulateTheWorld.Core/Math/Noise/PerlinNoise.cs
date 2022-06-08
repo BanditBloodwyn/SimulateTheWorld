@@ -219,32 +219,44 @@ internal class PerlinNoise
         if (t0 > 0)
         {
             t0 *= t0;
-            int gi0 = _random[ii + _random[jj + _random[kk]]] % 12;
-            n0 = t0 * t0 * Dot(Grad3[gi0], x0, y0, z0);
+            if (_random != null)
+            {
+                int gi0 = _random[ii + _random[jj + _random[kk]]] % 12;
+                n0 = t0 * t0 * Dot(Grad3[gi0], x0, y0, z0);
+            }
         }
 
         double t1 = 0.6 - x1 * x1 - y1 * y1 - z1 * z1;
         if (t1 > 0)
         {
             t1 *= t1;
-            int gi1 = _random[ii + i1 + _random[jj + j1 + _random[kk + k1]]] % 12;
-            n1 = t1 * t1 * Dot(Grad3[gi1], x1, y1, z1);
+            if (_random != null)
+            {
+                int gi1 = _random[ii + i1 + _random[jj + j1 + _random[kk + k1]]] % 12;
+                n1 = t1 * t1 * Dot(Grad3[gi1], x1, y1, z1);
+            }
         }
 
         double t2 = 0.6 - x2 * x2 - y2 * y2 - z2 * z2;
         if (t2 > 0)
         {
             t2 *= t2;
-            int gi2 = _random[ii + i2 + _random[jj + j2 + _random[kk + k2]]] % 12;
-            n2 = t2 * t2 * Dot(Grad3[gi2], x2, y2, z2);
+            if (_random != null)
+            {
+                int gi2 = _random[ii + i2 + _random[jj + j2 + _random[kk + k2]]] % 12;
+                n2 = t2 * t2 * Dot(Grad3[gi2], x2, y2, z2);
+            }
         }
 
         double t3 = 0.6 - x3 * x3 - y3 * y3 - z3 * z3;
         if (t3 > 0)
         {
             t3 *= t3;
-            int gi3 = _random[ii + 1 + _random[jj + 1 + _random[kk + 1]]] % 12;
-            n3 = t3 * t3 * Dot(Grad3[gi3], x3, y3, z3);
+            if (_random != null)
+            {
+                int gi3 = _random[ii + 1 + _random[jj + 1 + _random[kk + 1]]] % 12;
+                n3 = t3 * t3 * Dot(Grad3[gi3], x3, y3, z3);
+            }
         }
 
         // Add contributions from each corner to get the final noise value.

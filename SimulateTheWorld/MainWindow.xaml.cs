@@ -1,12 +1,11 @@
-﻿using System.Windows;
-using SimulateTheWorld.Core.Logging;
+﻿using SimulateTheWorld.Core.Logging;
 
 namespace SimulateTheWorld.Start;
 
 /// <summary>
 /// Interaction logic for MainWindow.xaml
 /// </summary>
-public partial class MainWindow : Window
+public partial class MainWindow
 {
     public MainWindow()
     {

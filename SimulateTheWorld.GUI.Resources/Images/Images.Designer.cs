@@ -59,15 +59,5 @@ namespace SimulateTheWorld.GUI.Resources.Images {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Byte[].
-        /// </summary>
-        internal static byte[] Logo {
-            get {
-                object obj = ResourceManager.GetObject("Logo", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
     }
 }
