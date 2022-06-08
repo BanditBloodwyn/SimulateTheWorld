@@ -6,7 +6,7 @@ using SimulateTheWorld.World.Data.Data;
 using SimulateTheWorld.World.Data.Types.Classes;
 using SimulateTheWorld.World.Systems.Instances;
 
-namespace SimulateTheWorld.GUI.ViewModels.Commands.SidePanel;
+namespace SimulateTheWorld.GUI.Commands.SidePanel;
 
 public class MoveToPinnedLocationCommand : ICommand
 {

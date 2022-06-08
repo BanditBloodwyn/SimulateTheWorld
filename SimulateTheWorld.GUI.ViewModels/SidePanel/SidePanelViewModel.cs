@@ -1,9 +1,9 @@
 ﻿using System;
 using SimulateTheWorld.Core.GUI.MVVM;
 using SimulateTheWorld.Core.Logging;
-using SimulateTheWorld.GUI.ViewModels.Commands.SidePanel;
+using SimulateTheWorld.GUI.Commands.SidePanel;
 
-namespace SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel;
+namespace SimulateTheWorld.GUI.ViewModels.SidePanel;
 
 public class SidePanelViewModel : ObservableObject
 {

@@ -4,7 +4,7 @@ using SimulateTheWorld.GUI.Mediators.Mediators;
 using SimulateTheWorld.GUI.Mediators.Messages;
 using SimulateTheWorld.World.Systems.Instances;
 
-namespace SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel.Panels.MarkedTile;
+namespace SimulateTheWorld.GUI.ViewModels.SidePanel.Panels.MarkedTile;
 
 public class MarkedTileViewModel : ObservableObject, ISubscriber<LocationMessage>
 {

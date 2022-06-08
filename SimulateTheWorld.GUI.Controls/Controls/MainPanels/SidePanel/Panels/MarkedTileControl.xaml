@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:markedTile="clr-namespace:SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel.Panels.MarkedTile;assembly=SimulateTheWorld.GUI.ViewModels"
              xmlns:displayControls="clr-namespace:SimulateTheWorld.GUI.Controls.Controls.DisplayControls"
+             xmlns:markedTile="clr-namespace:SimulateTheWorld.GUI.ViewModels.SidePanel.Panels.MarkedTile;assembly=SimulateTheWorld.GUI.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
    

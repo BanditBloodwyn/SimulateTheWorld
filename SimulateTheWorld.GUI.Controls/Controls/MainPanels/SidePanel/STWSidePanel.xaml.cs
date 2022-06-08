@@ -1,5 +1,5 @@
 ﻿using System.Windows.Controls;
-using SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel.Panels.MarkedTile;
+using SimulateTheWorld.GUI.ViewModels.SidePanel.Panels.MarkedTile;
 
 namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.SidePanel;
 

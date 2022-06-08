@@ -3,12 +3,12 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using SimulateTheWorld.Core.GUI.MVVM;
 using SimulateTheWorld.Core.GUI.MVVM.Mediator;
+using SimulateTheWorld.GUI.Commands.SidePanel;
 using SimulateTheWorld.GUI.Mediators.Mediators;
 using SimulateTheWorld.GUI.Mediators.Messages;
-using SimulateTheWorld.GUI.ViewModels.Commands.SidePanel;
 using SimulateTheWorld.World.Data.Types.Classes;
 
-namespace SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel.Panels.PinnedLocations;
+namespace SimulateTheWorld.GUI.ViewModels.SidePanel.Panels.PinnedLocations;
 
 public class PinnedLocationsViewModel : ObservableObject, ISubscriber<IMessage>
 {

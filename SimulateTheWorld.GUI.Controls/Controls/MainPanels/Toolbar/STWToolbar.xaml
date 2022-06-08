@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:resources="clr-namespace:SimulateTheWorld.GUI.Resources.Localization;assembly=SimulateTheWorld.GUI.Resources"
-             xmlns:toolbar="clr-namespace:SimulateTheWorld.GUI.ViewModels.ViewModels.Toolbar;assembly=SimulateTheWorld.GUI.ViewModels"
+             xmlns:toolbar="clr-namespace:SimulateTheWorld.GUI.ViewModels.Toolbar;assembly=SimulateTheWorld.GUI.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="20" d:DesignWidth="800">
 

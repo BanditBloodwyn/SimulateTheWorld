@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:resources="clr-namespace:SimulateTheWorld.GUI.Resources.Localization;assembly=SimulateTheWorld.GUI.Resources"
              xmlns:panels="clr-namespace:SimulateTheWorld.GUI.Controls.Controls.MainPanels.SidePanel.Panels"
-             xmlns:sidePanel="clr-namespace:SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel;assembly=SimulateTheWorld.GUI.ViewModels"
+             xmlns:sidePanel="clr-namespace:SimulateTheWorld.GUI.ViewModels.SidePanel;assembly=SimulateTheWorld.GUI.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="400">
     <UserControl.DataContext>

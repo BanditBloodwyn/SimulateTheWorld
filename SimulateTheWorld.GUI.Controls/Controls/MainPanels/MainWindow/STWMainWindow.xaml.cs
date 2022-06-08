@@ -1,5 +1,5 @@
 ﻿using System.Windows.Controls;
-using SimulateTheWorld.GUI.ViewModels.ViewModels.SidePanel;
+using SimulateTheWorld.GUI.ViewModels.SidePanel;
 
 namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.MainWindow;
 
