@@ -26,12 +26,13 @@ public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
     private Dispatcher _dispatcher = null!;
     
     private bool _loaded;
+    private bool _dragging;
     private int _millisecs;
 
     public event Action<int>? OnTileSelected;
     public event Action<DebugInformation>? OnDebugInfoChanged;
 
-    public OpenTileContextMenuCommand OpenTileContextMenuCommand { get; }
+    private OpenTileContextMenuCommand OpenTileContextMenuCommand { get; }
 
     public RenderingControlViewModel()
     {
@@ -93,7 +94,12 @@ public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
         Vector2 delta = _inputController.GetDelta();
 
         if (args.RightButton == MouseButtonState.Pressed)
+        {
+            _dragging = true;
             Camera.Instance.Translate(new Vector3(delta.X, 0.0f, delta.Y));
+        }
+        if (args.RightButton == MouseButtonState.Released)
+            _dragging = false;
 
         if (args.MiddleButton == MouseButtonState.Pressed)
             Camera.Instance.Rotate(new Vector3(0, delta.Y, 0.0f));
@@ -106,9 +112,18 @@ public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
         if (!_loaded)
             return;
 
-        if (changedButton != MouseButton.Left)
-            return;
+        if (changedButton == MouseButton.Left)
+            MarkTile();
 
+        if (changedButton == MouseButton.Right && !_dragging)
+        {
+            MarkTile();
+            OpenTileContextMenuCommand.Execute(this);
+        }
+    }
+
+    private void MarkTile()
+    {
         if (!_tileFinder.CurrentTileID.HasValue)
             return;
 
