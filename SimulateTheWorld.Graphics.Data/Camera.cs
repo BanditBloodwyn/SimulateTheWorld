@@ -15,16 +15,16 @@ public class Camera
         get { return _instance ??= new Camera(); }
     }
 
-    public Transform Transform { get; set; } = new Transform();
+    public Transform Transform { get; } = new();
 
-    public Matrix4 ProjectionMatrix { get; set; }
-    public Matrix4 ViewMatrix { get; set; }
+    public Matrix4 ProjectionMatrix { get; private set; }
+    public Matrix4 ViewMatrix { get; private set; }
 
     public Vector3 Front { get; set; } = new(0, -2, -1);
 
     public float AspectRatio { get; set; }
     public float Speed { get; set; }
-    public float Sensitivity { get; set; }
+    public float Sensitivity { get; }
     
     private Camera()
     {
