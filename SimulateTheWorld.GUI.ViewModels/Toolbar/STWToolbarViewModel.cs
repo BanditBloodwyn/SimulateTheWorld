@@ -1,14 +1,15 @@
-﻿using SimulateTheWorld.GUI.Commands.Toolbar;
-using SimulateTheWorld.GUI.Core.MVVM;
+﻿using SimulateTheWorld.GUI.Core.MVVM;
+using SimulateTheWorld.GUI.Core.MVVM.Commands;
+using SimulateTheWorld.GUI.Dialogs.Popups.Toolbar;
 
 namespace SimulateTheWorld.GUI.ViewModels.Toolbar;
 
 public class STWToolbarViewModel : ObservableObject
 {
-    public OpenAboutPopupCommand OpenAboutPopupCommand { get; set; }
+    public OpenPopupCommand OpenAboutPopupCommand { get; set; }
 
     public STWToolbarViewModel()
     {
-        OpenAboutPopupCommand = new OpenAboutPopupCommand();
+        OpenAboutPopupCommand = new OpenPopupCommand { OpenControl = new AboutControl() };
     }
 }

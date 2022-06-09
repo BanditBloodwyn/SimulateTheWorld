@@ -6,11 +6,11 @@ using SimulateTheWorld.Core.Logging;
 
 namespace SimulateTheWorld.GUI.Core.MVVM.Commands;
 
-public abstract class OpenPopupCommand : ICommand
+public class OpenPopupCommand : ICommand
 {
     public event EventHandler? CanExecuteChanged;
 
-    protected abstract UserControl? OpenControl { get; }
+    public UserControl? OpenControl { get; init; }
 
     public bool CanExecute(object? parameter)
     {
