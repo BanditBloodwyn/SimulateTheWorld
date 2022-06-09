@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="GUI\" />
     <Folder Include="Logging\" />
   </ItemGroup>
 
