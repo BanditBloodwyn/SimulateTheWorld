@@ -12,12 +12,12 @@
     </Window.DataContext>
 
     <StackPanel>
-        <Label Margin="0,20,0,0" Height="25" 
+        <Label Height="25" 
                Content="{Binding Description}"/>
         <Separator/>
         <MenuItem Header="{Binding PinText}" Click="MenuItem_OnClick"/>
         <Separator/>
-        <MenuItem Header="test"/>
+        <MenuItem Header="Bauen"/>
         <MenuItem Header="test"/>
     </StackPanel>
 </Window>

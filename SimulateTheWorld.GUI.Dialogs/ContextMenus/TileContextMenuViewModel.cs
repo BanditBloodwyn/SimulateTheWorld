@@ -9,7 +9,7 @@ public class TileContextMenuViewModel : ObservableObject
 {
     private TerrainTile? _tile;
 
-    public string Description => $"Tile ID: {_tile?.ID}";
+    public string Description => $"Tile ID: {_tile?.ID} - {_tile?.Location?.Coordinate}";
 
     public string PinText => _tile != null && _tile.Pinned 
         ? "Lösen" 
