@@ -16,9 +16,9 @@ public partial class TileContextMenu
         _viewModel = DataContext as TileContextMenuViewModel ?? new TileContextMenuViewModel();
     }
 
-    private void MenuItem_OnClick(object sender, RoutedEventArgs e)
+    private void MenuItem_OnPinTileClick(object sender, RoutedEventArgs e)
     {
-        _viewModel.PinTile();
+        _viewModel.PinTileCommand.Execute(null);
         Hide();
     }
 }

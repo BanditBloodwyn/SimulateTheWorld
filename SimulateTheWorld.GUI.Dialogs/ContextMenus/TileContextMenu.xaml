@@ -15,7 +15,7 @@
         <Label Height="25" 
                Content="{Binding Description}"/>
         <Separator/>
-        <MenuItem Header="{Binding PinText}" Click="MenuItem_OnClick"/>
+        <MenuItem Header="{Binding PinText}" Click="MenuItem_OnPinTileClick"/>
         <Separator/>
         <MenuItem Header="Bauen"/>
         <MenuItem Header="test"/>

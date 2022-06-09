@@ -1,4 +1,5 @@
 ﻿using SimulateTheWorld.GUI.Core.MVVM;
+using SimulateTheWorld.GUI.Core.MVVM.Commands;
 using SimulateTheWorld.GUI.Mediators.Mediators;
 using SimulateTheWorld.GUI.Mediators.Messages;
 using SimulateTheWorld.World.Systems.Instances;
@@ -15,6 +16,8 @@ public class TileContextMenuViewModel : ObservableObject
         ? "Lösen" 
         : "Anpinnen";
 
+    public DelegateCommand PinTileCommand { get; }
+
     public TerrainTile? Tile
     {
         set
@@ -26,12 +29,15 @@ public class TileContextMenuViewModel : ObservableObject
         }
     }
 
-    public void PinTile()
+    public TileContextMenuViewModel()
     {
-        if (_tile == null) 
-            return;
+        PinTileCommand = new DelegateCommand(_ =>
+        {
+            if (_tile == null)
+                return;
 
-        _tile.Pinned = !_tile.Pinned;
-        LocationMediator.Instance.Publish(new LocationMessage { Location = _tile.Location, ID = _tile.ID });
+            _tile.Pinned = !_tile.Pinned;
+            LocationMediator.Instance.Publish(new LocationMessage { Location = _tile.Location, ID = _tile.ID });
+        });
     }
 }
