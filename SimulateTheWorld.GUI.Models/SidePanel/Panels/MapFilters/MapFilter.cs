@@ -1,6 +1,6 @@
 ﻿using System;
-using SimulateTheWorld.Core.GUI.MVVM;
 using SimulateTheWorld.Core.Types.Enums;
+using SimulateTheWorld.GUI.Core.MVVM;
 
 namespace SimulateTheWorld.GUI.Models.SidePanel.Panels.MapFilters;
 

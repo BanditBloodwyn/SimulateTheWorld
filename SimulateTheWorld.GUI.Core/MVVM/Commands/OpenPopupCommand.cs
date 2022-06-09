@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using SimulateTheWorld.Core.Logging;
 
-namespace SimulateTheWorld.GUI.Commands.Base;
+namespace SimulateTheWorld.GUI.Core.MVVM.Commands;
 
 public abstract class OpenPopupCommand : ICommand
 {

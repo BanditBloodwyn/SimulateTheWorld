@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using SimulateTheWorld.Core.GUI.MVVM.Mediator;
+using SimulateTheWorld.GUI.Core.MVVM.Mediator;
 
 namespace SimulateTheWorld.GUI.Mediators.Mediators;
 

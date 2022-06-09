@@ -1,4 +1,4 @@
-﻿namespace SimulateTheWorld.Core.GUI.MVVM.Mediator;
+﻿namespace SimulateTheWorld.GUI.Core.MVVM.Mediator;
 
 public interface ISubscriber<T> where T : IMessage
 {

@@ -1,5 +1,5 @@
-﻿using SimulateTheWorld.Core.GUI.MVVM;
-using SimulateTheWorld.GUI.Commands.Toolbar;
+﻿using SimulateTheWorld.GUI.Commands.Toolbar;
+using SimulateTheWorld.GUI.Core.MVVM;
 
 namespace SimulateTheWorld.GUI.ViewModels.Toolbar;
 

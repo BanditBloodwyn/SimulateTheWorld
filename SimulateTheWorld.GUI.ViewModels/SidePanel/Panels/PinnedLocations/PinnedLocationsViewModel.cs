@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using SimulateTheWorld.Core.GUI.MVVM;
-using SimulateTheWorld.Core.GUI.MVVM.Mediator;
 using SimulateTheWorld.GUI.Commands.SidePanel;
+using SimulateTheWorld.GUI.Core.MVVM;
+using SimulateTheWorld.GUI.Core.MVVM.Mediator;
 using SimulateTheWorld.GUI.Mediators.Mediators;
 using SimulateTheWorld.GUI.Mediators.Messages;
 using SimulateTheWorld.World.Data.Types.Classes;

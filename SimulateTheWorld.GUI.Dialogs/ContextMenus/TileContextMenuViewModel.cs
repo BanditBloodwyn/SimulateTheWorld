@@ -1,4 +1,4 @@
-﻿using SimulateTheWorld.Core.GUI.MVVM;
+﻿using SimulateTheWorld.GUI.Core.MVVM;
 using SimulateTheWorld.GUI.Mediators.Mediators;
 using SimulateTheWorld.GUI.Mediators.Messages;
 using SimulateTheWorld.World.Systems.Instances;

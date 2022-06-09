@@ -35,9 +35,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.World.Reso
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.GUI.Dialogs", "SimulateTheWorld.GUI.Dialogs\SimulateTheWorld.GUI.Dialogs.csproj", "{26113FFF-92CB-4798-BF77-8C574356B57E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulateTheWorld.GUI.Commands", "SimulateTheWorld.GUI.Commands\SimulateTheWorld.GUI.Commands.csproj", "{90463FEC-8F23-46B5-9C65-1DD089896B6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.GUI.Commands", "SimulateTheWorld.GUI.Commands\SimulateTheWorld.GUI.Commands.csproj", "{90463FEC-8F23-46B5-9C65-1DD089896B6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulateTheWorld.GUI.Mediators", "SimulateTheWorld.GUI.Mediators\SimulateTheWorld.GUI.Mediators.csproj", "{998594D2-1025-4A2B-962E-4566BBF63A72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.GUI.Mediators", "SimulateTheWorld.GUI.Mediators\SimulateTheWorld.GUI.Mediators.csproj", "{998594D2-1025-4A2B-962E-4566BBF63A72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulateTheWorld.GUI.Core", "SimulateTheWorld.GUI.Core\SimulateTheWorld.GUI.Core.csproj", "{55F139F2-BF05-4CB8-873B-D66D2D3AC47C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +107,10 @@ Global
 		{998594D2-1025-4A2B-962E-4566BBF63A72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{998594D2-1025-4A2B-962E-4566BBF63A72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{998594D2-1025-4A2B-962E-4566BBF63A72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55F139F2-BF05-4CB8-873B-D66D2D3AC47C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55F139F2-BF05-4CB8-873B-D66D2D3AC47C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55F139F2-BF05-4CB8-873B-D66D2D3AC47C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55F139F2-BF05-4CB8-873B-D66D2D3AC47C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -123,6 +129,7 @@ Global
 		{26113FFF-92CB-4798-BF77-8C574356B57E} = {2D1802E8-2C7E-45DE-85CB-C63B633B56A6}
 		{90463FEC-8F23-46B5-9C65-1DD089896B6B} = {2D1802E8-2C7E-45DE-85CB-C63B633B56A6}
 		{998594D2-1025-4A2B-962E-4566BBF63A72} = {2D1802E8-2C7E-45DE-85CB-C63B633B56A6}
+		{55F139F2-BF05-4CB8-873B-D66D2D3AC47C} = {2D1802E8-2C7E-45DE-85CB-C63B633B56A6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CDCD1C92-3413-4B48-B484-6088639B01C4}

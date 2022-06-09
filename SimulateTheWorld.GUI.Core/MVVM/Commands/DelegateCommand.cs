@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace SimulateTheWorld.Core.GUI.MVVM;
+namespace SimulateTheWorld.GUI.Core.MVVM.Commands;
 
 public class DelegateCommand : ICommand
 {
@@ -16,8 +16,8 @@ public class DelegateCommand : ICommand
         _execute = execute;
     }
 
-    public DelegateCommand(Action<object?> execute) 
-        : this(null, execute) {}
+    public DelegateCommand(Action<object?> execute)
+        : this(null, execute) { }
 
     public bool CanExecute(object? parameter) => _canExecute?.Invoke(parameter) ?? true;
 
