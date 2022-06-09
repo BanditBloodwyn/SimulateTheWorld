@@ -7,9 +7,9 @@ namespace SimulateTheWorld.GUI.Dialogs.Popups.Toolbar;
 
 public class AboutControlViewModel : ObservableObject
 {
-    public string? Version => Assembly.GetEntryAssembly()?.GetName().Version?.ToString();
+    public static string? Version => Assembly.GetEntryAssembly()?.GetName().Version?.ToString();
 
-    public string BuildDate
+    public static string BuildDate
     {
         get
         {
@@ -22,6 +22,6 @@ public class AboutControlViewModel : ObservableObject
         }
     }
 
-    public string Intention => Resources.Localization.Locals_German.toolbar_help_about_intention;
+    public static string Intention => Resources.Localization.Locals_German.toolbar_help_about_intention;
 }
     
