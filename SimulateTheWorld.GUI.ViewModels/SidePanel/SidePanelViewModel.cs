@@ -1,13 +1,16 @@
 ﻿using System;
+using System.Threading.Tasks;
 using SimulateTheWorld.Core.Logging;
-using SimulateTheWorld.GUI.Commands.SidePanel;
 using SimulateTheWorld.GUI.Core.MVVM;
+using SimulateTheWorld.GUI.Core.MVVM.Commands;
+using SimulateTheWorld.World.Systems.Instances;
 
 namespace SimulateTheWorld.GUI.ViewModels.SidePanel;
 
 public class SidePanelViewModel : ObservableObject
 {
     private bool _nextRoundEnabled;
+    public event Action? TriggerUpdateWorldRendering;
 
     public bool NextRoundEnabled
     {
@@ -22,14 +25,24 @@ public class SidePanelViewModel : ObservableObject
         }
     }
 
-    public NextRoundCommand NextRoundCommand { get; }
+    public DelegateCommand NextRoundCommand { get; }
 
     public SidePanelViewModel()
     {
         NextRoundEnabled = true;
 
-        NextRoundCommand = new NextRoundCommand();
-        NextRoundCommand.OnEnableNextRoundButton += OnEnableNextRoundButton;
+        NextRoundCommand = new DelegateCommand(_ =>
+        {
+            Logger.Group("NextRoundCommand");
+
+            Task.Factory
+                .StartNew(() => OnEnableNextRoundButton(false))
+                .ContinueWith(static _ => STWWorld.Instance.Update())
+                .ContinueWith(_ => TriggerUpdateWorldRendering?.Invoke())
+                .ContinueWith(_ => OnEnableNextRoundButton(true))
+                .ContinueWith(static _ => Logger.Group("NextRoundCommand"));
+
+        });
     }
 
     private void OnEnableNextRoundButton(bool enable)
@@ -42,6 +55,6 @@ public class SidePanelViewModel : ObservableObject
 
     public void SetUpdateWorldRendering(Action? triggerUpdateWorldRendering)
     {
-        NextRoundCommand.TriggerUpdateWorldRendering += triggerUpdateWorldRendering;
+        TriggerUpdateWorldRendering += triggerUpdateWorldRendering;
     }
 }
