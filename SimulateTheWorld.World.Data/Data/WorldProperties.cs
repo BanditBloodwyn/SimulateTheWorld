@@ -10,10 +10,10 @@ public class WorldProperties
 {
     private static WorldProperties? _instance;
 
-    public int WorldSize { get; set; }
-    public float TileTotalSize { get; set; }
-    public float TileFillSize { get; set; }
-    public float VegetationSpreadingSpeed { get; set; }
+    public int WorldSize { get; }
+    public float TileTotalSize { get; }
+    public float TileFillSize { get; }
+    public float VegetationSpreadingSpeed { get; }
 
     public static WorldProperties Instance => _instance ??= new WorldProperties();
 
