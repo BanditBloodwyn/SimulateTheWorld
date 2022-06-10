@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 
 namespace SimulateTheWorld.GUI.Dialogs.ContextMenus;
 
@@ -18,7 +19,14 @@ public partial class TileContextMenu
 
     private void MenuItem_OnPinTileClick(object sender, RoutedEventArgs e)
     {
-        _viewModel.PinTileCommand.Execute(null);
+        if(_viewModel.Tile == null || _viewModel.Tile.Pinned)
+            _viewModel.PinTileCommand.Execute(null);
+        else
+        {
+            Point point = Point.Add(Mouse.GetPosition(this), new Vector(Left, Top));
+            _viewModel.OpenPinTileControlCommand?.Execute(point);
+        }
+
         Hide();
     }
 }

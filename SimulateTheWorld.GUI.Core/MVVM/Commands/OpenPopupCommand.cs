@@ -20,7 +20,7 @@ public class OpenPopupCommand : ICommand
     public void Execute(object? parameter)
     {
         Logger.Debug(this, "Execute OpenPopupCommand");
-
+        
         if (OpenControl == null)
         {
             Logger.Error(this, "OpenControl not set!");
@@ -29,11 +29,23 @@ public class OpenPopupCommand : ICommand
 
         Window popup = new Window
         {
+            Topmost = true,
+            WindowStyle = WindowStyle.None,
+            ShowInTaskbar = false,
             ResizeMode = ResizeMode.NoResize,
             SizeToContent = SizeToContent.WidthAndHeight,
-            WindowStartupLocation = WindowStartupLocation.CenterScreen,
-            Content = OpenControl,
+            Content = OpenControl
         };
+
+        if (parameter is Point mousePosition)
+        {
+            popup.WindowStartupLocation = WindowStartupLocation.Manual;
+            popup.Top = mousePosition.Y;
+            popup.Left = mousePosition.X;
+        }
+        else
+            popup.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
         popup.Show();
     }
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:core="clr-namespace:SimulateTheWorld.GUI.Controls.Controls.MainPanels.Core;assembly=SimulateTheWorld.GUI.Controls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowState="Maximized">
+        Title="MainWindow" Height="450" Width="800" WindowState="Maximized" Unloaded="MainWindow_OnUnloaded">
 
     <core:CoreControl/>
 </Window>

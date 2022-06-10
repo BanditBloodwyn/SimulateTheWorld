@@ -21,9 +21,12 @@
                 <TreeView.ItemTemplate>
                     <HierarchicalDataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <Label Content="{Binding Item1.Coordinate}" Width="200" Padding="0"/>
+                            <Label Content="{Binding Item1}" Width="150" Padding="0"/>
                             <Label Content=" - " Width="50" Padding="0"/>
-                            <Label Content="{Binding Item2}" Padding="0"/>
+                            <Label Content="{Binding Item2.Coordinate}" Width="100" Padding="0"/>
+                            <Label Content=" - " Width="50" Padding="0"/>
+                            <Label Content="ID:" Width="15" Padding="0"/>
+                            <Label Content="{Binding Item3}" Padding="0"/>
                         </StackPanel>
                     </HierarchicalDataTemplate>
                 </TreeView.ItemTemplate>
