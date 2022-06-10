@@ -3,8 +3,8 @@ using SimulateTheWorld.Core.Extentions;
 using SimulateTheWorld.Core.Math;
 using SimulateTheWorld.Core.Math.Noise.Filters;
 using SimulateTheWorld.World.Data.Data;
+using SimulateTheWorld.World.Data.Types.Classes;
 using SimulateTheWorld.World.Data.Types.Enums;
-using SimulateTheWorld.World.Systems.Instances;
 
 namespace SimulateTheWorld.World.Systems.Generation;
 

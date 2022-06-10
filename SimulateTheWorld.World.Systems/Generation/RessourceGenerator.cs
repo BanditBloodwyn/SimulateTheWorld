@@ -2,7 +2,7 @@
 using SimulateTheWorld.Core.Extentions;
 using SimulateTheWorld.Core.Math.Noise.Filters;
 using SimulateTheWorld.World.Data.Data;
-using SimulateTheWorld.World.Systems.Instances;
+using SimulateTheWorld.World.Data.Types.Classes;
 
 namespace SimulateTheWorld.World.Systems.Generation;
 

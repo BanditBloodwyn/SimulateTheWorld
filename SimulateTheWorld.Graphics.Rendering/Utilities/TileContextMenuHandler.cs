@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using SimulateTheWorld.GUI.Dialogs.ContextMenus;
+using SimulateTheWorld.World.Data.Types.Classes;
 using SimulateTheWorld.World.Systems.Instances;
 
 namespace SimulateTheWorld.Graphics.Rendering.Utilities;

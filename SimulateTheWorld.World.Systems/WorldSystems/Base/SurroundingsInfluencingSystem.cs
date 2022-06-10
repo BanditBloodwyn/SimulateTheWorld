@@ -1,4 +1,5 @@
 ﻿using System;
+using SimulateTheWorld.World.Data.Types.Classes;
 using SimulateTheWorld.World.Systems.Instances;
 using SimulateTheWorld.World.Systems.WorldSystems.Helper;
 
@@ -19,6 +20,9 @@ public abstract class SurroundingsInfluencingSystem : IWorldSystem
 
     public void Trigger()
     {
+        if (_modifier == null) 
+            return;
+
         TerrainTile[] tiles = STWWorld.Instance.Terrain.Tiles;
 
         foreach (TerrainTile currentTile in tiles)
@@ -26,7 +30,7 @@ public abstract class SurroundingsInfluencingSystem : IWorldSystem
             TerrainTile[] tilesToModify = TilesToModifyFinder.GetTilesToModify(currentTile.ID);
 
             foreach (TerrainTile tileToModify in tilesToModify)
-                _modifier?.Invoke(currentTile, tileToModify);
+                _modifier.Invoke(currentTile, tileToModify);
         }
     }
 }

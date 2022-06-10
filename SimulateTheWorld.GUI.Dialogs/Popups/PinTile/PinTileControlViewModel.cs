@@ -2,7 +2,7 @@
 using SimulateTheWorld.GUI.Core.MVVM.Commands;
 using SimulateTheWorld.GUI.Mediators.Mediators;
 using SimulateTheWorld.GUI.Mediators.Messages;
-using SimulateTheWorld.World.Systems.Instances;
+using SimulateTheWorld.World.Data.Types.Classes;
 
 namespace SimulateTheWorld.GUI.Dialogs.Popups.PinTile;
 

@@ -1,7 +1,6 @@
 ﻿using SimulateTheWorld.Core.Types;
 using SimulateTheWorld.World.Data.Data;
 using SimulateTheWorld.World.Data.Types.Classes;
-using SimulateTheWorld.World.Systems.Instances;
 
 namespace SimulateTheWorld.World.Systems.Generation;
 

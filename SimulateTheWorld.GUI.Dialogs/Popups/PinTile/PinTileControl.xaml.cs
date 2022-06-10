@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using SimulateTheWorld.World.Systems.Instances;
+using SimulateTheWorld.World.Data.Types.Classes;
 
 namespace SimulateTheWorld.GUI.Dialogs.Popups.PinTile;
 
