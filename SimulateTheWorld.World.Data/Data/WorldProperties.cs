@@ -19,16 +19,16 @@ public class WorldProperties
 
     private WorldProperties()
     {
-        WorldPropertiesContainer container = ReadJson();
+        WorldPropertiesJsonContainer jsonContainer = ReadJson();
 
-        WorldSize = container.WorldSize; 
-        TileTotalSize = container.TileTotalSize;
-        TileFillSize = container.TileFillSize;
+        WorldSize = jsonContainer.WorldSize; 
+        TileTotalSize = jsonContainer.TileTotalSize;
+        TileFillSize = jsonContainer.TileFillSize;
 
-        VegetationSpreadingSpeed = container.VegetationSpreadingSpeed;
+        VegetationSpreadingSpeed = jsonContainer.VegetationSpreadingSpeed;
     }
 
-    private WorldPropertiesContainer ReadJson()
+    private WorldPropertiesJsonContainer ReadJson()
     {
         try
         {
@@ -36,8 +36,8 @@ public class WorldProperties
             using (var reader = new StreamReader(Jsons.WorldData))
                 jsonFromFile = reader.ReadToEnd();
 
-            WorldPropertiesContainer? container = JsonConvert.DeserializeObject<WorldPropertiesContainer>(jsonFromFile);
-            return container ?? new WorldPropertiesContainer();
+            WorldPropertiesJsonContainer? container = JsonConvert.DeserializeObject<WorldPropertiesJsonContainer>(jsonFromFile);
+            return container ?? new WorldPropertiesJsonContainer();
         }
         catch (Exception e)
         {

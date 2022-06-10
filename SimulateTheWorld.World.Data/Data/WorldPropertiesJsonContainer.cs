@@ -1,6 +1,6 @@
 ﻿namespace SimulateTheWorld.World.Data.Data;
 
-public class WorldPropertiesContainer
+public class WorldPropertiesJsonContainer
 {
     public int WorldSize { get; set; }
     public float TileTotalSize { get; set; }
