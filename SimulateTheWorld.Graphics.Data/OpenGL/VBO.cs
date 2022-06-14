@@ -7,14 +7,6 @@ public class VBO
 {
     private int ID { get; }
 
-    public unsafe VBO(Vertex[] vertices)
-    {
-        
-        ID = GL.GenBuffer();
-        GL.BindBuffer(BufferTarget.ArrayBuffer, ID);
-        GL.BufferData(BufferTarget.ArrayBuffer, vertices.Length * sizeof(Vertex), vertices, BufferUsageHint.StaticDraw);
-    }
-
     public unsafe VBO(DataVertex[] vertices)
     {
 
@@ -31,7 +23,7 @@ public class VBO
 
     public void Bind() => GL.BindBuffer(BufferTarget.ArrayBuffer, ID);
 
-    public void Unbind() => GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
+    public static void Unbind() => GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
 
     public void Delete() => GL.DeleteBuffer(ID);
 }

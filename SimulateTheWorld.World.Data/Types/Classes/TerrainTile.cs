@@ -17,10 +17,10 @@ public class TerrainTile
     public TileType TileType { get; set; }
     public VegetationType VegetationType { get; set; }
 
-    public TerrainValues TerrainValues { get; set; } = new();
-    public FloraValues FloraValues { get; set; } = new();
-    public FaunaValues FaunaValues { get; set; } = new();
-    public PopulationValues PopulationValues { get; set; } = new();
+    public TerrainValues TerrainValues { get; } = new();
+    public FloraValues FloraValues { get; } = new();
+    public FaunaValues FaunaValues { get; } = new();
+    public PopulationValues PopulationValues { get; } = new();
 
-    public List<IBuilding> Buildings { get; set; } = new();
+    public List<IBuilding> Buildings { get; } = new();
 }

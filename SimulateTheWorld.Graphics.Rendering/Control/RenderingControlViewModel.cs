@@ -40,7 +40,7 @@ public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
         _debugInformation = new DebugInformation();
     }
 
-    public void SetTileContextMenu(Window menu)
+    public static void SetTileContextMenu(Window menu)
     {
         TileContextMenuHandler.Instance.Menu = menu;
     }

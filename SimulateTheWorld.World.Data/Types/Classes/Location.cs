@@ -4,9 +4,9 @@ namespace SimulateTheWorld.World.Data.Types.Classes;
 
 public class Location
 {
-    public string Name { get; set; }
+    public string Name { get; }
 
-    public Coordinate Coordinate { get; set; }
+    public Coordinate Coordinate { get; }
 
     public Location(string name, Coordinate coordinate)
     {

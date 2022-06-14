@@ -10,7 +10,7 @@ public class WorldGenerator
     private readonly RessourceGenerator _ressourceGenerator;
     private readonly VegetationGenerator _vegetationGenerator;
 
-    public CatalogCollection CatalogCollection { get; set; }
+    private CatalogCollection CatalogCollection { get; }
 
     public WorldGenerator()
     {

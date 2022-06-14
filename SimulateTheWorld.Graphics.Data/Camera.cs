@@ -23,8 +23,8 @@ public class Camera
     public Vector3 Front { get; set; } = new(0, -2, -1);
 
     public float AspectRatio { get; set; }
-    public float Speed { get; set; }
-    public float Sensitivity { get; }
+    private float Speed { get; set; }
+    private float Sensitivity { get; }
     
     private Camera()
     {

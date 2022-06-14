@@ -1,6 +1,6 @@
 ﻿namespace SimulateTheWorld.Core.Types;
 
-public struct Coordinate
+public readonly struct Coordinate
 {
     public int X { get; }
 
@@ -12,7 +12,7 @@ public struct Coordinate
         Y = y;
     }
 
-    public readonly override string ToString()
+    public override string ToString()
     {
         return $"{Y}°N {X}°O";
     }

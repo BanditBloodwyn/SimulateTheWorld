@@ -28,7 +28,7 @@ public static class ShaderPreparer
         Vector4 filterColorZero = new Vector4(colors[0].R / 255f, colors[0].G / 255f, colors[0].B / 255f, 1);
         Vector4 filterColorHundred = new Vector4(colors[1].R / 255f, colors[1].G / 255f, colors[1].B / 255f, 1);
 
-        Logger.Info(typeof(ShaderPreparer), $"Changing map filter",
+        Logger.Info(typeof(ShaderPreparer), "Changing map filter",
             $"New map filter: {MapFiltersModel.Instance.ActiveFilter.DisplayName}, Colors: {filterColorZero}, {filterColorHundred}");
 
         shader.SetVector4("uFilterColorZero", filterColorZero);

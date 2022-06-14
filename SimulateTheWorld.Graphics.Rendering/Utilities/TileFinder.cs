@@ -68,14 +68,14 @@ public class TileFinder
         return worldCoords;
     }
 
-    private Vector2 GetNormalizedDeviceCoords(Point mousePosition, double screenWidth, double screenHeight)
+    private static Vector2 GetNormalizedDeviceCoords(Point mousePosition, double screenWidth, double screenHeight)
     {
         float x = 2 * (float)mousePosition.X / (float)screenWidth - 1f;
         float y = 2 * (float)mousePosition.Y / (float)screenHeight - 1f;
         return new Vector2(x, y);
     }
 
-    private Vector4 GetClipCoords(Vector2 normalizedDeviceCoords)
+    private static Vector4 GetClipCoords(Vector2 normalizedDeviceCoords)
     {
         return new Vector4(normalizedDeviceCoords.X, normalizedDeviceCoords.Y, -1, 1);
     }

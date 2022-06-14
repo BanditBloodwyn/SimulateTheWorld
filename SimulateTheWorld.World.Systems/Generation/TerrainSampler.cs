@@ -10,23 +10,17 @@ public static class TerrainSampler
 
     public static VegetationType GetVegetationTypeByHeight(float height)
     {
-        if(height <= 10)
-            return VegetationType.Water;
-        if (height <= 30)
-            return VegetationType.Kolline;
-        if (height <= 50)
-            return VegetationType.Montane;
-        if (height <= 60)
-            return VegetationType.Subalpine;
-        if (height <= 70)
-            return VegetationType.Alpine_Trees;
-        if (height <= 80)
-            return VegetationType.Alpine_Bushes;
-        if (height <= 90)
-            return VegetationType.Subnivale;
-        if (height > 90)
-            return VegetationType.Nivale;
-
-        return VegetationType.Water;
+        return height switch
+        {
+            <= 10 => VegetationType.Water,
+            <= 30 => VegetationType.Kolline,
+            <= 50 => VegetationType.Montane,
+            <= 60 => VegetationType.Subalpine,
+            <= 70 => VegetationType.Alpine_Trees,
+            <= 80 => VegetationType.Alpine_Bushes,
+            <= 90 => VegetationType.Subnivale,
+            > 90 => VegetationType.Nivale,
+            _ => VegetationType.Water
+        };
     }
 }

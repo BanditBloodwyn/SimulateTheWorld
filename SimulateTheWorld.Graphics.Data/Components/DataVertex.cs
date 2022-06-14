@@ -1,10 +1,13 @@
-﻿using OpenTK.Mathematics;
+﻿// ReSharper disable NotAccessedField.Global
+// ReSharper disable NotAccessedField.Local
+
+using OpenTK.Mathematics;
 
 namespace SimulateTheWorld.Graphics.Data.Components;
 
 public struct DataVertex
 {
-    public Vector3 position;
+    private Vector3 position;
 
     public float marked;
 

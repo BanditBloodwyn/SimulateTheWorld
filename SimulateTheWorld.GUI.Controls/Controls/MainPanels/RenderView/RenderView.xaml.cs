@@ -21,7 +21,7 @@ public partial class RenderView
 
         (_renderingControl.DataContext as RenderingControlViewModel)!.OnDebugInfoChanged += RenderingControlOnOnDebugInfoChanged;
         (_renderingControl.DataContext as RenderingControlViewModel)!.OnTileSelected += OnOnTileSelected;
-        (_renderingControl.DataContext as RenderingControlViewModel)!.SetTileContextMenu(new TileContextMenu());
+        RenderingControlViewModel.SetTileContextMenu(new TileContextMenu());
 
         WaitingWindow waitingWindow = new WaitingWindow();
         waitingWindow.Show();

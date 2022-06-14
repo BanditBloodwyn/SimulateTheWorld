@@ -26,7 +26,7 @@ public class MapFiltersModel
     public MapFilter Ressource_OilFilter { get; }
     public MapFilter Ressource_GasFilter { get; }
 
-    public MapFilter? ActiveFilter => _filters.FirstOrDefault(filter => filter.Active);
+    public MapFilter? ActiveFilter => _filters.FirstOrDefault(static filter => filter.Active);
 
     public static MapFiltersModel Instance
     {

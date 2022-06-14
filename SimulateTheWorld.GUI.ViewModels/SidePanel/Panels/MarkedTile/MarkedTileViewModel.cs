@@ -6,8 +6,8 @@ namespace SimulateTheWorld.GUI.ViewModels.SidePanel.Panels.MarkedTile;
 
 public class MarkedTileViewModel : ObservableObject
 {
-    public TerrainTile? Tile { get; private set; }
-    
+    public TerrainTile Tile { get; private set; } = null!;
+
     public void SetTile(int tileID)
     {
         if (tileID > STWWorld.Instance.Terrain.Tiles.Length - 1)
