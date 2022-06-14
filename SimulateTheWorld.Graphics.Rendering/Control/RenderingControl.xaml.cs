@@ -20,7 +20,6 @@ public sealed partial class RenderingControl
 
         _viewModel = DataContext as RenderingControlViewModel 
                      ?? new RenderingControlViewModel();
-
         GLWpfControlSettings mainSettings = new GLWpfControlSettings
         {
             MajorVersion = 4, MinorVersion = 5, GraphicsProfile = ContextProfile.Core,
@@ -41,7 +40,7 @@ public sealed partial class RenderingControl
 
     private void GlControl_OnUnloaded(object sender, RoutedEventArgs e)
     {
-        _viewModel.OnUnload();
+        RenderingControlViewModel.OnUnload();
     }
 
     private void GlControl_OnSizeChanged(object sender, SizeChangedEventArgs e)

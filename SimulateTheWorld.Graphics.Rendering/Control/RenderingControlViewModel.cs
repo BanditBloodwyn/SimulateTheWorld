@@ -20,7 +20,6 @@ public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
     private readonly OpenGLRenderer _renderer;
     private readonly InputController _inputController;
     private readonly TileFinder _tileFinder;
-    private readonly TileContextMenuHandler _tileContextMenuHandler;
     private readonly DebugInformation _debugInformation;
 
     private bool _loaded;
@@ -30,7 +29,6 @@ public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
     public event Action<int>? OnTileSelected;
     public event Action<DebugInformation>? OnDebugInfoChanged;
 
-
     public RenderingControlViewModel()
     {
         CameraMoverMediator.Instance.Subscribe(this);
@@ -38,9 +36,13 @@ public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
         _renderer = new OpenGLRenderer();
         _inputController = new InputController();
         _tileFinder = new TileFinder(Camera.Instance);
-        _tileContextMenuHandler = new TileContextMenuHandler();
         
         _debugInformation = new DebugInformation();
+    }
+
+    public void SetTileContextMenu(Window menu)
+    {
+        TileContextMenuHandler.Instance.Menu = menu;
     }
 
     public void OnUpdateVertexData()
@@ -57,9 +59,9 @@ public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
         _loaded = true;
     }
 
-    public void OnUnload()
+    public static void OnUnload()
     {
-        _tileContextMenuHandler.Close();
+        TileContextMenuHandler.Instance.Close();
         OpenGLRenderer.OnUnLoaded();
     }
 
@@ -84,7 +86,7 @@ public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
         _inputController.NewMousePosition = args.GetPosition(renderingControl);
         Vector2 delta = _inputController.GetDelta();
 
-        if (args.RightButton == MouseButtonState.Pressed && !_tileContextMenuHandler.ContextMenuOpened)
+        if (args.RightButton == MouseButtonState.Pressed && !TileContextMenuHandler.Instance.ContextMenuOpened)
         {
             _dragging = true;
             Camera.Instance.Translate(new Vector3(delta.X, 0.0f, delta.Y));
@@ -107,14 +109,14 @@ public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
         if (args.ChangedButton == MouseButton.Left)
         {
             MarkTile();
-            _tileContextMenuHandler.Hide();
+            TileContextMenuHandler.Instance.Hide();
         }
 
         if (args.ChangedButton == MouseButton.Right && !_dragging)
         {
             MarkTile();
             if (_tileFinder.CurrentTileID != null) 
-                _tileContextMenuHandler.Open(_tileFinder.CurrentTileID.Value, point);
+                TileContextMenuHandler.Instance.Open(_tileFinder.CurrentTileID.Value, point);
         }
     }
 

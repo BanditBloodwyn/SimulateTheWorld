@@ -1,13 +1,13 @@
-﻿<UserControl x:Class="SimulateTheWorld.GUI.Dialogs.Popups.Toolbar.AboutControl"
+﻿<UserControl x:Class="SimulateTheWorld.GUI.Controls.Dialogs.AboutControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:toolbar="clr-namespace:SimulateTheWorld.GUI.Dialogs.Popups.Toolbar"
+             xmlns:dialogs="clr-namespace:SimulateTheWorld.GUI.ViewModels.Dialogs;assembly=SimulateTheWorld.GUI.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" MinWidth="800">
     <UserControl.DataContext>
-        <toolbar:AboutControlViewModel/>
+        <dialogs:AboutControlViewModel/>
     </UserControl.DataContext>
 
     <Grid>

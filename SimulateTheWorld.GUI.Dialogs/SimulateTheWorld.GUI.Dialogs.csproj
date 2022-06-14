@@ -14,16 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Popups\Toolbar\AboutControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Update="Popups\Toolbar\AboutControl.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
+    <Folder Include="ContextMenus\" />
+    <Folder Include="Popups\PinTile\" />
+    <Folder Include="Popups\Toolbar\" />
   </ItemGroup>
 
 </Project>

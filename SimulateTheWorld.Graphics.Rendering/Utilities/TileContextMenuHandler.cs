@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using SimulateTheWorld.GUI.Dialogs.ContextMenus;
+using SimulateTheWorld.GUI.ViewModels.Dialogs;
 using SimulateTheWorld.World.Data.Types.Classes;
 using SimulateTheWorld.World.Systems.Instances;
 
@@ -7,32 +7,37 @@ namespace SimulateTheWorld.Graphics.Rendering.Utilities;
 
 public class TileContextMenuHandler
 {
-    private readonly TileContextMenu _menu;
+    private static TileContextMenuHandler? _instance;
 
-    public bool ContextMenuOpened => _menu.IsActive;
+    public Window? Menu { get; set; } = null;
 
-    public TileContextMenuHandler()
+    public bool ContextMenuOpened => Menu != null && Menu.IsActive;
+    
+    public static TileContextMenuHandler Instance
     {
-        _menu = new TileContextMenu();
+        get { return _instance ??= new TileContextMenuHandler(); }
     }
 
     public void Open(int id, Point mousePosition)
     {
-        TerrainTile tile = STWWorld.Instance.Terrain.Tiles[id];
-        (_menu.DataContext as TileContextMenuViewModel)!.Tile = tile;
+        if (Menu == null)
+            return;
 
-        _menu.Top = mousePosition.Y;
-        _menu.Left = mousePosition.X;
-        _menu.Show();
+        TerrainTile tile = STWWorld.Instance.Terrain.Tiles[id];
+        (Menu.DataContext as TileContextMenuViewModel)!.Tile = tile;
+
+        Menu.Top = mousePosition.Y;
+        Menu.Left = mousePosition.X;
+        Menu.Show();
     }
 
     public void Hide()
     {
-        _menu.Hide();
+        Menu?.Hide();
     }
 
     public void Close()
     {
-        _menu.Close();
+        Menu?.Close();
     }
 }

@@ -4,7 +4,7 @@ using SimulateTheWorld.GUI.Mediators.Mediators;
 using SimulateTheWorld.GUI.Mediators.Messages;
 using SimulateTheWorld.World.Data.Types.Classes;
 
-namespace SimulateTheWorld.GUI.Dialogs.Popups.PinTile;
+namespace SimulateTheWorld.GUI.ViewModels.Dialogs;
 
 public class PinTileControlViewModel : ObservableObject
 {

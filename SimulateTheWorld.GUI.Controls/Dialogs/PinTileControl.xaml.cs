@@ -1,7 +1,8 @@
 ﻿using System.Windows;
+using SimulateTheWorld.GUI.ViewModels.Dialogs;
 using SimulateTheWorld.World.Data.Types.Classes;
 
-namespace SimulateTheWorld.GUI.Dialogs.Popups.PinTile;
+namespace SimulateTheWorld.GUI.Controls.Dialogs;
 
 /// <summary>
 /// Interaktionslogik für PinTileControl.xaml

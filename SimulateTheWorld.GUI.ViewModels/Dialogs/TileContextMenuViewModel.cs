@@ -1,11 +1,10 @@
 ﻿using SimulateTheWorld.GUI.Core.MVVM;
 using SimulateTheWorld.GUI.Core.MVVM.Commands;
-using SimulateTheWorld.GUI.Dialogs.Popups.PinTile;
 using SimulateTheWorld.GUI.Mediators.Mediators;
 using SimulateTheWorld.GUI.Mediators.Messages;
 using SimulateTheWorld.World.Data.Types.Classes;
 
-namespace SimulateTheWorld.GUI.Dialogs.ContextMenus;
+namespace SimulateTheWorld.GUI.ViewModels.Dialogs;
 
 public class TileContextMenuViewModel : ObservableObject
 {
@@ -17,7 +16,6 @@ public class TileContextMenuViewModel : ObservableObject
         ? "Lösen" 
         : "Anpinnen";
 
-    public OpenPopupCommand? OpenPinTileControlCommand { get; private set; }
     public DelegateCommand PinTileCommand { get; }
 
     public TerrainTile? Tile
@@ -29,7 +27,6 @@ public class TileContextMenuViewModel : ObservableObject
 
             if (_tile == null)
                 return;
-            OpenPinTileControlCommand = new OpenPopupCommand { OpenControl = new PinTileControl(_tile) };
                 
             OnPropertyChanged();
             OnPropertyChanged(nameof(Description));

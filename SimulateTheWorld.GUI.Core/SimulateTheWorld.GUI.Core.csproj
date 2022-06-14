@@ -10,4 +10,9 @@
     <ProjectReference Include="..\SimulateTheWorld.Core\SimulateTheWorld.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Helper\" />
+    <Folder Include="Types\Enums\" />
+  </ItemGroup>
+
 </Project>

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using SimulateTheWorld.Core.Logging;
 using SimulateTheWorld.Graphics.Rendering.Container;
 using SimulateTheWorld.Graphics.Rendering.Control;
+using SimulateTheWorld.GUI.Controls.Dialogs;
 using SimulateTheWorld.World.Systems.Instances;
 
 namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.RenderView;
@@ -20,6 +21,7 @@ public partial class RenderView
 
         (_renderingControl.DataContext as RenderingControlViewModel)!.OnDebugInfoChanged += RenderingControlOnOnDebugInfoChanged;
         (_renderingControl.DataContext as RenderingControlViewModel)!.OnTileSelected += OnOnTileSelected;
+        (_renderingControl.DataContext as RenderingControlViewModel)!.SetTileContextMenu(new TileContextMenu());
 
         WaitingWindow waitingWindow = new WaitingWindow();
         waitingWindow.Show();

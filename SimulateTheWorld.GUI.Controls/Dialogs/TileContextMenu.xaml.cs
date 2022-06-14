@@ -1,7 +1,9 @@
 ﻿using System.Windows;
 using System.Windows.Input;
+using SimulateTheWorld.GUI.Core.Helper;
+using SimulateTheWorld.GUI.ViewModels.Dialogs;
 
-namespace SimulateTheWorld.GUI.Dialogs.ContextMenus;
+namespace SimulateTheWorld.GUI.Controls.Dialogs;
 
 /// <summary>
 /// Interaktionslogik für TileContextMenu.xaml
@@ -24,7 +26,7 @@ public partial class TileContextMenu
         else
         {
             Point point = Point.Add(Mouse.GetPosition(this), new Vector(Left, Top));
-            _viewModel.OpenPinTileControlCommand?.Execute(point);
+            DialogOpener.Open(new PinTileControl(_viewModel.Tile), WindowStyle.None, point);
         }
 
         Hide();

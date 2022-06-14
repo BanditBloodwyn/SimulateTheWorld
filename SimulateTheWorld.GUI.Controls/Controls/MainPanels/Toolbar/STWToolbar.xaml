@@ -30,7 +30,7 @@
                 </MenuItem>
 
                 <MenuItem Header="{x:Static resources:Locals_German.toolbar_help}">
-                    <MenuItem Header="{x:Static resources:Locals_German.toolbar_help_about}" Command="{Binding OpenAboutPopupCommand}"/>
+                    <MenuItem Header="{x:Static resources:Locals_German.toolbar_help_about}" Click="MenuItem_OnClick"/>
                 </MenuItem>
             </Menu>
         </DockPanel>

@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SimulateTheWorld.Core\SimulateTheWorld.Core.csproj" />
-    <ProjectReference Include="..\SimulateTheWorld.GUI.Dialogs\SimulateTheWorld.GUI.Dialogs.csproj" />
+    <ProjectReference Include="..\SimulateTheWorld.GUI.Mediators\SimulateTheWorld.GUI.Mediators.csproj" />
     <ProjectReference Include="..\SimulateTheWorld.GUI.Models\SimulateTheWorld.GUI.Models.csproj" />
     <ProjectReference Include="..\SimulateTheWorld.GUI.Resources\SimulateTheWorld.GUI.Resources.csproj" />
     <ProjectReference Include="..\SimulateTheWorld.World.Data\SimulateTheWorld.World.Data.csproj" />

@@ -1,14 +1,14 @@
-﻿<Window x:Class="SimulateTheWorld.GUI.Dialogs.ContextMenus.TileContextMenu"
+﻿<Window x:Class="SimulateTheWorld.GUI.Controls.Dialogs.TileContextMenu"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:SimulateTheWorld.GUI.Dialogs.ContextMenus"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dialogs="clr-namespace:SimulateTheWorld.GUI.ViewModels.Dialogs;assembly=SimulateTheWorld.GUI.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="190" d:DesignWidth="190" MaxHeight="190" MaxWidth="190"
              Topmost="True" WindowStyle="None" ShowInTaskbar="False" ResizeMode="NoResize">
     <Window.DataContext>
-        <local:TileContextMenuViewModel/>
+        <dialogs:TileContextMenuViewModel/>
     </Window.DataContext>
 
     <StackPanel>

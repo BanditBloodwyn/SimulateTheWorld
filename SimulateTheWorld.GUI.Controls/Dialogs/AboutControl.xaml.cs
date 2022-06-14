@@ -1,4 +1,4 @@
-﻿namespace SimulateTheWorld.GUI.Dialogs.Popups.Toolbar;
+﻿namespace SimulateTheWorld.GUI.Controls.Dialogs;
 
 /// <summary>
 /// Interaktionslogik für AboutControl.xaml

@@ -3,7 +3,7 @@ using System.IO;
 using System.Reflection;
 using SimulateTheWorld.GUI.Core.MVVM;
 
-namespace SimulateTheWorld.GUI.Dialogs.Popups.Toolbar;
+namespace SimulateTheWorld.GUI.ViewModels.Dialogs;
 
 public class AboutControlViewModel : ObservableObject
 {
