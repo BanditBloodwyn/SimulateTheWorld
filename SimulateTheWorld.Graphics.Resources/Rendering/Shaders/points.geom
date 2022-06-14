@@ -55,8 +55,6 @@ out vec4 ressource_standardOres;
 out vec3 ressource_preciousOres;
 out vec4 floraValues;
 
-flat out vec3 colorShading;
-
 // === Uniforms ===
 uniform float uTileSize;
 
@@ -98,6 +96,5 @@ void main()
     ressource_preciousOres = data_in[0].ressource_preciousOres;
     floraValues = data_in[0].floraValues;
 
-    colorShading = vec3(1, 1, 1);
     build_tile(gl_in[0].gl_Position);
 }
