@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using SimulateTheWorld.Core.Logging;
 using SimulateTheWorld.Core.Types;
 using SimulateTheWorld.GUI.Core.MVVM;
 using SimulateTheWorld.GUI.Core.MVVM.Commands;
@@ -44,11 +45,17 @@ public class PinnedLocationsViewModel : ObservableObject, ISubscriber<IMessage>
 
     public void Handle(IMessage message)
     {
-        if (message is not LocationMessage locationMessage) 
+        if (message is not LocationMessage locationMessage)
+        {
+            Logger.Debug(this, "message is no LocationMessage");
             return;
+        }
 
         if (locationMessage.Location == null)
+        {
+            Logger.Debug(this, "No Location in LocationMessage");
             return;
+        }
 
         if (Locations.Any(loc => loc.Item2?.Name == locationMessage.Location.Name))
             Locations.Remove(Locations.First(loc => loc.Item2?.Name == locationMessage.Location.Name));

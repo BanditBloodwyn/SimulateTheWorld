@@ -48,7 +48,7 @@ public static class VertexUpdater
 
                 pointCloud.UpdateVertexData();
                
-                Logger.Info(typeof(VertexUpdater), $"Updated vertices: {updatedVerticesCount}");
+                Logger.Debug(typeof(VertexUpdater), $"Updated vertices: {updatedVerticesCount}");
             }
         }
         catch (Exception e)

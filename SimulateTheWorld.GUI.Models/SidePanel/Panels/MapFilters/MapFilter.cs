@@ -24,7 +24,9 @@ public class MapFilter : ObservableObject
             {
                 _active = value;
                 MapFilterChanged?.Invoke(Type, Active);
+
                 OnPropertyChanged();
+
                 if(_active)
                     OnMapFilterChanged?.Invoke(this);
             }

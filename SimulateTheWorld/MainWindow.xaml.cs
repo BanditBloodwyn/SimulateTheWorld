@@ -11,10 +11,10 @@ public partial class MainWindow
 {
     public MainWindow()
     {
-        InitializeComponent();
-
         FileLogger fileLogger = new FileLogger();
         Logger.LogMessage += fileLogger.Log;
+        
+        InitializeComponent();
     }
 
     private void MainWindow_OnUnloaded(object sender, RoutedEventArgs e)

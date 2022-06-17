@@ -41,7 +41,7 @@ public class WorldProperties
         }
         catch (Exception e)
         {
-            Logger.Info(this, "ReadJson failed", e.ToString());
+            Logger.Debug(this, "ReadJson failed", e.ToString());
             throw;
         }
     }

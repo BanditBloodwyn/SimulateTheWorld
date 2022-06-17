@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SimulateTheWorld.Core.Logging;
 using SimulateTheWorld.GUI.Core.MVVM.Mediator;
 
 namespace SimulateTheWorld.GUI.Mediators.Mediators;
@@ -15,12 +16,16 @@ public class CameraMoverMediator : IMediator
 
     public void Publish(IMessage message)
     {
+        Logger.Debug(this, $"Publish: {message}");
+
         foreach (ISubscriber<IMessage> subscriber in _subscribers)
             subscriber.Handle(message);
     }
 
     public void Subscribe(ISubscriber<IMessage> subscriber)
     {
+        Logger.Debug(this, $"Subscribe: {subscriber}");
+
         _subscribers.Add(subscriber);
     }
 }

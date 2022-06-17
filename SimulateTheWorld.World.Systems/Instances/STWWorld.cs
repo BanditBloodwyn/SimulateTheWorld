@@ -32,7 +32,7 @@ public class STWWorld
     {
         foreach (IWorldSystem system in _worldSystems)
         {
-            Logger.Info(this, $"Trigger system {system.GetType().Name}");
+            Logger.Debug(this, $"Trigger system {system.GetType().Name}");
             system.Trigger();
         }
     }
@@ -41,7 +41,7 @@ public class STWWorld
     {
         foreach (IWorldSystem system in _worldSystems)
         {
-            Logger.Info(this, $"InitialTrigger system {system.GetType().Name}");
+            Logger.Debug(this, $"InitialTrigger system {system.GetType().Name}");
             system.InitialTrigger();
         }
     }

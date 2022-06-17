@@ -48,7 +48,7 @@ public class SidePanelViewModel : ObservableObject
     private void OnEnableNextRoundButton(bool enable)
     {
         string en = enable ? "true" : "false";
-        Logger.Info(this, $"Set \"Next Round\" button enable {en}");
+        Logger.Debug(this, $"Set \"Next Round\" button enable {en}");
         
         NextRoundEnabled = enable;
     }
