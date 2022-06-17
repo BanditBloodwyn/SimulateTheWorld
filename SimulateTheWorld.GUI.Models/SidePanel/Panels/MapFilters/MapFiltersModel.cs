@@ -59,7 +59,7 @@ public class MapFiltersModel
             Ressource_CoalFilter, Ressource_IronOreFilter, Ressource_GoldOreFilter, Ressource_OilFilter, Ressource_GasFilter };
     }
 
-    public void SetOnMapFilterChanged(Action onMapFilterChanged)
+    public void SetOnMapFilterChanged(Action<MapFilterType, bool> onMapFilterChanged)
     {
         foreach (MapFilter mapFilter in _filters)
         {

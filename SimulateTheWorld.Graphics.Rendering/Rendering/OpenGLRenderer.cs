@@ -1,10 +1,10 @@
 ﻿using System;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
+using SimulateTheWorld.Core.Types.Enums;
 using SimulateTheWorld.Graphics.Data;
 using SimulateTheWorld.Graphics.Data.OpenGL;
 using SimulateTheWorld.Graphics.Rendering.Utilities;
-using SimulateTheWorld.GUI.Models.SidePanel.Panels.MapFilters;
 using SimulateTheWorld.World.Data.Data;
 
 namespace SimulateTheWorld.Graphics.Rendering.Rendering;
@@ -25,7 +25,6 @@ public class OpenGLRenderer
 
         Camera.Instance.Transform.Position = new Vector3(WorldProperties.Instance.WorldSize / 2.0f * WorldProperties.Instance.TileTotalSize, 15.0f, WorldProperties.Instance.WorldSize / 2.0f * WorldProperties.Instance.TileTotalSize);
         FpsCounter = new FPSCounter();
-        MapFiltersModel.Instance.SetOnMapFilterChanged(() => ShaderPreparer.SetFilterColors(_pointShader));
 
         GL.Enable(EnableCap.DepthTest);
         GL.Enable(EnableCap.CullFace);
@@ -58,5 +57,13 @@ public class OpenGLRenderer
     {
         GL.Viewport(0, 0, (int)width, (int)height);
         Camera.Instance.AspectRatio = (float)width / (float)height;
+    }
+
+    public void SetFilterColors(MapFilterType type, bool active)
+    {
+        if(_pointShader == null) 
+            return;
+
+        ShaderPreparer.SetFilterColors(_pointShader, type, active);
     }
 }

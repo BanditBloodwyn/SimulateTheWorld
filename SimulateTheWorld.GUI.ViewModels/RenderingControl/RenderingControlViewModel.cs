@@ -12,6 +12,7 @@ using SimulateTheWorld.GUI.Core.MVVM;
 using SimulateTheWorld.GUI.Core.MVVM.Mediator;
 using SimulateTheWorld.GUI.Mediators.Mediators;
 using SimulateTheWorld.GUI.Mediators.Messages;
+using SimulateTheWorld.GUI.Models.SidePanel.Panels.MapFilters;
 using SimulateTheWorld.World.Systems.Instances;
 
 namespace SimulateTheWorld.GUI.ViewModels.RenderingControl;
@@ -58,6 +59,8 @@ public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
     public void OnLoad()
     {
         _renderer.OnLoaded();
+        MapFiltersModel.Instance.SetOnMapFilterChanged((mapFilterType, active) => _renderer.SetFilterColors(mapFilterType, active));
+
         _loaded = true;
     }
 

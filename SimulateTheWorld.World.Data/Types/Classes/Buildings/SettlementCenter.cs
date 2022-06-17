@@ -6,8 +6,8 @@ namespace SimulateTheWorld.World.Data.Types.Classes.Buildings;
 public class SettlementCenter : IBuilding
 {
     public string Name { get; } = string.Empty;
-    public string TypeName => GUI.Resources.Localization.Locals_German.building_typeName_settlementCenter;
-    public string Description => GUI.Resources.Localization.Locals_German.building_description_settlementCenter;
+    public string TypeName => "building_typeName_settlementCenter";
+    public string Description => "building_description_settlementCenter";
 
     public Action<TerrainTile, TerrainTile, int> BuiltModifier => static (currentTile, tileToModify, surroundingsCount) =>
     {

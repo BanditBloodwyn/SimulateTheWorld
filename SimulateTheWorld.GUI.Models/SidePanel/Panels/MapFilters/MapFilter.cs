@@ -8,7 +8,7 @@ public class MapFilter : ObservableObject
 {
     private bool _active;
 
-    public event Action? MapFilterChanged;
+    public event Action<MapFilterType, bool>? MapFilterChanged;
     public event Action<MapFilter>? OnMapFilterChanged;
 
     public string? DisplayName { get; set; }
@@ -23,7 +23,7 @@ public class MapFilter : ObservableObject
             if (_active != value)
             {
                 _active = value;
-                MapFilterChanged?.Invoke();
+                MapFilterChanged?.Invoke(Type, Active);
                 OnPropertyChanged();
                 if(_active)
                     OnMapFilterChanged?.Invoke(this);
