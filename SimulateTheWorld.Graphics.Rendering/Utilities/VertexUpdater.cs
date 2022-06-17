@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows.Threading;
 using SimulateTheWorld.Core.Logging;
 using SimulateTheWorld.Graphics.Data.Components;
 using SimulateTheWorld.Graphics.Data.Interfaces;
@@ -10,7 +9,7 @@ namespace SimulateTheWorld.Graphics.Rendering.Utilities;
 
 public static class VertexUpdater
 {
-    public static void UpdateVertexData(IDrawable drawable, Dispatcher? dispatcher = null)
+    public static void UpdateVertexData(IDrawable drawable)
     {
         int updatedVerticesCount = 0;
 

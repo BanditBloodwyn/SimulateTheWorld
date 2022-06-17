@@ -1,6 +1,4 @@
-﻿using SimulateTheWorld.Core.Types;
-
-namespace SimulateTheWorld.World.Data.Types.Classes;
+﻿namespace SimulateTheWorld.Core.Types;
 
 public class Location
 {

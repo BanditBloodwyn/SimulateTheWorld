@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using SimulateTheWorld.Core.Types;
 using SimulateTheWorld.GUI.Core.MVVM;
 using SimulateTheWorld.GUI.Core.MVVM.Commands;
 using SimulateTheWorld.GUI.Core.MVVM.Mediator;
 using SimulateTheWorld.GUI.Mediators.Mediators;
 using SimulateTheWorld.GUI.Mediators.Messages;
 using SimulateTheWorld.World.Data.Data;
-using SimulateTheWorld.World.Data.Types.Classes;
 using SimulateTheWorld.World.Systems.Instances;
 
 namespace SimulateTheWorld.GUI.ViewModels.SidePanel.Panels.PinnedLocations;

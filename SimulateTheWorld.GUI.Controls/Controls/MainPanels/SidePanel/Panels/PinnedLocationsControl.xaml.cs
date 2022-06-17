@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Controls;
 using System.Windows.Input;
+using SimulateTheWorld.Core.Types;
 using SimulateTheWorld.GUI.ViewModels.SidePanel.Panels.PinnedLocations;
-using SimulateTheWorld.World.Data.Types.Classes;
 
 namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.SidePanel.Panels;
 
