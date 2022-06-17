@@ -9,9 +9,9 @@ public interface IBuilding
     public string TypeName { get; }
     public string Description { get; }
     
-    public Action<TerrainTile, TerrainTile>? BuiltModifier { get; }
+    public Action<TerrainTile, TerrainTile, int>? BuiltModifier { get; }
 
-    public Action<TerrainTile, TerrainTile>? NextRoundModifier { get; }
+    public Action<TerrainTile, TerrainTile, int>? NextRoundModifier { get; }
 
     public Predicate<TerrainTile> Buildable { get; }
 }

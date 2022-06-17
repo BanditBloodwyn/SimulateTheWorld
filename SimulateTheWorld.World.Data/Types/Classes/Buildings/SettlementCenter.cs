@@ -5,17 +5,17 @@ namespace SimulateTheWorld.World.Data.Types.Classes.Buildings;
 
 public class SettlementCenter : IBuilding
 {
-    public string? Name { get; }
+    public string Name { get; } = string.Empty;
     public string TypeName => GUI.Resources.Localization.Locals_German.building_typeName_settlementCenter;
     public string Description => GUI.Resources.Localization.Locals_German.building_description_settlementCenter;
 
-    public Action<TerrainTile, TerrainTile> BuiltModifier => static (currentTile, tileToModify) =>
+    public Action<TerrainTile, TerrainTile, int> BuiltModifier => static (currentTile, tileToModify, surroundingsCount) =>
     {
-        currentTile.PopulationValues.Urbanization += 10;
+        currentTile.PopulationValues.Urbanization += 5f / surroundingsCount;
         tileToModify.PopulationValues.Urbanization += 2;
     };
 
-    public Action<TerrainTile, TerrainTile> NextRoundModifier => (currentTile, tileToModify) =>
+    public Action<TerrainTile, TerrainTile, int> NextRoundModifier => (currentTile, tileToModify, surroundingsCount) =>
     {
 
     };

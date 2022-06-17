@@ -7,10 +7,10 @@ public class BuildingInfluence : SurroundingsInfluencingSystem
 {
     public BuildingInfluence()
     {
-        _modifier = static (currentTile, tileToModify) =>
+        _modifier = static (currentTile, tileToModify, surroundingsCount) =>
         {
             foreach (IBuilding building in currentTile.Buildings)
-                building.NextRoundModifier?.Invoke(currentTile, tileToModify);
+                building.NextRoundModifier?.Invoke(currentTile, tileToModify, surroundingsCount);
         };
     }
 }

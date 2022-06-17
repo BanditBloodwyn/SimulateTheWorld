@@ -11,7 +11,7 @@ public abstract class SurroundingsInfluencingSystem : IWorldSystem
     /// Modifier function
     /// First tile is current tile, second is tile to modify
     /// </summary>
-    protected Action<TerrainTile, TerrainTile>? _modifier;
+    protected Action<TerrainTile, TerrainTile, int>? _modifier;
 
     public void InitialTrigger()
     {
@@ -30,7 +30,7 @@ public abstract class SurroundingsInfluencingSystem : IWorldSystem
             TerrainTile[] tilesToModify = TilesToModifyFinder.GetTilesToModify(currentTile.ID);
 
             foreach (TerrainTile tileToModify in tilesToModify)
-                _modifier.Invoke(currentTile, tileToModify);
+                _modifier.Invoke(currentTile, tileToModify, tilesToModify.Length);
         }
     }
 }

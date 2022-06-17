@@ -4,6 +4,7 @@ using System.Reflection;
 using SimulateTheWorld.GUI.Core.MVVM;
 using SimulateTheWorld.World.Data.Types.Classes;
 using SimulateTheWorld.World.Data.Types.Interfaces;
+using SimulateTheWorld.World.Systems.WorldSystems.Helper;
 
 namespace SimulateTheWorld.GUI.ViewModels.Dialogs.BuildingMenu;
 
@@ -57,11 +58,6 @@ public class BuildingMenuViewModel : ObservableObject
 
     public void Build(Type type)
     {
-        ConstructorInfo? constructorInfo = type.GetConstructor(Array.Empty<Type>());
-        if (constructorInfo == null)
-            return;
-
-        IBuilding building = (IBuilding)constructorInfo.Invoke(null);
-        Tile?.Buildings.Add(building);
+        BuildingBuilder.Build(type, Tile);
     }
 }

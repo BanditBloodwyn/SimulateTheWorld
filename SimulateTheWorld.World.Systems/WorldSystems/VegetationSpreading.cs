@@ -9,7 +9,7 @@ public class VegetationSpreading : SurroundingsInfluencingSystem
 {
     public VegetationSpreading()
     {
-        _modifier = static (currentTile, tileToModify) =>
+        _modifier = static (currentTile, tileToModify, _) =>
         {
             if(tileToModify.TileType == TileType.Water)
                 return;
