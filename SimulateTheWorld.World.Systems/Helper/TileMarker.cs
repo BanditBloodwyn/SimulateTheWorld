@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using SimulateTheWorld.World.Systems.Instances;
 
-namespace SimulateTheWorld.World.Systems;
+namespace SimulateTheWorld.World.Systems.Helper;
 
 public class TileMarker
 {

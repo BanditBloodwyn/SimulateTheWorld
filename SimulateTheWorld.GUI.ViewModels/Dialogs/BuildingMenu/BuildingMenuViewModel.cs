@@ -4,7 +4,7 @@ using System.Reflection;
 using SimulateTheWorld.GUI.Core.MVVM;
 using SimulateTheWorld.World.Data.Types.Classes;
 using SimulateTheWorld.World.Data.Types.Interfaces;
-using SimulateTheWorld.World.Systems.WorldSystems.Helper;
+using SimulateTheWorld.World.Systems.Helper;
 
 namespace SimulateTheWorld.GUI.ViewModels.Dialogs.BuildingMenu;
 

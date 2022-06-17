@@ -2,8 +2,9 @@
 using System.Reflection;
 using SimulateTheWorld.World.Data.Types.Classes;
 using SimulateTheWorld.World.Data.Types.Interfaces;
+using SimulateTheWorld.World.Systems.WorldSystems.Helper;
 
-namespace SimulateTheWorld.World.Systems.WorldSystems.Helper;
+namespace SimulateTheWorld.World.Systems.Helper;
 
 public static class BuildingBuilder
 {

@@ -15,9 +15,10 @@ public class SettlementCenter : IBuilding
         tileToModify.PopulationValues.Urbanization += 2;
     };
 
-    public Action<TerrainTile, TerrainTile, int> NextRoundModifier => (currentTile, tileToModify, surroundingsCount) =>
+    public Action<TerrainTile, TerrainTile, int> NextRoundModifier => static (currentTile, tileToModify, surroundingsCount) =>
     {
-
+        currentTile.PopulationValues.Population.Quantity += 5 / surroundingsCount;
+        tileToModify.PopulationValues.Population.Quantity += 2;
     };
 
     public Predicate<TerrainTile> Buildable => static tile => tile.Buildings.Count == 0 && tile.PopulationValues.Urbanization < 100;
