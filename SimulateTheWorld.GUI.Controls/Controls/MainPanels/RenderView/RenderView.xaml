@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:control="clr-namespace:SimulateTheWorld.Graphics.Rendering.Control;assembly=SimulateTheWorld.Graphics.Rendering"
              xmlns:toolBar="clr-namespace:SimulateTheWorld.GUI.Controls.Controls.MainPanels.RenderView.ToolBar"
              xmlns:displayControls="clr-namespace:SimulateTheWorld.GUI.Controls.Controls.DisplayControls"
+             xmlns:renderingControl="clr-namespace:SimulateTheWorld.GUI.Controls.Controls.MainPanels.RenderingControl"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
 
         <toolBar:MainToolbarControl Grid.Row="0"></toolBar:MainToolbarControl>
-        <control:RenderingControl x:Name="_renderingControl" Grid.Row="1"></control:RenderingControl>
+        <renderingControl:RenderingControl x:Name="_renderingControl" Grid.Row="1"></renderingControl:RenderingControl>
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>

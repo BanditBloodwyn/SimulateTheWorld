@@ -3,9 +3,10 @@ using System.Windows;
 using System.Windows.Input;
 using OpenTK.Windowing.Common;
 using OpenTK.Wpf;
+using SimulateTheWorld.GUI.ViewModels.RenderingControl;
 using MouseWheelEventArgs = System.Windows.Input.MouseWheelEventArgs;
 
-namespace SimulateTheWorld.Graphics.Rendering.Control;
+namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.RenderingControl;
 
 /// <summary>
 /// Interaktionslogik für RenderingControl.xaml

@@ -3,7 +3,7 @@ using SimulateTheWorld.GUI.ViewModels.Dialogs;
 using SimulateTheWorld.World.Data.Types.Classes;
 using SimulateTheWorld.World.Systems.Instances;
 
-namespace SimulateTheWorld.Graphics.Rendering.Utilities;
+namespace SimulateTheWorld.GUI.ViewModels.RenderingControl;
 
 public class TileContextMenuHandler
 {

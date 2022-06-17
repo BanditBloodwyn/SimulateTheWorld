@@ -2,8 +2,8 @@
 using System.Threading.Tasks;
 using SimulateTheWorld.Core.Logging;
 using SimulateTheWorld.Graphics.Rendering.Container;
-using SimulateTheWorld.Graphics.Rendering.Control;
 using SimulateTheWorld.GUI.Controls.Dialogs;
+using SimulateTheWorld.GUI.ViewModels.RenderingControl;
 using SimulateTheWorld.World.Systems.Instances;
 
 namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.RenderView;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using OpenTK.Mathematics;
 using SimulateTheWorld.Graphics.Data;
@@ -13,13 +14,14 @@ using SimulateTheWorld.GUI.Mediators.Mediators;
 using SimulateTheWorld.GUI.Mediators.Messages;
 using SimulateTheWorld.World.Systems.Instances;
 
-namespace SimulateTheWorld.Graphics.Rendering.Control;
+namespace SimulateTheWorld.GUI.ViewModels.RenderingControl;
 
 public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
 {
     private readonly OpenGLRenderer _renderer;
     private readonly InputController _inputController;
     private readonly TileFinder _tileFinder;
+
     private readonly DebugInformation _debugInformation;
 
     private bool _loaded;
@@ -78,7 +80,7 @@ public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
         Camera.Instance.Translate(new Vector3(0.0f, -delta, 0.0f));
     }
 
-    public void OnMouseMove(MouseEventArgs args, RenderingControl renderingControl)
+    public void OnMouseMove(MouseEventArgs args, UserControl renderingControl)
     {
         if (!_loaded)
             return;
