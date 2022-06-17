@@ -17,7 +17,7 @@
         <Separator/>
         <MenuItem Header="{Binding PinText}" Click="MenuItem_OnPinTileClick"/>
         <Separator/>
-        <MenuItem Header="Bauen"/>
+        <MenuItem Header="Bauen" Click="MenuItem_OnBuildClick"/>
         <MenuItem Header="test"/>
     </StackPanel>
 </Window>

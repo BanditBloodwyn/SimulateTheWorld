@@ -61,6 +61,24 @@ namespace SimulateTheWorld.GUI.Resources.Localization {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Kernbereich einer menschlichen Ansiedlung. Nötig zur Siedlungsgründung. ähnelt.
+        /// </summary>
+        public static string building_description_settlementCenter {
+            get {
+                return ResourceManager.GetString("building_description_settlementCenter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Siedlungskern ähnelt.
+        /// </summary>
+        public static string building_typeName_settlementCenter {
+            get {
+                return ResourceManager.GetString("building_typeName_settlementCenter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Länder ähnelt.
         /// </summary>
         public static string mapfilters_countries {

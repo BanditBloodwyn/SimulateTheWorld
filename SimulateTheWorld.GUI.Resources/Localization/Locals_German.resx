@@ -198,4 +198,10 @@
   <data name="toolbar_help_about_intention" xml:space="preserve">
     <value>Intention</value>
   </data>
+  <data name="building_description_settlementCenter" xml:space="preserve">
+    <value>Kernbereich einer menschlichen Ansiedlung. Nötig zur Siedlungsgründung.</value>
+  </data>
+  <data name="building_typeName_settlementCenter" xml:space="preserve">
+    <value>Siedlungskern</value>
+  </data>
 </root>

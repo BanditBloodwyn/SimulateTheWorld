@@ -31,4 +31,12 @@ public partial class TileContextMenu
 
         Hide();
     }
+
+    private void MenuItem_OnBuildClick(object sender, RoutedEventArgs e)
+    {
+        Point point = Point.Add(Mouse.GetPosition(this), new Vector(Left, Top));
+        DialogOpener.Open(new BuildingMenu(_viewModel.Tile), WindowStyle.ToolWindow, point);
+       
+        Hide();
+    }
 }
