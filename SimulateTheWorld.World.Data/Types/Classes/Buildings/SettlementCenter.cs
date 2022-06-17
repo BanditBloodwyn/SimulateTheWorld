@@ -20,5 +20,5 @@ public class SettlementCenter : IBuilding
 
     };
 
-    public Predicate<TerrainTile> Buildable => static tile => tile.Buildings.Count == 0;
+    public Predicate<TerrainTile> Buildable => static tile => tile.Buildings.Count == 0 && tile.PopulationValues.Urbanization < 100;
 }

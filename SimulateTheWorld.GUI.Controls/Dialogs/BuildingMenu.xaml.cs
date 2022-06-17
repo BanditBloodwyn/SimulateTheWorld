@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using SimulateTheWorld.GUI.ViewModels.Dialogs.BuildingMenu;
@@ -28,5 +29,8 @@ public partial class BuildingMenu
 
         Type type = (item.DataContext as BuildingItem)!.Building.GetType();
         _viewModel.Build(type);
+        
+        if(Parent is Window window)
+            window.Close();
     }
 }
