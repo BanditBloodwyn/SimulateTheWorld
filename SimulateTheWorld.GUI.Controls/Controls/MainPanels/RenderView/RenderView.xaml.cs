@@ -23,6 +23,11 @@ public partial class RenderView
         (_renderingControl.DataContext as RenderingControlViewModel)!.OnTileSelected += OnOnTileSelected;
         RenderingControlViewModel.SetTileContextMenu(new TileContextMenu());
 
+        StartWorld();
+    }
+
+    private void StartWorld()
+    {
         WaitingWindow waitingWindow = new WaitingWindow();
         waitingWindow.Show();
 

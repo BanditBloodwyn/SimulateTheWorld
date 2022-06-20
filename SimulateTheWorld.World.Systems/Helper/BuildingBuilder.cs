@@ -22,7 +22,7 @@ public static class BuildingBuilder
 
     private static void ApplyBuiltModifier(IBuilding building, TerrainTile? terrainTile)
     {
-        if (building.BuiltModifier == null || building.BuiltModifier == null || terrainTile == null)
+        if (building.BuiltModifier == null || terrainTile == null)
             return;
 
         TerrainTile[] tilesToModify = TilesToModifyFinder.GetTilesToModify(terrainTile.ID);
