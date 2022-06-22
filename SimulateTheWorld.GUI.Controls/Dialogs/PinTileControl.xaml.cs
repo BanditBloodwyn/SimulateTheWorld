@@ -51,6 +51,6 @@ public partial class PinTileControl
 
     private void TextBox_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        _viewModel.LocationName = (sender as TextBox).Text;
+        _viewModel.LocationName = (sender as TextBox)?.Text;
     }
 }
