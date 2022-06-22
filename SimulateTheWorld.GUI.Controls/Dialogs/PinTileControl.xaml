@@ -21,7 +21,7 @@
             <Separator Margin="0,0,0,10"/>
 
             <Label Margin="15,0" Content="Name"/>
-            <TextBox Margin="20,0" Text="{Binding LocationName}"/>
+            <TextBox Margin="20,0" Text="{Binding LocationName}" KeyUp="Textbox_OnKeyUp" TextChanged="TextBox_OnTextChanged"/>
         </StackPanel>
 
         <Grid Grid.Row="1">

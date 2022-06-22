@@ -1,4 +1,6 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 using SimulateTheWorld.GUI.ViewModels.Dialogs;
 using SimulateTheWorld.World.Data.Types.Classes;
 
@@ -21,8 +23,7 @@ public partial class PinTileControl
 
     private void ButtonBase_OnPinTileClick(object sender, RoutedEventArgs e)
     {
-        _viewModel.PinTileCommand.Execute(null);
-        Close();
+        PinTile();
     }
 
     private void ButtonBase_OnCancelClick(object sender, RoutedEventArgs e)
@@ -30,9 +31,26 @@ public partial class PinTileControl
         Close();
     }
 
+    private void PinTile()
+    {
+        _viewModel.PinTileCommand.Execute(null);
+        Close();
+    }
+
     private void Close()
     {
         if (Parent is Window window)
             window.Close();
+    }
+
+    private void Textbox_OnKeyUp(object sender, KeyEventArgs e)
+    {
+        if(e.Key == Key.Enter)
+            PinTile();
+    }
+
+    private void TextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+    {
+        _viewModel.LocationName = (sender as TextBox).Text;
     }
 }
