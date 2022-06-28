@@ -41,6 +41,12 @@ public partial class RenderView
                     waitingWindow.Close();
                 });
             });
+        
+        Task.Factory.StartNew(static () =>
+        {
+            while (true)
+                STWWorld.Instance.Update();
+        });
     }
 
     private void OnOnTileSelected(int tileID)

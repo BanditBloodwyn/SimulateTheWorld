@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Threading.Tasks;
 using System.Windows;
 using SimulateTheWorld.Core.Logging;
-using SimulateTheWorld.World.Core;
 
 namespace SimulateTheWorld.Start;
 
@@ -17,13 +15,6 @@ public partial class MainWindow
         Logger.LogMessage += fileLogger.Log;
         
         InitializeComponent();
-
-        Task.Factory.StartNew(static () =>
-        {
-            while (true) 
-                STWWorld.Instance.Update();
-        });
-
     }
 
     private void MainWindow_OnUnloaded(object sender, RoutedEventArgs e)
