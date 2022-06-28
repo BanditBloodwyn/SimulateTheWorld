@@ -10,8 +10,6 @@
     <ProjectReference Include="..\SimulateTheWorld.Graphics.Rendering\SimulateTheWorld.Graphics.Rendering.csproj" />
     <ProjectReference Include="..\SimulateTheWorld.GUI.Resources\SimulateTheWorld.GUI.Resources.csproj" />
     <ProjectReference Include="..\SimulateTheWorld.GUI.ViewModels\SimulateTheWorld.GUI.ViewModels.csproj" />
-    <ProjectReference Include="..\SimulateTheWorld.World.Core\SimulateTheWorld.World.Core.csproj" />
-    <ProjectReference Include="..\SimulateTheWorld.World.Systems\SimulateTheWorld.World.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

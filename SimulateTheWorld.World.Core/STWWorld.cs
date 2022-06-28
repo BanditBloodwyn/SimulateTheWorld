@@ -1,4 +1,5 @@
-﻿using SimulateTheWorld.World.Core.Helper;
+﻿using System.Threading.Tasks;
+using SimulateTheWorld.World.Core.Helper;
 using SimulateTheWorld.World.Data.Types.Interfaces;
 using SimulateTheWorld.World.Features.Manager;
 
@@ -26,10 +27,17 @@ public class STWWorld : IWorld
 
         _featureManager = new FeatureManager();
 
+        Task.Factory
+            .StartNew(() =>
+            {
+                while (true)
+                    Update();
+            });
+
         SystemsInitialTrigger();
     }
 
-    public void Update()
+    private void Update()
     {
         _featureManager.Update(this);
     }

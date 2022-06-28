@@ -13,7 +13,7 @@ public partial class MainWindow
     {
         FileLogger fileLogger = new FileLogger();
         Logger.LogMessage += fileLogger.Log;
-        
+
         InitializeComponent();
     }
 
