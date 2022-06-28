@@ -3,9 +3,9 @@ using SimulateTheWorld.Core.Reflection;
 using SimulateTheWorld.World.Systems.Instances;
 using SimulateTheWorld.World.Systems.WorldSystems.Base;
 
-namespace SimulateTheWorld.World.Systems.Features;
+namespace SimulateTheWorld.World.Systems.FeatureManagement.Features;
 
-public class SystemManager
+public class SystemManager : IWorldFeature
 {
     private readonly IWorldSystem[] _worldSystems;
 
@@ -14,7 +14,12 @@ public class SystemManager
         _worldSystems = TypeGetter.GetInstancesAssignableFromType<IWorldSystem>();
     }
 
-    public void Trigger(STWWorld world)
+    public void Update(STWWorld world)
+    {
+
+    }
+
+    public void NextRoundTrigger(STWWorld world)
     {
         foreach (IWorldSystem system in _worldSystems)
         {

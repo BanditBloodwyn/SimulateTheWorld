@@ -37,7 +37,7 @@ public class SidePanelViewModel : ObservableObject
 
             Task.Factory
                 .StartNew(() => OnEnableNextRoundButton(false))
-                .ContinueWith(static _ => STWWorld.Instance.Update())
+                .ContinueWith(static _ => STWWorld.Instance.NextRoundTrigger())
                 .ContinueWith(_ => TriggerUpdateWorldRendering?.Invoke())
                 .ContinueWith(_ => OnEnableNextRoundButton(true))
                 .ContinueWith(static _ => Logger.Group("NextRoundCommand"));

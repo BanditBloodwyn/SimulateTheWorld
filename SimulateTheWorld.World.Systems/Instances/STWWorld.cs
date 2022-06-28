@@ -1,4 +1,4 @@
-﻿using SimulateTheWorld.World.Systems.Features;
+﻿using SimulateTheWorld.World.Systems.FeatureManagement.Features;
 
 namespace SimulateTheWorld.World.Systems.Instances;
 
@@ -7,7 +7,7 @@ public class STWWorld
     private static STWWorld? _instance;
 
     // FEATURES
-    private readonly SystemManager _systemManager;
+    private readonly FeatureManager _featureManager;
 
     public STWTerrain Terrain { get; }
 
@@ -19,18 +19,23 @@ public class STWWorld
     private STWWorld()
     {
         Terrain = new STWTerrain();
-        _systemManager = new SystemManager();
+        _featureManager = new FeatureManager();
 
         SystemsInitialTrigger();
     }
 
     public void Update()
     {
-        _systemManager.Trigger(this);
+        _featureManager.Update(this);
+    }
+
+    public void NextRoundTrigger()
+    {
+        _featureManager.NextRoundTrigger(this);
     }
 
     private void SystemsInitialTrigger()
     {
-        _systemManager.InitialTrigger(this);
+        _featureManager.InitialTrigger(this);
     }
 }
