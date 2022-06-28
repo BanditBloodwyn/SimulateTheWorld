@@ -1,21 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 
 namespace SimulateTheWorld.Core.Reflection;
 
 public static class TypeGetter
 {
-    public static Assembly? GetAssemblyByName(string name)
-    {
-        Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies()
-            .OrderBy(static assembly => assembly.FullName)
-            .ToArray();
-        Assembly? assembly = assemblies.SingleOrDefault(assembly => assembly.GetName().Name == name);
-        return assembly;
-    }
-
     public static T[] GetInstancesAssignableFromType<T>(Assembly? assembly = null)
     {
         Type[] types = assembly == null 
