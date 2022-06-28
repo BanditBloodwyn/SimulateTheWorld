@@ -2,7 +2,7 @@
 using SimulateTheWorld.Core.Reflection;
 using SimulateTheWorld.World.Systems.Instances;
 
-namespace SimulateTheWorld.World.Systems.FeatureManagement.Features;
+namespace SimulateTheWorld.World.Systems.FeatureManagement;
 
 public class FeatureManager
 {

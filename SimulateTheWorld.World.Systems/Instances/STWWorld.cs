@@ -1,4 +1,4 @@
-﻿using SimulateTheWorld.World.Systems.FeatureManagement.Features;
+﻿using SimulateTheWorld.World.Systems.FeatureManagement;
 
 namespace SimulateTheWorld.World.Systems.Instances;
 
