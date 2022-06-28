@@ -13,17 +13,17 @@ public abstract class SurroundingsInfluencingSystem : IWorldSystem
     /// </summary>
     protected Action<TerrainTile, TerrainTile, int>? _modifier;
 
-    public void InitialTrigger()
+    public void InitialTrigger(STWWorld world)
     {
 
     }
 
-    public void Trigger()
+    public void Trigger(STWWorld world)
     {
         if (_modifier == null) 
             return;
 
-        TerrainTile[] tiles = STWWorld.Instance.Terrain.Tiles;
+        TerrainTile[] tiles = world.Terrain.Tiles;
 
         foreach (TerrainTile currentTile in tiles)
         {
