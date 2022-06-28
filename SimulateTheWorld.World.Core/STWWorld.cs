@@ -1,12 +1,17 @@
-﻿using SimulateTheWorld.World.Systems.FeatureManagement;
+﻿using SimulateTheWorld.World.Core.Helper;
+using SimulateTheWorld.World.Data.Types.Interfaces;
+using SimulateTheWorld.World.Features.Manager;
 
-namespace SimulateTheWorld.World.Systems.Instances;
+namespace SimulateTheWorld.World.Core;
 
-public class STWWorld
+public class STWWorld : IWorld
 {
     private readonly FeatureManager _featureManager;
 
-    public STWTerrain Terrain { get; }
+    public ITerrain Terrain { get; }
+
+    public TileMarker TileMarker { get; }
+
 
     private static STWWorld? _instance;
     public static STWWorld Instance
@@ -17,6 +22,8 @@ public class STWWorld
     private STWWorld()
     {
         Terrain = new STWTerrain();
+        TileMarker = new TileMarker();
+
         _featureManager = new FeatureManager();
 
         SystemsInitialTrigger();

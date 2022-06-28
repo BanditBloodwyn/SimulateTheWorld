@@ -6,7 +6,7 @@ using SimulateTheWorld.World.Data.Data;
 using SimulateTheWorld.World.Data.Types.Classes;
 using SimulateTheWorld.World.Data.Types.Enums;
 
-namespace SimulateTheWorld.World.Systems.Generation;
+namespace SimulateTheWorld.World.Core.Generation;
 
 public class VegetationGenerator
 {

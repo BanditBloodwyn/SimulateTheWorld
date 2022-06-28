@@ -2,9 +2,9 @@
 using SimulateTheWorld.World.Data.Data;
 using SimulateTheWorld.World.Data.Types.Classes;
 using SimulateTheWorld.World.Data.Types.Enums;
-using SimulateTheWorld.World.Systems.WorldSystems.Base;
+using SimulateTheWorld.World.Systems.Base;
 
-namespace SimulateTheWorld.World.Systems.WorldSystems;
+namespace SimulateTheWorld.World.Systems;
 
 public class VegetationSpreading : SurroundingsInfluencingSystem
 {

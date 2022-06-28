@@ -1,6 +1,6 @@
 ﻿using SimulateTheWorld.GUI.Core.MVVM;
+using SimulateTheWorld.World.Core;
 using SimulateTheWorld.World.Data.Types.Classes;
-using SimulateTheWorld.World.Systems.Instances;
 
 namespace SimulateTheWorld.GUI.ViewModels.SidePanel.Panels.MarkedTile;
 

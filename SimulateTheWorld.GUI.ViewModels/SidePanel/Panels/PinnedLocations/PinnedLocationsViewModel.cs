@@ -8,8 +8,8 @@ using SimulateTheWorld.GUI.Core.MVVM.Commands;
 using SimulateTheWorld.GUI.Core.MVVM.Mediator;
 using SimulateTheWorld.GUI.Mediators.Mediators;
 using SimulateTheWorld.GUI.Mediators.Messages;
+using SimulateTheWorld.World.Core;
 using SimulateTheWorld.World.Data.Data;
-using SimulateTheWorld.World.Systems.Instances;
 
 namespace SimulateTheWorld.GUI.ViewModels.SidePanel.Panels.PinnedLocations;
 
@@ -30,7 +30,7 @@ public class PinnedLocationsViewModel : ObservableObject, ISubscriber<IMessage>
             if (o is not Tuple<string?, Location?, int> location) 
                 return;
 
-            STWWorld.Instance.Terrain.TileMarker.MarkTile(location.Item3, true);
+            STWWorld.Instance.TileMarker.MarkTile(location.Item3, true);
 
             if (location.Item2 == null)
                 return;

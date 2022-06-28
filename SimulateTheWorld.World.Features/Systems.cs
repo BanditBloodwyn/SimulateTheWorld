@@ -1,25 +1,26 @@
 ﻿using SimulateTheWorld.Core.Logging;
-using SimulateTheWorld.Core.Reflection;
-using SimulateTheWorld.World.Systems.Instances;
-using SimulateTheWorld.World.Systems.WorldSystems.Base;
+using SimulateTheWorld.World.Data.Types.Interfaces;
+using SimulateTheWorld.World.Data.Types.Interfaces.WorldFeatures;
+using SimulateTheWorld.World.Data.Types.Interfaces.WorldFeatures.WorldSystems;
+using SimulateTheWorld.World.Systems.Manager;
 
-namespace SimulateTheWorld.World.Systems.FeatureManagement.Features;
+namespace SimulateTheWorld.World.Features;
 
-public class SystemManager : IWorldFeature
+public class Systems : IWorldFeature
 {
     private readonly IWorldSystem[] _worldSystems;
 
-    public SystemManager()
+    public Systems()
     {
-        _worldSystems = TypeGetter.GetInstancesAssignableFromType<IWorldSystem>();
+        _worldSystems = SystemManager.GetWorldSystems();
     }
 
-    public void Update(STWWorld world)
+    public void Update(IWorld world)
     {
 
     }
 
-    public void NextRoundTrigger(STWWorld world)
+    public void NextRoundTrigger(IWorld world)
     {
         foreach (IWorldSystem system in _worldSystems)
         {
@@ -28,7 +29,7 @@ public class SystemManager : IWorldFeature
         }
     }
 
-    public void InitialTrigger(STWWorld world)
+    public void InitialTrigger(IWorld world)
     {
         foreach (IWorldSystem system in _worldSystems)
         {

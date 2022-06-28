@@ -4,7 +4,7 @@ using SimulateTheWorld.Core.Logging;
 using SimulateTheWorld.Graphics.Rendering.Container;
 using SimulateTheWorld.GUI.Controls.Dialogs;
 using SimulateTheWorld.GUI.ViewModels.RenderingControl;
-using SimulateTheWorld.World.Systems.Instances;
+using SimulateTheWorld.World.Core;
 
 namespace SimulateTheWorld.GUI.Controls.Controls.MainPanels.RenderView;
 

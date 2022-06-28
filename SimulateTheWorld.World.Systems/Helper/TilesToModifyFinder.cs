@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using SimulateTheWorld.World.Data.Data;
 using SimulateTheWorld.World.Data.Types.Classes;
-using SimulateTheWorld.World.Systems.Instances;
 
-namespace SimulateTheWorld.World.Systems.WorldSystems.Helper;
+namespace SimulateTheWorld.World.Systems.Helper;
 
 public static class TilesToModifyFinder
 {
-    public static TerrainTile[] GetTilesToModify(int tileId)
+    public static TerrainTile[] GetTilesToModify(int tileId, TerrainTile[] worldTiles)
     {
         List<TerrainTile> tilesToModify = new List<TerrainTile>();
 
@@ -27,10 +26,10 @@ public static class TilesToModifyFinder
         {
             if (id < 0)
                 continue;
-            if (id >= STWWorld.Instance.Terrain.Tiles.Length)
+            if (id >= worldTiles.Length)
                 continue;
 
-            tilesToModify.Add(STWWorld.Instance.Terrain.Tiles[id]);
+            tilesToModify.Add(worldTiles[id]);
         }
 
         return tilesToModify.ToArray();

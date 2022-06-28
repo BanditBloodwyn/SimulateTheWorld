@@ -2,8 +2,8 @@
 using SimulateTheWorld.Core.Logging;
 using SimulateTheWorld.Graphics.Data.Components;
 using SimulateTheWorld.Graphics.Data.Interfaces;
+using SimulateTheWorld.World.Core;
 using SimulateTheWorld.World.Data.Types.Classes;
-using SimulateTheWorld.World.Systems.Instances;
 
 namespace SimulateTheWorld.Graphics.Rendering.Utilities;
 

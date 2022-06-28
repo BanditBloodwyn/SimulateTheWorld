@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using SimulateTheWorld.GUI.ViewModels.Dialogs;
+using SimulateTheWorld.World.Core;
 using SimulateTheWorld.World.Data.Types.Classes;
-using SimulateTheWorld.World.Systems.Instances;
 
 namespace SimulateTheWorld.GUI.ViewModels.RenderingControl;
 

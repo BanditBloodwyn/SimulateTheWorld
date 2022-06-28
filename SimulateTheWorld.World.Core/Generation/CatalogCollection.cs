@@ -1,4 +1,4 @@
-﻿namespace SimulateTheWorld.World.Systems.Generation;
+﻿namespace SimulateTheWorld.World.Core.Generation;
 
 public class CatalogCollection
 {

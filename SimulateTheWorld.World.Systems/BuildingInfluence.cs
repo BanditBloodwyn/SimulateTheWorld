@@ -1,7 +1,7 @@
 ﻿using SimulateTheWorld.World.Data.Types.Interfaces;
-using SimulateTheWorld.World.Systems.WorldSystems.Base;
+using SimulateTheWorld.World.Systems.Base;
 
-namespace SimulateTheWorld.World.Systems.WorldSystems;
+namespace SimulateTheWorld.World.Systems;
 
 public class BuildingInfluence : SurroundingsInfluencingSystem
 {

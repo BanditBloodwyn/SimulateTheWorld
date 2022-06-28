@@ -13,7 +13,7 @@ using SimulateTheWorld.GUI.Core.MVVM.Mediator;
 using SimulateTheWorld.GUI.Mediators.Mediators;
 using SimulateTheWorld.GUI.Mediators.Messages;
 using SimulateTheWorld.GUI.Models.SidePanel.Panels.MapFilters;
-using SimulateTheWorld.World.Systems.Instances;
+using SimulateTheWorld.World.Core;
 
 namespace SimulateTheWorld.GUI.ViewModels.RenderingControl;
 
@@ -52,8 +52,8 @@ public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
     {
         _renderer.OnUpdateVertexData();
         
-        if (STWWorld.Instance.Terrain.TileMarker.MarkedIDs.Count > 0) 
-            OnTileSelected?.Invoke(STWWorld.Instance.Terrain.TileMarker.MarkedIDs.First());
+        if (STWWorld.Instance.TileMarker.MarkedIDs.Count > 0) 
+            OnTileSelected?.Invoke(STWWorld.Instance.TileMarker.MarkedIDs.First());
     }
 
     public void OnLoad()
@@ -130,7 +130,7 @@ public class RenderingControlViewModel : ObservableObject, ISubscriber<IMessage>
         if (!_tileFinder.CurrentTileID.HasValue)
             return;
 
-        STWWorld.Instance.Terrain.TileMarker.MarkTile(_tileFinder.CurrentTileID.Value, true);
+        STWWorld.Instance.TileMarker.MarkTile(_tileFinder.CurrentTileID.Value, true);
         OnUpdateVertexData();
     }
 

@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using SimulateTheWorld.Core.Logging;
 using SimulateTheWorld.GUI.Core.MVVM;
 using SimulateTheWorld.GUI.Core.MVVM.Commands;
-using SimulateTheWorld.World.Systems.Instances;
+using SimulateTheWorld.World.Core;
 
 namespace SimulateTheWorld.GUI.ViewModels.SidePanel;
 

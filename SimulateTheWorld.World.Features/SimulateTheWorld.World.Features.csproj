@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SimulateTheWorld.World.Data\SimulateTheWorld.World.Data.csproj" />
+    <ProjectReference Include="..\SimulateTheWorld.World.Systems\SimulateTheWorld.World.Systems.csproj" />
   </ItemGroup>
 
 </Project>

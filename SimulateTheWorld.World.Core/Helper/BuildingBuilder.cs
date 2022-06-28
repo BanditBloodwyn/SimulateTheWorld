@@ -2,9 +2,9 @@
 using System.Reflection;
 using SimulateTheWorld.World.Data.Types.Classes;
 using SimulateTheWorld.World.Data.Types.Interfaces;
-using SimulateTheWorld.World.Systems.WorldSystems.Helper;
+using SimulateTheWorld.World.Systems.Helper;
 
-namespace SimulateTheWorld.World.Systems.Helper;
+namespace SimulateTheWorld.World.Core.Helper;
 
 public static class BuildingBuilder
 {
@@ -25,7 +25,7 @@ public static class BuildingBuilder
         if (building.BuiltModifier == null || terrainTile == null)
             return;
 
-        TerrainTile[] tilesToModify = TilesToModifyFinder.GetTilesToModify(terrainTile.ID);
+        TerrainTile[] tilesToModify = TilesToModifyFinder.GetTilesToModify(terrainTile.ID, STWWorld.Instance.Terrain.Tiles);
 
         foreach (TerrainTile tileToModify in tilesToModify)
             building.BuiltModifier.Invoke(terrainTile, tileToModify, tilesToModify.Length);

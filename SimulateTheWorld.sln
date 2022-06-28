@@ -29,13 +29,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.GUI.Resour
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SimulateTheWorld.World", "SimulateTheWorld.World", "{68D8A856-46E7-452B-BC14-04EA6BF2F655}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.World.Systems", "SimulateTheWorld.World.Systems\SimulateTheWorld.World.Systems.csproj", "{DF90F2EE-5AA0-40F9-AB7D-E2D58FC66816}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.World.Core", "SimulateTheWorld.World.Core\SimulateTheWorld.World.Core.csproj", "{DF90F2EE-5AA0-40F9-AB7D-E2D58FC66816}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.World.Resources", "SimulateTheWorld.World.Resources\SimulateTheWorld.World.Resources.csproj", "{098E7348-2BE9-4B1B-BAC9-9702B4893D57}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.GUI.Mediators", "SimulateTheWorld.GUI.Mediators\SimulateTheWorld.GUI.Mediators.csproj", "{998594D2-1025-4A2B-962E-4566BBF63A72}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulateTheWorld.GUI.Core", "SimulateTheWorld.GUI.Core\SimulateTheWorld.GUI.Core.csproj", "{55F139F2-BF05-4CB8-873B-D66D2D3AC47C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulateTheWorld.World.Systems", "SimulateTheWorld.World.Systems\SimulateTheWorld.World.Systems.csproj", "{25DB0E7E-D5D6-4C96-AFBC-3AF476592A21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulateTheWorld.World.Features", "SimulateTheWorld.World.Features\SimulateTheWorld.World.Features.csproj", "{958C9D03-A6C4-4958-B957-F2C39C785179}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,10 +97,14 @@ Global
 		{998594D2-1025-4A2B-962E-4566BBF63A72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{998594D2-1025-4A2B-962E-4566BBF63A72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{998594D2-1025-4A2B-962E-4566BBF63A72}.Release|Any CPU.Build.0 = Release|Any CPU
-		{55F139F2-BF05-4CB8-873B-D66D2D3AC47C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{55F139F2-BF05-4CB8-873B-D66D2D3AC47C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{55F139F2-BF05-4CB8-873B-D66D2D3AC47C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{55F139F2-BF05-4CB8-873B-D66D2D3AC47C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25DB0E7E-D5D6-4C96-AFBC-3AF476592A21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25DB0E7E-D5D6-4C96-AFBC-3AF476592A21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25DB0E7E-D5D6-4C96-AFBC-3AF476592A21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25DB0E7E-D5D6-4C96-AFBC-3AF476592A21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{958C9D03-A6C4-4958-B957-F2C39C785179}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{958C9D03-A6C4-4958-B957-F2C39C785179}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{958C9D03-A6C4-4958-B957-F2C39C785179}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{958C9D03-A6C4-4958-B957-F2C39C785179}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -115,7 +121,8 @@ Global
 		{DF90F2EE-5AA0-40F9-AB7D-E2D58FC66816} = {68D8A856-46E7-452B-BC14-04EA6BF2F655}
 		{098E7348-2BE9-4B1B-BAC9-9702B4893D57} = {68D8A856-46E7-452B-BC14-04EA6BF2F655}
 		{998594D2-1025-4A2B-962E-4566BBF63A72} = {2D1802E8-2C7E-45DE-85CB-C63B633B56A6}
-		{55F139F2-BF05-4CB8-873B-D66D2D3AC47C} = {2D1802E8-2C7E-45DE-85CB-C63B633B56A6}
+		{25DB0E7E-D5D6-4C96-AFBC-3AF476592A21} = {68D8A856-46E7-452B-BC14-04EA6BF2F655}
+		{958C9D03-A6C4-4958-B957-F2C39C785179} = {68D8A856-46E7-452B-BC14-04EA6BF2F655}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CDCD1C92-3413-4B48-B484-6088639B01C4}

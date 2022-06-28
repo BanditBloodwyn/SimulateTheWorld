@@ -4,7 +4,7 @@ using SimulateTheWorld.Core.Math.Noise.Filters;
 using SimulateTheWorld.World.Data.Data;
 using SimulateTheWorld.World.Data.Types.Classes;
 
-namespace SimulateTheWorld.World.Systems.Generation;
+namespace SimulateTheWorld.World.Core.Generation;
 
 public class RessourceGenerator
 {

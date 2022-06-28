@@ -1,6 +1,6 @@
 ﻿using SimulateTheWorld.World.Data.Types.Enums;
 
-namespace SimulateTheWorld.World.Systems.Generation;
+namespace SimulateTheWorld.World.Core.Generation;
 
 public static class TerrainSampler
 {

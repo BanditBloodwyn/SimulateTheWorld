@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Reflection;
 using SimulateTheWorld.GUI.Core.MVVM;
+using SimulateTheWorld.World.Core.Helper;
 using SimulateTheWorld.World.Data.Types.Classes;
 using SimulateTheWorld.World.Data.Types.Interfaces;
-using SimulateTheWorld.World.Systems.Helper;
 
 namespace SimulateTheWorld.GUI.ViewModels.Dialogs.BuildingMenu;
 

@@ -1,23 +1,20 @@
-﻿using SimulateTheWorld.World.Data.Data;
+﻿using SimulateTheWorld.World.Core.Generation;
+using SimulateTheWorld.World.Data.Data;
 using SimulateTheWorld.World.Data.Types.Classes;
-using SimulateTheWorld.World.Systems.Generation;
-using SimulateTheWorld.World.Systems.Helper;
+using SimulateTheWorld.World.Data.Types.Interfaces;
 
-namespace SimulateTheWorld.World.Systems.Instances;
+namespace SimulateTheWorld.World.Core;
 
-public class STWTerrain
+public class STWTerrain : ITerrain
 {
     private readonly WorldGenerator _worldGenerator;
     
     public TerrainTile[] Tiles { get; }
 
-    public TileMarker TileMarker { get; }
-
     public STWTerrain()
     {
         Tiles = new TerrainTile[WorldProperties.Instance.WorldSize * WorldProperties.Instance.WorldSize];
         
-        TileMarker = new TileMarker();
         _worldGenerator = new WorldGenerator();
         _worldGenerator.CreateCatalog();
        
