@@ -4,13 +4,11 @@ namespace SimulateTheWorld.World.Systems.Instances;
 
 public class STWWorld
 {
-    private static STWWorld? _instance;
-
-    // FEATURES
     private readonly FeatureManager _featureManager;
 
     public STWTerrain Terrain { get; }
 
+    private static STWWorld? _instance;
     public static STWWorld Instance
     {
         get { return _instance ??= new STWWorld(); } 
