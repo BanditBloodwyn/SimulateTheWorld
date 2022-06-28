@@ -6,18 +6,13 @@ using SimulateTheWorld.World.Systems.Manager;
 
 namespace SimulateTheWorld.World.Features;
 
-public class Systems : IWorldFeature
+public class RoundBasedWorldSystems : IRoundBasedWorldFeature
 {
     private readonly IWorldSystem[] _worldSystems;
 
-    public Systems()
+    public RoundBasedWorldSystems()
     {
-        _worldSystems = SystemManager.GetWorldSystems();
-    }
-
-    public void Update(IWorld world)
-    {
-
+        _worldSystems = SystemGetter.GetWorldSystems();
     }
 
     public void NextRoundTrigger(IWorld world)
