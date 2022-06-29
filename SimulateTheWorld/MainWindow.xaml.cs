@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using SimulateTheWorld.Core.Logging;
+using SimulateTheWorld.World.Core;
 
 namespace SimulateTheWorld.Start;
 
@@ -19,6 +20,7 @@ public partial class MainWindow
 
     private void MainWindow_OnUnloaded(object sender, RoutedEventArgs e)
     {
+        STWWorld.Instance.Terminate();
         Environment.Exit(0);
     }
 }

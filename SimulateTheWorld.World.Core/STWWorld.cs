@@ -8,6 +8,7 @@ namespace SimulateTheWorld.World.Core;
 public class STWWorld : IWorld
 {
     private readonly FeatureManager _featureManager;
+    private bool _terminate;
 
     public ITerrain Terrain { get; }
 
@@ -30,7 +31,7 @@ public class STWWorld : IWorld
         Task.Factory
             .StartNew(() =>
             {
-                while (true)
+                while (!_terminate)
                     Update();
             });
 
@@ -50,5 +51,10 @@ public class STWWorld : IWorld
     private void SystemsInitialTrigger()
     {
         _featureManager.InitialTrigger(this);
+    }
+
+    public void Terminate()
+    {
+        _terminate = true;
     }
 }
